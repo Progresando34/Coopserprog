@@ -11,6 +11,7 @@
 <body id="#top">
     <header class="hero">
         <nav class="navbar">
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
             <ul class="menu" id="menu">
                 <li class="submenu-container">
                 <a href="#"><strong>Documentos ▼</strong></a>
@@ -30,13 +31,10 @@
                 <li><a href="#valores"><strong>Valores Corporativos</strong></a></li>
                 <li><a href="#afiliacion"><strong>Requisitos de afiliación</strong></a></li>
             </ul>
-            <div class="menu-toggle" id="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
         </nav>
         
         <div class="hero-content">
-            <div class="hero-left">
+            <div class="hero-left" id="logoWrapper">
                 <img src="img/logo-coop.png" alt="Logo grande" class="logo-principal" />
                 <a href="#afiliate" class="boton-afiliate">Afíliate</a>
             </div>
@@ -386,12 +384,15 @@
     </footer>
 
     <script>
-        const toggle = document.querySelector('.menu-toggle');
-        const menu = document.querySelector('.menu');
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            const logo = document.getElementById("logoWrapper");
 
-        toggle.addEventListener('click', () => {
-            menu.classList.toggle('show');
-        });
+            menu.classList.toggle("show");
+            logo.classList.toggle("move-down");
+        }
     </script>
+
+
 </body>
 </html>
