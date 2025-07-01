@@ -1234,6 +1234,21 @@ background-color: #01983B;
     .menu li a:hover{
     color: #000000;
   }
+
+  .submenu {
+    top: 100%;
+    left: 0;
+    margin-top: 15px;
+    background-color: white;
+    z-index: 9999;
+  }
+
+  .submenu li a {
+    font-size: 16px;
+    padding: 8px 20px;
+  }
+
+
   .submenu li a {
     color: #000000;
   }
@@ -1245,7 +1260,7 @@ background-color: #01983B;
   }
 
   #logoWrapper.move-down {
-    transform: translateY(260px); /* ajusta según la altura de tu menú */
+    transform: translateY(300px); /* ajusta según la altura de tu menú */
   }
 
 
