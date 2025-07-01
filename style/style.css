@@ -1231,6 +1231,12 @@ background-color: #01983B;
     color: white;
     font-size: 18px;
   }
+    .menu li a:hover{
+    color: #000000;
+  }
+  .submenu li a {
+    color: #000000;
+  }
 
   #logoWrapper {
     transition: transform 0.4s ease;
