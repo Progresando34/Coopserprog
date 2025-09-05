@@ -1,0 +1,30 @@
+name: 🚀 Deploy via FTP ...
+
+on:
+  push:
+    branches:
+      - main   # Cambia si tu rama principal es diferente
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Deploy to FTP server
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER_NAME }}
+          username: ${{ secrets.FTP_USER_NAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          dangerous-clean-slate: true
+          log-level: verbose
+          protocol: ftp
+          timeout: 120000
+          local-dir: ./
+          exclude: |
+            **/.git*/**
+            **/.gitignore
+            **/.github/**
+            **/node_modules/**
