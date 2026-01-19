@@ -9,6 +9,32 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+.IPC {
+  display: grid;
+  place-items: center; /* Centra todo el contenido */
+  min-height: 70vh;
+  padding: 50px 20px;
+  gap: 30px; /* Espacio entre elementos */
+}
+
+.IPC h2 {
+  font-size: 2.5rem;
+  color: #34495e;
+  text-align: center;
+  margin: 0;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #e74c3c;
+  display: inline-block;
+}
+
+.IPC img {
+  width: min(90%, 750px); /* Toma el 90% del ancho o máximo 750px */
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover; /* Ajusta la imagen sin distorsionar */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
 hr {
   height: 4px;
   background-color: #01983B;
