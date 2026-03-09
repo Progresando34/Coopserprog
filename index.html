@@ -55,10 +55,9 @@
                     <a href="https://app.saac.com.co/#/home" target="_blank" class="btn-secundario"><i class="fab fa-apple"></i> iPhone</a>
                 </div>
             </div>
-            <!-- Hero imagen eliminada - ahora solo fondo -->
         </div>
         
-        <!-- Hero wave reducido para que no tape los botones -->
+        <!-- Hero wave reducido -->
         <div class="hero-wave">
             <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0 0L48 5.8C96 11.7 192 23.3 288 29.2C384 35 480 35 576 29.2C672 23.3 768 11.7 864 5.8C960 0 1056 0 1152 5.8C1248 11.7 1344 23.3 1392 29.2L1440 35V80H1392C1344 80 1248 80 1152 80C1056 80 960 80 864 80C768 80 672 80 576 80C480 80 384 80 288 80C192 80 96 80 48 80H0V0Z" fill="white"/>
@@ -67,15 +66,76 @@
     </header>
 
     <main>
-        <!-- IPC - BANNER MODERNO -->
-        <section class="ipc-banner">
-            <div class="ipc-contenido">
+        <!-- CARRUSEL DE NOVEDADES (reemplaza al IPC banner) -->
+        <section class="novedades-carrusel">
+            <div class="novedades-container">
                 <span class="badge">Actualización</span>
-                <h2>Aumento del IPC <i class="fas fa-chart-line"></i></h2>
-                <p>Mantente informado sobre los cambios económicos que afectan tus finanzas.</p>
-            </div>
-            <div class="ipc-imagen">
-                <img src="img/IPC.jpeg" alt="Aumento de IPC">
+                <h2>Últimas <span>Novedades</span></h2>
+                
+                <div class="carrusel-wrapper">
+                    <div class="carrusel-track" id="carruselTrack">
+                        <!-- Slide 1 -->
+                        <div class="carrusel-slide">
+                            <div class="slide-imagen">
+                                <img src="img/IPC.jpeg" alt="Aumento IPC">
+                            </div>
+                            <div class="slide-contenido">
+                                <h3>Aumento del IPC 2024</h3>
+                                <p>Mantente informado sobre los cambios económicos que afectan tus finanzas. El IPC ha aumentado un 5.2% este año.</p>
+                                <a href="#" class="slide-link">Leer más <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="carrusel-slide">
+                            <div class="slide-imagen">
+                                <img src="img/objetivos.jpg" alt="Nuevos Convenios">
+                            </div>
+                            <div class="slide-contenido">
+                                <h3>Nuevos Convenios</h3>
+                                <p>Hemos establecido alianzas estratégicas para ofrecer mejores beneficios a nuestros asociados.</p>
+                                <a href="#" class="slide-link">Conocer más <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="carrusel-slide">
+                            <div class="slide-imagen">
+                                <img src="img/objetivoss.jpg" alt="Asamblea General">
+                            </div>
+                            <div class="slide-contenido">
+                                <h3>Próxima Asamblea</h3>
+                                <p>Te invitamos a participar en la asamblea general de asociados el próximo 15 de abril.</p>
+                                <a href="#" class="slide-link">Ver detalles <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="carrusel-slide">
+                            <div class="slide-imagen">
+                                <img src="img/objetivosss.jpg" alt="Nuevos Servicios">
+                            </div>
+                            <div class="slide-contenido">
+                                <h3>Nuevos Servicios</h3>
+                                <p>Ampliamos nuestra oferta de servicios para brindarte más opciones de crédito y ahorro.</p>
+                                <a href="#" class="slide-link">Descubrir <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Controles del carrusel -->
+                    <button class="carrusel-control prev" id="prevSlide">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carrusel-control next" id="nextSlide">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    
+                    <!-- Indicadores -->
+                    <div class="carrusel-indicadores" id="carruselIndicadores">
+                        <span class="indicador active"></span>
+                        <span class="indicador"></span>
+                        <span class="indicador"></span>
+                        <span class="indicador"></span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -103,14 +163,14 @@
             </div>
         </section>
 
-        <!-- IMÁGENES DECORATIVAS (MANTENIENDO LAS ORIGINALES) -->
+        <!-- IMÁGENES DECORATIVAS -->
         <div class="imagenes-cuadradas">
             <div class="imagen-wrapper"><img src="img/objetivos.jpg" alt=""></div>
             <div class="imagen-wrapper"><img src="img/objetivoss.jpg" alt=""></div>
             <div class="imagen-wrapper"><img src="img/objetivosss.jpg" alt=""></div>
         </div>
 
-        <!-- OBJETIVOS - DISEÑO DE NOTAS MODERNO -->
+        <!-- OBJETIVOS -->
         <section class="objetivos-moderno" id="objetivos-mod">
             <div class="container">
                 <h2 class="titulo-seccion-mod">Objetivos que nos <span>impulsan</span></h2>
@@ -219,7 +279,7 @@
             </div>
         </section>
 
-        <!-- AFILIACIÓN APP - SECCIÓN MODERNA -->
+        <!-- AFILIACIÓN APP -->
         <section class="app-afiliacion-moderno">
             <div class="container-app">
                 <div class="app-texto">
@@ -242,7 +302,7 @@
             </div>
         </section>
 
-        <!-- REQUISITOS DE AFILIACIÓN (REDISEÑADO) -->
+        <!-- REQUISITOS DE AFILIACIÓN -->
         <section class="requisitos-moderno" id="afiliacion-mod">
             <div class="container">
                 <h2 class="titulo-seccion-mod">Requisitos de <span>Afiliación</span></h2>
@@ -277,13 +337,13 @@
             </div>
         </section>
 
-
     </main>
 
-    <!-- FOOTER (CONSERVADO) -->
+    <!-- FOOTER ORIGINAL - RESTAURADO COMPLETAMENTE -->
     <footer>
         <div class="footer-container">
             <div class="footer-content">
+                <!-- Columna 1: Información general -->
                 <div class="footer-column">
                     <img src="img/logo-coop.png" alt="Logo COOPSERPROG" class="footer-logo">
                     <div class="footer-description">
@@ -294,6 +354,8 @@
                         <span>+57 322 8642938</span>
                     </div>
                 </div>
+
+                <!-- Columna 2: Enlaces rápidos -->
                 <div class="footer-column">
                     <h3>Enlaces Rápidos</h3>
                     <ul class="footer-links">
@@ -303,11 +365,19 @@
                         <li><a href="#afiliacion-mod"><i class="fas fa-file-signature"></i> Requisitos de afiliación</a></li>
                     </ul>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/share/1BtMrASBuL/" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/coopserprog?igsh=NGc5M3VxamVnMnI4" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/573228642938" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/share/1BtMrASBuL/" target="_blank" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/coopserprog?igsh=NGc5M3VxamVnMnI4" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/573228642938" target="_blank" class="social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
                     </div>
                 </div>
+
+                <!-- Columna 3: Horario -->
                 <div class="footer-column">
                     <h3>Horario de Atención</h3>
                     <div class="business-hours">
@@ -315,22 +385,37 @@
                         <p><strong>Sábados:</strong> 6:00 a.m. - 12:00 m</p>
                     </div>
                 </div>
+
+                <!-- Columna 4: Sedes -->
                 <div class="footer-column">
                     <h3>Nuestras Sedes</h3>
-                    <div class="footer-sede"><h4><i class="fas fa-map-marker-alt"></i> Cúcuta</h4><span>Calle 21 #0B-75, Barrio Blanco</span></div>
-                    <div class="footer-sede"><h4><i class="fas fa-map-marker-alt"></i> Villa del Rosario</h4><span>Calle 11 #8 - 15, Barrio La Palmita</span></div>
-                    <div class="footer-sede"><h4><i class="fas fa-map-marker-alt"></i> Ocaña</h4><span>Calle 11 #24-65 Barrio Las Llanadas</span></div>
+                    <div class="footer-sede">
+                        <h4><i class="fas fa-map-marker-alt"></i> Cúcuta</h4>
+                        <span>Calle 21 #0B-75, Barrio Blanco</span>
+                    </div>
+                    <div class="footer-sede">
+                        <h4><i class="fas fa-map-marker-alt"></i> Villa del Rosario</h4>
+                        <span>Calle 11 #8 - 15, Barrio La Palmita</span>
+                    </div>
+                    <div class="footer-sede">
+                        <h4><i class="fas fa-map-marker-alt"></i> Ocaña</h4>
+                        <span>Calle 11 #24-65 Barrio Las Llanadas</span>
+                    </div>
                 </div>
             </div>
+
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
                     <div class="legal-links">
                         <a href="docs/1065810627_POLITICA DE TRATAMIENTO DE LA INFORMACION - COOPSERPROG (2).pdf" target="_blank">Política de Tratamiento de datos</a>
                     </div>
-                    <div class="footer-copy">© 2025 COOPSERPROG. Todos los derechos reservados.</div>
+                    <div class="footer-copy">
+                        © 2025 COOPSERPROG. Todos los derechos reservados.
+                    </div>
                 </div>
             </div>
         </div>
+
         <a href="#inicio" class="flecha-inicio" title="Volver al inicio"><i class="fas fa-arrow-up"></i></a>
     </footer>
 
@@ -338,6 +423,45 @@
         // Script para el menú hamburguesa
         document.getElementById('menuToggle').addEventListener('click', function() {
             document.getElementById('mainMenu').classList.toggle('show');
+        });
+
+        // Script para el carrusel
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.getElementById('carruselTrack');
+            const prevBtn = document.getElementById('prevSlide');
+            const nextBtn = document.getElementById('nextSlide');
+            const indicators = document.querySelectorAll('.indicador');
+            let currentIndex = 0;
+            const totalSlides = document.querySelectorAll('.carrusel-slide').length;
+
+            function updateCarousel(index) {
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
+                
+                track.style.transform = `translateX(-${index * 100}%)`;
+                currentIndex = index;
+                
+                indicators.forEach((ind, i) => {
+                    if (i === currentIndex) {
+                        ind.classList.add('active');
+                    } else {
+                        ind.classList.remove('active');
+                    }
+                });
+            }
+
+            prevBtn.addEventListener('click', () => {
+                updateCarousel(currentIndex - 1);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                updateCarousel(currentIndex + 1);
+            });
+
+            // Auto-play opcional (cada 5 segundos)
+            setInterval(() => {
+                updateCarousel(currentIndex + 1);
+            }, 5000);
         });
     </script>
 </body>
