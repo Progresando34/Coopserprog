@@ -4,510 +4,342 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>COOPSERPROG</title>
+    <title>COOPSERPROG · Progreso Cooperativo</title>
     <link rel="stylesheet" href="style/styles.css" />
     <script src="https://kit.fontawesome.com/71d96bc7c5.js" crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <!-- Fuente moderna de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 </head>
 
-<body id="#top">
-    <header class="hero">
-        <nav class="navbar">
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-            <ul class="menu" id="menu">
-                <li class="submenu-container">
-                    <a href="#"><strong>Documentos - Estados Financieros▼</strong></a>
-                    <ul class="submenu">
-                        <li><a href="docs/1065810627_POLITICA DE TRATAMIENTO DE LA INFORMACION - COOPSERPROG (2).pdf"
-                                target="_blank">Política Tratamiento de la Información</a></li>
-                        <li><a href="docs/455692794_LEY 1581 DE 2012 - PROTECCION DE DATOS. (1).pdf" target="_blank">Ley
-                                1581 de 2012</a></li>
-                        <li><a href="docs/1043934481_ESTADOS FINANCIEROS COOPSERPROG WEB.pdf" target="_blank">Estados
-                                Financieros</a></li>
-                        <li><a href="docs/1742923127_4 CONVOCATORIA COOPSERPROG.pdf" target="_blank">Convocatoria</a>
-                        </li>
-                        <li><a href="documentos.html" target="_blank">Otros</a></li>
-                    </ul>
-                </li>
-                <li><a href="https://ips.progresando.co/" target="_blank"><strong>IPS Progresando en Salud</strong></a>
-                </li>
-                <li><a href="#objetivos"><strong>Principios y Objetivos</strong></a></li>
-                <li><a href="#valores"><strong>Valores Corporativos</strong></a></li>
-                <li><a href="#afiliacion"><strong>Requisitos de afiliación</strong></a></li>
-            </ul>
+<body>
+    <!-- HEADER CON FONDO DE IMAGEN -->
+    <header class="hero-moderno">
+        <nav class="navbar-moderno">
+            <div class="nav-container">
+                <div class="logo-nav">
+                    <img src="img/logo-coop.png" alt="COOPSERPROG">
+                </div>
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="menu-moderno" id="mainMenu">
+                    <li class="menu-item"><a href="#inicio">Inicio</a></li>
+                    <li class="menu-item dropdown">
+                        <a href="#">Documentos <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="docs/1065810627_POLITICA DE TRATAMIENTO DE LA INFORMACION - COOPSERPROG (2).pdf" target="_blank">Política de Datos</a></li>
+                            <li><a href="docs/455692794_LEY 1581 DE 2012 - PROTECCION DE DATOS. (1).pdf" target="_blank">Ley 1581 de 2012</a></li>
+                            <li><a href="docs/1043934481_ESTADOS FINANCIEROS COOPSERPROG WEB.pdf" target="_blank">Estados Financieros</a></li>
+                            <li><a href="docs/1742923127_4 CONVOCATORIA COOPSERPROG.pdf" target="_blank">Convocatoria</a></li>
+                            <li><a href="documentos.html" target="_blank">Otros Documentos</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="#objetivos-mod">Principios</a></li>
+                    <li class="menu-item"><a href="#valores">Valores</a></li>
+                    <li class="menu-item"><a href="#afiliacion-mod">Afiliación</a></li>
+                    <li class="menu-item"><a href="https://ips.progresando.co/" target="_blank">IPS Progresando</a></li>
+                </ul>
+            </div>
         </nav>
 
-        <div class="hero-content">
-            <div class="hero-left" id="logoWrapper">
-                <img src="img/logo-coop.png" alt="Logo grande" class="logo-principal" />
-                <a href="#afiliate" class="boton-afiliate">Afíliate</a>
-                <a style="margin: 0%;" href="https://play.google.com/store/apps/details?id=com.progress.app"
-                    target="_blank" class="btn-android">
-                    <i class="fab fa-android"></i> Descargar para Android
-                </a>
-                <a style="margin: 0%;" href="https://app.saac.com.co/#/home" target="_blank" class="btn-ios">
-                    <i class="fab fa-apple"></i> Descargar para iPhone
-                </a>
+        <div class="hero-contenido" id="inicio">
+            <div class="hero-texto">
+                <h1>Finanzas <span>colaborativas</span> que transforman</h1>
+                <p>Únete a una cooperativa comprometida con tu bienestar y el desarrollo de la región. Accede a créditos, servicios y una comunidad que progresa contigo.</p>
+                <div class="hero-botones">
+                    <a href="#afiliacion-mod" class="btn-primario">Afíliate ahora</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.progress.app" target="_blank" class="btn-secundario"><i class="fab fa-android"></i> Android</a>
+                    <a href="https://app.saac.com.co/#/home" target="_blank" class="btn-secundario"><i class="fab fa-apple"></i> iPhone</a>
+                </div>
             </div>
+            <!-- Hero imagen eliminada - ahora solo fondo -->
+        </div>
+        
+        <!-- Hero wave reducido para que no tape los botones -->
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0L48 5.8C96 11.7 192 23.3 288 29.2C384 35 480 35 576 29.2C672 23.3 768 11.7 864 5.8C960 0 1056 0 1152 5.8C1248 11.7 1344 23.3 1392 29.2L1440 35V80H1392C1344 80 1248 80 1152 80C1056 80 960 80 864 80C768 80 672 80 576 80C480 80 384 80 288 80C192 80 96 80 48 80H0V0Z" fill="white"/>
+            </svg>
         </div>
     </header>
 
-
     <main>
-        <div class="IPC">
-            <h2>Recuerda que</h2>
-            <img src="img/IPC.jpeg" alt="Aumento de IPC">
-        </div>
-
-        <hr id="nosotros">
-        <h2 class="titulo-seccion">Noso<span class="titulo-green">tros</span></h2>
-        <section class="seccion-resena">
-            <div class="card-historica">
-                <h2>Reseña Histórica</h2>
-                <p>Marzo 2024 - Nace la Cooperativa de Servicios Aporte y Crédito Progresando para solucionar
-                    necesidades económicas en Norte de Santander. Surge ante dificultades para costear trámites de
-                    tránsito, licencias de conducción y normativas de seguridad laboral.
-                    Fundada por profesionales con presencia en Cúcuta, Ocaña y Villa del Rosario, enfocada en apoyar a
-                    personas de bajos recursos, mejorando su calidad de vida mediante acceso a servicios esenciales con
-                    modalidad abierta a nuevos asociados.</p>
+        <!-- IPC - BANNER MODERNO -->
+        <section class="ipc-banner">
+            <div class="ipc-contenido">
+                <span class="badge">Actualización</span>
+                <h2>Aumento del IPC <i class="fas fa-chart-line"></i></h2>
+                <p>Mantente informado sobre los cambios económicos que afectan tus finanzas.</p>
             </div>
-
-            <div class="card-imagen">
-                <img src="img/historica.jpg" alt="Foto historia">
-            </div>
-
-            <div class="card-mision">
-                <h2>Misión</h2>
-                <p>PROGRESANDO es una organización Cooperativa, orientada en ofrecer a sus asociados, servicios, aportes
-                    y créditos, que les permitan mejorar su calidad de vida y la oportunidad de satisfacer las
-                    principales necesidades de nuestros asociados y sus familiares, mediante soluciones ahorro, crédito
-                    y bienestar.</p>
-            </div>
-
-            <div class="card-imagen">
-                <img src="img/mision.jpg" alt="Foto misión">
-            </div>
-
-            <div class="card-vision">
-                <h2>Visión</h2>
-                <p>La Cooperativa PROGRESANDO, es una entidad sin ánimo de lucro, enfocada en la transparencia y
-                    servicio al cliente, con responsabilidad y autonomía, proyectándose a llegar a ser una de las más
-                    reconocidas dentro de la región por sus altos estándares de calidad y por ser un aliado financiero
-                    que brinde progreso a todos sus asociados.</p>
-            </div>
-
-            <div class="card-imagen">
-                <img src="img/vision.jpg" alt="Foto visión">
+            <div class="ipc-imagen">
+                <img src="img/IPC.jpeg" alt="Aumento de IPC">
             </div>
         </section>
 
-        <hr id="objetivos">
-
-        <section class="seccion-objetivos">
-            <h2 class="titulo-seccion">Objetivos de <span class="titulo-green">la Cooperativa</span></h2>
-
-            <div class="contenedor-notas">
-                <div class="nota borde-verde">
-                    <h3><i class="fas fa-bullseye"></i> Objetivo General</h3>
-                    <p>Contribuir al mejoramiento social, económico y cultural de los asociados y al desarrollo de la
-                        comunidad, fomentando la solidaridad y la ayuda mutua, actuando con base en los principios
-                        cooperativos y una eficiente administración.</p>
-                </div>
-
-                <div class="nota borde-azul">
-                    <h3><i class="fas fa-thumbtack"></i> Objetivos Específicos</h3>
-                    <ol>
-                        <li>Establecer acuerdos con otras entidades cooperativas o afines</li>
-                        <li>Adquisición de bienes para cumplimiento del objeto social</li>
-                        <li>Prestar servicios de alquiler de bienes y equipos</li>
-                        <li>Establecer convenios para mejorar servicios</li>
-                        <li>Fomentar actividades sociales y deportivas</li>
-                        <li>Participar en licitaciones en igualdad de condiciones</li>
-                        <li>Desarrollar procesos de formación</li>
-                        <li>Conceder préstamos a asociados</li>
-                        <li>Participar en planes de desarrollo territorial</li>
-                        <li>Facilitar compra/venta de productos básicos</li>
-                        <li>Proporcionar servicios médicos</li>
-                        <li>Establecer acuerdos con entidades de salud</li>
-                        <li>Distribución de medicamentos</li>
-                    </ol>
-                </div>
-
-                <div class="nota borde-amarillo">
-                    <h3><i class="fas fa-cogs"></i> Actividades</h3>
-                    <ul>
-                        <li>Eventos Sociales</li>
-                        <li>Confecciones</li>
-                        <li>Mantenimiento de Equipos</li>
-                        <li>Diseños Publicitarios</li>
-                        <li>Asesoría Técnica</li>
-                        <li>Reparaciones locativas</li>
-                        <li>Eventos Recreativos</li>
-                        <li>Servicios de salud</li>
-                        <li>Distribución de productos</li>
-                        <li>Seguridad y salud laboral</li>
-                        <li>Capacitación de personal</li>
-                    </ul>
-                </div>
-
-                <div class="nota borde-rojo">
-                    <h3><i class="fas fa-sticky-note"></i> Notas Importantes</h3>
-                    <p><strong>1.</strong> La cooperativa podrá organizar negocios lícitos relacionados con sus
-                        objetivos.</p>
-                    <p><strong>2.</strong> Servicios pueden prestarse por convenios si no es posible hacerlo
-                        directamente.</p>
-                    <p><strong>3.</strong> Preferencia a asociados, pero posible prestación a no asociados con interés
-                        social.</p>
+        <!-- NOSOTROS: Reseña, Misión y Visión en tarjetas flotantes -->
+        <section class="nosotros-moderno" id="nosotros-mod">
+            <div class="container">
+                <h2 class="titulo-seccion-mod">Conoce nuestra <span>esencia</span></h2>
+                <div class="nosotros-grid">
+                    <div class="card-nosotros reseña">
+                        <div class="card-icon"><i class="fas fa-history"></i></div>
+                        <h3>Reseña Histórica</h3>
+                        <p>Nacimos en marzo de 2024 en Norte de Santander con un propósito claro: solucionar necesidades económicas. Fundada por profesionales comprometidos, hoy somos una cooperativa abierta a nuevos asociados que buscan mejorar su calidad de vida a través de la ayuda mutua.</p>
+                    </div>
+                    <div class="card-nosotros mision">
+                        <div class="card-icon"><i class="fas fa-bullseye"></i></div>
+                        <h3>Misión</h3>
+                        <p>Ofrecer a nuestros asociados servicios, aportes y créditos que mejoren su calidad de vida, satisfaciendo sus necesidades y las de sus familias mediante soluciones de ahorro, crédito y bienestar.</p>
+                    </div>
+                    <div class="card-nosotros vision">
+                        <div class="card-icon"><i class="fas fa-eye"></i></div>
+                        <h3>Visión</h3>
+                        <p>Ser la cooperativa más reconocida en la región por nuestra transparencia, altos estándares de calidad y por ser el aliado financiero que brinda progreso a todos sus asociados.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <hr>
+        <!-- IMÁGENES DECORATIVAS (MANTENIENDO LAS ORIGINALES) -->
         <div class="imagenes-cuadradas">
-            <div class="imagen-wrapper">
-                <img src="img/objetivos.jpg" alt="">
-            </div>
-            <div class="imagen-wrapper">
-                <img src="img/objetivoss.jpg" alt="">
-            </div>
-            <div class="imagen-wrapper">
-                <img src="img/objetivosss.jpg" alt="">
-            </div>
+            <div class="imagen-wrapper"><img src="img/objetivos.jpg" alt=""></div>
+            <div class="imagen-wrapper"><img src="img/objetivoss.jpg" alt=""></div>
+            <div class="imagen-wrapper"><img src="img/objetivosss.jpg" alt=""></div>
         </div>
-        <hr id="valores">
 
-        <section class="valores-scroll-container">
-            <h2 class="titulo-seccion">Valores <span class="titulo-green">Corporativos</span></h2>
+        <!-- OBJETIVOS - DISEÑO DE NOTAS MODERNO -->
+        <section class="objetivos-moderno" id="objetivos-mod">
+            <div class="container">
+                <h2 class="titulo-seccion-mod">Objetivos que nos <span>impulsan</span></h2>
+                <div class="objetivos-grid">
+                    <div class="objetivo-card objetivo-general">
+                        <div class="objetivo-header">
+                            <i class="fas fa-bullseye"></i>
+                            <h3>General</h3>
+                        </div>
+                        <p>Contribuir al mejoramiento social, económico y cultural de los asociados y la comunidad, fomentando la solidaridad y la ayuda mutua con una administración eficiente.</p>
+                    </div>
+                    <div class="objetivo-card objetivo-especificos">
+                        <div class="objetivo-header">
+                            <i class="fas fa-list-ul"></i>
+                            <h3>Específicos</h3>
+                        </div>
+                        <ul>
+                            <li>Establecer acuerdos con entidades cooperativas</li>
+                            <li>Prestar servicios de alquiler de bienes</li>
+                            <li>Fomentar actividades sociales y deportivas</li>
+                            <li>Conceder préstamos a asociados</li>
+                            <li>Proporcionar servicios médicos</li>
+                        </ul>
+                    </div>
+                    <div class="objetivo-card objetivo-actividades">
+                        <div class="objetivo-header">
+                            <i class="fas fa-cogs"></i>
+                            <h3>Actividades</h3>
+                        </div>
+                        <ul>
+                            <li>Eventos Sociales</li>
+                            <li>Asesoría Técnica</li>
+                            <li>Servicios de salud</li>
+                            <li>Distribución de productos</li>
+                            <li>Capacitación de personal</li>
+                        </ul>
+                    </div>
+                    <div class="objetivo-card objetivo-notas">
+                        <div class="objetivo-header">
+                            <i class="fas fa-sticky-note"></i>
+                            <h3>Notas Importantes</h3>
+                        </div>
+                        <p><strong>1.</strong> Podemos organizar negocios lícitos relacionados con nuestros objetivos.</p>
+                        <p><strong>2.</strong> Priorizamos a asociados, pero también prestamos servicios con interés social.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VALORES CORPORATIVOS - CON SCROLL INFINITO -->
+        <section class="valores-scroll-container" id="valores">
+            <h2 class="titulo-seccion-mod">Nuestros <span>Valores</span></h2>
             <div class="valores-scroll">
-                <!-- Bloques originales -->
+                <!-- Valores originales -->
                 <div class="valor azul">
                     <i class="fa-solid fa-scale-balanced"></i>
                     <h2>Transparencia</h2>
-                    <p>Brindamos claridad en la información proporcionada a nuestros asociados y usuarios, sobre la base
-                        de un proceder ético, con normas y reglas claras.</p>
+                    <p>Brindamos claridad en la información proporcionada a nuestros asociados y usuarios, sobre la base de un proceder ético, con normas y reglas claras.</p>
                 </div>
-
                 <div class="valor rojo">
                     <i class="fa-solid fa-hand-holding-heart"></i>
                     <h2>Servicio</h2>
-                    <p>Nos concentramos en atender y satisfacer las necesidades y expectativas de nuestros asociados y
-                        usuarios, en forma humana, diligente, oportuna y adecuada, con el propósito de responder al
-                        compromiso solidario.</p>
+                    <p>Nos concentramos en atender y satisfacer las necesidades y expectativas de nuestros asociados y usuarios, en forma humana, diligente, oportuna y adecuada.</p>
                 </div>
-
                 <div class="valor amarillo">
                     <i class="fa-solid fa-people-group"></i>
                     <h2>Trabajo en Equipo</h2>
-                    <p>Nuestra fuerza de trabajo impulsa los objetivos institucionales, bajo la mutua cooperación y la
-                        unión de esfuerzos, conocimientos y habilidades, para ofrecer amplios beneficios a nuestros
-                        asociados y comunidades de influencia.</p>
+                    <p>Nuestra fuerza de trabajo impulsa los objetivos institucionales, bajo la mutua cooperación y la unión de esfuerzos, conocimientos y habilidades.</p>
                 </div>
-
                 <div class="valor verde">
                     <i class="fa-solid fa-clipboard-check"></i>
                     <h2>Responsabilidad</h2>
-                    <p>Trabajamos con responsabilidad y conciencia de la labor encomendada, para que nuestras acciones
-                        respondan al objetivo solidario de buscar bienestar, crecimiento y calidad de vida de nuestros
-                        asociados, directivos, empleados y comunidad, así como el alcance de los demás objetivos
-                        institucionales.</p>
+                    <p>Trabajamos con responsabilidad y conciencia de la labor encomendada, para que nuestras acciones respondan al objetivo solidario de buscar bienestar.</p>
                 </div>
-
                 <div class="valor verde-oscuro">
                     <i class="fa-solid fa-user-lock"></i>
                     <h2>Confidencialidad</h2>
-                    <p>Nos comprometemos con nuestros asociados a salvaguardar su privacidad y a garantizar el prudente
-                        manejo de la información, que con confianza y credibilidad han depositado en los directivos y
-                        empleados.</p>
+                    <p>Nos comprometemos con nuestros asociados a salvaguardar su privacidad y a garantizar el prudente manejo de la información.</p>
                 </div>
-
-
-                <!-- Bloques duplicados -->
+                <!-- Duplicados para scroll infinito -->
                 <div class="valor azul">
                     <i class="fa-solid fa-scale-balanced"></i>
                     <h2>Transparencia</h2>
-                    <p>Brindamos claridad en la información proporcionada a nuestros asociados y usuarios, sobre la base
-                        de un proceder ético, con normas y reglas claras.</p>
+                    <p>Brindamos claridad en la información con un proceder ético.</p>
                 </div>
-
                 <div class="valor rojo">
                     <i class="fa-solid fa-hand-holding-heart"></i>
                     <h2>Servicio</h2>
-                    <p>Nos concentramos en atender y satisfacer las necesidades y expectativas de nuestros asociados y
-                        usuarios, en forma humana, diligente, oportuna y adecuada, con el propósito de responder al
-                        compromiso solidario.</p>
+                    <p>Atención humana, diligente y oportuna.</p>
                 </div>
-
                 <div class="valor amarillo">
                     <i class="fa-solid fa-people-group"></i>
                     <h2>Trabajo en Equipo</h2>
-                    <p>Nuestra fuerza de trabajo impulsa los objetivos institucionales, bajo la mutua cooperación y la
-                        unión de esfuerzos, conocimientos y habilidades, para ofrecer amplios beneficios a nuestros
-                        asociados y comunidades de influencia.</p>
+                    <p>Unión de esfuerzos y conocimientos.</p>
                 </div>
-
                 <div class="valor verde">
                     <i class="fa-solid fa-clipboard-check"></i>
                     <h2>Responsabilidad</h2>
-                    <p>Trabajamos con responsabilidad y conciencia de la labor encomendada, para que nuestras acciones
-                        respondan al objetivo solidario de buscar bienestar, crecimiento y calidad de vida de nuestros
-                        asociados, directivos, empleados y comunidad, así como el alcance de los demás objetivos
-                        institucionales.</p>
+                    <p>Conciencia en la labor encomendada.</p>
                 </div>
-
                 <div class="valor verde-oscuro">
                     <i class="fa-solid fa-user-lock"></i>
                     <h2>Confidencialidad</h2>
-                    <p>Nos comprometemos con nuestros asociados a salvaguardar su privacidad y a garantizar el prudente
-                        manejo de la información, que con confianza y credibilidad han depositado en los directivos y
-                        empleados.</p>
+                    <p>Salvaguardamos tu privacidad.</p>
                 </div>
-
-                <!-- Bloques duplicados -->
-                <div class="valor azul">
-                    <i class="fa-solid fa-scale-balanced"></i>
-                    <h2>Transparencia</h2>
-                    <p>Brindamos claridad en la información proporcionada a nuestros asociados y usuarios, sobre la base
-                        de un proceder ético, con normas y reglas claras.</p>
-                </div>
-
-                <div class="valor rojo">
-                    <i class="fa-solid fa-hand-holding-heart"></i>
-                    <h2>Servicio</h2>
-                    <p>Nos concentramos en atender y satisfacer las necesidades y expectativas de nuestros asociados y
-                        usuarios, en forma humana, diligente, oportuna y adecuada, con el propósito de responder al
-                        compromiso solidario.</p>
-                </div>
-
-                <div class="valor amarillo">
-                    <i class="fa-solid fa-people-group"></i>
-                    <h2>Trabajo en Equipo</h2>
-                    <p>Nuestra fuerza de trabajo impulsa los objetivos institucionales, bajo la mutua cooperación y la
-                        unión de esfuerzos, conocimientos y habilidades, para ofrecer amplios beneficios a nuestros
-                        asociados y comunidades de influencia.</p>
-                </div>
-
-                <div class="valor verde">
-                    <i class="fa-solid fa-clipboard-check"></i>
-                    <h2>Responsabilidad</h2>
-                    <p>Trabajamos con responsabilidad y conciencia de la labor encomendada, para que nuestras acciones
-                        respondan al objetivo solidario de buscar bienestar, crecimiento y calidad de vida de nuestros
-                        asociados, directivos, empleados y comunidad, así como el alcance de los demás objetivos
-                        institucionales.</p>
-                </div>
-
-                <div class="valor verde-oscuro">
-                    <i class="fa-solid fa-user-lock"></i>
-                    <h2>Confidencialidad</h2>
-                    <p>Nos comprometemos con nuestros asociados a salvaguardar su privacidad y a garantizar el prudente
-                        manejo de la información, que con confianza y credibilidad han depositado en los directivos y
-                        empleados.</p>
-                </div>
-
             </div>
         </section>
 
-        <hr id="afiliate">
-
-        <section class="seccion-app-descarga">
-            <div class="contenedor-app">
-                <h2><i class="fas fa-mobile-alt"></i> ¡Afíliate Descargando Nuestra App!</h2>
-                <p class="mensaje-app">
-                    ¡Nuestra App ya está aquí! 🎊🎉<br><br>
-                    Disfruta todos nuestros servicios en un solo lugar 📲<br>
-                    Fácil y rápido, todo al alcance de tu mano 👋🏻
-                </p>
-
-                <div class="beneficios-app">
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Realizar tu afiliación a COOPSERPROG 💚</li>
-                        <li><i class="fas fa-check-circle"></i> Pago en línea</li>
-                        <li><i class="fas fa-check-circle"></i> Visualizar el estado de tu cuenta</li>
-                        <li><i class="fas fa-check-circle"></i> Simulación de créditos</li>
-                        <li><i class="fas fa-check-circle"></i> Solicitud de crédito</li>
-                        <li><i class="fas fa-check-circle"></i> Conocer nuestros Convenios</li>
-                        <li><i class="fas fa-check-circle"></i> Estados informativos</li>
-                        <li><i class="fas fa-check-circle"></i> Progrepuntos</li>
-                        <li><i class="fas fa-check-circle"></i> ¡Y mucho más! 🥳</li>
+        <!-- AFILIACIÓN APP - SECCIÓN MODERNA -->
+        <section class="app-afiliacion-moderno">
+            <div class="container-app">
+                <div class="app-texto">
+                    <span class="badge-app">#NuevaApp</span>
+                    <h2>Todo en la palma de tu mano <i class="fas fa-hand-peace"></i></h2>
+                    <p>Descarga nuestra app y gestiona tu afiliación, créditos y mucho más de forma rápida y segura.</p>
+                    <ul class="app-beneficios">
+                        <li><i class="fas fa-check-circle"></i> Afiliación en línea</li>
+                        <li><i class="fas fa-check-circle"></i> Pago y simulación de créditos</li>
+                        <li><i class="fas fa-check-circle"></i> Convenios y Progrepuntos</li>
                     </ul>
-                </div>
-
-                <div class="botones-app">
-                    <a href="https://play.google.com/store/apps/details?id=com.progress.app" target="_blank"
-                        class="btn-android">
-                        <i class="fab fa-android"></i> Descargar para Android
-                    </a>
-                    <a href="https://app.saac.com.co/#/home" target="_blank" class="btn-ios">
-                        <i class="fab fa-apple"></i> Descargar para iPhone
-                    </a>
-                </div>
-            </div>
-        </section>
-
-
-        <hr id="afiliacion">
-
-        <section class="seccion-afiliacion-dinamica">
-            <h2 class="titulo-seccion">Requisitos de <span class="titulo-green">Afiliación</span></h2>
-
-            <div class="afiliacion-grid-notas">
-                <!-- Persona Natural -->
-                <div class="afiliacion-card-nota nota-verde">
-                    <div class="icono-titulo">
-                        <i class="fas fa-user"></i>
-                        <h3>Persona Natural</h3>
+                    <div class="app-botones">
+                        <a href="https://play.google.com/store/apps/details?id=com.progress.app" target="_blank" class="btn-app btn-android"><i class="fab fa-android"></i> Google Play</a>
+                        <a href="https://app.saac.com.co/#/home" target="_blank" class="btn-app btn-ios"><i class="fab fa-apple"></i> App Store</a>
                     </div>
-                    <ul>
-                        <li>Ser mayor de edad.</li>
-                        <li>Las personas naturales legalmente capaces y los menores de edad que hayan cumplido 14 años o
-                            quienes sin haberlos cumplido, se asocien a través de representante legal o apoderado.</li>
-                        <li>Estar domiciliado en el país.</li>
-                        <li>Vínculo laboral o ingresos demostrables.</li>
-                        <li>Diligenciar formulario de vinculación e ingreso.</li>
-                        <li>Cancelar como Aportes Sociales inicialmente como aporte mínimo la suma de $60.000.
-                            Posteriormente continuará aportando en los montos mínimos que se determinen en el Reglamento
-                            de Admisión, Retiro y Régimen Disciplinario de Asociados, que para tal efecto, expedirá el
-                            Consejo de Administración.</li>
-                        <li>Proporcionar toda la información que requiera la Cooperativa y autorizar su verificación y
-                            consultas en Bancos de Datos y Centrales de Riesgos, firmar la respectiva política de
-                            tratamiento de datos.</li>
-                    </ul>
                 </div>
+                <div class="desvincular-contenido">
+                    <img src="img/desvincular.jpeg" alt="Proceso de desvinculación" class="imagen-desvincular">
+                </div>
+            </div>
+        </section>
 
-                <!-- Persona Jurídica -->
-                <div class="afiliacion-card-nota nota-azul">
-                    <div class="icono-titulo">
-                        <i class="fas fa-building"></i>
-                        <h3>Persona Jurídica</h3>
+        <!-- REQUISITOS DE AFILIACIÓN (REDISEÑADO) -->
+        <section class="requisitos-moderno" id="afiliacion-mod">
+            <div class="container">
+                <h2 class="titulo-seccion-mod">Requisitos de <span>Afiliación</span></h2>
+                <div class="requisitos-grid">
+                    <div class="requisito-card persona-natural">
+                        <div class="requisito-header">
+                            <i class="fas fa-user"></i>
+                            <h3>Persona Natural</h3>
+                        </div>
+                        <ul>
+                            <li>Ser mayor de edad (o desde 14 años con representante).</li>
+                            <li>Residir en Colombia.</li>
+                            <li>Ingresos demostrables.</li>
+                            <li>Aporte social inicial: <strong>$60.000</strong>.</li>
+                            <li>Diligenciar formulario y autorizar tratamiento de datos.</li>
+                        </ul>
                     </div>
-                    <ul>
-                        <li>Estar legalmente creada e inscrita en el registro mercantil.</li>
-                        <li>Tener domicilio principal en Colombia.</li>
-                        <li>Diligenciar el formulario de solicitud a través de su Representante Legal, adjuntando el
-                            certificado de existencia y representación legal (vigencia ≤ 30 días).</li>
-                        <li>Presentar copia del acta de la junta directiva que autorice la vinculación a la Cooperativa.
-                        </li>
-                        <li>Cancelar el aporte social inicial mínimo ($100.000) y los subsiguientes según el reglamento.
-                        </li>
-                        <li>Que sus estatutos y la ley le permitan ser Asociado de una Cooperativa.</li>
-                        <li>Ser una Persona Jurídica (pública o privada sin ánimo de lucro, incluidas las cooperativas).
-                        </li>
-                        <li>Proporcionar la información requerida y autorizar su verificación en centrales de riesgo y
-                            bancos de datos.</li>
-                    </ul>
+                    <div class="requisito-card persona-juridica">
+                        <div class="requisito-header">
+                            <i class="fas fa-building"></i>
+                            <h3>Persona Jurídica</h3>
+                        </div>
+                        <ul>
+                            <li>Constitución legal y domicilio en Colombia.</li>
+                            <li>Certificado de existencia y representación legal.</li>
+                            <li>Aporte social inicial: <strong>$100.000</strong>.</li>
+                            <li>Autorización de la junta directiva.</li>
+                            <li>Cumplir con la normativa cooperativa.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <hr>
-
-        <section class="desvincular">
-            <h2 class="titulo-seccion">Desvinculación de <span class="titulo-green">Coopserprog</span></h2>
-            <div class="imagen-contenedor">
-                <img src="img/desvincular.jpeg" alt="Desvinculación" class="imagen-desvincular">
-            </div>
-        </section>
 
     </main>
 
+    <!-- FOOTER (CONSERVADO) -->
     <footer>
         <div class="footer-container">
             <div class="footer-content">
-                <!-- Columna 1: Información general -->
                 <div class="footer-column">
                     <img src="img/logo-coop.png" alt="Logo COOPSERPROG" class="footer-logo">
                     <div class="footer-description">
-                        <p>Cooperativa de Servicios de Aporte y Crédito Progresando, comprometida con el desarrollo
-                            económico y social de nuestros asociados.</p>
+                        <p>Cooperativa de Servicios de Aporte y Crédito Progresando, comprometida con el desarrollo económico y social de nuestros asociados.</p>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
                         <span>+57 322 8642938</span>
                     </div>
                 </div>
-
-                <!-- Columna 2: Enlaces rápidos -->
                 <div class="footer-column">
                     <h3>Enlaces Rápidos</h3>
                     <ul class="footer-links">
-                        <li><a href="https://ips.progresando.co/" target="_blank"><i
-                                    class="fas fa-external-link-alt"></i> IPS Progresando</a></li>
-                        <li><a href="#objetivos"><i class="fas fa-bullseye"></i> Principios y Objetivos</a></li>
+                        <li><a href="https://ips.progresando.co/" target="_blank"><i class="fas fa-external-link-alt"></i> IPS Progresando</a></li>
+                        <li><a href="#objetivos-mod"><i class="fas fa-bullseye"></i> Principios y Objetivos</a></li>
                         <li><a href="#valores"><i class="fas fa-heart"></i> Valores Corporativos</a></li>
-                        <li><a href="#afiliacion"><i class="fas fa-file-signature"></i> Requisitos de afiliación</a>
-                        </li>
+                        <li><a href="#afiliacion-mod"><i class="fas fa-file-signature"></i> Requisitos de afiliación</a></li>
                     </ul>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/share/1BtMrASBuL/" target="_blank" class="social-link">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://www.instagram.com/coopserprog?igsh=NGc5M3VxamVnMnI4" target="_blank"
-                            class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://wa.me/573228642938" target="_blank" class="social-link">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
+                        <a href="https://www.facebook.com/share/1BtMrASBuL/" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/coopserprog?igsh=NGc5M3VxamVnMnI4" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/573228642938" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-
-                <!-- Columna 2: Enlaces rápidos -->
                 <div class="footer-column">
                     <h3>Horario de Atención</h3>
                     <div class="business-hours">
-                        <p><strong>Lunes a Viernes:</strong></p>
-                        <p>6:00 a.m. - 12:00 m</p>
-                        <p>2:00 p.m. - 5:00 p.m.</p>
-                        <p><strong>Sábados:</strong></p>
-                        <p>6:00 a.m. - 12:00 m</p>
+                        <p><strong>Lunes a Viernes:</strong> 6:00 a.m. - 12:00 m / 2:00 p.m. - 5:00 p.m.</p>
+                        <p><strong>Sábados:</strong> 6:00 a.m. - 12:00 m</p>
                     </div>
                 </div>
-
-                <!-- Columna 3: Sedes -->
                 <div class="footer-column">
                     <h3>Nuestras Sedes</h3>
-                    <div class="footer-sede">
-                        <h4><i class="fas fa-map-marker-alt"></i> Sede Cúcuta</h4>
-                        <span>Calle 21 #0B-75, Barrio Blanco</span>
-                    </div>
-                    <div class="footer-sede">
-                        <h4><i class="fas fa-map-marker-alt"></i> Sede Villa del Rosario</h4>
-                        <span>Calle 11 #8 - 15, Barrio La Palmita</span>
-                    </div>
-                    <div class="footer-sede">
-                        <h4><i class="fas fa-map-marker-alt"></i> Sede Ocaña</h4>
-                        <span>Calle 11 #24-65 Barrio Las Llanadas</span>
-                    </div>
+                    <div class="footer-sede"><h4><i class="fas fa-map-marker-alt"></i> Cúcuta</h4><span>Calle 21 #0B-75, Barrio Blanco</span></div>
+                    <div class="footer-sede"><h4><i class="fas fa-map-marker-alt"></i> Villa del Rosario</h4><span>Calle 11 #8 - 15, Barrio La Palmita</span></div>
+                    <div class="footer-sede"><h4><i class="fas fa-map-marker-alt"></i> Ocaña</h4><span>Calle 11 #24-65 Barrio Las Llanadas</span></div>
                 </div>
             </div>
-
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
                     <div class="legal-links">
-                        <a href="docs/1065810627_POLITICA DE TRATAMIENTO DE LA INFORMACION - COOPSERPROG (2).pdf"
-                            target="_blank">Política
-                            Tratamiento de datos</a>
+                        <a href="docs/1065810627_POLITICA DE TRATAMIENTO DE LA INFORMACION - COOPSERPROG (2).pdf" target="_blank">Política de Tratamiento de datos</a>
                     </div>
-                    <div class="footer-copy">
-                        © 2025 COOPSERPROG. Todos los derechos reservados.
-                    </div>
+                    <div class="footer-copy">© 2025 COOPSERPROG. Todos los derechos reservados.</div>
                 </div>
             </div>
         </div>
-
-        <a href="#" class="flecha-inicio" title="Volver al inicio"><i class="fas fa-arrow-up"></i></a>
+        <a href="#inicio" class="flecha-inicio" title="Volver al inicio"><i class="fas fa-arrow-up"></i></a>
     </footer>
+
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById("menu");
-            const logo = document.getElementById("logoWrapper");
-
-            menu.classList.toggle("show");
-            logo.classList.toggle("move-down");
-        }
+        // Script para el menú hamburguesa
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('mainMenu').classList.toggle('show');
+        });
     </script>
-
-
 </body>
 
 </html>
