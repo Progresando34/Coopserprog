@@ -11,13 +11,16 @@
     <!-- Fuente moderna de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style/styles.css">
 </head>
 
 <body>
     <!-- HEADER CON FONDO DE IMAGEN -->
     <header class="hero-moderno">
-        <nav class="navbar-moderno">
+        <nav class="navbar-moderno" id="navbar">
             <div class="nav-container">
                 <div class="logo-nav">
                     <img src="img/logo-coop.png" alt="COOPSERPROG">
@@ -30,10 +33,14 @@
                     <li class="menu-item dropdown">
                         <a href="#">Documentos <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="docs/1065810627_POLITICA DE TRATAMIENTO DE LA INFORMACION - COOPSERPROG (2).pdf" target="_blank">Política de Datos</a></li>
-                            <li><a href="docs/455692794_LEY 1581 DE 2012 - PROTECCION DE DATOS. (1).pdf" target="_blank">Ley 1581 de 2012</a></li>
-                            <li><a href="docs/1043934481_ESTADOS FINANCIEROS COOPSERPROG WEB.pdf" target="_blank">Estados Financieros</a></li>
-                            <li><a href="docs/1742923127_4 CONVOCATORIA COOPSERPROG.pdf" target="_blank">Convocatoria</a></li>
+                            <li><a href="docs/1065810627_POLITICA DE TRATAMIENTO DE LA INFORMACION - COOPSERPROG (2).pdf"
+                                    target="_blank">Política de Datos</a></li>
+                            <li><a href="docs/455692794_LEY 1581 DE 2012 - PROTECCION DE DATOS. (1).pdf"
+                                    target="_blank">Ley 1581 de 2012</a></li>
+                            <li><a href="docs/1043934481_ESTADOS FINANCIEROS COOPSERPROG WEB.pdf"
+                                    target="_blank">Estados Financieros</a></li>
+                            <li><a href="docs/1742923127_4 CONVOCATORIA COOPSERPROG.pdf"
+                                    target="_blank">Convocatoria</a></li>
                             <li><a href="documentos.html" target="_blank">Otros Documentos</a></li>
                         </ul>
                     </li>
@@ -48,78 +55,86 @@
         <div class="hero-contenido" id="inicio">
             <div class="hero-texto">
                 <h1>Finanzas <span>colaborativas</span> que transforman</h1>
-                <p>Únete a una cooperativa comprometida con tu bienestar y el desarrollo. Accede a créditos, aportes, servicios y una comunidad que progresa contigo.</p>
+                <p>Únete a una cooperativa comprometida con tu bienestar y el desarrollo. Accede a créditos, aportes,
+                    servicios y una comunidad que progresa contigo.</p>
                 <div class="hero-botones">
                     <a href="#afiliacion-mod" class="btn-primario">Afíliate ahora</a>
-                    <a href="https://play.google.com/store/apps/details?id=com.progress.app" target="_blank" class="btn-secundario"><i class="fab fa-android"></i> Android</a>
-                    <a href="https://app.saac.com.co/#/home" target="_blank" class="btn-secundario"><i class="fab fa-apple"></i> iPhone</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.progress.app" target="_blank"
+                        class="btn-secundario"><i class="fab fa-android"></i> Android</a>
+                    <a href="https://app.saac.com.co/#/home" target="_blank" class="btn-secundario"><i
+                            class="fab fa-apple"></i> iPhone</a>
                 </div>
             </div>
         </div>
-        
+
         <!-- Hero wave reducido -->
         <div class="hero-wave">
             <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 0L48 5.8C96 11.7 192 23.3 288 29.2C384 35 480 35 576 29.2C672 23.3 768 11.7 864 5.8C960 0 1056 0 1152 5.8C1248 11.7 1344 23.3 1392 29.2L1440 35V80H1392C1344 80 1248 80 1152 80C1056 80 960 80 864 80C768 80 672 80 576 80C480 80 384 80 288 80C192 80 96 80 48 80H0V0Z" fill="white"/>
+                <path
+                    d="M0 0L48 5.8C96 11.7 192 23.3 288 29.2C384 35 480 35 576 29.2C672 23.3 768 11.7 864 5.8C960 0 1056 0 1152 5.8C1248 11.7 1344 23.3 1392 29.2L1440 35V80H1392C1344 80 1248 80 1152 80C1056 80 960 80 864 80C768 80 672 80 576 80C480 80 384 80 288 80C192 80 96 80 48 80H0V0Z"
+                    fill="white" />
             </svg>
         </div>
     </header>
 
     <main>
-        <!-- CARRUSEL DE NOVEDADES (reemplaza al IPC banner) -->
+        <!-- CARRUSEL DE NOVEDADES - HORIZONTAL -->
         <section class="novedades-carrusel">
             <div class="novedades-container">
                 <span class="badge">Actualización</span>
                 <h2>Últimas <span>Novedades</span></h2>
-                
+
                 <div class="carrusel-wrapper">
                     <div class="carrusel-track" id="carruselTrack">
-                        <!-- Slide 1 -->
+                        <!-- Slide 1 - Horizontal -->
                         <div class="carrusel-slide">
                             <div class="slide-imagen">
-                                <img src="img/IPC.jpeg" alt="Aumento IPC">
+                                <img src="img/vision.jpg" alt="Aumento IPC">
                             </div>
                             <div class="slide-contenido">
-                                <h3>Aumento del IPC 2024</h3>
-                                <p>Mantente informado sobre los cambios económicos que afectan tus finanzas. El IPC ha aumentado un 5.2% este año.</p>
+                                <h3>Tus aportes</h3>
+                                <p>Recuerda que puedes ver tus aportes desde nuestra app.</p>
                                 <a href="#" class="slide-link">Leer más <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
-                        <!-- Slide 2 -->
+                        <!-- Slide 2 - Horizontal -->
                         <div class="carrusel-slide">
                             <div class="slide-imagen">
                                 <img src="img/objetivos.jpg" alt="Nuevos Convenios">
                             </div>
                             <div class="slide-contenido">
                                 <h3>Nuevos Convenios</h3>
-                                <p>Hemos establecido alianzas estratégicas para ofrecer mejores beneficios a nuestros asociados.</p>
+                                <p>Hemos establecido alianzas estratégicas para ofrecer mejores beneficios a nuestros
+                                    asociados.</p>
                                 <a href="#" class="slide-link">Conocer más <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
-                        <!-- Slide 3 -->
+                        <!-- Slide 3 - Horizontal -->
                         <div class="carrusel-slide">
                             <div class="slide-imagen">
                                 <img src="img/objetivoss.jpg" alt="Asamblea General">
                             </div>
                             <div class="slide-contenido">
                                 <h3>Próxima Asamblea</h3>
-                                <p>Te invitamos a participar en la asamblea general de asociados el próximo 15 de abril.</p>
+                                <p>Te invitamos a participar en la asamblea general de asociados el próximo 15 de abril.
+                                </p>
                                 <a href="#" class="slide-link">Ver detalles <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
-                        <!-- Slide 4 -->
+                        <!-- Slide 4 - Horizontal -->
                         <div class="carrusel-slide">
                             <div class="slide-imagen">
                                 <img src="img/objetivosss.jpg" alt="Nuevos Servicios">
                             </div>
                             <div class="slide-contenido">
                                 <h3>Nuevos Servicios</h3>
-                                <p>Ampliamos nuestra oferta de servicios para brindarte más opciones de crédito y ahorro.</p>
+                                <p>Ampliamos nuestra oferta de servicios para brindarte más opciones de crédito y
+                                    ahorro.</p>
                                 <a href="#" class="slide-link">Descubrir <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Controles del carrusel -->
                     <button class="carrusel-control prev" id="prevSlide">
                         <i class="fas fa-chevron-left"></i>
@@ -127,7 +142,7 @@
                     <button class="carrusel-control next" id="nextSlide">
                         <i class="fas fa-chevron-right"></i>
                     </button>
-                    
+
                     <!-- Indicadores -->
                     <div class="carrusel-indicadores" id="carruselIndicadores">
                         <span class="indicador active"></span>
@@ -147,17 +162,22 @@
                     <div class="card-nosotros reseña">
                         <div class="card-icon"><i class="fas fa-history"></i></div>
                         <h3>Reseña Histórica</h3>
-                        <p>Nacimos en marzo de 2024 en Norte de Santander con un propósito claro: solucionar necesidades económicas. Fundada por profesionales comprometidos, hoy somos una cooperativa abierta a nuevos asociados que buscan mejorar su calidad de vida a través de la ayuda mutua.</p>
+                        <p>Nacimos en marzo de 2024 en Norte de Santander con un propósito claro: solucionar necesidades
+                            económicas. Fundada por profesionales comprometidos, hoy somos una cooperativa abierta a
+                            nuevos asociados que buscan mejorar su calidad de vida a través de la ayuda mutua.</p>
                     </div>
                     <div class="card-nosotros mision">
                         <div class="card-icon"><i class="fas fa-bullseye"></i></div>
                         <h3>Misión</h3>
-                        <p>Ofrecer a nuestros asociados servicios, aportes y créditos que mejoren su calidad de vida, satisfaciendo sus necesidades y las de sus familias mediante soluciones de ahorro, crédito y bienestar.</p>
+                        <p>Ofrecer a nuestros asociados servicios, aportes y créditos que mejoren su calidad de vida,
+                            satisfaciendo sus necesidades y las de sus familias mediante soluciones de ahorro, crédito y
+                            bienestar.</p>
                     </div>
                     <div class="card-nosotros vision">
                         <div class="card-icon"><i class="fas fa-eye"></i></div>
                         <h3>Visión</h3>
-                        <p>Ser la cooperativa más reconocida en la región por nuestra transparencia, altos estándares de calidad y por ser el aliado financiero que brinda progreso a todos sus asociados.</p>
+                        <p>Ser la cooperativa más reconocida en la región por nuestra transparencia, altos estándares de
+                            calidad y por ser el aliado financiero que brinda progreso a todos sus asociados.</p>
                     </div>
                 </div>
             </div>
@@ -180,7 +200,8 @@
                             <i class="fas fa-bullseye"></i>
                             <h3>General</h3>
                         </div>
-                        <p>Contribuir al mejoramiento social, económico y cultural de los asociados y la comunidad, fomentando la solidaridad y la ayuda mutua con una administración eficiente.</p>
+                        <p>Contribuir al mejoramiento social, económico y cultural de los asociados y la comunidad,
+                            fomentando la solidaridad y la ayuda mutua con una administración eficiente.</p>
                     </div>
                     <div class="objetivo-card objetivo-especificos">
                         <div class="objetivo-header">
@@ -213,8 +234,10 @@
                             <i class="fas fa-sticky-note"></i>
                             <h3>Notas Importantes</h3>
                         </div>
-                        <p><strong>1.</strong> Podemos organizar negocios lícitos relacionados con nuestros objetivos.</p>
-                        <p><strong>2.</strong> Priorizamos a asociados, pero también prestamos servicios con interés social.</p>
+                        <p><strong>1.</strong> Podemos organizar negocios lícitos relacionados con nuestros objetivos.
+                        </p>
+                        <p><strong>2.</strong> Priorizamos a asociados, pero también prestamos servicios con interés
+                            social.</p>
                     </div>
                 </div>
             </div>
@@ -228,27 +251,32 @@
                 <div class="valor azul">
                     <i class="fa-solid fa-scale-balanced"></i>
                     <h2>Transparencia</h2>
-                    <p>Brindamos claridad en la información proporcionada a nuestros asociados y usuarios, sobre la base de un proceder ético, con normas y reglas claras.</p>
+                    <p>Brindamos claridad en la información proporcionada a nuestros asociados y usuarios, sobre la base
+                        de un proceder ético, con normas y reglas claras.</p>
                 </div>
                 <div class="valor rojo">
                     <i class="fa-solid fa-hand-holding-heart"></i>
                     <h2>Servicio</h2>
-                    <p>Nos concentramos en atender y satisfacer las necesidades y expectativas de nuestros asociados y usuarios, en forma humana, diligente, oportuna y adecuada.</p>
+                    <p>Nos concentramos en atender y satisfacer las necesidades y expectativas de nuestros asociados y
+                        usuarios, en forma humana, diligente, oportuna y adecuada.</p>
                 </div>
                 <div class="valor amarillo">
                     <i class="fa-solid fa-people-group"></i>
                     <h2>Trabajo en Equipo</h2>
-                    <p>Nuestra fuerza de trabajo impulsa los objetivos institucionales, bajo la mutua cooperación y la unión de esfuerzos, conocimientos y habilidades.</p>
+                    <p>Nuestra fuerza de trabajo impulsa los objetivos institucionales, bajo la mutua cooperación y la
+                        unión de esfuerzos, conocimientos y habilidades.</p>
                 </div>
                 <div class="valor verde">
                     <i class="fa-solid fa-clipboard-check"></i>
                     <h2>Responsabilidad</h2>
-                    <p>Trabajamos con responsabilidad y conciencia de la labor encomendada, para que nuestras acciones respondan al objetivo solidario de buscar bienestar.</p>
+                    <p>Trabajamos con responsabilidad y conciencia de la labor encomendada, para que nuestras acciones
+                        respondan al objetivo solidario de buscar bienestar.</p>
                 </div>
                 <div class="valor verde-oscuro">
                     <i class="fa-solid fa-user-lock"></i>
                     <h2>Confidencialidad</h2>
-                    <p>Nos comprometemos con nuestros asociados a salvaguardar su privacidad y a garantizar el prudente manejo de la información.</p>
+                    <p>Nos comprometemos con nuestros asociados a salvaguardar su privacidad y a garantizar el prudente
+                        manejo de la información.</p>
                 </div>
                 <!-- Duplicados para scroll infinito -->
                 <div class="valor azul">
@@ -279,7 +307,7 @@
             </div>
         </section>
 
-        <!-- AFILIACIÓN APP -->
+        <!-- AFILIACIÓN APP CON CARRUSEL VERTICAL COMPACTO -->
         <section class="app-afiliacion-moderno">
             <div class="container-app">
                 <div class="app-texto">
@@ -292,12 +320,43 @@
                         <li><i class="fas fa-check-circle"></i> Convenios y Progrepuntos</li>
                     </ul>
                     <div class="app-botones">
-                        <a href="https://play.google.com/store/apps/details?id=com.progress.app" target="_blank" class="btn-app btn-android"><i class="fab fa-android"></i> Google Play</a>
-                        <a href="https://app.saac.com.co/#/home" target="_blank" class="btn-app btn-ios"><i class="fab fa-apple"></i> App Store</a>
+                        <a href="https://play.google.com/store/apps/details?id=com.progress.app" target="_blank"
+                            class="btn-app btn-android"><i class="fab fa-android"></i> Google Play</a>
+                        <a href="https://app.saac.com.co/#/home" target="_blank" class="btn-app btn-ios"><i
+                                class="fab fa-apple"></i> App Store</a>
                     </div>
                 </div>
-                <div class="desvincular-contenido">
-                    <img src="img/desvincular.jpeg" alt="Proceso de desvinculación" class="imagen-desvincular">
+
+                <!-- CARRUSEL VERTICAL COMPACTO - UN POCO MÁS ANCHO -->
+                <div class="app-carrusel-vertical">
+                    <div class="app-carrusel-track-vertical" id="appCarruselTrack">
+                        <div class="app-carrusel-slide-vertical">
+                            <img src="img/convocatoria.jpeg" alt="App screenshot 1">
+                        </div>
+                        <div class="app-carrusel-slide-vertical">
+                            <img src="img/desvincular.jpeg" alt="App screenshot 2">
+                        </div>
+                        <div class="app-carrusel-slide-vertical">
+                            <img src="img/mision.jpg" alt="App screenshot 3">
+                        </div>
+                        <div class="app-carrusel-slide-vertical">
+                            <img src="img/historica.jpg" alt="App screenshot 4">
+                        </div>
+                    </div>
+
+                    <button class="app-carrusel-control-vertical prev-vertical" id="appPrevSlide">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="app-carrusel-control-vertical next-vertical" id="appNextSlide">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+
+                    <div class="app-carrusel-indicadores-vertical" id="appCarruselIndicadores">
+                        <span class="app-indicador-vertical active"></span>
+                        <span class="app-indicador-vertical"></span>
+                        <span class="app-indicador-vertical"></span>
+                        <span class="app-indicador-vertical"></span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -339,7 +398,7 @@
 
     </main>
 
-    <!-- FOOTER ORIGINAL - RESTAURADO COMPLETAMENTE -->
+    <!-- FOOTER -->
     <footer>
         <div class="footer-container">
             <div class="footer-content">
@@ -347,11 +406,17 @@
                 <div class="footer-column">
                     <img src="img/logo-coop.png" alt="Logo COOPSERPROG" class="footer-logo">
                     <div class="footer-description">
-                        <p>Cooperativa de Servicios de Aporte y Crédito Progresando, comprometida con el desarrollo económico y social de nuestros asociados.</p>
+                        <p>Cooperativa de Servicios de Aporte y Crédito Progresando, comprometida con el desarrollo
+                            económico y social de nuestros asociados.</p>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
                         <span>+57 322 8642938</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>cooperativacoopserprog@gmail.com</span>
+
                     </div>
                 </div>
 
@@ -359,16 +424,19 @@
                 <div class="footer-column">
                     <h3>Enlaces Rápidos</h3>
                     <ul class="footer-links">
-                        <li><a href="https://ips.progresando.co/" target="_blank"><i class="fas fa-external-link-alt"></i> IPS Progresando</a></li>
+                        <li><a href="https://ips.progresando.co/" target="_blank"><i
+                                    class="fas fa-external-link-alt"></i> IPS Progresando</a></li>
                         <li><a href="#objetivos-mod"><i class="fas fa-bullseye"></i> Principios y Objetivos</a></li>
                         <li><a href="#valores"><i class="fas fa-heart"></i> Valores Corporativos</a></li>
-                        <li><a href="#afiliacion-mod"><i class="fas fa-file-signature"></i> Requisitos de afiliación</a></li>
+                        <li><a href="#afiliacion-mod"><i class="fas fa-file-signature"></i> Requisitos de afiliación</a>
+                        </li>
                     </ul>
                     <div class="social-icons">
                         <a href="https://www.facebook.com/share/1BtMrASBuL/" target="_blank" class="social-link">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://www.instagram.com/coopserprog?igsh=NGc5M3VxamVnMnI4" target="_blank" class="social-link">
+                        <a href="https://www.instagram.com/coopserprog?igsh=NGc5M3VxamVnMnI4" target="_blank"
+                            class="social-link">
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a href="https://wa.me/573228642938" target="_blank" class="social-link">
@@ -407,7 +475,8 @@
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
                     <div class="legal-links">
-                        <a href="docs/1065810627_POLITICA DE TRATAMIENTO DE LA INFORMACION - COOPSERPROG (2).pdf" target="_blank">Política de Tratamiento de datos</a>
+                        <a href="docs/1065810627_POLITICA DE TRATAMIENTO DE LA INFORMACION - COOPSERPROG (2).pdf"
+                            target="_blank">Política de Tratamiento de datos</a>
                     </div>
                     <div class="footer-copy">
                         © 2025 COOPSERPROG. Todos los derechos reservados.
@@ -421,12 +490,37 @@
 
     <script>
         // Script para el menú hamburguesa
-        document.getElementById('menuToggle').addEventListener('click', function() {
+        document.getElementById('menuToggle').addEventListener('click', function () {
             document.getElementById('mainMenu').classList.toggle('show');
         });
 
-        // Script para el carrusel
-        document.addEventListener('DOMContentLoaded', function() {
+        // Script para ocultar navbar al bajar y mostrar al subir
+        let lastScroll = 0;
+        const navbar = document.getElementById('navbar');
+        const menu = document.getElementById('mainMenu');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            // Ocultar/mostrar navbar
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                // Bajando - ocultar navbar
+                navbar.classList.add('navbar-hidden');
+            } else {
+                // Subiendo - mostrar navbar
+                navbar.classList.remove('navbar-hidden');
+            }
+
+            // Cerrar menú hamburguesa si está abierto y se hace scroll
+            if (menu.classList.contains('show') && currentScroll > 50) {
+                menu.classList.remove('show');
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Script para el carrusel de novedades (HORIZONTAL)
+        document.addEventListener('DOMContentLoaded', function () {
             const track = document.getElementById('carruselTrack');
             const prevBtn = document.getElementById('prevSlide');
             const nextBtn = document.getElementById('nextSlide');
@@ -437,10 +531,10 @@
             function updateCarousel(index) {
                 if (index < 0) index = totalSlides - 1;
                 if (index >= totalSlides) index = 0;
-                
+
                 track.style.transform = `translateX(-${index * 100}%)`;
                 currentIndex = index;
-                
+
                 indicators.forEach((ind, i) => {
                     if (i === currentIndex) {
                         ind.classList.add('active');
@@ -458,10 +552,52 @@
                 updateCarousel(currentIndex + 1);
             });
 
-            // Auto-play opcional (cada 5 segundos)
+            // Auto-play opcional (cada 9 segundos)
             setInterval(() => {
                 updateCarousel(currentIndex + 1);
-            }, 5000);
+            }, 9000);
+        });
+
+        // Script para el carrusel vertical compacto de la app
+        document.addEventListener('DOMContentLoaded', function () {
+            const appTrack = document.getElementById('appCarruselTrack');
+            const appPrevBtn = document.getElementById('appPrevSlide');
+            const appNextBtn = document.getElementById('appNextSlide');
+            const appIndicators = document.querySelectorAll('.app-indicador-vertical');
+            let appCurrentIndex = 0;
+            const appTotalSlides = document.querySelectorAll('.app-carrusel-slide-vertical').length;
+
+            function updateAppCarousel(index) {
+                if (index < 0) index = appTotalSlides - 1;
+                if (index >= appTotalSlides) index = 0;
+
+                appTrack.style.transform = `translateX(-${index * 100}%)`;
+                appCurrentIndex = index;
+
+                appIndicators.forEach((ind, i) => {
+                    if (i === index) {
+                        ind.classList.add('active');
+                    } else {
+                        ind.classList.remove('active');
+                    }
+                });
+            }
+
+            appPrevBtn.addEventListener('click', () => {
+                updateAppCarousel(appCurrentIndex - 1);
+            });
+
+            appNextBtn.addEventListener('click', () => {
+                updateAppCarousel(appCurrentIndex + 1);
+            });
+
+            // Auto-play para el carrusel vertical (cada 9 segundos)
+            setInterval(() => {
+                updateAppCarousel(appCurrentIndex + 1);
+            }, 9000);
+
+            // Inicializar
+            updateAppCarousel(0);
         });
     </script>
 </body>
