@@ -1543,7 +1543,7 @@
             height: 100%;
             object-fit: contain;
             /* Prioriza la parte inferior */
-            transform: scale(1.4);
+            transform: scale(1);
             /* Un poco más grande */
             background-color: rgba(0, 0, 0, 0.5);
         }
