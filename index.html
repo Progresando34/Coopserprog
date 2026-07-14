@@ -8,1667 +8,112 @@
     <link rel="stylesheet" href="style/styles.css" />
     <script src="https://kit.fontawesome.com/71d96bc7c5.js" crossorigin="anonymous"></script>
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <!-- Fuente moderna de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap"
         rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 100px;
-        }
-
-        body {
-            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Títulos de sección */
-        .titulo-seccion-mod {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #1e293b;
-        }
-
-        .titulo-seccion-mod span {
-            color: #01983B;
-            position: relative;
-            display: inline-block;
-        }
-
-        .titulo-seccion-mod span::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #01983B, #FFD527);
-            border-radius: 4px;
-        }
-
-        /* ========== HEADER CON CARRUSEL ========== */
-        .hero-moderno {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Carrusel de fondo */
-        .hero-carrusel {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-
-        .carrusel-slides {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-
-        .carrusel-item {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
-        }
-
-        .carrusel-item.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .carrusel-item img,
-        .carrusel-item video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Overlay degradado para mejorar legibilidad del texto */
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.2) 100%);
-            z-index: 1;
-        }
-
-        /* Indicadores del carrusel */
-        .carrusel-indicadores-hero {
-            position: absolute;
-            bottom: 30px;
-            right: 30px;
-            z-index: 10;
-            display: flex;
-            gap: 12px;
-        }
-
-        .indicador-hero {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .indicador-hero.active {
-            background: #FFD527;
-            transform: scale(1.3);
-            border-color: white;
-        }
-
-        .indicador-hero:hover {
-            background: #01983B;
-            transform: scale(1.2);
-        }
-
-        /* Controles del carrusel */
-        .carrusel-control-hero {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .carrusel-control-hero:hover {
-            background: #01983B;
-            border-color: #01983B;
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .carrusel-control-hero.prev {
-            left: 30px;
-        }
-
-        .carrusel-control-hero.next {
-            right: 30px;
-        }
-
-        .navbar-moderno {
-            padding: 20px 40px;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: transform 0.3s ease;
-        }
-
-        .navbar-hidden {
-            transform: translateY(-100%);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo-nav img {
-            height: 65px;
-            width: auto;
-            filter: brightness(1.1);
-        }
-
-        .menu-moderno {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-            align-items: center;
-        }
-
-        .menu-item {
-            position: relative;
-        }
-
-        .menu-item a {
-            text-decoration: none;
-            color: #1e293b;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: color 0.3s;
-            padding: 8px 0;
-        }
-
-        .menu-item a:hover {
-            color: #01983B;
-        }
-
-        /* Dropdown */
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.15);
-            min-width: 220px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s;
-            list-style: none;
-            padding: 8px 0;
-            z-index: 100;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-menu li a {
-            display: block;
-            padding: 10px 20px;
-            font-size: 0.9rem;
-            color: #334155;
-        }
-
-        .dropdown-menu li a:hover {
-            background: #f1f5f9;
-            color: #01983B;
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 28px;
-            color: #01983B;
-            cursor: pointer;
-        }
-
-        /* Hero contenido con posición relativa para estar sobre el carrusel */
-        .hero-contenido {
-            position: relative;
-            z-index: 5;
-            flex: 1;
-            display: flex;
-            align-items: center;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 140px 40px 100px;
-            width: 100%;
-        }
-
-        .hero-texto {
-            max-width: 650px;
-            text-align: left;
-            color: white;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-texto h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.2;
-            color: white;
-            margin-bottom: 24px;
-            text-align: left;
-        }
-
-        .hero-texto h1 span {
-            color: #FFD527;
-            position: relative;
-            display: inline-block;
-        }
-
-        .hero-texto h1 span::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 30%;
-            background: rgba(255, 213, 39, 0.2);
-            bottom: 5px;
-            left: 0;
-            z-index: -1;
-            border-radius: 10px;
-        }
-
-        .hero-texto p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 32px;
-            max-width: 90%;
-            text-align: left;
-        }
-
-        .hero-botones {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-            justify-content: flex-start;
-        }
-
-        .btn-primario {
-            background: #01983B;
-            color: white;
-            border: none;
-            padding: 16px 36px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 8px 20px -5px rgba(1, 152, 59, 0.4);
-            display: inline-block;
-            cursor: pointer;
-            min-width: 160px;
-            text-align: center;
-        }
-
-        .btn-primario:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px -5px rgba(1, 152, 59, 0.6);
-        }
-
-        .btn-secundario {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            padding: 16px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s;
-            cursor: pointer;
-            min-width: 140px;
-            justify-content: center;
-        }
-
-        .btn-secundario:hover {
-            background: rgba(255, 255, 255, 0.3);
-            border-color: #FFD527;
-            color: #FFD527;
-            transform: translateY(-3px);
-        }
-
-        /* Hero wave reducido */
-        .hero-wave {
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            line-height: 0;
-            z-index: 5;
-        }
-
-        .hero-wave svg {
-            width: 100%;
-            height: auto;
-            display: block;
-            filter: drop-shadow(0 -5px 10px rgba(0, 0, 0, 0.1));
-        }
-
-        .hero-wave path {
-            fill: white;
-        }
-
-        /* ========== CARRUSEL DE NOVEDADES - HORIZONTAL ========== */
-        .novedades-carrusel {
-            max-width: 1200px;
-            margin: 40px auto;
-            background: linear-gradient(105deg, #ffffff 0%, #01bb49 100%);
-            border-radius: 30px;
-            box-shadow: 0 20px 35px -8px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(1, 152, 59, 0.1);
-            padding: 40px;
-        }
-
-        .novedades-container {
-            width: 100%;
-        }
-
-        .novedades-container .badge {
-            background: #FFD527;
-            color: #1e293b;
-            padding: 6px 16px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 16px;
-        }
-
-        .novedades-container h2 {
-            font-size: 2.5rem;
-            color: #0f172a;
-            margin-bottom: 30px;
-            text-align: left;
-        }
-
-        .novedades-container h2 span {
-            color: #01983b;
-        }
-
-        .carrusel-wrapper {
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-        }
-
-        .carrusel-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .carrusel-slide {
-            flex: 0 0 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            padding: 20px;
-        }
-
-        .slide-imagen {
-            border-radius: 20px;
-            overflow: hidden;
-            aspect-ratio: 16 / 10;
-            box-shadow: 0 10px 25px -8px rgba(0, 0, 0, 0.2);
-        }
-
-        .slide-imagen img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            transition: transform 0.5s;
-        }
-
-        .slide-imagen:hover img {
-            transform: scale(1.05);
-        }
-
-        .slide-contenido {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: left;
-            padding: 20px;
-        }
-
-        .slide-contenido h3 {
-            font-size: 2rem;
-            color: #0f172a;
-            margin-bottom: 15px;
-            text-align: left;
-        }
-
-        .slide-contenido p {
-            font-size: 1.1rem;
-            color: #475569;
-            margin-bottom: 20px;
-            line-height: 1.6;
-            text-align: left;
-        }
-
-        .slide-link {
-            color: #01983B;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: gap 0.3s;
-            align-self: flex-start;
-        }
-
-        .slide-link:hover {
-            gap: 12px;
-        }
-
-        .carrusel-control {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background: white;
-            border: none;
-            border-radius: 50%;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.3s;
-        }
-
-        .carrusel-control:hover {
-            background: #01983B;
-            color: white;
-        }
-
-        .carrusel-control.prev {
-            left: 20px;
-        }
-
-        .carrusel-control.next {
-            right: 20px;
-        }
-
-        .carrusel-indicadores {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .indicador {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #d0dad5;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .indicador.active {
-            background: #01983B;
-            transform: scale(1.2);
-        }
-
-        /* ========== NOSOTROS MODERNO ========== */
-        .nosotros-moderno {
-            padding: 80px 20px;
-            background: white;
-        }
-
-        .nosotros-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .card-nosotros {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 30px;
-            box-shadow: 0 25px 45px -15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid #edf2f7;
-            text-align: center;
-        }
-
-        .card-nosotros.reseña:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 55px -15px rgba(0, 183, 255, 0.589);
-        }
-
-        .card-nosotros.mision:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 55px -15px rgba(255, 0, 0, 0.411);
-        }
-
-        .card-nosotros.vision:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 55px -15px rgb(255, 238, 0);
-        }
-
-        .card-icon {
-            width: 60px;
-            height: 60px;
-            background: #01983B;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            color: white;
-            font-size: 24px;
-        }
-
-        .card-nosotros h3 {
-            font-size: 1.5rem;
-            margin-bottom: 16px;
-            color: #0f172a;
-        }
-
-        .card-nosotros p {
-            color: #475569;
-            line-height: 1.7;
-            text-align: center;
-        }
-
-        /* Colores sutiles */
-        .reseña .card-icon {
-            background: #48C4EF;
-        }
-
-        .mision .card-icon {
-            background: #ED1C24;
-        }
-
-        .vision .card-icon {
-            background: #FFD527;
-            color: #1e293b;
-        }
-
-        /* Imágenes cuadradas */
-        .imagenes-cuadradas {
-            display: flex;
-            max-width: 100%;
-            overflow: hidden;
-            margin: 60px 0;
-        }
-
-        .imagen-wrapper {
-            flex: 1;
-            aspect-ratio: 1 / 1;
-            overflow: hidden;
-        }
-
-        .imagen-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .imagen-wrapper img:hover {
-            transform: scale(1.05);
-        }
-
-        /* ========== OBJETIVOS MODERNOS ========== */
-        .objetivos-moderno {
-            padding: 80px 20px;
-            background: #f8fafc;
-        }
-
-        .objetivos-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-        }
-
-        .objetivo-card {
-            background: white;
-            padding: 30px;
-            border-radius: 24px;
-            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s;
-            border-left: 6px solid;
-            text-align: left;
-        }
-
-        .objetivo-general {
-            border-left-color: #01983B;
-        }
-
-        .objetivo-especificos {
-            border-left-color: #48C4EF;
-        }
-
-        .objetivo-actividades {
-            border-left-color: #FFD527;
-        }
-
-        .objetivo-notas {
-            border-left-color: #ED1C24;
-        }
-
-        .objetivo-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        .objetivo-header i {
-            font-size: 24px;
-            color: #01983B;
-        }
-
-        .objetivo-header h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
-
-        .objetivo-card p,
-        .objetivo-card li {
-            color: #475569;
-            text-align: left;
-        }
-
-        .objetivo-card ul {
-            list-style-position: inside;
-            columns: 2;
-            column-gap: 30px;
-        }
-
-        .objetivo-card li {
-            margin-bottom: 8px;
-            text-align: left;
-        }
-
-        /* ========== VALORES CON SCROLL INFINITO ========== */
-        .valores-scroll-container {
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-            background: #f2f7f6;
-            padding: 60px 0;
-        }
-
-        .valores-scroll {
-            display: flex;
-            animation: scroll-infinito 45s linear infinite;
-            gap: 24px;
-            padding: 10px 0;
-        }
-
-        .valores-scroll:hover {
-            animation-play-state: paused;
-        }
-
-        .valor {
-            flex: 0 0 auto;
-            width: 300px;
-            padding: 30px 25px;
-            border-radius: 24px;
-            color: white;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.4s;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2);
-        }
-
-        .valor:hover {
-            transform: scale(1.05) translateY(-10px);
-            background-color: #1e293b !important;
-            box-shadow: 0 30px 40px -12px rgba(0, 0, 0, 0.3);
-        }
-
-        .valor i {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .valor h2 {
-            font-size: 1.5rem;
-            margin: 15px 0;
-            font-weight: 700;
-        }
-
-        .valor p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            opacity: 0.95;
-        }
-
-        .azul {
-            background: linear-gradient(135deg, #48C4EF, #2a9fc7);
-        }
-
-        .rojo {
-            background: linear-gradient(135deg, #ED1C24, #c4151c);
-        }
-
-        .amarillo {
-            background: linear-gradient(135deg, #FFD527, #e6b800);
-            color: #1e293b;
-        }
-
-        .verde {
-            background: linear-gradient(135deg, #01983B, #007a2f);
-        }
-
-        .verde-oscuro {
-            background: linear-gradient(135deg, #006b2a, #004d1f);
-        }
-
-        @keyframes scroll-infinito {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-81.4%);
-            }
-        }
-
-        /* ========== APP AFILIACIÓN MODERNO CON CARRUSEL VERTICAL COMPACTO ========== */
-        .app-afiliacion-moderno {
-            background: linear-gradient(135deg, #018a38, #03662b);
-            padding: 80px 20px;
-            color: white;
-        }
-
-        .container-app {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 0.8fr;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .app-texto {
-            text-align: left;
-        }
-
-        .app-texto .badge-app {
-            background: #FFD527;
-            color: #1e293b;
-            padding: 6px 14px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        .app-texto h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            text-align: left;
-        }
-
-        .app-texto p {
-            font-size: 1rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-            text-align: left;
-        }
-
-        .app-beneficios {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-
-        .app-beneficios li {
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-align: left;
-        }
-
-        .app-beneficios i {
-            color: #FFD527;
-        }
-
-        .app-botones {
-            display: flex;
-            gap: 16px;
-            justify-content: flex-start;
-        }
-
-        .btn-app {
-            padding: 12px 24px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: transform 0.3s;
-        }
-
-        .btn-android {
-            background: #3DDC84;
-            color: #1e293b;
-        }
-
-        .btn-ios {
-            background: #000000;
-            color: white;
-        }
-
-        .btn-app:hover {
-            transform: translateY(-3px);
-        }
-
-        /* CARRUSEL VERTICAL COMPACTO */
-        .app-carrusel-vertical {
-            width: 100%;
-            max-width: 370px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 25px 40px -15px rgba(0, 0, 0, 0.4);
-        }
-
-        .app-carrusel-track-vertical {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .app-carrusel-slide-vertical {
-            flex: 0 0 100%;
-            aspect-ratio: 3 / 4;
-            overflow: hidden;
-        }
-
-        .app-carrusel-slide-vertical img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            transition: transform 0.5s;
-        }
-
-        .app-carrusel-slide-vertical img:hover {
-            transform: scale(1.05);
-        }
-
-        .app-carrusel-control-vertical {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 35px;
-            height: 35px;
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            border-radius: 50%;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            color: #01983B;
-        }
-
-        .app-carrusel-control-vertical:hover {
-            background: #01983B;
-            color: white;
-        }
-
-        .app-carrusel-control-vertical.prev-vertical {
-            left: 5px;
-        }
-
-        .app-carrusel-control-vertical.next-vertical {
-            right: 5px;
-        }
-
-        .app-carrusel-indicadores-vertical {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 15px;
-        }
-
-        .app-indicador-vertical {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .app-indicador-vertical.active {
-            background: #FFD527;
-            transform: scale(1.3);
-        }
-
-        /* ========== REQUISITOS MODERNO ========== */
-        .requisitos-moderno {
-            padding: 80px 20px;
-            background: white;
-        }
-
-        .requisitos-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-
-        .requisito-card {
-            background: #f8fafc;
-            padding: 40px;
-            border-radius: 30px;
-            transition: transform 0.3s;
-            border: 1px solid #e9f2f0;
-        }
-
-        .requisito-card.persona-juridica:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 35px -10px rgba(99, 250, 255, 0.514);
-        }
-
-        .requisito-card.persona-natural:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 35px -10px rgba(89, 253, 152, 0.568);
-        }
-
-        .requisito-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .requisito-header i {
-            font-size: 32px;
-            width: 60px;
-            height: 60px;
-            background: #01983B;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 18px;
-        }
-
-        .persona-juridica .requisito-header i {
-            background: #48C4EF;
-        }
-
-        .requisito-card ul {
-            list-style: none;
-        }
-
-        .requisito-card li {
-            margin-bottom: 12px;
-            padding-left: 24px;
-            position: relative;
-            color: #334155;
-            text-align: left;
-        }
-
-        .requisito-card li::before {
-            content: '✓';
-            color: #01983B;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        /* ========== FOOTER ========== */
-        footer {
-            background: linear-gradient(135deg, #01983B 0%, #006b2a 100%);
-            color: white;
-            margin-top: 60px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFD527' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            background-size: 120px;
-            opacity: 0.3;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            padding: 40px 0 40px;
-            position: relative;
-            z-index: 2;
-            align-content: center;
-        }
-
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-            font-weight: 600;
-            color: #FFD527;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: #FFD527;
-            border-radius: 2px;
-        }
-
-        .footer-logo {
-            max-width: 350px;
-            margin-bottom: 20px;
-            filter: brightness(0) invert(1);
-        }
-
-        .footer-description {
-            line-height: 1.6;
-            margin-bottom: 25px;
-            opacity: 0.9;
-            font-size: 0.95rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-
-        .contact-item i {
-            margin-right: 12px;
-            color: #FFD527;
-            width: 20px;
-            text-align: center;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            font-size: 0.95rem;
-        }
-
-        .footer-links a:hover {
-            color: #FFD527;
-            transform: translateX(5px);
-        }
-
-        .footer-links i {
-            margin-right: 8px;
-            font-size: 0.9rem;
-            color: #FFD527;
-        }
-
-        .footer-sede {
-            margin-bottom: 20px;
-        }
-
-        .footer-sede h4 {
-            font-size: 1rem;
-            margin-bottom: 5px;
-            display: flex;
-            color: #f0f0f0;
-        }
-
-        .footer-sede h4 i {
-            margin-right: 8px;
-            color: #FFD527;
-        }
-
-        .footer-sede span {
-            opacity: 0.9;
-            font-size: 0.9rem;
-            align-items: left;
-        }
-
-        .business-hours p {
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-
-        .business-hours strong {
-            color: #FFD527;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: #FFD527;
-            color: #01983B;
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 15px 0;
-            position: relative;
-            z-index: 2;
-        }
-
-        .footer-bottom-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .legal-links {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .legal-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .legal-links a:hover {
-            color: #FFD527;
-        }
-
-        .footer-copy {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* Botón flotante */
-        .flecha-inicio {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: #01983B;
-            color: white;
-            font-size: 20px;
-            padding: 12px 14px;
-            border-radius: 40%;
-            text-decoration: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .flecha-inicio:hover {
-            background-color: #FFD527;
-            color: #01983B;
-            transform: translateY(-5px);
-        }
-
-        /* ========== RESPONSIVE MEJORADO ========== */
-        @media (max-width: 1024px) {
-            .hero-texto h1 {
-                font-size: 2.8rem;
-            }
-
-            .nosotros-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .nosotros-grid .card-nosotros:last-child {
-                grid-column: span 2;
-            }
-
-            .container-app {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .app-botones {
-                justify-content: center;
-            }
-
-            .app-texto h2 {
-                text-align: center;
-            }
-
-            .app-texto p {
-                text-align: center;
-            }
-
-            .app-beneficios li {
-                justify-content: center;
-            }
-
-            .app-carrusel-vertical {
-                max-width: 350px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .navbar-moderno {
-                padding: 15px 20px;
-            }
-
-            .logo-nav img {
-                height: 45px;
-            }
-
-            .menu-moderno {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            }
-
-            .menu-moderno.show {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .dropdown-menu {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                background: #f8fafc;
-                margin-top: 10px;
-            }
-
-            .hero-contenido {
-                padding: 120px 20px 80px;
-            }
-
-            .hero-texto {
-                max-width: 100%;
-            }
-
-            .hero-texto h1 {
-                font-size: 2.5rem;
-                text-align: center;
-            }
-
-            .hero-texto p {
-                max-width: 100%;
-                text-align: center;
-                font-size: 1rem;
-            }
-
-            .hero-botones {
-                justify-content: center;
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .btn-primario,
-            .btn-secundario {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-            }
-
-            /* MEJORA PARA CARRUSEL EN MÓVIL */
-            .carrusel-control-hero {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
-                background: rgba(255, 255, 255, 0.3);
-                border: 2px solid rgba(255, 255, 255, 0.5);
-            }
-
-            .carrusel-control-hero.prev {
-                left: 10px;
-            }
-
-            .carrusel-control-hero.next {
-                right: 10px;
-            }
-
-            .carrusel-indicadores-hero {
-                bottom: 20px;
-                right: 20px;
-                gap: 8px;
-            }
-
-            .indicador-hero {
-                width: 10px;
-                height: 10px;
-            }
-
-            /* MEJORA PARA QUE LOS VIDEOS E IMÁGENES SE VEN BIEN EN MÓVIL */
-            .carrusel-item img,
-            .carrusel-item video {
-                object-fit: cover;
-                width: 100%;
-                height: 100%;
-            }
-
-            .hero-overlay {
-                background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%);
-            }
-
-            .carrusel-slide {
-                grid-template-columns: 1fr;
-            }
-
-            .slide-contenido {
-                text-align: center;
-            }
-
-            .slide-contenido h3 {
-                text-align: center;
-                font-size: 1.5rem;
-            }
-
-            .slide-contenido p {
-                text-align: center;
-            }
-
-            .slide-link {
-                align-self: center;
-            }
-
-            .nosotros-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .nosotros-grid .card-nosotros:last-child {
-                grid-column: auto;
-            }
-
-            .objetivos-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .requisitos-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-
-            .objetivo-card ul {
-                columns: 1;
-            }
-
-            .app-carrusel-vertical {
-                max-width: 300px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-texto h1 {
-                font-size: 2rem;
-            }
-
-            .hero-contenido {
-                padding: 100px 15px 60px;
-            }
-
-            .app-botones {
-                flex-direction: column;
-            }
-
-            .carrusel-control-hero {
-                width: 35px;
-                height: 35px;
-                font-size: 14px;
-            }
-
-            .carrusel-control-hero.prev {
-                left: 5px;
-            }
-
-            .carrusel-control-hero.next {
-                right: 5px;
-            }
-
-            .carrusel-indicadores-hero {
-                bottom: 15px;
-                right: 15px;
-            }
-
-            .indicador-hero {
-                width: 8px;
-                height: 8px;
-            }
-
-            .app-carrusel-vertical {
-                max-width: 280px;
-            }
-        }
-
-        /* Ajuste específico para pantallas muy pequeñas */
-        @media (max-width: 360px) {
-            .hero-texto h1 {
-                font-size: 1.8rem;
-            }
-
-            .hero-texto p {
-                font-size: 0.9rem;
-            }
-
-            .btn-primario,
-            .btn-secundario {
-                padding: 12px 20px;
-                font-size: 0.9rem;
-            }
-        }
-    </style>
 </head>
 
 <body>
-    <!-- HEADER CON CARRUSEL DE FONDO -->
+    <!-- ===== WHATSAPP FLOTANTE ===== -->
+    <div class="whatsapp-float">
+        <div class="whatsapp-bubble">
+            <i class="fas fa-bullhorn"></i> Únete a nuestro canal
+        </div>
+        <a href="https://whatsapp.com/channel/0029VbDRTrmBlHpU12h7v40y" target="_blank" class="whatsapp-btn"
+            aria-label="WhatsApp Channel">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- ===== HEADER CON SLIDER DE TARJETAS ===== -->
     <header class="hero-moderno" id="inicio">
-        <!-- Carrusel de fondo - AQUÍ PUEDES AGREGAR TUS VIDEOS Y FOTOS -->
-        <div class="hero-carrusel">
-            <div class="carrusel-slides" id="heroCarruselSlides">
-
-                                <!-- Slide 2 - IMAGEN -->
-                <!-- <div class="carrusel-item" data-type="image">
-                    <img src="img/AsambleaAsociados.png" alt="Imagen cooperativa 1">
-                </div> -->
-
-                <!-- Slide 1 - TU VIDEO ESPECÍFICO (Manual de marca Elegante Floral.mp4) -->
-                <div class="carrusel-item active" data-type="video">
-                    <video autoplay muted loop playsinline>
-                        <source src="img/Manual de marca Elegante Floral.mp4" type="video/mp4">
-                        Tu navegador no soporta el elemento video.
-                    </video>
-                </div>
-                
-                
-                <!-- Slide 3 - OTRO VIDEO (puedes agregar más videos aquí) -->
-                <div class="carrusel-item" data-type="video">
-                    <video autoplay muted loop playsinline>
-                        <source src="img/Manual de marca Elegante Floral.mp4" type="video/mp4">
-                        Tu navegador no soporta el elemento video.
-                    </video>
-                </div>
-                
-                <!-- Slide 4 - OTRA IMAGEN -->
-                <div class="carrusel-item" data-type="image">
-                    <img src="img/objetivoss.jpg" alt="Imagen cooperativa 2">
-                </div>
-
-                <!-- Slide 5 - OTRA IMAGEN MÁS -->
-                <div class="carrusel-item" data-type="image">
-                    <img src="img/objetivosss.jpg" alt="Imagen cooperativa 3">
-                </div>
-
-                <!-- 
-                    ===== INSTRUCCIONES PARA AGREGAR MÁS SLIDES =====
-                    
-                    Para agregar más imágenes, copia y pega este bloque:
-                    
-                    <div class="carrusel-item" data-type="image">
-                        <img src="RUTA_DE_TU_IMAGEN" alt="Descripción">
+        <div class="hero-slider">
+            <div class="hero-slider-track" id="heroSliderTrack">
+                <!-- Slide 1 - Afíliate -->
+                <div class="hero-slide active">
+                    <div class="hero-slide-content">
+                        <span class="hero-badge"><i class="fas fa-handshake"></i> Únete a la familia</span>
+                        <h1>Afíliate a <span>COOPSERPROG</span></h1>
+                        <p>Conviértete en asociado y accede a todos los beneficios que tenemos para ti y tu familia.</p>
+                        <div class="hero-botones">
+                            <a href="#requisitos" class="btn-primario"><i class="fas fa-user-plus"></i> Afíliate
+                                Ahora</a>
+                            <a href="#requisitos" class="btn-secundario"><i class="fas fa-file-signature"></i> Ver
+                                Requisitos</a>
+                        </div>
                     </div>
-                    
-                    Para agregar más videos, copia y pega este bloque:
-                    
-                    <div class="carrusel-item" data-type="video">
-                        <video autoplay muted loop playsinline>
-                            <source src="RUTA_DE_TU_VIDEO" type="video/mp4">
-                        </video>
+                </div>
+
+                <!-- Slide 2 - Simular Crédito -->
+                <div class="hero-slide">
+                    <div class="hero-slide-content">
+                        <span class="hero-badge"><i class="fas fa-credit-card"></i> Financiamiento</span>
+                        <h1>Simula tu <span>Crédito</span> ideal</h1>
+                        <p>Descubre cuánto puedes pedir prestado con nuestras tasas competitivas y aprobación rápida.
+                        </p>
+                        <div class="hero-botones">
+                            <a href="https://app.saac.com.co/#/credit-simulator" target="_blank" class="btn-primario"><i
+                                    class="fas fa-arrow-right"></i> Simular crédito Ahora</a>
+                        </div>
                     </div>
-                    
-                    IMPORTANTE: Los videos deben estar en formato MP4 y ser optimizados para web.
-                -->
+                </div>
+
+                <!-- Slide 3 - Convenios -->
+                <div class="hero-slide">
+                    <div class="hero-slide-content">
+                        <span class="hero-badge"><i class="fas fa-handshake"></i> Alianzas</span>
+                        <h1>Nuestros <span>Convenios</span></h1>
+                        <p>Accede a beneficios exclusivos a través de nuestras alianzas estratégicas con empresas
+                            aliadas.</p>
+                        <div class="hero-botones">
+                            <a href="#" class="btn-primario"><i class="fas fa-building"></i> Ver Convenios</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 4 - Ahorro -->
+                <div class="hero-slide">
+                    <div class="hero-slide-content">
+                        <span class="hero-badge"><i class="fas fa-piggy-bank"></i> Todo en la palma de tu mano</span>
+                        <h1>Obtén nuestra <span>App</span></h1>
+                        <p>Ahorra con nosotros y asegura un mañana mejor para ti y los tuyos con rendimientos
+                            competitivos.</p>
+                        <div class="hero-botones">
+                            <a href="https://play.google.com/store/apps/details?id=com.progress.app"
+                                class="btn-primario"><i class="fas fa-arrow-up"></i> Google Play</a>
+                            <a href="https://app.saac.com.co/#/home" class="btn-secundario"><i
+                                    class="fas fa-calculator"></i> App Store</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <!-- Overlay oscuro para mejorar legibilidad -->
-            <!-- <div class="hero-overlay"></div> -->
-            
-            <!-- Controles del carrusel -->
-            <button class="carrusel-control-hero prev" id="heroPrevSlide" aria-label="Anterior">
+
+            <!-- Controles del slider -->
+            <button class="hero-slider-btn prev" id="heroSliderPrev">
                 <i class="fas fa-chevron-left"></i>
             </button>
-            <button class="carrusel-control-hero next" id="heroNextSlide" aria-label="Siguiente">
+            <button class="hero-slider-btn next" id="heroSliderNext">
                 <i class="fas fa-chevron-right"></i>
             </button>
-            
-            <!-- Indicadores (se generan automáticamente con JavaScript) -->
-            <div class="carrusel-indicadores-hero" id="heroCarruselIndicadores"></div>
+
+            <!-- Indicadores -->
+            <div class="hero-slider-indicators" id="heroSliderIndicators">
+                <span class="indicator active" data-index="0"></span>
+                <span class="indicator" data-index="1"></span>
+                <span class="indicator" data-index="2"></span>
+                <span class="indicator" data-index="3"></span>
+            </div>
         </div>
 
-        <!-- Documentos -->
+        <!-- NAVBAR -->
         <nav class="navbar-moderno" id="navbar">
             <div class="nav-container">
                 <div class="logo-nav">
                     <img src="img/logo-coop.png" alt="COOPSERPROG">
                 </div>
-                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <button class="menu-toggle" id="menuToggle">
                     <i class="fas fa-bars"></i>
                 </button>
                 <ul class="menu-moderno" id="mainMenu">
@@ -1680,357 +125,408 @@
                                     target="_blank">Política de Datos</a></li>
                             <li><a href="docs/455692794_LEY 1581 DE 2012 - PROTECCION DE DATOS. (1).pdf"
                                     target="_blank">Ley 1581 de 2012</a></li>
-                            <li><a href="docs/2026/ESTADOS FINANCIEROS CERTIFICADOS.pdf"
-                                    target="_blank">Estados Financieros</a></li>
-                            <li><a href="docs/2026/CONVOCATORIA Y PROYECTO DEL DIA.pdf"
-                                    target="_blank">Convocatoria</a></li>
+                            <li><a href="docs/2026/ESTADOS FINANCIEROS CERTIFICADOS.pdf" target="_blank">Estados
+                                    Financieros</a></li>
+                            <li><a href="docs/2026/CONVOCATORIA Y PROYECTO DEL DIA.pdf" target="_blank">Convocatoria</a>
+                            </li>
                             <li><a href="documentos.html" target="_blank">Otros Documentos</a></li>
                         </ul>
                     </li>
-                    <li class="menu-item"><a href="#objetivos-mod">Principios</a></li>
+                    <li class="menu-item"><a href="#split-section">Nosotros</a></li>
                     <li class="menu-item"><a href="#valores">Valores</a></li>
-                    <li class="menu-item"><a href="#afiliacion-mod">Afiliación</a></li>
+                    <li class="menu-item"><a href="#simulador">Crédito</a></li>
                     <li class="menu-item"><a href="https://ips.progresando.co/" target="_blank">IPS Progresando</a></li>
                 </ul>
             </div>
         </nav>
 
-        <!-- Hero wave reducido -->
         <div class="hero-wave">
             <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M0 0L48 5.8C96 11.7 192 23.3 288 29.2C384 35 480 35 576 29.2C672 23.3 768 11.7 864 5.8C960 0 1056 0 1152 5.8C1248 11.7 1344 23.3 1392 29.2L1440 35V80H1392C1344 80 1248 80 1152 80C1056 80 960 80 864 80C768 80 672 80 576 80C480 80 384 80 288 80C192 80 96 80 48 80H0V0Z"
-                    fill="white" />
+                    fill="#f8fafc" />
             </svg>
         </div>
     </header>
 
     <main>
-        <!-- CARRUSEL DE NOVEDADES - HORIZONTAL -->
-        <section class="novedades-carrusel">
-            <div class="novedades-container">
-                <span class="badge">Actualización</span>
-                <h2>Últimas <span>Novedades</span></h2>
-
-                <div class="carrusel-wrapper">
-                    <div class="carrusel-track" id="carruselTrack">
-                        <!-- Slide 1 - Horizontal -->
-                        <div class="carrusel-slide">
-                            <div class="slide-imagen">
-                                <img src="img/vision.jpg" alt="Aumento IPC">
-                            </div>
-                            <div class="slide-contenido">
-                                <h3>Tus aportes</h3>
-                                <p>Recuerda que puedes ver tus aportes desde nuestra app.</p>
-                                <a href="#" class="slide-link">Leer más <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- Slide 2 - Horizontal -->
-                        <div class="carrusel-slide">
-                            <div class="slide-imagen">
-                                <img src="img/objetivos.jpg" alt="Nuevos Convenios">
-                            </div>
-                            <div class="slide-contenido">
-                                <h3>Nuevos Convenios</h3>
-                                <p>Hemos establecido alianzas estratégicas para ofrecer mejores beneficios a nuestros
-                                    asociados.</p>
-                                <a href="#" class="slide-link">Conocer más <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- Slide 3 - Horizontal -->
-                        <div class="carrusel-slide">
-                            <div class="slide-imagen">
-                                <img src="img/objetivoss.jpg" alt="Asamblea General">
-                            </div>
-                            <div class="slide-contenido">
-                                <h3>Próxima Asamblea</h3>
-                                <p>Te invitamos a participar en la asamblea general de asociados el próximo 15 de abril.
-                                </p>
-                                <a href="#" class="slide-link">Ver detalles <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- Slide 4 - Horizontal -->
-                        <div class="carrusel-slide">
-                            <div class="slide-imagen">
-                                <img src="img/objetivosss.jpg" alt="Nuevos Servicios">
-                            </div>
-                            <div class="slide-contenido">
-                                <h3>Nuevos Servicios</h3>
-                                <p>Ampliamos nuestra oferta de servicios para brindarte más opciones de crédito y
-                                    ahorro.</p>
-                                <a href="#" class="slide-link">Descubrir <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Controles del carrusel -->
-                    <button class="carrusel-control prev" id="prevSlide">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="carrusel-control next" id="nextSlide">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-
-                    <!-- Indicadores -->
-                    <div class="carrusel-indicadores" id="carruselIndicadores">
-                        <span class="indicador active"></span>
-                        <span class="indicador"></span>
-                        <span class="indicador"></span>
-                        <span class="indicador"></span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- NOSOTROS: Reseña, Misión y Visión en tarjetas flotantes -->
-        <section class="nosotros-moderno" id="nosotros-mod">
+        <!-- ===== SECCIÓN NOVEDADES Y NUESTRA ESENCIA ===== -->
+        <section class="novedades-esencia-section" id="split-section">
             <div class="container">
-                <h2 class="titulo-seccion-mod">Conoce nuestra <span>esencia</span></h2>
-                <div class="nosotros-grid">
-                    <div class="card-nosotros reseña">
-                        <div class="card-icon"><i class="fas fa-history"></i></div>
-                        <h3>Reseña Histórica</h3>
+                <div class="novedades-esencia-grid">
+                    <!-- Lado izquierdo: NOVEDADES -->
+                    <div class="novedades-col">
+                        <h3 class="novedades-title"><i class="fas fa-newspaper"></i> Novedades</h3>
+                        <div class="history-carousel-wrapper">
+                            <div class="history-carousel-track" id="historyCarouselTrack">
+                                <div class="history-carousel-slide">
+                                    <img src="img/vision.jpg" alt="Novedad 1">
+                                    <div class="history-slide-content">
+                                        <!-- <span class="history-badge">Nuevo</span>
+                                        <h3>Desvinculación fácil</h3>
+                                        <p>Ahora puedes desvincularte de forma rápida y segura desde nuestra app</p> -->
+                                    </div>
+                                </div>
+                                <div class="history-carousel-slide">
+                                    <img src="img/mision.jpg" alt="Novedad 2">
+                                    <div class="history-slide-content">
+                                    </div>
+                                </div>
+                                <div class="history-carousel-slide">
+                                    <img src="img/historica.jpg" alt="Novedad 3">
+                                    <div class="history-slide-content">
+                                    </div>
+                                </div>
+                                <div class="history-carousel-slide">
+                                    <img src="img/objetivos.jpg" alt="Novedad 4">
+                                    <div class="history-slide-content">
+                                    </div>
+                                </div>
+                                <div class="history-carousel-slide">
+                                    <img src="img/objetivoss.jpg" alt="Novedad 5">
+                                    <div class="history-slide-content">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="history-carousel-btn prev" id="historyCarouselPrev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="history-carousel-btn next" id="historyCarouselNext">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="history-carousel-dots" id="historyCarouselDots">
+                            <button class="dot active" data-index="0"></button>
+                            <button class="dot" data-index="1"></button>
+                            <button class="dot" data-index="2"></button>
+                            <button class="dot" data-index="3"></button>
+                            <button class="dot" data-index="4"></button>
+                        </div>
+                    </div>
+
+                    <!-- Lado derecho: NUESTRA ESENCIA -->
+                    <div class="esencia-col">
+                        <span class="tag"><i class="fas fa-heart"></i> Nuestra Esencia</span>
+                        <h2>Más que una <span>cooperativa</span></h2>
                         <p>Nacimos en marzo de 2024 en Norte de Santander con un propósito claro: solucionar necesidades
                             económicas. Fundada por profesionales comprometidos, hoy somos una cooperativa abierta a
                             nuevos asociados que buscan mejorar su calidad de vida a través de la ayuda mutua.</p>
-                    </div>
-                    <div class="card-nosotros mision">
-                        <div class="card-icon"><i class="fas fa-bullseye"></i></div>
-                        <h3>Misión</h3>
-                        <p>Ofrecer a nuestros asociados servicios, aportes y créditos que mejoren su calidad de vida,
-                            satisfaciendo sus necesidades y las de sus familias mediante soluciones de ahorro, crédito y
-                            bienestar.</p>
-                    </div>
-                    <div class="card-nosotros vision">
-                        <div class="card-icon"><i class="fas fa-eye"></i></div>
-                        <h3>Visión</h3>
-                        <p>Ser la cooperativa más reconocida en la región por nuestra transparencia, altos estándares de
-                            calidad y por ser el aliado financiero que brinda progreso a todos sus asociados.</p>
+                        <a href="#timeline" class="btn-learn">Conoce nuestra historia <i
+                                class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- IMÁGENES DECORATIVAS -->
-        <div class="imagenes-cuadradas">
-            <div class="imagen-wrapper"><img src="img/objetivos.jpg" alt=""></div>
-            <div class="imagen-wrapper"><img src="img/objetivoss.jpg" alt=""></div>
-            <div class="imagen-wrapper"><img src="img/objetivosss.jpg" alt=""></div>
-        </div>
-
-        <!-- OBJETIVOS -->
-        <section class="objetivos-moderno" id="objetivos-mod">
+        <!-- ===== SIMULADOR DE CRÉDITO ===== -->
+        <section class="simulador-section" id="simulador">
             <div class="container">
-                <h2 class="titulo-seccion-mod">Objetivos que nos <span>impulsan</span></h2>
-                <div class="objetivos-grid">
-                    <div class="objetivo-card objetivo-general">
-                        <div class="objetivo-header">
-                            <i class="fas fa-bullseye"></i>
-                            <h3>General</h3>
-                        </div>
-                        <p>Contribuir al mejoramiento social, económico y cultural de los asociados y la comunidad,
-                            fomentando la solidaridad y la ayuda mutua con una administración eficiente.</p>
-                    </div>
-                    <div class="objetivo-card objetivo-especificos">
-                        <div class="objetivo-header">
-                            <i class="fas fa-list-ul"></i>
-                            <h3>Específicos</h3>
-                        </div>
-                        <ul>
-                            <li>Establecer acuerdos con entidades cooperativas</li>
-                            <li>Prestar servicios de alquiler de bienes</li>
-                            <li>Fomentar actividades sociales y deportivas</li>
-                            <li>Conceder préstamos a asociados</li>
-                            <li>Proporcionar servicios médicos</li>
-                        </ul>
-                    </div>
-                    <div class="objetivo-card objetivo-actividades">
-                        <div class="objetivo-header">
-                            <i class="fas fa-cogs"></i>
-                            <h3>Actividades</h3>
-                        </div>
-                        <ul>
-                            <li>Eventos Sociales</li>
-                            <li>Asesoría Técnica</li>
-                            <li>Servicios de salud</li>
-                            <li>Distribución de productos</li>
-                            <li>Capacitación de personal</li>
-                        </ul>
-                    </div>
-                    <div class="objetivo-card objetivo-notas">
-                        <div class="objetivo-header">
-                            <i class="fas fa-sticky-note"></i>
-                            <h3>Notas Importantes</h3>
-                        </div>
-                        <p><strong>1.</strong> Podemos organizar negocios lícitos relacionados con nuestros objetivos.
+                <div class="simulador-container">
+                    <div class="simulador-info reveal-section">
+                        <h2>Simula tu <span>Crédito</span> ideal</h2>
+                        <p>Descubre cuánto puedes pedir prestado y planifica tus pagos de forma fácil y rápida.
+                            <strong>¡Es rápido, fácil y sin compromiso!</strong>
                         </p>
-                        <p><strong>2.</strong> Priorizamos a asociados, pero también prestamos servicios con interés
-                            social.</p>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <i class="fas fa-percent"></i>
+                                <span>Tasas competitivas</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Afiliación rápida</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>100% confiable</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-smile"></i>
+                                <span>Sin trámites largos</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="simulador-card reveal-section">
+                        <span class="icon"><i class="fas fa-calculator"></i></span>
+                        <span class="amount">$5.000.000 <span>COP</span></span>
+                        <span class="label">Ejemplo de préstamo disponible</span>
+
+                        <a href="https://app.saac.com.co/#/credit-simulator" target="_blank" class="btn-simular">
+                            <i class="fas fa-arrow-right"></i> Simular mi Crédito
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- VALORES CORPORATIVOS - CON SCROLL INFINITO -->
-        <section class="valores-scroll-container" id="valores">
-            <h2 class="titulo-seccion-mod">Nuestros <span>Valores</span></h2>
-            <div class="valores-scroll">
-                <!-- Valores originales -->
-                <div class="valor azul">
-                    <i class="fa-solid fa-scale-balanced"></i>
-                    <h2>Transparencia</h2>
-                    <p>Brindamos claridad en la información proporcionada a nuestros asociados y usuarios, sobre la base
-                        de un proceder ético, con normas y reglas claras.</p>
-                </div>
-                <div class="valor rojo">
-                    <i class="fa-solid fa-hand-holding-heart"></i>
-                    <h2>Servicio</h2>
-                    <p>Nos concentramos en atender y satisfacer las necesidades y expectativas de nuestros asociados y
-                        usuarios, en forma humana, diligente, oportuna y adecuada.</p>
-                </div>
-                <div class="valor amarillo">
-                    <i class="fa-solid fa-people-group"></i>
-                    <h2>Trabajo en Equipo</h2>
-                    <p>Nuestra fuerza de trabajo impulsa los objetivos institucionales, bajo la mutua cooperación y la
-                        unión de esfuerzos, conocimientos y habilidades.</p>
-                </div>
-                <div class="valor verde">
-                    <i class="fa-solid fa-clipboard-check"></i>
-                    <h2>Responsabilidad</h2>
-                    <p>Trabajamos con responsabilidad y conciencia de la labor encomendada, para que nuestras acciones
-                        respondan al objetivo solidario de buscar bienestar.</p>
-                </div>
-                <div class="valor verde-oscuro">
-                    <i class="fa-solid fa-user-lock"></i>
-                    <h2>Confidencialidad</h2>
-                    <p>Nos comprometemos con nuestros asociados a salvaguardar su privacidad y a garantizar el prudente
-                        manejo de la información.</p>
-                </div>
-                <!-- Duplicados para scroll infinito -->
-                <div class="valor azul">
-                    <i class="fa-solid fa-scale-balanced"></i>
-                    <h2>Transparencia</h2>
-                    <p>Brindamos claridad en la información con un proceder ético.</p>
-                </div>
-                <div class="valor rojo">
-                    <i class="fa-solid fa-hand-holding-heart"></i>
-                    <h2>Servicio</h2>
-                    <p>Atención humana, diligente y oportuna.</p>
-                </div>
-                <div class="valor amarillo">
-                    <i class="fa-solid fa-people-group"></i>
-                    <h2>Trabajo en Equipo</h2>
-                    <p>Unión de esfuerzos y conocimientos.</p>
-                </div>
-                <div class="valor verde">
-                    <i class="fa-solid fa-clipboard-check"></i>
-                    <h2>Responsabilidad</h2>
-                    <p>Conciencia en la labor encomendada.</p>
-                </div>
-                <div class="valor verde-oscuro">
-                    <i class="fa-solid fa-user-lock"></i>
-                    <h2>Confidencialidad</h2>
-                    <p>Salvaguardamos tu privacidad.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- AFILIACIÓN APP CON CARRUSEL VERTICAL COMPACTO -->
-        <section class="app-afiliacion-moderno">
-            <div class="container-app">
-                <div class="app-texto">
-                    <span class="badge-app">#NuevaApp</span>
-                    <h2>Todo en la palma de tu mano <i class="fas fa-hand-peace"></i></h2>
-                    <p>Descarga nuestra app y gestiona tu afiliación, créditos y mucho más de forma rápida y segura.</p>
-                    <ul class="app-beneficios">
-                        <li><i class="fas fa-check-circle"></i> Afiliación en línea</li>
-                        <li><i class="fas fa-check-circle"></i> Pago y simulación de créditos</li>
-                        <li><i class="fas fa-check-circle"></i> Convenios y Progrepuntos</li>
-                    </ul>
-                    <div class="app-botones">
-                        <a href="https://play.google.com/store/apps/details?id=com.progress.app" target="_blank"
-                            class="btn-app btn-android"><i class="fab fa-android"></i> Google Play</a>
-                        <a href="https://app.saac.com.co/#/home" target="_blank" class="btn-app btn-ios"><i
-                                class="fab fa-apple"></i> App Store</a>
-                    </div>
-                </div>
-
-                <!-- CARRUSEL VERTICAL COMPACTO -->
-                <div class="app-carrusel-vertical">
-                    <div class="app-carrusel-track-vertical" id="appCarruselTrack">
-                        <!-- <div class="app-carrusel-slide-vertical">
-                            <img src="img/convocatoria.jpeg" alt="App screenshot 1">
-                        </div> -->
-                        <div class="app-carrusel-slide-vertical">
-                            <img src="img/desvincular.jpeg" alt="App screenshot 2">
-                        </div>
-                        <div class="app-carrusel-slide-vertical">
-                            <img src="img/mision.jpg" alt="App screenshot 3">
-                        </div>
-                        <div class="app-carrusel-slide-vertical">
-                            <img src="img/historica.jpg" alt="App screenshot 4">
-                        </div>
-                    </div>
-
-                    <button class="app-carrusel-control-vertical prev-vertical" id="appPrevSlide">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="app-carrusel-control-vertical next-vertical" id="appNextSlide">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-
-                    <div class="app-carrusel-indicadores-vertical" id="appCarruselIndicadores">
-                        <span class="app-indicador-vertical active"></span>
-                        <span class="app-indicador-vertical"></span>
-                        <span class="app-indicador-vertical"></span>
-                        <span class="app-indicador-vertical"></span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- REQUISITOS DE AFILIACIÓN -->
-        <section class="requisitos-moderno" id="afiliacion-mod">
+        <!-- ===== TIMELINE - HISTORIA ===== -->
+        <section class="timeline-section" id="timeline">
             <div class="container">
-                <h2 class="titulo-seccion-mod">Requisitos de <span>Afiliación</span></h2>
-                <div class="requisitos-grid">
-                    <div class="requisito-card persona-natural">
-                        <div class="requisito-header">
-                            <i class="fas fa-user"></i>
-                            <h3>Persona Natural</h3>
+                <h2 class="section-title">Nuestra <span>Historia</span></h2>
+                <p class="section-subtitle">Un recorrido por los momentos que nos han definido como cooperativa.</p>
+
+                <div class="timeline">
+                    <div class="timeline-item" data-delay="0">
+                        <div class="dot"></div>
+                        <div class="content">
+                            <span class="year">2024</span>
+                            <h3>Fundación</h3>
+                            <p>Nacimos en Norte de Santander con el sueño de transformar vidas.</p>
                         </div>
-                        <ul>
-                            <li>Ser mayor de edad (o desde 14 años con representante).</li>
-                            <li>Residir en Colombia.</li>
-                            <li>Ingresos demostrables.</li>
-                            <li>Aporte social inicial: <strong>$70.000</strong>.</li>
-                            <li>Diligenciar formulario y autorizar tratamiento de datos.</li>
-                        </ul>
                     </div>
-                    <div class="requisito-card persona-juridica">
-                        <div class="requisito-header">
-                            <i class="fas fa-building"></i>
-                            <h3>Persona Jurídica</h3>
+                    <div class="timeline-item" data-delay="200">
+                        <div class="dot"></div>
+                        <div class="content">
+                            <span class="year">2024</span>
+                            <h3>Primeros Asociados</h3>
+                            <p>50 familias confiaron en nosotros para construir su futuro financiero.</p>
                         </div>
-                        <ul>
-                            <li>Constitución legal y domicilio en Colombia.</li>
-                            <li>Certificado de existencia y representación legal.</li>
-                            <li>Aporte social inicial: <strong>$100.000</strong>.</li>
-                            <li>Autorización de la junta directiva.</li>
-                            <li>Cumplir con la normativa cooperativa.</li>
-                        </ul>
+                    </div>
+                    <div class="timeline-item" data-delay="400">
+                        <div class="dot"></div>
+                        <div class="content">
+                            <span class="year">2025</span>
+                            <h3>Expansión</h3>
+                            <p>Abrimos nuevas sedes en Villa del Rosario y Ocaña.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-delay="600">
+                        <div class="dot"></div>
+                        <div class="content">
+                            <span class="year">2025</span>
+                            <h3>App Móvil</h3>
+                            <p>Lanzamos nuestra app para gestionar créditos y ahorros desde el celular.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ===== VALORES ===== -->
+        <section class="valores-section" id="valores">
+            <div class="container">
+                <h2 class="section-title">Nuestros <span>Valores</span></h2>
+
+                <div class="valores-scroll-wrapper" id="valoresWrapper">
+                    <div class="valores-scroll" id="valoresScroll">
+                        <div class="valor azul">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                            <h2>Transparencia</h2>
+                            <p>Brindamos claridad en la información con un proceder ético, con normas y reglas claras.
+                            </p>
+                        </div>
+                        <div class="valor rojo">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                            <h2>Servicio</h2>
+                            <p>Atendemos las necesidades de nuestros asociados de forma humana, diligente y oportuna.
+                            </p>
+                        </div>
+                        <div class="valor amarillo">
+                            <i class="fa-solid fa-people-group"></i>
+                            <h2>Trabajo en Equipo</h2>
+                            <p>Nuestra fuerza de trabajo impulsa los objetivos institucionales bajo la mutua
+                                cooperación.
+                            </p>
+                        </div>
+                        <div class="valor verde">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                            <h2>Responsabilidad</h2>
+                            <p>Trabajamos con conciencia para que nuestras acciones respondan al objetivo solidario.</p>
+                        </div>
+                        <div class="valor verde-oscuro">
+                            <i class="fa-solid fa-user-lock"></i>
+                            <h2>Confidencialidad</h2>
+                            <p>Salvaguardamos la privacidad de nuestros asociados con el prudente manejo de la
+                                información.
+                            </p>
+                        </div>
+                        <!-- Duplicados para scroll infinito -->
+                        <div class="valor azul">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                            <h2>Transparencia</h2>
+                            <p>Brindamos claridad en la información con un proceder ético.</p>
+                        </div>
+                        <div class="valor rojo">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                            <h2>Servicio</h2>
+                            <p>Atención humana, diligente y oportuna.</p>
+                        </div>
+                        <div class="valor amarillo">
+                            <i class="fa-solid fa-people-group"></i>
+                            <h2>Trabajo en Equipo</h2>
+                            <p>Unión de esfuerzos y conocimientos.</p>
+                        </div>
+                        <div class="valor verde">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                            <h2>Responsabilidad</h2>
+                            <p>Conciencia en la labor encomendada.</p>
+                        </div>
+                        <div class="valor verde-oscuro">
+                            <i class="fa-solid fa-user-lock"></i>
+                            <h2>Confidencialidad</h2>
+                            <p>Salvaguardamos tu privacidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECCIÓN AFILIACIÓN UNIFICADA ===== -->
+        <section class="afiliacion-unificada" id="requisitos">
+            <div class="container-fluid">
+                <h2 class="section-title">Afíliate a <span>COOPSERPROG</span></h2>
+                <p class="section-subtitle">Todo lo que necesitas saber para ser parte de nuestra cooperativa.</p>
+
+                <!-- CONTENEDOR ÚNICO - MUY ANCHO -->
+                <div class="afiliacion-container">
+
+                    <!-- 1. REQUISITOS - BURBUJAS DE PENSAMIENTO -->
+                    <div class="requisitos-burbujas">
+                        <p class="burbujas-titulo">Selecciona tu tipo de afiliación</p>
+                        <div class="burbujas-grid">
+                            <div class="burbuja-item" onclick="mostrarRequisito('natural')" id="burbujaNatural">
+                                <div class="burbuja-icono">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="burbuja-info">
+                                    <h4>Persona Natural</h4>
+                                    <p>Para personas individuales</p>
+                                </div>
+                                <span class="burbuja-flecha"><i class="fas fa-chevron-right"></i></span>
+                            </div>
+
+                            <div class="burbuja-item" onclick="mostrarRequisito('juridica')" id="burbujaJuridica">
+                                <div class="burbuja-icono">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="burbuja-info">
+                                    <h4>Persona Jurídica</h4>
+                                    <p>Para empresas y entidades</p>
+                                </div>
+                                <span class="burbuja-flecha"><i class="fas fa-chevron-right"></i></span>
+                            </div>
+                        </div>
+
+                        <!-- NUBE DE PENSAMIENTO (burbuja flotante) -->
+                        <div class="nube-pensamiento" id="nubePensamiento">
+                            <div class="nube-contenido" id="nubeNatural">
+                                <div class="nube-cabecera">
+                                    <i class="fas fa-user"></i>
+                                    <h3>Requisitos Persona Natural</h3>
+                                    <button class="nube-cerrar" onclick="cerrarNube()"><i
+                                            class="fas fa-times"></i></button>
+                                </div>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Ser mayor de edad (o desde 14 años con
+                                        representante)</li>
+                                    <li><i class="fas fa-check-circle"></i> Residir en Colombia</li>
+                                    <li><i class="fas fa-check-circle"></i> Ingresos demostrables</li>
+                                    <li><i class="fas fa-check-circle"></i> Aporte social inicial:
+                                        <strong>$70.000</strong>
+                                    </li>
+                                    <li><i class="fas fa-check-circle"></i> Diligenciar formulario de afiliación</li>
+                                    <li><i class="fas fa-check-circle"></i> Autorizar tratamiento de datos personales
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="nube-contenido" id="nubeJuridica" style="display:none;">
+                                <div class="nube-cabecera">
+                                    <i class="fas fa-building"></i>
+                                    <h3>Requisitos Persona Jurídica</h3>
+                                    <button class="nube-cerrar" onclick="cerrarNube()"><i
+                                            class="fas fa-times"></i></button>
+                                </div>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Constitución legal y domicilio en Colombia
+                                    </li>
+                                    <li><i class="fas fa-check-circle"></i> Certificado de existencia y representación
+                                        legal</li>
+                                    <li><i class="fas fa-check-circle"></i> Aporte social inicial:
+                                        <strong>$100.000</strong>
+                                    </li>
+                                    <li><i class="fas fa-check-circle"></i> Autorización de la junta directiva</li>
+                                    <li><i class="fas fa-check-circle"></i> Diligenciar formulario de afiliación
+                                        empresarial</li>
+                                    <li><i class="fas fa-check-circle"></i> Cumplir con la normativa cooperativa</li>
+                                </ul>
+                            </div>
+                            <div class="nube-triangulo"></div>
+                        </div>
+                    </div>
+
+                    <!-- 2. WHATSAPP - Contacto -->
+                    <div class="afiliacion-whatsapp">
+                        <div class="whatsapp-icono">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="whatsapp-info">
+                            <h3>¡Comienza tu afiliación!</h3>
+                            <p>Escríbenos al <strong>+57 322 8642938</strong> y nuestro equipo te guiará en el proceso
+                                de afiliación.</p>
+                            <a href="https://wa.me/573228642938" target="_blank" class="btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 3. APP - Diseño limpio -->
+                    <div class="afiliacion-app">
+                        <div class="app-contenido">
+                            <div class="app-icono">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="app-texto">
+                                <h3>Diligencia el formulario desde nuestra App</h3>
+                                <p>Completa tu afiliación desde tu celular de forma rápida, segura y sin papeles.</p>
+                                <div class="app-pasos">
+                                    <span class="app-paso"><span class="paso-numero">1</span> Descarga la app</span>
+                                    <span class="app-paso"><span class="paso-numero">2</span> Completa el
+                                        formulario</span>
+                                    <span class="app-paso"><span class="paso-numero">3</span> Envía tus
+                                        documentos</span>
+                                </div>
+                                <ul class="app-beneficios">
+                                    <li><i class="fas fa-check-circle"></i> Afiliación en línea desde tu celular</li>
+                                    <li><i class="fas fa-check-circle"></i> Pago y simulación de créditos</li>
+                                    <li><i class="fas fa-check-circle"></i> Convenios y Progrepuntos</li>
+                                </ul>
+                                <div class="app-botones">
+                                    <a href="https://play.google.com/store/apps/details?id=com.progress.app"
+                                        target="_blank" class="btn-app-android">
+                                        <i class="fab fa-android"></i> Google Play
+                                    </a>
+                                    <a href="https://app.saac.com.co/#/home" target="_blank" class="btn-app-ios">
+                                        <i class="fab fa-apple"></i> App Store
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mensaje final -->
+                    <div class="afiliacion-final">
+                        <p><i class="fas fa-check-circle"></i> ¿Listo para afiliarte? <strong>Escríbenos al
+                                WhatsApp</strong> y nuestro equipo te acompañará en todo el proceso.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <iframe src="https://app.saac.com.co/#/convenios" width="60%" height="90">
+        </iframe>
     </main>
 
-    <!-- FOOTER -->
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="footer-container">
             <div class="footer-content">
-                <!-- Columna 1: Información general -->
                 <div class="footer-column">
                     <img src="img/logo-coop.png" alt="Logo COOPSERPROG" class="footer-logo">
                     <div class="footer-description">
@@ -2044,36 +540,32 @@
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <span>cooperativacoopserprog@gmail.com</span>
-
                     </div>
                 </div>
 
-                <!-- Columna 2: Enlaces rápidos -->
                 <div class="footer-column">
                     <h3>Enlaces Rápidos</h3>
                     <ul class="footer-links">
                         <li><a href="https://ips.progresando.co/" target="_blank"><i
                                     class="fas fa-external-link-alt"></i> IPS Progresando</a></li>
-                        <li><a href="#objetivos-mod"><i class="fas fa-bullseye"></i> Principios y Objetivos</a></li>
-                        <li><a href="#valores"><i class="fas fa-heart"></i> Valores Corporativos</a></li>
-                        <li><a href="#afiliacion-mod"><i class="fas fa-file-signature"></i> Requisitos de afiliación</a>
+                        <li><a href="#split-section"><i class="fas fa-heart"></i> Nuestra Esencia</a></li>
+                        <li><a href="#valores"><i class="fas fa-star"></i> Valores Corporativos</a></li>
+                        <li><a href="#requisitos"><i class="fas fa-file-signature"></i> Requisitos de afiliación</a>
                         </li>
+                        <li><a href="#simulador"><i class="fas fa-calculator"></i> Simulador de Crédito</a></li>
                     </ul>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/share/1BtMrASBuL/" target="_blank" class="social-link">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
+                        <a href="https://www.facebook.com/share/1BtMrASBuL/" target="_blank" class="social-link"><i
+                                class="fab fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com/coopserprog?igsh=NGc5M3VxamVnMnI4" target="_blank"
-                            class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://wa.me/573228642938" target="_blank" class="social-link">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
+                            class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/573228642938" target="_blank" class="social-link"><i
+                                class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@coopserprog" target="_blank" class="social-link"><i
+                                class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
 
-                <!-- Columna 3: Horario -->
                 <div class="footer-column">
                     <h3>Horario de Atención</h3>
                     <div class="business-hours">
@@ -2082,7 +574,6 @@
                     </div>
                 </div>
 
-                <!-- Columna 4: Sedes -->
                 <div class="footer-column">
                     <h3>Nuestras Sedes</h3>
                     <div class="footer-sede">
@@ -2117,191 +608,177 @@
     </footer>
 
     <script>
-        // Script para el menú hamburguesa
+        // ===== MENÚ HAMBURGUESA =====
         document.getElementById('menuToggle').addEventListener('click', function () {
             document.getElementById('mainMenu').classList.toggle('show');
         });
 
-        // Script para ocultar navbar al bajar y mostrar al subir
+        // ===== NAVBAR SCROLL =====
         let lastScroll = 0;
         const navbar = document.getElementById('navbar');
         const menu = document.getElementById('mainMenu');
 
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
-
-            // Ocultar/mostrar navbar
-            if (currentScroll > lastScroll && currentScroll > 100) {
-                // Bajando - ocultar navbar
-                navbar.classList.add('navbar-hidden');
-            } else {
-                // Subiendo - mostrar navbar
-                navbar.classList.remove('navbar-hidden');
-            }
-
-            // Cerrar menú hamburguesa si está abierto y se hace scroll
-            if (menu.classList.contains('show') && currentScroll > 50) {
-                menu.classList.remove('show');
-            }
-
+            if (currentScroll > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+            if (currentScroll > lastScroll && currentScroll > 100) navbar.classList.add('navbar-hidden');
+            else navbar.classList.remove('navbar-hidden');
+            if (menu.classList.contains('show') && currentScroll > 50) menu.classList.remove('show');
             lastScroll = currentScroll;
         });
 
-        // Script para el carrusel de novedades (HORIZONTAL)
+        // ===== REVELADO AL SCROLL =====
         document.addEventListener('DOMContentLoaded', function () {
-            const track = document.getElementById('carruselTrack');
-            const prevBtn = document.getElementById('prevSlide');
-            const nextBtn = document.getElementById('nextSlide');
-            const indicators = document.querySelectorAll('.indicador');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal-section').forEach(el => observer.observe(el));
+
+            const timelineObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const delay = parseInt(entry.target.dataset.delay) || 0;
+                        setTimeout(() => entry.target.classList.add('visible'), delay);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            document.querySelectorAll('.timeline-item').forEach(el => timelineObserver.observe(el));
+        });
+
+        // ===== SLIDER HEADER =====
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('.hero-slide');
+            const prevBtn = document.getElementById('heroSliderPrev');
+            const nextBtn = document.getElementById('heroSliderNext');
+            const indicators = document.querySelectorAll('.hero-slider-indicators .indicator');
             let currentIndex = 0;
-            const totalSlides = document.querySelectorAll('.carrusel-slide').length;
+            const totalSlides = slides.length;
+
+            function updateSlider(index) {
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+                indicators.forEach((ind, i) => {
+                    ind.classList.toggle('active', i === index);
+                });
+                currentIndex = index;
+            }
+
+            prevBtn.addEventListener('click', () => updateSlider(currentIndex - 1));
+            nextBtn.addEventListener('click', () => updateSlider(currentIndex + 1));
+            indicators.forEach((ind, i) => {
+                ind.addEventListener('click', () => updateSlider(i));
+            });
+
+            let autoPlay = setInterval(() => updateSlider(currentIndex + 1), 6000);
+            const slider = document.querySelector('.hero-slider');
+            slider.addEventListener('mouseenter', () => clearInterval(autoPlay));
+            slider.addEventListener('mouseleave', () => {
+                autoPlay = setInterval(() => updateSlider(currentIndex + 1), 6000);
+            });
+
+            updateSlider(0);
+        });
+
+        // ===== CARRUSEL DE NOVEDADES =====
+        document.addEventListener('DOMContentLoaded', function () {
+            const track = document.getElementById('historyCarouselTrack');
+            const prevBtn = document.getElementById('historyCarouselPrev');
+            const nextBtn = document.getElementById('historyCarouselNext');
+            const dots = document.querySelectorAll('#historyCarouselDots .dot');
+            let currentIndex = 0;
+            const totalSlides = document.querySelectorAll('.history-carousel-slide').length;
 
             function updateCarousel(index) {
                 if (index < 0) index = totalSlides - 1;
                 if (index >= totalSlides) index = 0;
-
                 track.style.transform = `translateX(-${index * 100}%)`;
                 currentIndex = index;
-
-                indicators.forEach((ind, i) => {
-                    if (i === currentIndex) {
-                        ind.classList.add('active');
-                    } else {
-                        ind.classList.remove('active');
-                    }
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
                 });
             }
 
-            prevBtn.addEventListener('click', () => {
-                updateCarousel(currentIndex - 1);
+            prevBtn.addEventListener('click', () => updateCarousel(currentIndex - 1));
+            nextBtn.addEventListener('click', () => updateCarousel(currentIndex + 1));
+            dots.forEach((dot, i) => {
+                dot.addEventListener('click', () => updateCarousel(i));
             });
 
-            nextBtn.addEventListener('click', () => {
-                updateCarousel(currentIndex + 1);
+            let autoPlay = setInterval(() => updateCarousel(currentIndex + 1), 6000);
+            const wrapper = document.querySelector('.history-carousel-wrapper');
+            wrapper.addEventListener('mouseenter', () => clearInterval(autoPlay));
+            wrapper.addEventListener('mouseleave', () => {
+                autoPlay = setInterval(() => updateCarousel(currentIndex + 1), 6000);
             });
 
-            // Auto-play opcional (cada 9 segundos)
-            setInterval(() => {
-                updateCarousel(currentIndex + 1);
-            }, 9000);
+            updateCarousel(0);
         });
 
-        // Script para el carrusel vertical compacto de la app
-        document.addEventListener('DOMContentLoaded', function () {
-            const appTrack = document.getElementById('appCarruselTrack');
-            const appPrevBtn = document.getElementById('appPrevSlide');
-            const appNextBtn = document.getElementById('appNextSlide');
-            const appIndicators = document.querySelectorAll('.app-indicador-vertical');
-            let appCurrentIndex = 0;
-            const appTotalSlides = document.querySelectorAll('.app-carrusel-slide-vertical').length;
+        // ===== ACORDEÓN DE REQUISITOS =====
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const btn = content.previousElementSibling;
 
-            function updateAppCarousel(index) {
-                if (index < 0) index = appTotalSlides - 1;
-                if (index >= appTotalSlides) index = 0;
+            // Cerrar otros acordeones
+            document.querySelectorAll('.acordeon-content').forEach(el => {
+                if (el.id !== id && el.classList.contains('open')) {
+                    el.classList.remove('open');
+                    el.previousElementSibling.classList.remove('active');
+                }
+            });
 
-                appTrack.style.transform = `translateX(-${index * 100}%)`;
-                appCurrentIndex = index;
+            // Toggle el actual
+            content.classList.toggle('open');
+            btn.classList.toggle('active');
+        }
 
-                appIndicators.forEach((ind, i) => {
-                    if (i === index) {
-                        ind.classList.add('active');
-                    } else {
-                        ind.classList.remove('active');
-                    }
-                });
+
+        // ===== REQUISITOS - NUBE DE PENSAMIENTO =====
+        function mostrarRequisito(tipo) {
+            // Remover active de todas las burbujas
+            document.querySelectorAll('.burbuja-item').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            // Activar la burbuja seleccionada
+            if (tipo === 'natural') {
+                document.getElementById('burbujaNatural').classList.add('active');
+                document.getElementById('nubeNatural').style.display = 'block';
+                document.getElementById('nubeJuridica').style.display = 'none';
+            } else {
+                document.getElementById('burbujaJuridica').classList.add('active');
+                document.getElementById('nubeJuridica').style.display = 'block';
+                document.getElementById('nubeNatural').style.display = 'none';
             }
 
-            appPrevBtn.addEventListener('click', () => {
-                updateAppCarousel(appCurrentIndex - 1);
+            // Mostrar la nube
+            const nube = document.getElementById('nubePensamiento');
+            nube.classList.add('mostrar');
+            nube.style.display = 'block';
+        }
+
+        function cerrarNube() {
+            document.querySelectorAll('.burbuja-item').forEach(el => {
+                el.classList.remove('active');
             });
-
-            appNextBtn.addEventListener('click', () => {
-                updateAppCarousel(appCurrentIndex + 1);
-            });
-
-            // Auto-play para el carrusel vertical (cada 9 segundos)
-            setInterval(() => {
-                updateAppCarousel(appCurrentIndex + 1);
-            }, 9000);
-
-            // Inicializar
-            updateAppCarousel(0);
-        });
-
-        // Script para el carrusel del HEADER (SIN AUTO-PLAY)
-        document.addEventListener('DOMContentLoaded', function () {
-            const heroSlides = document.querySelectorAll('.carrusel-item');
-            const heroPrevBtn = document.getElementById('heroPrevSlide');
-            const heroNextBtn = document.getElementById('heroNextSlide');
-            const heroIndicatorsContainer = document.getElementById('heroCarruselIndicadores');
-            let heroCurrentIndex = 0;
-            const heroTotalSlides = heroSlides.length;
-
-            // Crear indicadores dinámicamente
-            for (let i = 0; i < heroTotalSlides; i++) {
-                const indicator = document.createElement('span');
-                indicator.className = 'indicador-hero' + (i === 0 ? ' active' : '');
-                indicator.setAttribute('data-index', i);
-                indicator.addEventListener('click', function () {
-                    updateHeroCarousel(parseInt(this.getAttribute('data-index')));
-                });
-                heroIndicatorsContainer.appendChild(indicator);
-            }
-
-            const heroIndicators = document.querySelectorAll('.indicador-hero');
-
-            function updateHeroCarousel(index) {
-                if (index < 0) index = heroTotalSlides - 1;
-                if (index >= heroTotalSlides) index = 0;
-
-                // Actualizar slides
-                heroSlides.forEach((slide, i) => {
-                    if (i === index) {
-                        slide.classList.add('active');
-                        
-                        // Si es video, asegurar que se reproduzca
-                        if (slide.dataset.type === 'video') {
-                            const video = slide.querySelector('video');
-                            if (video) {
-                                video.currentTime = 0;
-                                video.play().catch(e => console.log('Auto-play bloqueado por el navegador'));
-                            }
-                        }
-                    } else {
-                        slide.classList.remove('active');
-                        // Pausar otros videos
-                        const video = slide.querySelector('video');
-                        if (video) {
-                            video.pause();
-                        }
-                    }
-                });
-
-                // Actualizar indicadores
-                heroIndicators.forEach((ind, i) => {
-                    if (i === index) {
-                        ind.classList.add('active');
-                    } else {
-                        ind.classList.remove('active');
-                    }
-                });
-
-                heroCurrentIndex = index;
-            }
-
-            // Event listeners para controles (SOLO CON BOTONES - SIN AUTO-PLAY)
-            heroPrevBtn.addEventListener('click', () => {
-                updateHeroCarousel(heroCurrentIndex - 1);
-            });
-
-            heroNextBtn.addEventListener('click', () => {
-                updateHeroCarousel(heroCurrentIndex + 1);
-            });
-
-            // Inicializar
-            updateHeroCarousel(0);
-        });
+            const nube = document.getElementById('nubePensamiento');
+            nube.classList.remove('mostrar');
+            nube.style.display = 'none';
+            document.getElementById('nubeNatural').style.display = 'none';
+            document.getElementById('nubeJuridica').style.display = 'none';
+        }
     </script>
+
 </body>
 
 </html>
