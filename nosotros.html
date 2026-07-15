@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COOPSERPROG · Progreso Cooperativo</title>
+    <link rel="stylesheet" href="style/styles.css" />
+    <script src="https://kit.fontawesome.com/71d96bc7c5.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- ===== WHATSAPP FLOTANTE ===== -->
+    <div class="whatsapp-float" id="whatsappFloat">
+        <div class="whatsapp-bubble">
+            <i class="fas fa-bullhorn"></i> ¡Contáctanos!
+        </div>
+        <button class="whatsapp-btn" id="whatsappToggle" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </button>
+        <div class="whatsapp-menu" id="whatsappMenu">
+            <a href="https://whatsapp.com/channel/0029VbDRTrmBlHpU12h7v40y" target="_blank" class="whatsapp-option">
+                <i class="fas fa-bullhorn"></i>
+                <span>Canal Coopserprog</span>
+                <small>Entérate de todo</small>
+            </a>
+            <a href="https://wa.me/573228642938" target="_blank" class="whatsapp-option">
+                <i class="fas fa-question-circle"></i>
+                <span>¿Tienes dudas?</span>
+                <small>Habla con nosotros</small>
+            </a>
+        </div>
+    </div>
+
+    <!-- ===== HEADER CON SLIDER DE TARJETAS CON IMÁGENES ===== -->
+    <header class="hero-moderno" id="inicio">
+        <div class="hero-slider">
+            <div class="hero-slider-track" id="heroSliderTrack">
+                <!-- Slide 1 - Afíliate -->
+                <div class="hero-slide active"
+                    style="background-image: url('img/afiliate.png'); background-size: cover; background-position: center;">
+                    <div class="hero-slide-content">
+                        <span class="hero-badge"><i class="fas fa-handshake"></i> Únete a la familia</span>
+                        <h1>Afíliate a <span>COOPSERPROG</span></h1>
+                        <p>Conviértete en asociado y accede a todos los beneficios que tenemos para ti y tu familia.</p>
+                        <div class="hero-botones">
+                            <a href="#requisitos" class="btn-primario"><i class="fas fa-user-plus"></i> Afíliate
+                                Ahora</a>
+                            <a href="#requisitos" class="btn-secundario"><i class="fas fa-file-signature"></i> Ver
+                                Requisitos</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 - Simular Crédito -->
+                <div class="hero-slide"
+                    style="background-image: url('img/simulacredito.png'); background-size: cover; background-position: center;">
+                    <div class="hero-slide-content">
+                        <span class="hero-badge"><i class="fas fa-credit-card"></i> Financiamiento</span>
+                        <h1>Simula tu <span>Crédito</span> ideal</h1>
+                        <p>Descubre cuánto puedes pedir prestado con nuestras tasas competitivas y aprobación rápida.
+                        </p>
+                        <div class="hero-botones">
+                            <a href="https://app.saac.com.co/#/credit-simulator" target="_blank" class="btn-primario"><i
+                                    class="fas fa-arrow-right"></i> Simular crédito Ahora</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 - Convenios -->
+                <div class="hero-slide"
+                    style="background-image: url('img/convenios.png'); background-size: cover; background-position: center;">
+                    <div class="hero-slide-content">
+                        <span class="hero-badge"><i class="fas fa-handshake"></i> Alianzas</span>
+                        <h1>Nuestros <span>Convenios</span></h1>
+                        <p>Accede a beneficios exclusivos a través de nuestras alianzas estratégicas con empresas
+                            aliadas.</p>
+                        <div class="hero-botones">
+                            <a href="#convenios" class="btn-primario"><i class="fas fa-building"></i> Ver Convenios</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 4 - Ahorro -->
+                <div class="hero-slide"
+                    style="background-image: url('img/app.png'); background-size: cover; background-position: center;">
+                    <div class="hero-slide-content">
+                        <span class="hero-badge"><i class="fas fa-piggy-bank"></i> Todo en la palma de tu mano</span>
+                        <h1>Obtén nuestra <span>App</span></h1>
+                        <p>Ahorra con nosotros y asegura un mañana mejor para ti y los tuyos con rendimientos
+                            competitivos.</p>
+                        <div class="hero-botones">
+                            <a href="https://play.google.com/store/apps/details?id=com.progress.app"
+                                class="btn-primario"><i class="fas fa-arrow-up"></i> Google Play</a>
+                            <a href="https://app.saac.com.co/#/home" class="btn-secundario"><i
+                                    class="fas fa-calculator"></i> App Store</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controles del slider -->
+            <button class="hero-slider-btn prev" id="heroSliderPrev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="hero-slider-btn next" id="heroSliderNext">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <!-- Indicadores -->
+            <div class="hero-slider-indicators" id="heroSliderIndicators">
+                <span class="indicator active" data-index="0"></span>
+                <span class="indicator" data-index="1"></span>
+                <span class="indicator" data-index="2"></span>
+                <span class="indicator" data-index="3"></span>
+            </div>
+        </div>
+
+        <!-- NAVBAR -->
+        <nav class="navbar-moderno" id="navbar">
+            <div class="nav-container">
+                <div class="logo-nav">
+                    <img src="img/logo-coop.png" alt="COOPSERPROG">
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="menu-moderno" id="mainMenu">
+                    <li class="menu-item"><a href="#inicio">Inicio</a></li>
+                    <li class="menu-item dropdown">
+                        <a href="#">Documentos <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="docs/1065810627_POLITICA DE TRATAMIENTO DE LA INFORMACION - COOPSERPROG (2).pdf"
+                                    target="_blank">Política de Datos</a></li>
+                            <li><a href="docs/455692794_LEY 1581 DE 2012 - PROTECCION DE DATOS. (1).pdf"
+                                    target="_blank">Ley 1581 de 2012</a></li>
+                            <li><a href="docs/2026/ESTADOS FINANCIEROS CERTIFICADOS.pdf" target="_blank">Estados
+                                    Financieros</a></li>
+                            <li><a href="docs/2026/CONVOCATORIA Y PROYECTO DEL DIA.pdf" target="_blank">Convocatoria</a>
+                            </li>
+                            <li><a href="documentos.html" target="_blank">Otros Documentos</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="#split-section">Nosotros</a></li>
+                    <li class="menu-item"><a href="#valores">Valores</a></li>
+                    <li class="menu-item"><a href="#simulador">Crédito</a></li>
+                    <li class="menu-item"><a href="#convenios">Convenios</a></li>
+                    <li class="menu-item"><a href="https://ips.progresando.co/" target="_blank">IPS Progresando</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M0 0L48 5.8C96 11.7 192 23.3 288 29.2C384 35 480 35 576 29.2C672 23.3 768 11.7 864 5.8C960 0 1056 0 1152 5.8C1248 11.7 1344 23.3 1392 29.2L1440 35V80H1392C1344 80 1248 80 1152 80C1056 80 960 80 864 80C768 80 672 80 576 80C480 80 384 80 288 80C192 80 96 80 48 80H0V0Z"
+                    fill="#f8fafc" />
+            </svg>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ===== VALORES ===== -->
+        <section class="valores-section" id="valores">
+            <div class="container">
+                <h2 class="section-title">Nuestros <span>Valores</span></h2>
+
+                <div class="valores-scroll-wrapper" id="valoresWrapper">
+                    <div class="valores-scroll" id="valoresScroll">
+                        <div class="valor azul">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                            <h2>Transparencia</h2>
+                            <p>Brindamos claridad en la información con un proceder ético, con normas y reglas claras.
+                            </p>
+                        </div>
+                        <div class="valor rojo">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                            <h2>Servicio</h2>
+                            <p>Atendemos las necesidades de nuestros asociados de forma humana, diligente y oportuna.
+                            </p>
+                        </div>
+                        <div class="valor amarillo">
+                            <i class="fa-solid fa-people-group"></i>
+                            <h2>Trabajo en Equipo</h2>
+                            <p>Nuestra fuerza de trabajo impulsa los objetivos institucionales bajo la mutua
+                                cooperación.</p>
+                        </div>
+                        <div class="valor verde">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                            <h2>Responsabilidad</h2>
+                            <p>Trabajamos con conciencia para que nuestras acciones respondan al objetivo solidario.</p>
+                        </div>
+                        <div class="valor verde-oscuro">
+                            <i class="fa-solid fa-user-lock"></i>
+                            <h2>Confidencialidad</h2>
+                            <p>Salvaguardamos la privacidad de nuestros asociados con el prudente manejo de la
+                                información.</p>
+                        </div>
+                        <!-- Duplicados para scroll infinito -->
+                        <div class="valor azul">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                            <h2>Transparencia</h2>
+                            <p>Brindamos claridad en la información con un proceder ético.</p>
+                        </div>
+                        <div class="valor rojo">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                            <h2>Servicio</h2>
+                            <p>Atención humana, diligente y oportuna.</p>
+                        </div>
+                        <div class="valor amarillo">
+                            <i class="fa-solid fa-people-group"></i>
+                            <h2>Trabajo en Equipo</h2>
+                            <p>Unión de esfuerzos y conocimientos.</p>
+                        </div>
+                        <div class="valor verde">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                            <h2>Responsabilidad</h2>
+                            <p>Conciencia en la labor encomendada.</p>
+                        </div>
+                        <div class="valor verde-oscuro">
+                            <i class="fa-solid fa-user-lock"></i>
+                            <h2>Confidencialidad</h2>
+                            <p>Salvaguardamos tu privacidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECCIÓN OBJETIVOS QUE NOS IMPULSAN ===== -->
+        <section class="objetivos-section" id="objetivos">
+            <div class="container">
+                <h2 class="section-title">Objetivos que nos <span>impulsan</span></h2>
+
+                <div class="objetivo-general">
+                    <div class="objetivo-general-icon"><i class="fas fa-bullseye"></i></div>
+                    <div class="objetivo-general-content">
+                        <h3>General</h3>
+                        <p>Contribuir al mejoramiento social, económico y cultural de los asociados y la comunidad,
+                            fomentando la solidaridad y la ayuda mutua con una administración eficiente.</p>
+                    </div>
+                </div>
+
+                <div class="objetivos-especificos">
+                    <h4>Específicos</h4>
+                    <div class="objetivos-grid">
+                        <div class="objetivo-item">
+                            <div class="objetivo-item-icon"><i class="fas fa-handshake"></i></div>
+                            <span>Establecer acuerdos con entidades cooperativas</span>
+                        </div>
+                        <div class="objetivo-item">
+                            <div class="objetivo-item-icon"><i class="fas fa-building"></i></div>
+                            <span>Prestar servicios de alquiler de bienes</span>
+                        </div>
+                        <div class="objetivo-item">
+                            <div class="objetivo-item-icon"><i class="fas fa-users"></i></div>
+                            <span>Fomentar actividades sociales y deportivas</span>
+                        </div>
+                        <div class="objetivo-item">
+                            <div class="objetivo-item-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                            <span>Conceder préstamos a asociados</span>
+                        </div>
+                        <div class="objetivo-item">
+                            <div class="objetivo-item-icon"><i class="fas fa-heartbeat"></i></div>
+                            <span>Proporcionar servicios médicos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actividades-section">
+                    <h4>Actividades</h4>
+                    <div class="actividades-grid">
+                        <div class="actividad-item"><i class="fas fa-calendar-alt"></i><span>Eventos Sociales</span>
+                        </div>
+                        <div class="actividad-item"><i class="fas fa-chart-line"></i><span>Asesoría Técnica</span></div>
+                        <div class="actividad-item"><i class="fas fa-ambulance"></i><span>Servicios de salud</span>
+                        </div>
+                        <div class="actividad-item"><i class="fas fa-truck"></i><span>Distribución de productos</span>
+                        </div>
+                        <div class="actividad-item"><i class="fas fa-graduation-cap"></i><span>Capacitación de
+                                personal</span></div>
+                    </div>
+                </div>
+
+                <div class="notas-section">
+                    <div class="nota-item">
+                        <div class="nota-numero">1</div>
+                        <p>Podemos organizar negocios lícitos relacionados con nuestros objetivos.</p>
+                    </div>
+                    <div class="nota-item">
+                        <div class="nota-numero">2</div>
+                        <p>Priorizamos a asociados, pero también prestamos servicios con interés social.</p>
+                    </div>
+                </div>
+
+                <div class="mision-vision">
+                    <div class="mision">
+                        <div class="mv-icon"><i class="fas fa-flag"></i></div>
+                        <h4>Misión</h4>
+                        <p>Ofrecer a nuestros asociados servicios, aportes y créditos que mejoren su calidad de vida,
+                            satisfaciendo sus necesidades y las de sus familias mediante soluciones de ahorro, crédito y
+                            bienestar.</p>
+                    </div>
+                    <div class="vision">
+                        <div class="mv-icon"><i class="fas fa-eye"></i></div>
+                        <h4>Visión</h4>
+                        <p>Ser la cooperativa más reconocida en la región por nuestra transparencia, altos estándares de
+                            calidad y por ser el aliado financiero que brinda progreso a todos sus asociados.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER (EXACTAMENTE IGUAL) ===== -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <img src="img/logo-coop.png" alt="Logo COOPSERPROG" class="footer-logo">
+                    <div class="footer-description">
+                        <p>Cooperativa de Servicios de Aporte y Crédito Progresando, comprometida con el desarrollo
+                            económico y social de nuestros asociados.</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+57 322 8642938</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>cooperativacoopserprog@gmail.com</span>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://ips.progresando.co/" target="_blank"><i
+                                    class="fas fa-external-link-alt"></i> IPS Progresando</a></li>
+                        <li><a href="#split-section"><i class="fas fa-heart"></i> Nuestra Esencia</a></li>
+                        <li><a href="#valores"><i class="fas fa-star"></i> Valores Corporativos</a></li>
+                        <li><a href="#requisitos"><i class="fas fa-file-signature"></i> Requisitos de afiliación</a>
+                        </li>
+                        <li><a href="#simulador"><i class="fas fa-calculator"></i> Simulador de Crédito</a></li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/share/1BtMrASBuL/" target="_blank" class="social-link"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/coopserprog?igsh=NGc5M3VxamVnMnI4" target="_blank"
+                            class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://whatsapp.com/channel/0029VbDRTrmBlHpU12h7v40y" target="_blank"
+                            class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@coopserprog" target="_blank" class="social-link"><i
+                                class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Horario de Atención</h3>
+                    <div class="business-hours">
+                        <p><strong>Lunes a Viernes:</strong> 6:00 a.m. - 12:00 m</p>
+                        <p>2:00 p.m. - 5:00 p.m.</p>
+                        <p><strong>Sábados:</strong> 6:00 a.m. - 12:00 m</p>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Nuestras Sedes</h3>
+                    <div class="footer-sede">
+                        <h4><i class="fas fa-map-marker-alt"></i> Cúcuta</h4>
+                        <span>Calle 21 #0B-75, Barrio Blanco</span>
+                    </div>
+                    <div class="footer-sede">
+                        <h4><i class="fas fa-map-marker-alt"></i> Villa del Rosario</h4>
+                        <span>Calle 11 #8 - 15, Barrio La Palmita</span>
+                    </div>
+                    <div class="footer-sede">
+                        <h4><i class="fas fa-map-marker-alt"></i> Ocaña</h4>
+                        <span>Calle 11 #24-65 Barrio Las Llanadas</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="legal-links">
+                        <a href="docs/1065810627_POLITICA DE TRATAMIENTO DE LA INFORMACION - COOPSERPROG (2).pdf"
+                            target="_blank">Política de Tratamiento de datos</a>
+                    </div>
+                    <div class="footer-copy">
+                        © 2025 COOPSERPROG. Todos los derechos reservados.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#inicio" class="flecha-inicio" title="Volver al inicio"><i class="fas fa-arrow-up"></i></a>
+    </footer>
+
+    <script>
+        // ===== MENÚ HAMBURGUESA =====
+        document.getElementById('menuToggle').addEventListener('click', function () {
+            document.getElementById('mainMenu').classList.toggle('show');
+        });
+
+        // ===== NAVBAR SCROLL =====
+        let lastScroll = 0;
+        const navbar = document.getElementById('navbar');
+        const menu = document.getElementById('mainMenu');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+            if (currentScroll > lastScroll && currentScroll > 100) navbar.classList.add('navbar-hidden');
+            else navbar.classList.remove('navbar-hidden');
+            if (menu.classList.contains('show') && currentScroll > 50) menu.classList.remove('show');
+            lastScroll = currentScroll;
+        });
+
+        // ===== REVELADO AL SCROLL =====
+        document.addEventListener('DOMContentLoaded', function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal-section').forEach(el => observer.observe(el));
+
+            const timelineObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const delay = parseInt(entry.target.dataset.delay) || 0;
+                        setTimeout(() => entry.target.classList.add('visible'), delay);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            document.querySelectorAll('.timeline-item').forEach(el => timelineObserver.observe(el));
+        });
+
+        // ===== SLIDER HEADER =====
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('.hero-slide');
+            const prevBtn = document.getElementById('heroSliderPrev');
+            const nextBtn = document.getElementById('heroSliderNext');
+            const indicators = document.querySelectorAll('.hero-slider-indicators .indicator');
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            function updateSlider(index) {
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+                indicators.forEach((ind, i) => {
+                    ind.classList.toggle('active', i === index);
+                });
+                currentIndex = index;
+            }
+
+            prevBtn.addEventListener('click', () => updateSlider(currentIndex - 1));
+            nextBtn.addEventListener('click', () => updateSlider(currentIndex + 1));
+            indicators.forEach((ind, i) => {
+                ind.addEventListener('click', () => updateSlider(i));
+            });
+
+            let autoPlay = setInterval(() => updateSlider(currentIndex + 1), 6000);
+            const slider = document.querySelector('.hero-slider');
+            slider.addEventListener('mouseenter', () => clearInterval(autoPlay));
+            slider.addEventListener('mouseleave', () => {
+                autoPlay = setInterval(() => updateSlider(currentIndex + 1), 6000);
+            });
+
+            updateSlider(0);
+        });
+
+        // ===== CARRUSEL DE NOVEDADES =====
+        document.addEventListener('DOMContentLoaded', function () {
+            const track = document.getElementById('historyCarouselTrack');
+            const prevBtn = document.getElementById('historyCarouselPrev');
+            const nextBtn = document.getElementById('historyCarouselNext');
+            const dots = document.querySelectorAll('#historyCarouselDots .dot');
+            let currentIndex = 0;
+            const totalSlides = document.querySelectorAll('.history-carousel-slide').length;
+
+            function updateCarousel(index) {
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
+                track.style.transform = `translateX(-${index * 100}%)`;
+                currentIndex = index;
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
+                });
+            }
+
+            prevBtn.addEventListener('click', () => updateCarousel(currentIndex - 1));
+            nextBtn.addEventListener('click', () => updateCarousel(currentIndex + 1));
+            dots.forEach((dot, i) => {
+                dot.addEventListener('click', () => updateCarousel(i));
+            });
+
+            let autoPlay = setInterval(() => updateCarousel(currentIndex + 1), 6000);
+            const wrapper = document.querySelector('.history-carousel-wrapper');
+            wrapper.addEventListener('mouseenter', () => clearInterval(autoPlay));
+            wrapper.addEventListener('mouseleave', () => {
+                autoPlay = setInterval(() => updateCarousel(currentIndex + 1), 6000);
+            });
+
+            updateCarousel(0);
+        });
+
+        // ===== REQUISITOS - MOSTRAR NUBE =====
+        function mostrarRequisito(tipo) {
+            const nube = document.getElementById('nubeFlotante');
+            const natural = document.getElementById('nubeNatural');
+            const juridica = document.getElementById('nubeJuridica');
+            const btnNatural = document.getElementById('burbujaNatural');
+            const btnJuridica = document.getElementById('burbujaJuridica');
+
+            natural.style.display = 'none';
+            juridica.style.display = 'none';
+            btnNatural.classList.remove('active');
+            btnJuridica.classList.remove('active');
+
+            if (tipo === 'natural') {
+                natural.style.display = 'block';
+                btnNatural.classList.add('active');
+            } else {
+                juridica.style.display = 'block';
+                btnJuridica.classList.add('active');
+            }
+
+            nube.classList.add('mostrar');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function cerrarNube() {
+            const nube = document.getElementById('nubeFlotante');
+            nube.classList.remove('mostrar');
+            document.body.style.overflow = '';
+            document.querySelectorAll('.burbuja-item').forEach(el => el.classList.remove('active'));
+        }
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') cerrarNube();
+        });
+
+        document.addEventListener('click', function (e) {
+            const nube = document.getElementById('nubeFlotante');
+            if (nube.classList.contains('mostrar') && e.target === nube) cerrarNube();
+        });
+
+        // ===== WHATSAPP TOGGLE =====
+        document.getElementById('whatsappToggle').addEventListener('click', function (e) {
+            e.stopPropagation();
+            document.getElementById('whatsappMenu').classList.toggle('open');
+        });
+
+        document.addEventListener('click', function () {
+            document.getElementById('whatsappMenu').classList.remove('open');
+        });
+
+        // ===== TIMELINE HORIZONTAL - REVELADO =====
+        document.addEventListener('DOMContentLoaded', function () {
+            const timelineObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const delay = parseInt(entry.target.dataset.delay) || 0;
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, delay);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            document.querySelectorAll('.timeline-h-item').forEach(el => {
+                timelineObserver.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>
