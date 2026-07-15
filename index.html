@@ -17,14 +17,25 @@
 
 <body>
     <!-- ===== WHATSAPP FLOTANTE ===== -->
-    <div class="whatsapp-float">
+    <div class="whatsapp-float" id="whatsappFloat">
         <div class="whatsapp-bubble">
-            <i class="fas fa-bullhorn"></i> Únete a nuestro canal
+            <i class="fas fa-bullhorn"></i> ¡Contáctanos!
         </div>
-        <a href="https://whatsapp.com/channel/0029VbDRTrmBlHpU12h7v40y" target="_blank" class="whatsapp-btn"
-            aria-label="WhatsApp Channel">
+        <button class="whatsapp-btn" id="whatsappToggle" aria-label="WhatsApp">
             <i class="fab fa-whatsapp"></i>
-        </a>
+        </button>
+        <div class="whatsapp-menu" id="whatsappMenu">
+            <a href="https://whatsapp.com/channel/0029VbDRTrmBlHpU12h7v40y" target="_blank" class="whatsapp-option">
+                <i class="fas fa-bullhorn"></i>
+                <span>Canal Coopserprog</span>
+                <small>Entérate de todo</small>
+            </a>
+            <a href="https://wa.me/573228642938" target="_blank" class="whatsapp-option">
+                <i class="fas fa-question-circle"></i>
+                <span>¿Tienes dudas?</span>
+                <small>Habla con nosotros</small>
+            </a>
+        </div>
     </div>
 
     <!-- ===== HEADER CON SLIDER DE TARJETAS ===== -->
@@ -68,7 +79,7 @@
                         <p>Accede a beneficios exclusivos a través de nuestras alianzas estratégicas con empresas
                             aliadas.</p>
                         <div class="hero-botones">
-                            <a href="#" class="btn-primario"><i class="fas fa-building"></i> Ver Convenios</a>
+                            <a href="https://app.saac.com.co/#/convenios" target="_blank" class="btn-primario"><i class="fas fa-building"></i> Ver Convenios</a>
                         </div>
                     </div>
                 </div>
@@ -135,6 +146,7 @@
                     <li class="menu-item"><a href="#split-section">Nosotros</a></li>
                     <li class="menu-item"><a href="#valores">Valores</a></li>
                     <li class="menu-item"><a href="#simulador">Crédito</a></li>
+                    <li class="menu-item"><a href="#convenios">Convenios</a></li>
                     <li class="menu-item"><a href="https://ips.progresando.co/" target="_blank">IPS Progresando</a></li>
                 </ul>
             </div>
@@ -160,7 +172,7 @@
                         <div class="history-carousel-wrapper">
                             <div class="history-carousel-track" id="historyCarouselTrack">
                                 <div class="history-carousel-slide">
-                                    <img src="img/vision.jpg" alt="Novedad 1">
+                                    <img src="img/uni.jpeg" alt="Novedad 1">
                                     <div class="history-slide-content">
                                         <!-- <span class="history-badge">Nuevo</span>
                                         <h3>Desvinculación fácil</h3>
@@ -168,22 +180,22 @@
                                     </div>
                                 </div>
                                 <div class="history-carousel-slide">
-                                    <img src="img/mision.jpg" alt="Novedad 2">
+                                    <img src="img/ips.jpeg" alt="Novedad 2">
                                     <div class="history-slide-content">
                                     </div>
                                 </div>
                                 <div class="history-carousel-slide">
-                                    <img src="img/historica.jpg" alt="Novedad 3">
+                                    <img src="img/eds.jpeg" alt="Novedad 3">
                                     <div class="history-slide-content">
                                     </div>
                                 </div>
                                 <div class="history-carousel-slide">
-                                    <img src="img/objetivos.jpg" alt="Novedad 4">
+                                    <img src="img/vision.jpg" alt="Novedad 4">
                                     <div class="history-slide-content">
                                     </div>
                                 </div>
                                 <div class="history-carousel-slide">
-                                    <img src="img/objetivoss.jpg" alt="Novedad 5">
+                                    <img src="img/mision.jpg" alt="Novedad 5">
                                     <div class="history-slide-content">
                                     </div>
                                 </div>
@@ -305,6 +317,29 @@
             </div>
         </section>
 
+                <!-- ===== SECCIÓN CONVENIOS ===== -->
+        <section class="convenios-section" id="convenios">
+            <div class="container">
+                <h2 class="section-title">Nuestros <span>Convenios</span></h2>
+                <p class="section-subtitle">Accede a beneficios exclusivos a través de nuestras alianzas estratégicas.
+                </p>
+
+                <div class="convenios-wrapper">
+                    <div class="convenios-card">
+                        <div class="convenios-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Descubre todos nuestros convenios</h3>
+                        <p>Accede a beneficios exclusivos con nuestras empresas aliadas. Haz clic en el botón para
+                            explorar todas las alianzas disponibles.</p>
+                        <a href="https://app.saac.com.co/#/convenios" target="_blank" class="btn-convenios">
+                            <i class="fas fa-external-link-alt"></i> Ver todos los convenios
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ===== VALORES ===== -->
         <section class="valores-section" id="valores">
             <div class="container">
@@ -380,11 +415,11 @@
                 <h2 class="section-title">Afíliate a <span>COOPSERPROG</span></h2>
                 <p class="section-subtitle">Todo lo que necesitas saber para ser parte de nuestra cooperativa.</p>
 
-                <!-- CONTENEDOR ÚNICO - MUY ANCHO -->
+                <!-- CONTENEDOR ÚNICO -->
                 <div class="afiliacion-container">
 
-                    <!-- 1. REQUISITOS - BURBUJAS DE PENSAMIENTO -->
-                    <div class="requisitos-burbujas">
+                    <!-- 1. REQUISITOS - BURBUJAS DE PENSAMIENTO FLOTANTES -->
+                    <div class="requisitos-flotantes">
                         <p class="burbujas-titulo">Selecciona tu tipo de afiliación</p>
                         <div class="burbujas-grid">
                             <div class="burbuja-item" onclick="mostrarRequisito('natural')" id="burbujaNatural">
@@ -410,51 +445,68 @@
                             </div>
                         </div>
 
-                        <!-- NUBE DE PENSAMIENTO (burbuja flotante) -->
-                        <div class="nube-pensamiento" id="nubePensamiento">
+                        <!-- NUBE FLOTANTE - Aparece por encima de todo -->
+                        <div class="nube-flotante" id="nubeFlotante">
                             <div class="nube-contenido" id="nubeNatural">
                                 <div class="nube-cabecera">
-                                    <i class="fas fa-user"></i>
+                                    <div class="nube-icono">
+                                        <i class="fas fa-user"></i>
+                                    </div>
                                     <h3>Requisitos Persona Natural</h3>
                                     <button class="nube-cerrar" onclick="cerrarNube()"><i
                                             class="fas fa-times"></i></button>
                                 </div>
-                                <ul>
-                                    <li><i class="fas fa-check-circle"></i> Ser mayor de edad (o desde 14 años con
-                                        representante)</li>
-                                    <li><i class="fas fa-check-circle"></i> Residir en Colombia</li>
-                                    <li><i class="fas fa-check-circle"></i> Ingresos demostrables</li>
-                                    <li><i class="fas fa-check-circle"></i> Aporte social inicial:
-                                        <strong>$70.000</strong>
-                                    </li>
-                                    <li><i class="fas fa-check-circle"></i> Diligenciar formulario de afiliación</li>
-                                    <li><i class="fas fa-check-circle"></i> Autorizar tratamiento de datos personales
-                                    </li>
-                                </ul>
+                                <div class="nube-body">
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i> Ser mayor de edad (o desde 14 años con
+                                            representante)</li>
+                                        <li><i class="fas fa-check-circle"></i> Residir en Colombia</li>
+                                        <li><i class="fas fa-check-circle"></i> Ingresos demostrables</li>
+                                        <li><i class="fas fa-check-circle"></i> Aporte social inicial:
+                                            <strong>$70.000</strong>
+                                        </li>
+                                        <li><i class="fas fa-check-circle"></i> Diligenciar formulario de afiliación
+                                        </li>
+                                        <li><i class="fas fa-check-circle"></i> Autorizar tratamiento de datos
+                                            personales</li>
+                                    </ul>
+                                </div>
+                                <div class="nube-pie">
+                                    <span class="nube-badge"><i class="fas fa-info-circle"></i> Completa todos los
+                                        requisitos</span>
+                                </div>
                             </div>
 
                             <div class="nube-contenido" id="nubeJuridica" style="display:none;">
                                 <div class="nube-cabecera">
-                                    <i class="fas fa-building"></i>
+                                    <div class="nube-icono">
+                                        <i class="fas fa-building"></i>
+                                    </div>
                                     <h3>Requisitos Persona Jurídica</h3>
                                     <button class="nube-cerrar" onclick="cerrarNube()"><i
                                             class="fas fa-times"></i></button>
                                 </div>
-                                <ul>
-                                    <li><i class="fas fa-check-circle"></i> Constitución legal y domicilio en Colombia
-                                    </li>
-                                    <li><i class="fas fa-check-circle"></i> Certificado de existencia y representación
-                                        legal</li>
-                                    <li><i class="fas fa-check-circle"></i> Aporte social inicial:
-                                        <strong>$100.000</strong>
-                                    </li>
-                                    <li><i class="fas fa-check-circle"></i> Autorización de la junta directiva</li>
-                                    <li><i class="fas fa-check-circle"></i> Diligenciar formulario de afiliación
-                                        empresarial</li>
-                                    <li><i class="fas fa-check-circle"></i> Cumplir con la normativa cooperativa</li>
-                                </ul>
+                                <div class="nube-body">
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i> Constitución legal y domicilio en
+                                            Colombia</li>
+                                        <li><i class="fas fa-check-circle"></i> Certificado de existencia y
+                                            representación legal</li>
+                                        <li><i class="fas fa-check-circle"></i> Aporte social inicial:
+                                            <strong>$100.000</strong>
+                                        </li>
+                                        <li><i class="fas fa-check-circle"></i> Autorización de la junta directiva</li>
+                                        <li><i class="fas fa-check-circle"></i> Diligenciar formulario de afiliación
+                                            empresarial</li>
+                                        <li><i class="fas fa-check-circle"></i> Cumplir con la normativa cooperativa
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="nube-pie">
+                                    <span class="nube-badge"><i class="fas fa-info-circle"></i> Completa todos los
+                                        requisitos</span>
+                                </div>
                             </div>
-                            <div class="nube-triangulo"></div>
                         </div>
                     </div>
 
@@ -473,7 +525,7 @@
                         </div>
                     </div>
 
-                    <!-- 3. APP - Diseño limpio -->
+                    <!-- 3. APP -->
                     <div class="afiliacion-app">
                         <div class="app-contenido">
                             <div class="app-icono">
@@ -519,8 +571,125 @@
 
 
 
-        <iframe src="https://app.saac.com.co/#/convenios" width="60%" height="90">
-        </iframe>
+                <!-- ===== SECCIÓN OBJETIVOS QUE NOS IMPULSAN ===== -->
+        <section class="objetivos-section" id="objetivos">
+            <div class="container">
+                <h2 class="section-title">Objetivos que nos <span>impulsan</span></h2>
+
+                <!-- Objetivo General -->
+                <div class="objetivo-general">
+                    <div class="objetivo-general-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <div class="objetivo-general-content">
+                        <h3>General</h3>
+                        <p>Contribuir al mejoramiento social, económico y cultural de los asociados y la comunidad, fomentando la solidaridad y la ayuda mutua con una administración eficiente.</p>
+                    </div>
+                </div>
+
+                <!-- Objetivos Específicos -->
+                <div class="objetivos-especificos">
+                    <h4>Específicos</h4>
+                    <div class="objetivos-grid">
+                        <div class="objetivo-item">
+                            <div class="objetivo-item-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <span>Establecer acuerdos con entidades cooperativas</span>
+                        </div>
+                        <div class="objetivo-item">
+                            <div class="objetivo-item-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <span>Prestar servicios de alquiler de bienes</span>
+                        </div>
+                        <div class="objetivo-item">
+                            <div class="objetivo-item-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <span>Fomentar actividades sociales y deportivas</span>
+                        </div>
+                        <div class="objetivo-item">
+                            <div class="objetivo-item-icon">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <span>Conceder préstamos a asociados</span>
+                        </div>
+                        <div class="objetivo-item">
+                            <div class="objetivo-item-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <span>Proporcionar servicios médicos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Actividades -->
+                <div class="actividades-section">
+                    <h4>Actividades</h4>
+                    <div class="actividades-grid">
+                        <div class="actividad-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Eventos Sociales</span>
+                        </div>
+                        <div class="actividad-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Asesoría Técnica</span>
+                        </div>
+                        <div class="actividad-item">
+                            <i class="fas fa-ambulance"></i>
+                            <span>Servicios de salud</span>
+                        </div>
+                        <div class="actividad-item">
+                            <i class="fas fa-truck"></i>
+                            <span>Distribución de productos</span>
+                        </div>
+                        <div class="actividad-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Capacitación de personal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notas Importantes -->
+                <div class="notas-section">
+                    <div class="nota-item">
+                        <div class="nota-numero">1</div>
+                        <p>Podemos organizar negocios lícitos relacionados con nuestros objetivos.</p>
+                    </div>
+                    <div class="nota-item">
+                        <div class="nota-numero">2</div>
+                        <p>Priorizamos a asociados, pero también prestamos servicios con interés social.</p>
+                    </div>
+                </div>
+
+                <!-- Misión y Visión -->
+                <div class="mision-vision">
+                    <div class="mision">
+                        <div class="mv-icon">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <h4>Misión</h4>
+                        <p>Ofrecer a nuestros asociados servicios, aportes y créditos que mejoren su calidad de vida, satisfaciendo sus necesidades y las de sus familias mediante soluciones de ahorro, crédito y bienestar.</p>
+                    </div>
+                    <div class="vision">
+                        <div class="mv-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h4>Visión</h4>
+                        <p>Ser la cooperativa más reconocida en la región por nuestra transparencia, altos estándares de calidad y por ser el aliado financiero que brinda progreso a todos sus asociados.</p>
+                    </div>
+                </div>
+
+                <!-- Conoce nuestra esencia -->
+                <div class="conoce-esencia">
+                    <a href="#split-section" class="btn-esencia">
+                        <i class="fas fa-heart"></i> Conoce nuestra esencia
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- ===== FOOTER ===== -->
@@ -534,7 +703,7 @@
                             económico y social de nuestros asociados.</p>
                     </div>
                     <div class="contact-item">
-                        <i class="fas fa-phone"></i>
+                        <i class="fab fa-whatsapp"></i>
                         <span>+57 322 8642938</span>
                     </div>
                     <div class="contact-item">
@@ -559,8 +728,8 @@
                                 class="fab fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com/coopserprog?igsh=NGc5M3VxamVnMnI4" target="_blank"
                             class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/573228642938" target="_blank" class="social-link"><i
-                                class="fab fa-whatsapp"></i></a>
+                        <a href="https://whatsapp.com/channel/0029VbDRTrmBlHpU12h7v40y" target="_blank"
+                            class="social-link"><i class="fab fa-whatsapp"></i></a>
                         <a href="https://www.tiktok.com/@coopserprog" target="_blank" class="social-link"><i
                                 class="fab fa-tiktok"></i></a>
                     </div>
@@ -569,7 +738,8 @@
                 <div class="footer-column">
                     <h3>Horario de Atención</h3>
                     <div class="business-hours">
-                        <p><strong>Lunes a Viernes:</strong> 6:00 a.m. - 12:00 m / 2:00 p.m. - 5:00 p.m.</p>
+                        <p><strong>Lunes a Viernes:</strong> 6:00 a.m. - 12:00 m</p>
+                        <p>2:00 p.m. - 5:00 p.m.</p>
                         <p><strong>Sábados:</strong> 6:00 a.m. - 12:00 m</p>
                     </div>
                 </div>
@@ -724,59 +894,67 @@
             updateCarousel(0);
         });
 
-        // ===== ACORDEÓN DE REQUISITOS =====
-        function toggleAccordion(id) {
-            const content = document.getElementById(id);
-            const btn = content.previousElementSibling;
-
-            // Cerrar otros acordeones
-            document.querySelectorAll('.acordeon-content').forEach(el => {
-                if (el.id !== id && el.classList.contains('open')) {
-                    el.classList.remove('open');
-                    el.previousElementSibling.classList.remove('active');
-                }
-            });
-
-            // Toggle el actual
-            content.classList.toggle('open');
-            btn.classList.toggle('active');
-        }
-
-
-        // ===== REQUISITOS - NUBE DE PENSAMIENTO =====
+        // ===== REQUISITOS - MOSTRAR NUBE =====
         function mostrarRequisito(tipo) {
-            // Remover active de todas las burbujas
-            document.querySelectorAll('.burbuja-item').forEach(el => {
-                el.classList.remove('active');
-            });
+            const nube = document.getElementById('nubeFlotante');
+            const natural = document.getElementById('nubeNatural');
+            const juridica = document.getElementById('nubeJuridica');
+            const btnNatural = document.getElementById('burbujaNatural');
+            const btnJuridica = document.getElementById('burbujaJuridica');
 
-            // Activar la burbuja seleccionada
+            // Ocultar todas
+            natural.style.display = 'none';
+            juridica.style.display = 'none';
+            btnNatural.classList.remove('active');
+            btnJuridica.classList.remove('active');
+
+            // Mostrar la seleccionada
             if (tipo === 'natural') {
-                document.getElementById('burbujaNatural').classList.add('active');
-                document.getElementById('nubeNatural').style.display = 'block';
-                document.getElementById('nubeJuridica').style.display = 'none';
+                natural.style.display = 'block';
+                btnNatural.classList.add('active');
             } else {
-                document.getElementById('burbujaJuridica').classList.add('active');
-                document.getElementById('nubeJuridica').style.display = 'block';
-                document.getElementById('nubeNatural').style.display = 'none';
+                juridica.style.display = 'block';
+                btnJuridica.classList.add('active');
             }
 
-            // Mostrar la nube
-            const nube = document.getElementById('nubePensamiento');
             nube.classList.add('mostrar');
-            nube.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Evitar scroll
         }
 
         function cerrarNube() {
-            document.querySelectorAll('.burbuja-item').forEach(el => {
-                el.classList.remove('active');
-            });
-            const nube = document.getElementById('nubePensamiento');
+            const nube = document.getElementById('nubeFlotante');
             nube.classList.remove('mostrar');
-            nube.style.display = 'none';
-            document.getElementById('nubeNatural').style.display = 'none';
-            document.getElementById('nubeJuridica').style.display = 'none';
+            document.body.style.overflow = '';
+            document.querySelectorAll('.burbuja-item').forEach(el => el.classList.remove('active'));
         }
+
+        // Cerrar nube con tecla ESC
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                cerrarNube();
+            }
+        });
+
+        // Cerrar nube al hacer clic en el overlay (fondo)
+        document.addEventListener('click', function (e) {
+            const nube = document.getElementById('nubeFlotante');
+            if (nube.classList.contains('mostrar')) {
+                // Si el clic fue en el overlay (fondo oscuro)
+                if (e.target === nube) {
+                    cerrarNube();
+                }
+            }
+        });
+
+        // ===== WHATSAPP TOGGLE =====
+        document.getElementById('whatsappToggle').addEventListener('click', function (e) {
+            e.stopPropagation();
+            document.getElementById('whatsappMenu').classList.toggle('open');
+        });
+
+        document.addEventListener('click', function () {
+            document.getElementById('whatsappMenu').classList.remove('open');
+        });
     </script>
 
 </body>
