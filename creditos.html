@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Historia · COOPSERPROG</title>
+    <title>Créditos · COOPSERPROG</title>
     <link rel="stylesheet" href="style/style.css" />
     <script src="https://kit.fontawesome.com/71d96bc7c5.js" crossorigin="anonymous"></script>
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
@@ -40,7 +40,7 @@
                 <li class="menu-item dropdown">
                     <a href="#" class="dropdown-toggle">Servicios <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="creditos.html"><i class="fas fa-credit-card"></i> Créditos</a></li>
+                        <li><a href="creditos.html" class="active"><i class="fas fa-credit-card"></i> Créditos</a></li>
                         <li><a href="convenios.html"><i class="fas fa-handshake"></i> Convenios</a></li>
                         <li><a href="progresandito.html"><i class="fas fa-child"></i> Progresandito</a></li>
                         <li><a href="clasificados.html"><i class="fas fa-tags"></i> Clasificados</a></li>
@@ -76,119 +76,62 @@
 
     <!-- ===== MAIN CONTENT ===== -->
     <main>
-        <!-- ===== HEADER HISTORIA CON IMAGEN DE FONDO ===== -->
-        <section class="historia-hero" style="background-image: url('img/historia-bg.jpg');">
+        <section class="creditos-hero">
             <div class="container">
-                <div class="historia-hero-content">
-                    <span class="hero-badge"><i class="fas fa-clock"></i> Nuestra trayectoria</span>
-                    <h1>Nuestra <span>Historia</span></h1>
-                    <p>Un recorrido por los momentos que nos han definido como cooperativa</p>
+                <h1>Simula tu <span>Crédito</span> ideal</h1>
+                <p>Descubre cuánto puedes pedir prestado con tasas competitivas y aprobación rápida</p>
+            </div>
+        </section>
+
+        <section class="creditos-simulador">
+            <div class="container">
+                <div class="simulador-card">
+                    <div class="simulador-icon"><i class="fas fa-calculator"></i></div>
+                    <h3>Calcula tu préstamo</h3>
+                    <p>Ejemplo de préstamo disponible desde <strong>$1.000.000</strong> hasta <strong>$10.000.000</strong></p>
+                    <div class="simulador-info">
+                        <div class="simulador-item">
+                            <span>Tasa de interés</span>
+                            <strong>1.2% MV</strong>
+                        </div>
+                        <div class="simulador-item">
+                            <span>Plazo máximo</span>
+                            <strong>36 meses</strong>
+                        </div>
+                        <div class="simulador-item">
+                            <span>Aprobación</span>
+                            <strong>24 horas</strong>
+                        </div>
+                    </div>
+                    <a href="https://app.saac.com.co/#/credit-simulator" target="_blank" class="btn-simular">
+                        <i class="fas fa-arrow-right"></i> Simular mi Crédito
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- ===== LÍNEA DE TIEMPO ===== -->
-        <section class="historia-timeline">
+        <section class="creditos-info">
             <div class="container">
-                <div class="timeline-horizontal">
-                    <!-- 2024 - Fundación -->
-                    <div class="timeline-h-item" data-delay="0">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2024</span>
-                            <h3>Fundación</h3>
-                            <p>Nacimos en Norte de Santander con el sueño de transformar vidas.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-users"></i> <strong>1</strong> asociado</span>
-                            </div>
-                        </div>
+                <div class="creditos-grid">
+                    <div class="credito-info-card">
+                        <i class="fas fa-percent"></i>
+                        <h3>Tasas Competitivas</h3>
+                        <p>Ofrecemos las mejores tasas del mercado para que puedas cumplir tus metas.</p>
                     </div>
-
-                    <!-- 2024 - Primeros Asociados -->
-                    <div class="timeline-h-item" data-delay="200">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2024</span>
-                            <h3>Primeros Asociados</h3>
-                            <p>50 familias confiaron en nosotros para construir su futuro financiero.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-users"></i> <strong>50</strong> asociados</span>
-                                <span class="stat"><i class="fas fa-chart-line"></i> <strong>+4,900%</strong></span>
-                            </div>
-                        </div>
+                    <div class="credito-info-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Aprobación Rápida</h3>
+                        <p>Tu solicitud será evaluada en menos de 24 horas hábiles.</p>
                     </div>
-
-                    <!-- 2025 - Expansión -->
-                    <div class="timeline-h-item" data-delay="400">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2025</span>
-                            <h3>Expansión</h3>
-                            <p>Abrimos nuevas sedes en Villa del Rosario y Ocaña.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-users"></i> <strong>350</strong> asociados</span>
-                                <span class="stat"><i class="fas fa-store"></i> <strong>3</strong> sedes</span>
-                            </div>
-                        </div>
+                    <div class="credito-info-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>100% Confiable</h3>
+                        <p>Procesos transparentes y seguros respaldados por la Superintendencia.</p>
                     </div>
-
-                    <!-- 2025 - Convenios -->
-                    <div class="timeline-h-item" data-delay="500">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2025</span>
-                            <h3>Convenios</h3>
-                            <p>Alianzas estratégicas con empresas aliadas para beneficios exclusivos.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-handshake"></i> <strong>15+</strong> convenios</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2025 - App Móvil -->
-                    <div class="timeline-h-item" data-delay="600">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2025</span>
-                            <h3>App Móvil</h3>
-                            <p>Gestiona créditos, ahorros y afiliaciones desde tu celular.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-mobile-alt"></i> <strong>500+</strong> descargas</span>
-                                <span class="stat"><i class="fas fa-star"></i> <strong>4.8★</strong></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2025 - Créditos a No Asociados -->
-                    <div class="timeline-h-item" data-delay="550">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2025</span>
-                            <h3>Créditos a No Asociados</h3>
-                            <p>Abrimos nuestras puertas a la comunidad con créditos accesibles.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-hand-holding-usd"></i> <strong>120+</strong> créditos</span>
-                                <span class="stat"><i class="fas fa-users"></i> <strong>90</strong> atendidos</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2026 - Crecimiento Actual -->
-                    <div class="timeline-h-item active" data-delay="700">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year" style="color:#01983B;">2026</span>
-                            <h3>¡Seguimos Creciendo!</h3>
-                            <p>Más de 800 asociados confían en COOPSERPROG para construir un futuro mejor.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-users"></i> <strong>800+</strong> asociados</span>
-                                <span class="stat"><i class="fas fa-handshake"></i> <strong>20+</strong> convenios</span>
-                                <span class="stat"><i class="fas fa-credit-card"></i> <strong>200+</strong> créditos</span>
-                            </div>
-                            <div class="timeline-h-badge">
-                                <i class="fas fa-rocket"></i> ¡Contigo seguimos creciendo!
-                            </div>
-                        </div>
+                    <div class="credito-info-card">
+                        <i class="fas fa-smile"></i>
+                        <h3>Sin Trámites Largos</h3>
+                        <p>Minimizamos la documentación para que puedas acceder rápido a tu crédito.</p>
                     </div>
                 </div>
             </div>

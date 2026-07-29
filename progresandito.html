@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Historia · COOPSERPROG</title>
+    <title>Progresandito · COOPSERPROG</title>
     <link rel="stylesheet" href="style/style.css" />
     <script src="https://kit.fontawesome.com/71d96bc7c5.js" crossorigin="anonymous"></script>
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
@@ -42,7 +42,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="creditos.html"><i class="fas fa-credit-card"></i> Créditos</a></li>
                         <li><a href="convenios.html"><i class="fas fa-handshake"></i> Convenios</a></li>
-                        <li><a href="progresandito.html"><i class="fas fa-child"></i> Progresandito</a></li>
+                        <li><a href="progresandito.html" class="active"><i class="fas fa-child"></i> Progresandito</a></li>
                         <li><a href="clasificados.html"><i class="fas fa-tags"></i> Clasificados</a></li>
                     </ul>
                 </li>
@@ -76,120 +76,130 @@
 
     <!-- ===== MAIN CONTENT ===== -->
     <main>
-        <!-- ===== HEADER HISTORIA CON IMAGEN DE FONDO ===== -->
-        <section class="historia-hero" style="background-image: url('img/historia-bg.jpg');">
+        <section class="progresandito-hero">
             <div class="container">
-                <div class="historia-hero-content">
-                    <span class="hero-badge"><i class="fas fa-clock"></i> Nuestra trayectoria</span>
-                    <h1>Nuestra <span>Historia</span></h1>
-                    <p>Un recorrido por los momentos que nos han definido como cooperativa</p>
+                <div class="progresandito-hero-content">
+                    <span class="hero-badge"><i class="fas fa-child"></i> Programa infantil</span>
+                    <h1>PROGRESANDITO</h1>
+                    <p>Formando el futuro con amor, compromiso y solidaridad.</p>
+                    <a href="#afiliar" class="btn-primario"><i class="fas fa-user-plus"></i> Afiliar niño</a>
                 </div>
             </div>
         </section>
 
-        <!-- ===== LÍNEA DE TIEMPO ===== -->
-        <section class="historia-timeline">
+        <!-- ===== INFORMACIÓN ===== -->
+        <section class="progresandito-info">
             <div class="container">
-                <div class="timeline-horizontal">
-                    <!-- 2024 - Fundación -->
-                    <div class="timeline-h-item" data-delay="0">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2024</span>
-                            <h3>Fundación</h3>
-                            <p>Nacimos en Norte de Santander con el sueño de transformar vidas.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-users"></i> <strong>1</strong> asociado</span>
+                <div class="info-grid">
+                    <div class="info-texto">
+                        <h2>¿Qué es <span>Progresandito</span>?</h2>
+                        <p>A través del programa, fomentamos la importancia de la cultura del ahorro en niños y jóvenes desde <strong>0 hasta 17 años</strong>.</p>
+                        <p>Gracias a nuestros convenios, pueden acceder a descuentos y financiación para escuelas de formación cultural, deportiva, académica, vacaciones recreativas, cursos de oratoria, natación y más.</p>
+                        <div class="info-stats">
+                            <div class="info-stat">
+                                <span class="stat-number">0-17</span>
+                                <span class="stat-label">Años de edad</span>
+                            </div>
+                            <div class="info-stat">
+                                <span class="stat-number">$30.000</span>
+                                <span class="stat-label">Ahorro mínimo</span>
+                            </div>
+                            <div class="info-stat">
+                                <span class="stat-number">+50</span>
+                                <span class="stat-label">Niños activos</span>
                             </div>
                         </div>
                     </div>
+                    <div class="info-imagen">
+                        <img src="img/progresandito.jpg" alt="Progresandito">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- 2024 - Primeros Asociados -->
-                    <div class="timeline-h-item" data-delay="200">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2024</span>
-                            <h3>Primeros Asociados</h3>
-                            <p>50 familias confiaron en nosotros para construir su futuro financiero.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-users"></i> <strong>50</strong> asociados</span>
-                                <span class="stat"><i class="fas fa-chart-line"></i> <strong>+4,900%</strong></span>
-                            </div>
-                        </div>
+        <!-- ===== EVENTOS ===== -->
+        <section class="progresandito-eventos">
+            <div class="container">
+                <h2 class="section-title">Eventos <span>Especiales</span></h2>
+                <p class="section-subtitle">Celebramos momentos únicos con nuestros pequeños ahorradores</p>
+                <div class="eventos-grid">
+                    <div class="evento-card">
+                        <div class="evento-icon"><i class="fas fa-backpack"></i></div>
+                        <h3>Regreso a Clase</h3>
+                        <p>Campaña con entrega de kits escolares y aprobación de crédito para útiles escolares.</p>
+                        <span class="evento-mes">Febrero - Marzo</span>
                     </div>
+                    <div class="evento-card">
+                        <div class="evento-icon"><i class="fas fa-birthday-cake"></i></div>
+                        <h3>Día del Niño</h3>
+                        <p>Evento en el mes de octubre con entrega de detalles, fotos y actividades recreativas.</p>
+                        <span class="evento-mes">Octubre</span>
+                    </div>
+                    <div class="evento-card">
+                        <div class="evento-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h3>Vacaciones Recreativas</h3>
+                        <p>Acceso a descuentos en escuelas de formación cultural, deportiva y académica.</p>
+                        <span class="evento-mes">Todo el año</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- 2025 - Expansión -->
-                    <div class="timeline-h-item" data-delay="400">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2025</span>
-                            <h3>Expansión</h3>
-                            <p>Abrimos nuevas sedes en Villa del Rosario y Ocaña.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-users"></i> <strong>350</strong> asociados</span>
-                                <span class="stat"><i class="fas fa-store"></i> <strong>3</strong> sedes</span>
-                            </div>
-                        </div>
+        <!-- ===== BENEFICIOS ===== -->
+        <section class="progresandito-beneficios">
+            <div class="container">
+                <h2 class="section-title">Beneficios de <span>Progresandito</span></h2>
+                <div class="beneficios-grid">
+                    <div class="beneficio-item">
+                        <i class="fas fa-piggy-bank"></i>
+                        <h3>Ahorro desde $30.000</h3>
+                        <p>Los niños pueden empezar a ahorrar desde los 30 mil pesos mensuales.</p>
                     </div>
+                    <div class="beneficio-item">
+                        <i class="fas fa-user-check"></i>
+                        <h3>Afiliación fácil</h3>
+                        <p>Si eres adulto y estás afiliado, puedes afiliar a un niño a Progresandito.</p>
+                    </div>
+                    <div class="beneficio-item">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Convenios exclusivos</h3>
+                        <p>Descuentos en formación cultural, deportiva, académica y más.</p>
+                    </div>
+                    <div class="beneficio-item">
+                        <i class="fas fa-heart"></i>
+                        <h3>Formación en valores</h3>
+                        <p>Fomentamos la solidaridad, el compromiso y la responsabilidad desde niños.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- 2025 - Convenios -->
-                    <div class="timeline-h-item" data-delay="500">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2025</span>
-                            <h3>Convenios</h3>
-                            <p>Alianzas estratégicas con empresas aliadas para beneficios exclusivos.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-handshake"></i> <strong>15+</strong> convenios</span>
-                            </div>
-                        </div>
+        <!-- ===== CÓMO AFILIAR ===== -->
+        <section class="progresandito-afiliar" id="afiliar">
+            <div class="container">
+                <h2 class="section-title">Afiliar a un <span>niño</span></h2>
+                <p class="section-subtitle">Para afiliar a un niño a Progresandito, el representante (adulto) debe estar afiliado a COOPSERPROG.</p>
+                <div class="afiliar-pasos">
+                    <div class="paso">
+                        <span class="paso-numero">1</span>
+                        <h3>Estar afiliado</h3>
+                        <p>El adulto responsable debe ser asociado activo de COOPSERPROG.</p>
                     </div>
-
-                    <!-- 2025 - App Móvil -->
-                    <div class="timeline-h-item" data-delay="600">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2025</span>
-                            <h3>App Móvil</h3>
-                            <p>Gestiona créditos, ahorros y afiliaciones desde tu celular.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-mobile-alt"></i> <strong>500+</strong> descargas</span>
-                                <span class="stat"><i class="fas fa-star"></i> <strong>4.8★</strong></span>
-                            </div>
-                        </div>
+                    <div class="paso">
+                        <span class="paso-numero">2</span>
+                        <h3>Diligenciar formulario</h3>
+                        <p>Completa el formulario de afiliación para el niño en nuestra app o en oficina.</p>
                     </div>
-
-                    <!-- 2025 - Créditos a No Asociados -->
-                    <div class="timeline-h-item" data-delay="550">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2025</span>
-                            <h3>Créditos a No Asociados</h3>
-                            <p>Abrimos nuestras puertas a la comunidad con créditos accesibles.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-hand-holding-usd"></i> <strong>120+</strong> créditos</span>
-                                <span class="stat"><i class="fas fa-users"></i> <strong>90</strong> atendidos</span>
-                            </div>
-                        </div>
+                    <div class="paso">
+                        <span class="paso-numero">3</span>
+                        <h3>Iniciar el ahorro</h3>
+                        <p>El niño empieza a ahorrar desde $30.000 y accede a todos los beneficios.</p>
                     </div>
-
-                    <!-- 2026 - Crecimiento Actual -->
-                    <div class="timeline-h-item active" data-delay="700">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year" style="color:#01983B;">2026</span>
-                            <h3>¡Seguimos Creciendo!</h3>
-                            <p>Más de 800 asociados confían en COOPSERPROG para construir un futuro mejor.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-users"></i> <strong>800+</strong> asociados</span>
-                                <span class="stat"><i class="fas fa-handshake"></i> <strong>20+</strong> convenios</span>
-                                <span class="stat"><i class="fas fa-credit-card"></i> <strong>200+</strong> créditos</span>
-                            </div>
-                            <div class="timeline-h-badge">
-                                <i class="fas fa-rocket"></i> ¡Contigo seguimos creciendo!
-                            </div>
-                        </div>
-                    </div>
+                </div>
+                <div class="afiliar-cta">
+                    <a href="https://wa.me/573228642938" target="_blank" class="btn-whatsapp-grande">
+                        <i class="fab fa-whatsapp"></i> Contáctanos para afiliar
+                    </a>
                 </div>
             </div>
         </section>

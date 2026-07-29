@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Historia · COOPSERPROG</title>
+    <title>Contacto · COOPSERPROG</title>
     <link rel="stylesheet" href="style/style.css" />
     <script src="https://kit.fontawesome.com/71d96bc7c5.js" crossorigin="anonymous"></script>
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
@@ -48,7 +48,7 @@
                 </li>
                 <li class="menu-item"><a href="afiliate.html">Afíliate</a></li>
                 <li class="menu-item"><a href="pagos.html">Pagos</a></li>
-                <li class="menu-item"><a href="contactos.html">Contacto</a></li>
+                <li class="menu-item"><a href="contactos.html" class="active">Contacto</a></li>
                 <li class="menu-item"><a href="documentos.html">Documentos</a></li>
                 <li class="menu-item"><a href="https://ips.progresando.co/" target="_blank">IPS Progresando</a></li>
 
@@ -76,119 +76,79 @@
 
     <!-- ===== MAIN CONTENT ===== -->
     <main>
-        <!-- ===== HEADER HISTORIA CON IMAGEN DE FONDO ===== -->
-        <section class="historia-hero" style="background-image: url('img/historia-bg.jpg');">
+        <section class="contacto-header">
             <div class="container">
-                <div class="historia-hero-content">
-                    <span class="hero-badge"><i class="fas fa-clock"></i> Nuestra trayectoria</span>
-                    <h1>Nuestra <span>Historia</span></h1>
-                    <p>Un recorrido por los momentos que nos han definido como cooperativa</p>
+                <h1>Contáctanos</h1>
+                <p>Estamos aquí para ayudarte</p>
+            </div>
+        </section>
+
+        <section class="contacto-info">
+            <div class="container">
+                <div class="contacto-grid">
+                    <div class="contacto-card">
+                        <i class="fas fa-phone"></i>
+                        <h3>Teléfono</h3>
+                        <p>+57 322 8642938</p>
+                        <small>Llamadas y WhatsApp</small>
+                    </div>
+                    <div class="contacto-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>cooperativacoopserprog@gmail.com</p>
+                        <small>Respuesta en 24 horas</small>
+                    </div>
+                    <div class="contacto-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Dirección Principal</h3>
+                        <p>Calle 21 #0B-75, Barrio Blanco</p>
+                        <small>Cúcuta, Norte de Santander</small>
+                    </div>
+                    <div class="contacto-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Horario de Atención</h3>
+                        <p><strong>Lun-Vie:</strong> 6am - 12pm / 2pm - 5pm</p>
+                        <p><strong>Sáb:</strong> 6am - 12pm</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== LÍNEA DE TIEMPO ===== -->
-        <section class="historia-timeline">
+        <section class="contacto-sedes">
             <div class="container">
-                <div class="timeline-horizontal">
-                    <!-- 2024 - Fundación -->
-                    <div class="timeline-h-item" data-delay="0">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2024</span>
-                            <h3>Fundación</h3>
-                            <p>Nacimos en Norte de Santander con el sueño de transformar vidas.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-users"></i> <strong>1</strong> asociado</span>
-                            </div>
-                        </div>
+                <h2 class="section-title">Nuestras <span>Sedes</span></h2>
+                <p class="section-subtitle">Encuéntranos en cualquiera de nuestras oficinas</p>
+                <div class="sedes-grid">
+                    <div class="sede-card">
+                        <div class="sede-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h3>Cúcuta</h3>
+                        <p>Calle 21 #0B-75, Barrio Blanco</p>
+                        <span>Oficina Principal</span>
                     </div>
-
-                    <!-- 2024 - Primeros Asociados -->
-                    <div class="timeline-h-item" data-delay="200">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2024</span>
-                            <h3>Primeros Asociados</h3>
-                            <p>50 familias confiaron en nosotros para construir su futuro financiero.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-users"></i> <strong>50</strong> asociados</span>
-                                <span class="stat"><i class="fas fa-chart-line"></i> <strong>+4,900%</strong></span>
-                            </div>
-                        </div>
+                    <div class="sede-card">
+                        <div class="sede-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h3>Villa del Rosario</h3>
+                        <p>Calle 11 #8 - 15, Barrio La Palmita</p>
+                        <span>Oficina Norte</span>
                     </div>
-
-                    <!-- 2025 - Expansión -->
-                    <div class="timeline-h-item" data-delay="400">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2025</span>
-                            <h3>Expansión</h3>
-                            <p>Abrimos nuevas sedes en Villa del Rosario y Ocaña.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-users"></i> <strong>350</strong> asociados</span>
-                                <span class="stat"><i class="fas fa-store"></i> <strong>3</strong> sedes</span>
-                            </div>
-                        </div>
+                    <div class="sede-card">
+                        <div class="sede-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h3>Ocaña</h3>
+                        <p>Calle 11 #24-65 Barrio Las Llanadas</p>
+                        <span>Oficina Sur</span>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- 2025 - Convenios -->
-                    <div class="timeline-h-item" data-delay="500">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2025</span>
-                            <h3>Convenios</h3>
-                            <p>Alianzas estratégicas con empresas aliadas para beneficios exclusivos.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-handshake"></i> <strong>15+</strong> convenios</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2025 - App Móvil -->
-                    <div class="timeline-h-item" data-delay="600">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2025</span>
-                            <h3>App Móvil</h3>
-                            <p>Gestiona créditos, ahorros y afiliaciones desde tu celular.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-mobile-alt"></i> <strong>500+</strong> descargas</span>
-                                <span class="stat"><i class="fas fa-star"></i> <strong>4.8★</strong></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2025 - Créditos a No Asociados -->
-                    <div class="timeline-h-item" data-delay="550">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2025</span>
-                            <h3>Créditos a No Asociados</h3>
-                            <p>Abrimos nuestras puertas a la comunidad con créditos accesibles.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-hand-holding-usd"></i> <strong>120+</strong> créditos</span>
-                                <span class="stat"><i class="fas fa-users"></i> <strong>90</strong> atendidos</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2026 - Crecimiento Actual -->
-                    <div class="timeline-h-item active" data-delay="700">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year" style="color:#01983B;">2026</span>
-                            <h3>¡Seguimos Creciendo!</h3>
-                            <p>Más de 800 asociados confían en COOPSERPROG para construir un futuro mejor.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-users"></i> <strong>800+</strong> asociados</span>
-                                <span class="stat"><i class="fas fa-handshake"></i> <strong>20+</strong> convenios</span>
-                                <span class="stat"><i class="fas fa-credit-card"></i> <strong>200+</strong> créditos</span>
-                            </div>
-                            <div class="timeline-h-badge">
-                                <i class="fas fa-rocket"></i> ¡Contigo seguimos creciendo!
-                            </div>
-                        </div>
+        <section class="contacto-mapa">
+            <div class="container">
+                <div class="mapa-card">
+                    <h3>Ubícanos</h3>
+                    <div class="mapa-placeholder">
+                        <i class="fas fa-map"></i>
+                        <p>Mapa interactivo de nuestras sedes</p>
+                        <span>Próximamente</span>
                     </div>
                 </div>
             </div>

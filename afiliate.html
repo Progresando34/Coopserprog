@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Historia · COOPSERPROG</title>
+    <title>Afíliate · COOPSERPROG</title>
     <link rel="stylesheet" href="style/style.css" />
     <script src="https://kit.fontawesome.com/71d96bc7c5.js" crossorigin="anonymous"></script>
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
@@ -46,7 +46,7 @@
                         <li><a href="clasificados.html"><i class="fas fa-tags"></i> Clasificados</a></li>
                     </ul>
                 </li>
-                <li class="menu-item"><a href="afiliate.html">Afíliate</a></li>
+                <li class="menu-item"><a href="afiliate.html" class="active">Afíliate</a></li>
                 <li class="menu-item"><a href="pagos.html">Pagos</a></li>
                 <li class="menu-item"><a href="contactos.html">Contacto</a></li>
                 <li class="menu-item"><a href="documentos.html">Documentos</a></li>
@@ -76,120 +76,111 @@
 
     <!-- ===== MAIN CONTENT ===== -->
     <main>
-        <!-- ===== HEADER HISTORIA CON IMAGEN DE FONDO ===== -->
-        <section class="historia-hero" style="background-image: url('img/historia-bg.jpg');">
+        <section class="afiliate-hero">
             <div class="container">
-                <div class="historia-hero-content">
-                    <span class="hero-badge"><i class="fas fa-clock"></i> Nuestra trayectoria</span>
-                    <h1>Nuestra <span>Historia</span></h1>
-                    <p>Un recorrido por los momentos que nos han definido como cooperativa</p>
+                <h1>Afíliate a <span>COOPSERPROG</span></h1>
+                <p>Todo lo que necesitas saber para ser parte de nuestra cooperativa</p>
+            </div>
+        </section>
+
+        <!-- ===== CONTACTO WHATSAPP ===== -->
+        <section class="afiliate-whatsapp">
+            <div class="container">
+                <div class="afiliate-whatsapp-card">
+                    <div class="whatsapp-icono"><i class="fab fa-whatsapp"></i></div>
+                    <div class="whatsapp-info">
+                        <h3>¡Comienza tu afiliación!</h3>
+                        <p>Escríbenos al <strong>+57 322 8642938</strong> y nuestro equipo te guiará en el proceso de afiliación.</p>
+                        <a href="https://wa.me/573228642938" target="_blank" class="btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== LÍNEA DE TIEMPO ===== -->
-        <section class="historia-timeline">
+        <!-- ===== REQUISITOS ===== -->
+        <section class="afiliate-requisitos">
             <div class="container">
-                <div class="timeline-horizontal">
-                    <!-- 2024 - Fundación -->
-                    <div class="timeline-h-item" data-delay="0">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2024</span>
-                            <h3>Fundación</h3>
-                            <p>Nacimos en Norte de Santander con el sueño de transformar vidas.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-users"></i> <strong>1</strong> asociado</span>
-                            </div>
+                <h2 class="section-title">Requisitos de <span>Afiliación</span></h2>
+                <p class="section-subtitle">Selecciona tu tipo de afiliación para conocer los requisitos</p>
+                <div class="requisitos-grid">
+                    <div class="requisito-card" onclick="toggleRequisito('natural')">
+                        <div class="requisito-header">
+                            <i class="fas fa-user"></i>
+                            <h3>Persona Natural</h3>
+                            <span class="requisito-flecha"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="requisito-content" id="natural">
+                            <ul>
+                                <li>Ser mayor de edad (o desde 14 años con representante)</li>
+                                <li>Residir en Colombia</li>
+                                <li>Ingresos demostrables</li>
+                                <li>Aporte social inicial: <strong>$70.000</strong></li>
+                                <li>Diligenciar formulario de afiliación</li>
+                                <li>Autorizar tratamiento de datos personales</li>
+                            </ul>
                         </div>
                     </div>
+                    <div class="requisito-card" onclick="toggleRequisito('juridica')">
+                        <div class="requisito-header">
+                            <i class="fas fa-building"></i>
+                            <h3>Persona Jurídica</h3>
+                            <span class="requisito-flecha"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="requisito-content" id="juridica">
+                            <ul>
+                                <li>Constitución legal y domicilio en Colombia</li>
+                                <li>Certificado de existencia y representación legal</li>
+                                <li>Aporte social inicial: <strong>$100.000</strong></li>
+                                <li>Autorización de la junta directiva</li>
+                                <li>Diligenciar formulario de afiliación empresarial</li>
+                                <li>Cumplir con la normativa cooperativa</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- 2024 - Primeros Asociados -->
-                    <div class="timeline-h-item" data-delay="200">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2024</span>
-                            <h3>Primeros Asociados</h3>
-                            <p>50 familias confiaron en nosotros para construir su futuro financiero.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-users"></i> <strong>50</strong> asociados</span>
-                                <span class="stat"><i class="fas fa-chart-line"></i> <strong>+4,900%</strong></span>
-                            </div>
+        <!-- ===== APP ===== -->
+        <section class="afiliate-app">
+            <div class="container">
+                <div class="app-card">
+                    <div class="app-info">
+                        <span class="app-badge"><i class="fas fa-mobile-alt"></i> #Progress</span>
+                        <h2>Diligencia el formulario desde nuestra App</h2>
+                        <p>Completa tu afiliación desde tu celular de forma rápida, segura y sin papeles.</p>
+                        <ul class="app-beneficios">
+                            <li><i class="fas fa-check-circle"></i> Afiliación en línea desde tu celular</li>
+                            <li><i class="fas fa-check-circle"></i> Pago y simulación de créditos</li>
+                            <li><i class="fas fa-check-circle"></i> Convenios y Progrepuntos</li>
+                        </ul>
+                        <div class="app-botones">
+                            <a href="https://play.google.com/store/apps/details?id=com.progress.app" target="_blank" class="btn-app-android">
+                                <i class="fab fa-android"></i> Google Play
+                            </a>
+                            <a href="https://app.saac.com.co/#/home" target="_blank" class="btn-app-ios">
+                                <i class="fab fa-apple"></i> App Store
+                            </a>
                         </div>
                     </div>
+                    <div class="app-imagen">
+                        <img src="img/progress.jpeg" alt="App COOPSERPROG">
+                        <div class="app-imagen-overlay">
+                            <span><i class="fas fa-arrow-right"></i> Formulario en línea</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- 2025 - Expansión -->
-                    <div class="timeline-h-item" data-delay="400">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2025</span>
-                            <h3>Expansión</h3>
-                            <p>Abrimos nuevas sedes en Villa del Rosario y Ocaña.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-users"></i> <strong>350</strong> asociados</span>
-                                <span class="stat"><i class="fas fa-store"></i> <strong>3</strong> sedes</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2025 - Convenios -->
-                    <div class="timeline-h-item" data-delay="500">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2025</span>
-                            <h3>Convenios</h3>
-                            <p>Alianzas estratégicas con empresas aliadas para beneficios exclusivos.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-handshake"></i> <strong>15+</strong> convenios</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2025 - App Móvil -->
-                    <div class="timeline-h-item" data-delay="600">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2025</span>
-                            <h3>App Móvil</h3>
-                            <p>Gestiona créditos, ahorros y afiliaciones desde tu celular.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-mobile-alt"></i> <strong>500+</strong> descargas</span>
-                                <span class="stat"><i class="fas fa-star"></i> <strong>4.8★</strong></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2025 - Créditos a No Asociados -->
-                    <div class="timeline-h-item" data-delay="550">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2025</span>
-                            <h3>Créditos a No Asociados</h3>
-                            <p>Abrimos nuestras puertas a la comunidad con créditos accesibles.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-hand-holding-usd"></i> <strong>120+</strong> créditos</span>
-                                <span class="stat"><i class="fas fa-users"></i> <strong>90</strong> atendidos</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2026 - Crecimiento Actual -->
-                    <div class="timeline-h-item active" data-delay="700">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year" style="color:#01983B;">2026</span>
-                            <h3>¡Seguimos Creciendo!</h3>
-                            <p>Más de 800 asociados confían en COOPSERPROG para construir un futuro mejor.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-users"></i> <strong>800+</strong> asociados</span>
-                                <span class="stat"><i class="fas fa-handshake"></i> <strong>20+</strong> convenios</span>
-                                <span class="stat"><i class="fas fa-credit-card"></i> <strong>200+</strong> créditos</span>
-                            </div>
-                            <div class="timeline-h-badge">
-                                <i class="fas fa-rocket"></i> ¡Contigo seguimos creciendo!
-                            </div>
-                        </div>
-                    </div>
+        <!-- ===== MENSAJE FINAL ===== -->
+        <section class="afiliate-final">
+            <div class="container">
+                <div class="final-card">
+                    <i class="fas fa-check-circle"></i>
+                    <p>¿Listo para afiliarte? <strong>Escríbenos al WhatsApp</strong> y nuestro equipo te acompañará en todo el proceso.</p>
                 </div>
             </div>
         </section>
@@ -266,5 +257,13 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        function toggleRequisito(id) {
+            const content = document.getElementById(id);
+            const card = content.closest('.requisito-card');
+            content.classList.toggle('open');
+            card.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>

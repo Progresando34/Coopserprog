@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Historia · COOPSERPROG</title>
+    <title>Clasificados · COOPSERPROG</title>
     <link rel="stylesheet" href="style/style.css" />
     <script src="https://kit.fontawesome.com/71d96bc7c5.js" crossorigin="anonymous"></script>
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
@@ -43,7 +43,7 @@
                         <li><a href="creditos.html"><i class="fas fa-credit-card"></i> Créditos</a></li>
                         <li><a href="convenios.html"><i class="fas fa-handshake"></i> Convenios</a></li>
                         <li><a href="progresandito.html"><i class="fas fa-child"></i> Progresandito</a></li>
-                        <li><a href="clasificados.html"><i class="fas fa-tags"></i> Clasificados</a></li>
+                        <li><a href="clasificados.html" class="active"><i class="fas fa-tags"></i> Clasificados</a></li>
                     </ul>
                 </li>
                 <li class="menu-item"><a href="afiliate.html">Afíliate</a></li>
@@ -76,118 +76,78 @@
 
     <!-- ===== MAIN CONTENT ===== -->
     <main>
-        <!-- ===== HEADER HISTORIA CON IMAGEN DE FONDO ===== -->
-        <section class="historia-hero" style="background-image: url('img/historia-bg.jpg');">
+        <section class="clasificados-header">
             <div class="container">
-                <div class="historia-hero-content">
-                    <span class="hero-badge"><i class="fas fa-clock"></i> Nuestra trayectoria</span>
-                    <h1>Nuestra <span>Historia</span></h1>
-                    <p>Un recorrido por los momentos que nos han definido como cooperativa</p>
-                </div>
+                <h1>Clasificados <span>COOPSERPROG</span></h1>
+                <p>Espacio para que los asociados ofrezcan sus productos, servicios o empleo</p>
+                <a href="#" class="btn-primario"><i class="fas fa-plus"></i> Publicar anuncio</a>
             </div>
         </section>
 
-        <!-- ===== LÍNEA DE TIEMPO ===== -->
-        <section class="historia-timeline">
+        <section class="clasificados-section">
             <div class="container">
-                <div class="timeline-horizontal">
-                    <!-- 2024 - Fundación -->
-                    <div class="timeline-h-item" data-delay="0">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2024</span>
-                            <h3>Fundación</h3>
-                            <p>Nacimos en Norte de Santander con el sueño de transformar vidas.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-users"></i> <strong>1</strong> asociado</span>
+                <div class="clasificados-grid">
+                    <div class="clasificado-card">
+                        <div class="clasificado-imagen">
+                            <img src="img/clasificados/producto1.jpg" alt="Producto">
+                            <span class="clasificado-tipo">Venta</span>
+                        </div>
+                        <div class="clasificado-info">
+                            <h3>Vendo moto Yamaha</h3>
+                            <p>Modelo 2023, 10.000 km, excelente estado. Precio negociable.</p>
+                            <div class="clasificado-meta">
+                                <span><i class="fas fa-user"></i> Juan Pérez</span>
+                                <span><i class="fas fa-phone"></i> +57 300 123 4567</span>
                             </div>
+                            <a href="#" class="clasificado-link">Ver detalles <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
 
-                    <!-- 2024 - Primeros Asociados -->
-                    <div class="timeline-h-item" data-delay="200">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2024</span>
-                            <h3>Primeros Asociados</h3>
-                            <p>50 familias confiaron en nosotros para construir su futuro financiero.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-users"></i> <strong>50</strong> asociados</span>
-                                <span class="stat"><i class="fas fa-chart-line"></i> <strong>+4,900%</strong></span>
+                    <div class="clasificado-card">
+                        <div class="clasificado-imagen">
+                            <img src="img/clasificados/servicio1.jpg" alt="Servicio">
+                            <span class="clasificado-tipo servicio">Servicio</span>
+                        </div>
+                        <div class="clasificado-info">
+                            <h3>Asesoría Contable</h3>
+                            <p>Para asociados, precios especiales. Declaración de renta y más.</p>
+                            <div class="clasificado-meta">
+                                <span><i class="fas fa-user"></i> María Gómez</span>
+                                <span><i class="fas fa-phone"></i> +57 310 987 6543</span>
                             </div>
+                            <a href="#" class="clasificado-link">Ver detalles <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
 
-                    <!-- 2025 - Expansión -->
-                    <div class="timeline-h-item" data-delay="400">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2025</span>
-                            <h3>Expansión</h3>
-                            <p>Abrimos nuevas sedes en Villa del Rosario y Ocaña.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-users"></i> <strong>350</strong> asociados</span>
-                                <span class="stat"><i class="fas fa-store"></i> <strong>3</strong> sedes</span>
+                    <div class="clasificado-card">
+                        <div class="clasificado-imagen">
+                            <img src="img/clasificados/empleo1.jpg" alt="Empleo">
+                            <span class="clasificado-tipo empleo">Empleo</span>
+                        </div>
+                        <div class="clasificado-info">
+                            <h3>Se necesita Auxiliar</h3>
+                            <p>Para oficina administrativa. Horario de oficina, prestaciones de ley.</p>
+                            <div class="clasificado-meta">
+                                <span><i class="fas fa-user"></i> Carlos Rodríguez</span>
+                                <span><i class="fas fa-phone"></i> +57 320 456 7890</span>
                             </div>
+                            <a href="#" class="clasificado-link">Ver detalles <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
 
-                    <!-- 2025 - Convenios -->
-                    <div class="timeline-h-item" data-delay="500">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2025</span>
-                            <h3>Convenios</h3>
-                            <p>Alianzas estratégicas con empresas aliadas para beneficios exclusivos.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-handshake"></i> <strong>15+</strong> convenios</span>
-                            </div>
+                    <div class="clasificado-card">
+                        <div class="clasificado-imagen">
+                            <img src="img/clasificados/producto2.jpg" alt="Producto">
+                            <span class="clasificado-tipo">Venta</span>
                         </div>
-                    </div>
-
-                    <!-- 2025 - App Móvil -->
-                    <div class="timeline-h-item" data-delay="600">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2025</span>
-                            <h3>App Móvil</h3>
-                            <p>Gestiona créditos, ahorros y afiliaciones desde tu celular.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-mobile-alt"></i> <strong>500+</strong> descargas</span>
-                                <span class="stat"><i class="fas fa-star"></i> <strong>4.8★</strong></span>
+                        <div class="clasificado-info">
+                            <h3>Apartamento en venta</h3>
+                            <p>Excelente ubicación, 3 habitaciones, 2 baños, parqueadero.</p>
+                            <div class="clasificado-meta">
+                                <span><i class="fas fa-user"></i> Ana Martínez</span>
+                                <span><i class="fas fa-phone"></i> +57 321 567 8901</span>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- 2025 - Créditos a No Asociados -->
-                    <div class="timeline-h-item" data-delay="550">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year">2025</span>
-                            <h3>Créditos a No Asociados</h3>
-                            <p>Abrimos nuestras puertas a la comunidad con créditos accesibles.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-hand-holding-usd"></i> <strong>120+</strong> créditos</span>
-                                <span class="stat"><i class="fas fa-users"></i> <strong>90</strong> atendidos</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2026 - Crecimiento Actual -->
-                    <div class="timeline-h-item active" data-delay="700">
-                        <div class="timeline-h-dot"></div>
-                        <div class="timeline-h-content">
-                            <span class="timeline-h-year" style="color:#01983B;">2026</span>
-                            <h3>¡Seguimos Creciendo!</h3>
-                            <p>Más de 800 asociados confían en COOPSERPROG para construir un futuro mejor.</p>
-                            <div class="timeline-h-stats">
-                                <span class="stat"><i class="fas fa-users"></i> <strong>800+</strong> asociados</span>
-                                <span class="stat"><i class="fas fa-handshake"></i> <strong>20+</strong> convenios</span>
-                                <span class="stat"><i class="fas fa-credit-card"></i> <strong>200+</strong> créditos</span>
-                            </div>
-                            <div class="timeline-h-badge">
-                                <i class="fas fa-rocket"></i> ¡Contigo seguimos creciendo!
-                            </div>
+                            <a href="#" class="clasificado-link">Ver detalles <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Convenios · COOPSERPROG</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <script src="https://kit.fontawesome.com/71d96bc7c5.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ===== WHATSAPP FLOTANTE ===== -->
+    <div class="whatsapp-float" id="whatsappFloat">
+        <div class="whatsapp-bubble"><i class="fas fa-bullhorn"></i> ¡Contáctanos!</div>
+        <button class="whatsapp-btn" id="whatsappToggle"><i class="fab fa-whatsapp"></i></button>
+        <div class="whatsapp-menu" id="whatsappMenu">
+            <a href="https://whatsapp.com/channel/0029VbDRTrmBlHpU12h7v40y" target="_blank" class="whatsapp-option">
+                <i class="fas fa-bullhorn"></i><span>Canal Coopserprog</span><small>Entérate de todo</small>
+            </a>
+            <a href="https://wa.me/573228642938" target="_blank" class="whatsapp-option">
+                <i class="fas fa-question-circle"></i><span>¿Tienes dudas?</span><small>Habla con nosotros</small>
+            </a>
+        </div>
+    </div>
+
+    <!-- ===== NAVBAR MEJORADA ===== -->
+    <nav class="navbar-moderno" id="navbar">
+        <div class="nav-container">
+            <div class="logo-nav">
+                <img src="img/logo-coop.png" alt="COOPSERPROG">
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="menu-moderno" id="mainMenu">
+                <li class="menu-item"><a href="index.html">Inicio</a></li>
+                <li class="menu-item"><a href="nosotros.html">Nosotros</a></li>
+                <li class="menu-item dropdown">
+                    <a href="#" class="dropdown-toggle">Servicios <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="creditos.html"><i class="fas fa-credit-card"></i> Créditos</a></li>
+                        <li><a href="convenios.html" class="active"><i class="fas fa-handshake"></i> Convenios</a></li>
+                        <li><a href="progresandito.html"><i class="fas fa-child"></i> Progresandito</a></li>
+                        <li><a href="clasificados.html"><i class="fas fa-tags"></i> Clasificados</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item"><a href="afiliate.html">Afíliate</a></li>
+                <li class="menu-item"><a href="pagos.html">Pagos</a></li>
+                <li class="menu-item"><a href="contactos.html">Contacto</a></li>
+                <li class="menu-item"><a href="documentos.html">Documentos</a></li>
+                <li class="menu-item"><a href="https://ips.progresando.co/" target="_blank">IPS Progresando</a></li>
+
+                <!-- REDES SOCIALES EN EL MENÚ (TODAS LAS PANTALLAS) -->
+                <li class="menu-item menu-social">
+                    <span class="menu-social-label"><i class="fas fa-share-alt"></i> Síguenos</span>
+                    <div class="menu-social-icons">
+                        <a href="https://www.facebook.com/share/1BtMrASBuL/" target="_blank" class="menu-social-link"
+                            aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/coopserprog" target="_blank" class="menu-social-link"
+                            aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@coopserprog" target="_blank" class="menu-social-link"
+                            aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+        <section class="convenios-header">
+            <div class="container">
+                <h1>Nuestros <span>Convenios</span></h1>
+                <p>Beneficios exclusivos para asociados en múltiples sectores</p>
+            </div>
+        </section>
+
+        <!-- ===== CARRUSEL DE CONVENIOS DESTACADOS ===== -->
+        <section class="convenios-carousel-section">
+            <div class="container">
+                <h2 class="section-title">Convenios <span>Destacados</span></h2>
+                <div class="convenios-carousel-wrapper">
+                    <div class="convenios-carousel-track" id="conveniosTrack">
+                        <!-- Slide 1 -->
+                        <div class="convenio-slide">
+                            <div class="convenio-slide-content">
+                                <img src="img/convenios/eds-infante.png" alt="EDS Infante">
+                                <h3>EDS INFANTE</h3>
+                                <p>Estación de servicio con descuentos exclusivos para asociados en combustible y lubricantes.</p>
+                                <span class="convenio-categoria">Estaciones de Servicio</span>
+                                <span class="convenio-ciudad"><i class="fas fa-map-marker-alt"></i> Cúcuta</span>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="convenio-slide">
+                            <div class="convenio-slide-content">
+                                <img src="img/convenios/ips-progresando.png" alt="IPS Progresando">
+                                <h3>IPS PROGRESANDO</h3>
+                                <p>Servicios de salud con precios preferenciales para asociados y sus familias.</p>
+                                <span class="convenio-categoria">Salud</span>
+                                <span class="convenio-ciudad"><i class="fas fa-map-marker-alt"></i> Cúcuta</span>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="convenio-slide">
+                            <div class="convenio-slide-content">
+                                <img src="img/convenios/uniminuto.png" alt="UNIMINUTO">
+                                <h3>UNIMINUTO</h3>
+                                <p>Descuentos especiales en programas académicos para asociados y familiares.</p>
+                                <span class="convenio-categoria">Educación</span>
+                                <span class="convenio-ciudad"><i class="fas fa-map-marker-alt"></i> Cúcuta</span>
+                            </div>
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="convenio-slide">
+                            <div class="convenio-slide-content">
+                                <img src="img/convenios/cinemark.png" alt="Cinemark">
+                                <h3>CINEMARK</h3>
+                                <p>Descuentos en boletas de cine para todos los asociados.</p>
+                                <span class="convenio-categoria">Entretenimiento</span>
+                                <span class="convenio-ciudad"><i class="fas fa-map-marker-alt"></i> Cúcuta</span>
+                            </div>
+                        </div>
+                        <!-- Slide 5 -->
+                        <div class="convenio-slide">
+                            <div class="convenio-slide-content">
+                                <img src="img/convenios/finef.png" alt="Fundación FINEF">
+                                <h3>FUNDACIÓN FINEF</h3>
+                                <p>Formación recreativa para niños con descuentos para Progresandito.</p>
+                                <span class="convenio-categoria">Infantil</span>
+                                <span class="convenio-ciudad"><i class="fas fa-map-marker-alt"></i> Cúcuta</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="convenios-carousel-btn prev" id="conveniosPrev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="convenios-carousel-btn next" id="conveniosNext">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <div class="convenios-dots">
+                    <button class="convenios-dot active" data-index="0"></button>
+                    <button class="convenios-dot" data-index="1"></button>
+                    <button class="convenios-dot" data-index="2"></button>
+                    <button class="convenios-dot" data-index="3"></button>
+                    <button class="convenios-dot" data-index="4"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TODOS LOS CONVENIOS EN GRID ===== -->
+        <section class="convenios-grid-section">
+            <div class="container">
+                <h2 class="section-title">Todos los <span>Convenios</span></h2>
+                <p class="section-subtitle">Descubre todas las alianzas que tenemos para ti</p>
+                <div class="convenios-grid-todos">
+                    <div class="convenio-grid-item">
+                        <img src="img/convenios/eds-infante.png" alt="EDS Infante">
+                        <h4>EDS INFANTE</h4>
+                        <span>Estaciones de Servicio</span>
+                    </div>
+                    <div class="convenio-grid-item">
+                        <img src="img/convenios/eds-terpel.png" alt="EDS Terpel">
+                        <h4>EDS TERPEL EL ROSAL</h4>
+                        <span>Estaciones de Servicio</span>
+                    </div>
+                    <div class="convenio-grid-item">
+                        <img src="img/convenios/certigases.png" alt="Certigases">
+                        <h4>CERTIGASES</h4>
+                        <span>Centro de Revisión</span>
+                    </div>
+                    <div class="convenio-grid-item">
+                        <img src="img/convenios/ips-progresando.png" alt="IPS Progresando">
+                        <h4>IPS PROGRESANDO</h4>
+                        <span>Salud</span>
+                    </div>
+                    <div class="convenio-grid-item">
+                        <img src="img/convenios/unidad-diagnostico.png" alt="Unidad Diagnóstico">
+                        <h4>UNIDAD DE DIAGNÓSTICO</h4>
+                        <span>Salud</span>
+                    </div>
+                    <div class="convenio-grid-item">
+                        <img src="img/convenios/coomeva.png" alt="Coomeva">
+                        <h4>COOMEVA</h4>
+                        <span>Salud</span>
+                    </div>
+                    <div class="convenio-grid-item">
+                        <img src="img/convenios/optica-salud-visual.png" alt="Óptica Salud Visual">
+                        <h4>ÓPTICA SALUD VISUAL</h4>
+                        <span>Salud</span>
+                    </div>
+                    <div class="convenio-grid-item">
+                        <img src="img/convenios/uniminuto.png" alt="UNIMINUTO">
+                        <h4>UNIMINUTO</h4>
+                        <span>Educación</span>
+                    </div>
+                    <div class="convenio-grid-item">
+                        <img src="img/convenios/cinemark.png" alt="Cinemark">
+                        <h4>CINEMARK</h4>
+                        <span>Entretenimiento</span>
+                    </div>
+                    <div class="convenio-grid-item">
+                        <img src="img/convenios/finef.png" alt="Fundación FINEF">
+                        <h4>FUNDACIÓN FINEF</h4>
+                        <span>Infantil</span>
+                    </div>
+                    <div class="convenio-grid-item">
+                        <img src="img/convenios/cda-gran-via.png" alt="CDA La Gran Vía">
+                        <h4>CDA LA GRAN VÍA</h4>
+                        <span>Centro de Revisión</span>
+                    </div>
+                    <div class="convenio-grid-item">
+                        <img src="img/convenios/bary-travel.png" alt="Bary Travel">
+                        <h4>BARY TRAVEL</h4>
+                        <span>Agencia de Viajes</span>
+                    </div>
+                    <div class="convenio-grid-item">
+                        <img src="img/convenios/fomatours.png" alt="Fomatours">
+                        <h4>FOMATOURS</h4>
+                        <span>Agencia de Viajes</span>
+                    </div>
+                    <div class="convenio-grid-item">
+                        <img src="img/convenios/restaurante-la-cima.png" alt="Restaurante La Cima">
+                        <h4>RESTAURANTE LA CIMA</h4>
+                        <span>Restaurantes</span>
+                    </div>
+                    <div class="convenio-grid-item">
+                        <img src="img/convenios/manda-ya.png" alt="Manda Ya">
+                        <h4>MANDA YA</h4>
+                        <span>Servicio de Mensajería</span>
+                    </div>
+                    <div class="convenio-grid-item">
+                        <img src="img/convenios/oficanon.png" alt="Oficanon">
+                        <h4>OFICANON</h4>
+                        <span>Tecnología</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <img src="img/logo-coop.png" alt="Logo COOPSERPROG" class="footer-logo">
+                    <p class="footer-description">Cooperativa de Servicios de Aporte y Crédito Progresando, comprometida
+                        con el desarrollo económico y social de nuestros asociados.</p>
+                    <div class="contact-item"><i class="fab fa-whatsapp"></i><span>+57 322 8642938</span></div>
+                    <div class="contact-item"><i
+                            class="fas fa-envelope"></i><span>cooperativacoopserprog@gmail.com</span></div>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="nosotros.html"><i class="fas fa-heart"></i> Nuestra Esencia</a></li>
+                        <li><a href="afiliate.html"><i class="fas fa-file-signature"></i> Requisitos de afiliación</a>
+                        </li>
+                        <li><a href="creditos.html"><i class="fas fa-calculator"></i> Simulador de Crédito</a></li>
+                        <li><a href="convenios.html"><i class="fas fa-handshake"></i> Convenios</a></li>
+                        <li><a href="clasificados.html"><i class="fas fa-tags"></i> Clasificados</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Horario de Atención</h3>
+                    <div class="business-hours">
+                        <p><strong>Lunes a Viernes:</strong> 6:00 a. m. - 12:00 m</p>
+                        <p>2:00 p. m. - 5:00 p. m.</p>
+                        <p><strong>Sábados:</strong> 6:00 a. m. - 12:00 m</p>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/share/1BtMrASBuL/" target="_blank" class="social-link"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/coopserprog" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://whatsapp.com/channel/0029VbDRTrmBlHpU12h7v40y" target="_blank"
+                            class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@coopserprog" target="_blank" class="social-link"><i
+                                class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Nuestras Sedes</h3>
+                    <div class="footer-sede">
+                        <h4><i class="fas fa-map-marker-alt"></i> Cúcuta</h4>
+                        <span>Calle 21 #0B-75, Barrio Blanco</span>
+                    </div>
+                    <div class="footer-sede">
+                        <h4><i class="fas fa-map-marker-alt"></i> Villa del Rosario</h4>
+                        <span>Calle 11 #8 - 15, Barrio La Palmita</span>
+                    </div>
+                    <div class="footer-sede">
+                        <h4><i class="fas fa-map-marker-alt"></i> Ocaña</h4>
+                        <span>Calle 11 #24-65 Barrio Las Llanadas</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="legal-links">
+                        <a href="docs/1065810627_POLITICA DE TRATAMIENTO DE LA INFORMACION - COOPSERPROG (2).pdf"
+                            target="_blank">Política de Tratamiento de datos</a>
+                    </div>
+                    <div class="footer-copy">© 2025 COOPSERPROG. Todos los derechos reservados.</div>
+                </div>
+            </div>
+        </div>
+        <a href="#inicio" class="flecha-inicio" title="Volver al inicio"><i class="fas fa-arrow-up"></i></a>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

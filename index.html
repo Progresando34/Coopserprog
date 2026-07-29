@@ -5,17 +5,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>COOPSERPROG · Progreso Cooperativo</title>
-    <link rel="stylesheet" href="style/styles.css" />
+    <meta name="description"
+        content="Cooperativa de Servicios de Aporte y Crédito Progresando, comprometida con el desarrollo económico y social de nuestros asociados." />
+    <link rel="stylesheet" href="style/style.css" />
     <script src="https://kit.fontawesome.com/71d96bc7c5.js" crossorigin="anonymous"></script>
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
-    <!-- ===== WHATSAPP FLOTANTE ===== -->
+
+    <!-- ===== WHATSAPP FLOTANTE CON DOS OPCIONES ===== -->
     <div class="whatsapp-float" id="whatsappFloat">
         <div class="whatsapp-bubble">
             <i class="fas fa-bullhorn"></i> ¡Contáctanos!
@@ -37,443 +41,432 @@
         </div>
     </div>
 
-    <!-- ===== HEADER CON SLIDER DE TARJETAS CON IMÁGENES ===== -->
+    <!-- ===== NAVBAR MEJORADA ===== -->
+    <nav class="navbar-moderno" id="navbar">
+        <div class="nav-container">
+            <div class="logo-nav">
+                <img src="img/logo-coop.png" alt="COOPSERPROG">
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="menu-moderno" id="mainMenu">
+                <li class="menu-item"><a href="index.html" class="active">Inicio</a></li>
+                <li class="menu-item"><a href="nosotros.html">Nosotros</a></li>
+                <li class="menu-item dropdown">
+                    <a href="#" class="dropdown-toggle">Servicios <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="creditos.html"><i class="fas fa-credit-card"></i> Créditos</a></li>
+                        <li><a href="convenios.html"><i class="fas fa-handshake"></i> Convenios</a></li>
+                        <li><a href="progresandito.html"><i class="fas fa-child"></i> Progresandito</a></li>
+                        <li><a href="clasificados.html"><i class="fas fa-tags"></i> Clasificados</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item"><a href="afiliate.html">Afíliate</a></li>
+                <li class="menu-item"><a href="pagos.html">Pagos</a></li>
+                <li class="menu-item"><a href="contactos.html">Contacto</a></li>
+                <li class="menu-item"><a href="documentos.html">Documentos</a></li>
+                <li class="menu-item"><a href="https://ips.progresando.co/" target="_blank">IPS Progresando</a></li>
+
+                <!-- REDES SOCIALES EN EL MENÚ (TODAS LAS PANTALLAS) -->
+                <li class="menu-item menu-social">
+                    <span class="menu-social-label"><i class="fas fa-share-alt"></i> Síguenos</span>
+                    <div class="menu-social-icons">
+                        <a href="https://www.facebook.com/share/1BtMrASBuL/" target="_blank" class="menu-social-link"
+                            aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/coopserprog" target="_blank" class="menu-social-link"
+                            aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@coopserprog" target="_blank" class="menu-social-link"
+                            aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== HEADER HERO CON SLIDER ===== -->
     <header class="hero-moderno" id="inicio">
         <div class="hero-slider">
             <div class="hero-slider-track" id="heroSliderTrack">
                 <!-- Slide 1 - Afíliate -->
-                <div class="hero-slide active"
-                    style="background-image: url('img/afiliate.png'); background-size: cover; background-position: center;">
-                    <div class="hero-slide-content">
-                        <span class="hero-badge"><i class="fas fa-handshake"></i> Únete a la familia</span>
-                        <h1>Afíliate a <span>COOPSERPROG</span></h1>
-                        <p>Conviértete en asociado y accede a todos los beneficios que tenemos para ti y tu familia.</p>
-                        <div class="hero-botones">
-                            <a href="#requisitos" class="btn-primario"><i class="fas fa-user-plus"></i> Afíliate
-                                Ahora</a>
-                            <a href="#requisitos" class="btn-secundario"><i class="fas fa-file-signature"></i> Ver
-                                Requisitos</a>
+                <div class="hero-slide">
+                    <div class="hero-slide-container">
+                        <div class="hero-slide-text">
+                            <span class="hero-badge"><i class="fas fa-handshake"></i> Únete a la familia</span>
+                            <h1>Afíliate a <span>COOPSERPROG</span></h1>
+                            <p>Conviértete en asociado y accede a todos los beneficios que tenemos para ti y tu familia.
+                            </p>
+                            <div class="hero-botones">
+                                <a href="afiliate.html" class="btn-primario"><i class="fas fa-user-plus"></i> Afíliate
+                                    Ahora</a>
+                                <a href="nosotros.html" class="btn-secundario"><i class="fas fa-heart"></i>
+                                    Conócenos</a>
+                            </div>
+                        </div>
+                        <div class="hero-slide-image">
+                            <img src="img/afiliate.png" alt="Afíliate a COOPSERPROG">
                         </div>
                     </div>
                 </div>
 
-                <!-- Slide 2 - Simular Crédito -->
-                <div class="hero-slide"
-                    style="background-image: url('img/simulacredito.png'); background-size: cover; background-position: center;">
-                    <div class="hero-slide-content">
-                        <span class="hero-badge"><i class="fas fa-credit-card"></i> Financiamiento</span>
-                        <h1>Simula tu <span>Crédito</span> ideal</h1>
-                        <p>Descubre cuánto puedes pedir prestado con nuestras tasas competitivas y aprobación rápida.
-                        </p>
-                        <div class="hero-botones">
-                            <a href="https://app.saac.com.co/#/credit-simulator" target="_blank" class="btn-primario"><i
-                                    class="fas fa-arrow-right"></i> Simular crédito Ahora</a>
+                <!-- Slide 2 - Créditos -->
+                <div class="hero-slide">
+                    <div class="hero-slide-container">
+                        <div class="hero-slide-text">
+                            <span class="hero-badge"><i class="fas fa-credit-card"></i> Financiamiento</span>
+                            <h1>Simula tu <span>Crédito</span> ideal</h1>
+                            <p>Descubre cuánto puedes pedir prestado con tasas competitivas y aprobación rápida.</p>
+                            <div class="hero-botones">
+                                <a href="creditos.html" class="btn-primario"><i class="fas fa-arrow-right"></i> Simular
+                                    Ahora</a>
+                            </div>
+                        </div>
+                        <div class="hero-slide-image">
+                            <img src="img/credito.png" alt="Simula tu crédito">
                         </div>
                     </div>
                 </div>
 
-                <!-- Slide 3 - Convenios -->
-                <div class="hero-slide"
-                    style="background-image: url('img/convenios.png'); background-size: cover; background-position: center;">
-                    <div class="hero-slide-content">
-                        <span class="hero-badge"><i class="fas fa-handshake"></i> Alianzas</span>
-                        <h1>Nuestros <span>Convenios</span></h1>
-                        <p>Accede a beneficios exclusivos a través de nuestras alianzas estratégicas con empresas
-                            aliadas.</p>
-                        <div class="hero-botones">
-                            <a href="#convenios" class="btn-primario"><i class="fas fa-building"></i> Ver Convenios</a>
+                <!-- Slide 3 - Progresandito -->
+                <div class="hero-slide">
+                    <div class="hero-slide-container">
+                        <div class="hero-slide-text">
+                            <span class="hero-badge"><i class="fas fa-child"></i> Pequeños ahorradores</span>
+                            <h1>Conoce <span>Progresandito</span></h1>
+                            <p>Formando el futuro con amor, compromiso y solidaridad desde la infancia.</p>
+                            <div class="hero-botones">
+                                <a href="progresandito.html" class="btn-primario"><i class="fas fa-rocket"></i> Ver
+                                    programa</a>
+                            </div>
+                        </div>
+                        <div class="hero-slide-image">
+                            <img src="img/progresandito.png" alt="Programa Progresandito">
                         </div>
                     </div>
                 </div>
 
-                <!-- Slide 4 - Ahorro -->
-                <div class="hero-slide"
-                    style="background-image: url('img/app.png'); background-size: cover; background-position: center;">
-                    <div class="hero-slide-content">
-                        <span class="hero-badge"><i class="fas fa-piggy-bank"></i> Todo en la palma de tu mano</span>
-                        <h1>Obtén nuestra <span>App</span></h1>
-                        <p>Ahorra con nosotros y asegura un mañana mejor para ti y los tuyos con rendimientos
-                            competitivos.</p>
-                        <div class="hero-botones">
-                            <a href="https://play.google.com/store/apps/details?id=com.progress.app"
-                                class="btn-primario"><i class="fas fa-arrow-up"></i> Google Play</a>
-                            <a href="https://app.saac.com.co/#/home" class="btn-secundario"><i
-                                    class="fas fa-calculator"></i> App Store</a>
+                <!-- Slide 4 - App -->
+                <div class="hero-slide">
+                    <div class="hero-slide-container">
+                        <div class="hero-slide-text">
+                            <span class="hero-badge"><i class="fas fa-mobile-alt"></i> Todo a la palma de tu mano</span>
+                            <h1>Descarga nuestra <span>App</span></h1>
+                            <p>Conoce toda nuestra información a través de tu pantalla.</p>
+                            <div class="hero-botones">
+                                <a href="https://play.google.com/store/apps/details?id=com.progress.app"
+                                    class="btn-primario"><i class="fab fa-android"></i> Google Play</a>
+                                <a href="https://app.saac.com.co/#/home" class="btn-secundario"><i
+                                        class="fab fa-apple"></i> App Store</a>
+                            </div>
+                        </div>
+                        <div class="hero-slide-image">
+                            <img src="img/app.png" alt="Descarga nuestra App">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 5 - Convenios -->
+                <div class="hero-slide">
+                    <div class="hero-slide-container">
+                        <div class="hero-slide-text">
+                            <span class="hero-badge"><i class="fas fa-handshake"></i> Nuestras alianzas</span>
+                            <h1>Conoce nuestros <span>Convenios</span></h1>
+                            <p>Disfruta de beneficios, descuentos y alianzas exclusivas pensadas para el bienestar de
+                                nuestros asociados y sus familias.</p>
+                            <div class="hero-botones">
+                                <a href="convenios.html" class="btn-primario"><i class="fas fa-rocket"></i> Conocer</a>
+                            </div>
+                        </div>
+                        <div class="hero-slide-image">
+                            <img src="img/convenios.png" alt="Convenios COOPSERPROG">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 6 - Clasificados -->
+                <div class="hero-slide">
+                    <div class="hero-slide-container">
+                        <div class="hero-slide-text">
+                            <span class="hero-badge"><i class="fas fa-tags"></i> Consigue lo que buscas</span>
+                            <h1>Clasi<span>ficados</span></h1>
+                            <p>Un espacio de encuentro comercial pensado para impulsar los emprendimientos, productos y
+                                servicios de todos nuestros asociados.</p>
+                            <div class="hero-botones">
+                                <a href="clasificados.html" class="btn-primario"><i class="fas fa-rocket"></i>
+                                    Conocer</a>
+                            </div>
+                        </div>
+                        <div class="hero-slide-image">
+                            <img src="img/clasificados.png" alt="Clasificados COOPSERPROG">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Controles del slider -->
-            <button class="hero-slider-btn prev" id="heroSliderPrev">
+            <button class="hero-slider-btn prev" id="heroSliderPrev" aria-label="Anterior">
                 <i class="fas fa-chevron-left"></i>
             </button>
-            <button class="hero-slider-btn next" id="heroSliderNext">
+            <button class="hero-slider-btn next" id="heroSliderNext" aria-label="Siguiente">
                 <i class="fas fa-chevron-right"></i>
             </button>
 
-            <!-- Indicadores -->
             <div class="hero-slider-indicators" id="heroSliderIndicators">
                 <span class="indicator active" data-index="0"></span>
                 <span class="indicator" data-index="1"></span>
                 <span class="indicator" data-index="2"></span>
                 <span class="indicator" data-index="3"></span>
+                <span class="indicator" data-index="4"></span>
+                <span class="indicator" data-index="5"></span>
             </div>
         </div>
-
-        <!-- NAVBAR -->
-        <nav class="navbar-moderno" id="navbar">
-            <div class="nav-container">
-                <div class="logo-nav">
-                    <img src="img/logo-coop.png" alt="COOPSERPROG">
-                </div>
-                <button class="menu-toggle" id="menuToggle">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <ul class="menu-moderno" id="mainMenu">
-                    <li class="menu-item"><a href="#inicio">Inicio</a></li>
-                    <li class="menu-item dropdown">
-                        <a href="#">Documentos <i class="fas fa-chevron-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="docs/1065810627_POLITICA DE TRATAMIENTO DE LA INFORMACION - COOPSERPROG (2).pdf"
-                                    target="_blank">Política de Datos</a></li>
-                            <li><a href="docs/455692794_LEY 1581 DE 2012 - PROTECCION DE DATOS. (1).pdf"
-                                    target="_blank">Ley 1581 de 2012</a></li>
-                            <li><a href="docs/2026/ESTADOS FINANCIEROS CERTIFICADOS.pdf" target="_blank">Estados
-                                    Financieros</a></li>
-                            <li><a href="docs/2026/CONVOCATORIA Y PROYECTO DEL DIA.pdf" target="_blank">Convocatoria</a>
-                            </li>
-                            <li><a href="documentos.html" target="_blank">Otros Documentos</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item"><a href="nosotros.html">Nosotros</a></li>
-                    <li class="menu-item"><a href="#valores">Valores</a></li>
-                    <li class="menu-item"><a href="#simulador">Crédito</a></li>
-                    <li class="menu-item"><a href="#convenios">Convenios</a></li>
-                    <li class="menu-item"><a href="https://ips.progresando.co/" target="_blank">IPS Progresando</a></li>
-                </ul>
-            </div>
-        </nav>
-
         <div class="hero-wave">
-            <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 1440 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
-                    d="M0 0L48 5.8C96 11.7 192 23.3 288 29.2C384 35 480 35 576 29.2C672 23.3 768 11.7 864 5.8C960 0 1056 0 1152 5.8C1248 11.7 1344 23.3 1392 29.2L1440 35V80H1392C1344 80 1248 80 1152 80C1056 80 960 80 864 80C768 80 672 80 576 80C480 80 384 80 288 80C192 80 96 80 48 80H0V0Z"
+                    d="M0 0L48 3.3C96 6.7 192 13.3 288 16.7C384 20 480 20 576 16.7C672 13.3 768 6.7 864 3.3C960 0 1056 0 1152 3.3C1248 6.7 1344 13.3 1392 16.7L1440 20V40H1392C1344 40 1248 40 1152 40C1056 40 960 40 864 40C768 40 672 40 576 40C480 40 384 40 288 40C192 40 96 40 48 40H0V0Z"
                     fill="#f8fafc" />
             </svg>
         </div>
     </header>
 
+    <!-- ===== MAIN CONTENT ===== -->
     <main>
-        <!-- ===== SECCIÓN NOVEDADES Y NUESTRA ESENCIA ===== -->
-        <section class="novedades-esencia-section" id="split-section">
+        <!-- ===== QUÉ OFRECEMOS ===== -->
+        <section class="features-section">
             <div class="container">
-                <div class="novedades-esencia-grid">
-                    <!-- Lado izquierdo: NOVEDADES -->
-                    <div class="novedades-col">
-                        <h3 class="novedades-title"><i class="fas fa-newspaper"></i> Novedades</h3>
-                        <div class="history-carousel-wrapper">
-                            <div class="history-carousel-track" id="historyCarouselTrack">
-                                <div class="history-carousel-slide">
-                                    <img src="img/uni.jpeg" alt="Novedad 1">
-                                    <div class="history-slide-content"></div>
-                                </div>
-                                <div class="history-carousel-slide">
-                                    <img src="img/ips.jpeg" alt="Novedad 2">
-                                    <div class="history-slide-content"></div>
-                                </div>
-                                <div class="history-carousel-slide">
-                                    <img src="img/eds.jpeg" alt="Novedad 3">
-                                    <div class="history-slide-content"></div>
-                                </div>
-                                <div class="history-carousel-slide">
-                                    <img src="img/vision.jpg" alt="Novedad 4">
-                                    <div class="history-slide-content"></div>
-                                </div>
-                                <div class="history-carousel-slide">
-                                    <img src="img/mision.jpg" alt="Novedad 5">
-                                    <div class="history-slide-content"></div>
-                                </div>
-                            </div>
-
-                            <button class="history-carousel-btn prev" id="historyCarouselPrev">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <button class="history-carousel-btn next" id="historyCarouselNext">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                        </div>
-
-                        <div class="history-carousel-dots" id="historyCarouselDots">
-                            <button class="dot active" data-index="0"></button>
-                            <button class="dot" data-index="1"></button>
-                            <button class="dot" data-index="2"></button>
-                            <button class="dot" data-index="3"></button>
-                            <button class="dot" data-index="4"></button>
-                        </div>
+                <h2 class="section-title">¿Qué <span>ofrecemos</span>?</h2>
+                <p class="section-subtitle">Servicios diseñados para el bienestar financiero de nuestros asociados</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-piggy-bank"></i></div>
+                        <h3>Aporte</h3>
+                        <p>Planes de ahorro flexible con excelentes rendimientos para tu futuro y el de tu familia.</p>
+                        <a href="afiliate.html" class="feature-link">Conoce más <i class="fas fa-arrow-right"></i></a>
                     </div>
-
-                    <!-- Lado derecho: NUESTRA ESENCIA -->
-                    <div class="esencia-col">
-                        <span class="tag"><i class="fas fa-heart"></i> Nuestra Esencia</span>
-                        <h2>Más que una <span>cooperativa</span></h2>
-                        <p>Nacimos en marzo de 2024 en Norte de Santander con un propósito claro: solucionar necesidades
-                            económicas. Fundada por profesionales comprometidos, hoy somos una cooperativa abierta a
-                            nuevos asociados que buscan mejorar su calidad de vida a través de la ayuda mutua.</p>
-                        <a href="historia.html" class="btn-learn">Conoce nuestra historia <i
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                        <h3>Créditos</h3>
+                        <p>Préstamos con tasas competitivas, aprobación rápida y sin trámites engorrosos.</p>
+                        <a href="creditos.html" class="feature-link">Simula ahora <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+                        <h3>Convenios</h3>
+                        <p>Beneficios exclusivos con nuestras empresas aliadas en salud, educación y más.</p>
+                        <a href="convenios.html" class="feature-link">Ver convenios <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-child"></i></div>
+                        <h3>Progresandito</h3>
+                        <p>Programa de ahorro infantil que forma el futuro de los más pequeños de la familia.</p>
+                        <a href="progresandito.html" class="feature-link">Descubrir <i
                                 class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== SIMULADOR DE CRÉDITO ===== -->
-        <section class="simulador-section" id="simulador">
+        <!-- ===== ENTIDADES DE VIGILANCIA ===== -->
+        <section class="vigilancia-section">
             <div class="container">
-                <div class="simulador-container">
-                    <div class="simulador-info reveal-section">
-                        <h2>Simula tu <span>Crédito</span> ideal</h2>
-                        <p>Descubre cuánto puedes pedir prestado y planifica tus pagos de forma fácil y rápida.
-                            <strong>¡Es rápido, fácil y sin compromiso!</strong>
-                        </p>
-                        <div class="features-grid">
-                            <div class="feature-item"><i class="fas fa-percent"></i><span>Tasas competitivas</span>
-                            </div>
-                            <div class="feature-item"><i class="fas fa-clock"></i><span>Afiliación rápida</span></div>
-                            <div class="feature-item"><i class="fas fa-shield-alt"></i><span>100% confiable</span></div>
-                            <div class="feature-item"><i class="fas fa-smile"></i><span>Sin trámites largos</span></div>
-                        </div>
+                <h2 class="section-title">Entidades que nos <span>respaldan</span></h2>
+                <p class="section-subtitle">Contamos con el apoyo y vigilancia de las mejores entidades del sector
+                    cooperativo</p>
+                <div class="vigilancia-grid">
+                    <div class="vigilancia-item">
+                        <img src="img/logo_supersolidaria_web.png" alt="Supersolidaria">
                     </div>
-
-                    <div class="simulador-card reveal-section">
-                        <span class="icon"><i class="fas fa-calculator"></i></span>
-                        <span class="amount">$5.000.000 <span>COP</span></span>
-                        <span class="label">Ejemplo de préstamo disponible</span>
-                        <a href="https://app.saac.com.co/#/credit-simulator" target="_blank" class="btn-simular">
-                            <i class="fas fa-arrow-right"></i> Simular mi Crédito
-                        </a>
+                    <div class="vigilancia-item">
+                        <img src="img/equidadSeguros.png" alt="Equidad Seguros">
+                    </div>
+                    <div class="vigilancia-item">
+                        <img src="img/dian.png" alt="DIAN">
+                    </div>
+                    <div class="vigilancia-item">
+                        <img src="img/Logo_header_FNG.webp" alt="FNG">
+                    </div>
+                    <div class="vigilancia-item">
+                        <img src="img/sello-100.png" alt="Confecoop">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== SECCIÓN CONVENIOS ===== -->
-        <section class="convenios-section" id="convenios">
+        <!-- ===== VALORES ===== -->
+        <section class="valores-scroll-section">
             <div class="container">
-                <h2 class="section-title">Nuestros <span>Convenios</span></h2>
-                <p class="section-subtitle">Accede a beneficios exclusivos a través de nuestras alianzas estratégicas.
-                </p>
-
-                <div class="convenios-wrapper">
-                    <div class="convenios-card">
-                        <div class="convenios-icon"><i class="fas fa-handshake"></i></div>
-                        <h3>Descubre todos nuestros convenios</h3>
-                        <p>Accede a beneficios exclusivos con nuestras empresas aliadas. Haz clic en el botón para
-                            explorar todas las alianzas disponibles.</p>
-                        <a href="https://app.saac.com.co/#/convenios" target="_blank" class="btn-convenios">
-                            <i class="fas fa-external-link-alt"></i> Ver todos los convenios
-                        </a>
+                <h2 class="section-title">Nuestros <span>Valores</span></h2>
+                <p class="section-subtitle">Los principios que guían cada una de nuestras acciones y decisiones</p>
+                <div class="valores-scroll-wrapper" id="valoresWrapper">
+                    <div class="valores-scroll" id="valoresScroll">
+                        <div class="valor azul">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                            <h2>Transparencia</h2>
+                            <p>Brindamos claridad en la información con un proceder ético, con normas y reglas claras.
+                            </p>
+                        </div>
+                        <div class="valor rojo">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                            <h2>Servicio</h2>
+                            <p>Atendemos las necesidades de nuestros asociados de forma humana, diligente y oportuna.
+                            </p>
+                        </div>
+                        <div class="valor amarillo">
+                            <i class="fa-solid fa-people-group"></i>
+                            <h2>Trabajo en Equipo</h2>
+                            <p>Nuestra fuerza de trabajo impulsa los objetivos institucionales bajo la mutua
+                                cooperación.</p>
+                        </div>
+                        <div class="valor verde">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                            <h2>Responsabilidad</h2>
+                            <p>Trabajamos con conciencia para que nuestras acciones respondan al objetivo solidario.</p>
+                        </div>
+                        <div class="valor verde-oscuro">
+                            <i class="fa-solid fa-user-lock"></i>
+                            <h2>Confidencialidad</h2>
+                            <p>Salvaguardamos la privacidad de nuestros asociados con el prudente manejo de la
+                                información.</p>
+                        </div>
+                        <!-- Duplicados para scroll infinito -->
+                        <div class="valor azul">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                            <h2>Transparencia</h2>
+                            <p>Brindamos claridad en la información con un proceder ético.</p>
+                        </div>
+                        <div class="valor rojo">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                            <h2>Servicio</h2>
+                            <p>Atención humana, diligente y oportuna.</p>
+                        </div>
+                        <div class="valor amarillo">
+                            <i class="fa-solid fa-people-group"></i>
+                            <h2>Trabajo en Equipo</h2>
+                            <p>Unión de esfuerzos y conocimientos.</p>
+                        </div>
+                        <div class="valor verde">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                            <h2>Responsabilidad</h2>
+                            <p>Conciencia en la labor encomendada.</p>
+                        </div>
+                        <div class="valor verde-oscuro">
+                            <i class="fa-solid fa-user-lock"></i>
+                            <h2>Confidencialidad</h2>
+                            <p>Salvaguardamos tu privacidad.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== SECCIÓN AFILIACIÓN UNIFICADA ===== -->
-        <section class="afiliacion-unificada" id="requisitos">
-            <div class="container-fluid">
-                <h2 class="section-title">Afíliate a <span>COOPSERPROG</span></h2>
-                <p class="section-subtitle">Todo lo que necesitas saber para ser parte de nuestra cooperativa.</p>
-
-                <div class="afiliacion-container">
-                    <!-- REQUISITOS - BURBUJAS -->
-                    <div class="requisitos-flotantes">
-                        <p class="burbujas-titulo">Selecciona tu tipo de afiliación</p>
-                        <div class="burbujas-grid">
-                            <div class="burbuja-item" onclick="mostrarRequisito('natural')" id="burbujaNatural">
-                                <div class="burbuja-icono"><i class="fas fa-user"></i></div>
-                                <div class="burbuja-info">
-                                    <h4>Persona Natural</h4>
-                                    <p>Para personas individuales</p>
-                                </div>
-                                <span class="burbuja-flecha"><i class="fas fa-chevron-right"></i></span>
-                            </div>
-                            <div class="burbuja-item" onclick="mostrarRequisito('juridica')" id="burbujaJuridica">
-                                <div class="burbuja-icono"><i class="fas fa-building"></i></div>
-                                <div class="burbuja-info">
-                                    <h4>Persona Jurídica</h4>
-                                    <p>Para empresas y entidades</p>
-                                </div>
-                                <span class="burbuja-flecha"><i class="fas fa-chevron-right"></i></span>
-                            </div>
-                        </div>
-
-                        <!-- NUBE FLOTANTE -->
-                        <div class="nube-flotante" id="nubeFlotante">
-                            <div class="nube-contenido" id="nubeNatural">
-                                <div class="nube-cabecera">
-                                    <div class="nube-icono"><i class="fas fa-user"></i></div>
-                                    <h3>Requisitos Persona Natural</h3>
-                                    <button class="nube-cerrar" onclick="cerrarNube()"><i
-                                            class="fas fa-times"></i></button>
-                                </div>
-                                <div class="nube-body">
-                                    <ul>
-                                        <li><i class="fas fa-check-circle"></i> Ser mayor de edad (o desde 14 años con
-                                            representante)</li>
-                                        <li><i class="fas fa-check-circle"></i> Residir en Colombia</li>
-                                        <li><i class="fas fa-check-circle"></i> Ingresos demostrables</li>
-                                        <li><i class="fas fa-check-circle"></i> Aporte social inicial:
-                                            <strong>$70.000</strong>
-                                        </li>
-                                        <li><i class="fas fa-check-circle"></i> Diligenciar formulario de afiliación
-                                        </li>
-                                        <li><i class="fas fa-check-circle"></i> Autorizar tratamiento de datos
-                                            personales</li>
-                                    </ul>
-                                </div>
-                                <div class="nube-pie">
-                                    <span class="nube-badge"><i class="fas fa-info-circle"></i> Completa todos los
-                                        requisitos</span>
-                                </div>
-                            </div>
-
-                            <div class="nube-contenido" id="nubeJuridica" style="display:none;">
-                                <div class="nube-cabecera">
-                                    <div class="nube-icono"><i class="fas fa-building"></i></div>
-                                    <h3>Requisitos Persona Jurídica</h3>
-                                    <button class="nube-cerrar" onclick="cerrarNube()"><i
-                                            class="fas fa-times"></i></button>
-                                </div>
-                                <div class="nube-body">
-                                    <ul>
-                                        <li><i class="fas fa-check-circle"></i> Constitución legal y domicilio en
-                                            Colombia</li>
-                                        <li><i class="fas fa-check-circle"></i> Certificado de existencia y
-                                            representación legal</li>
-                                        <li><i class="fas fa-check-circle"></i> Aporte social inicial:
-                                            <strong>$100.000</strong>
-                                        </li>
-                                        <li><i class="fas fa-check-circle"></i> Autorización de la junta directiva</li>
-                                        <li><i class="fas fa-check-circle"></i> Diligenciar formulario de afiliación
-                                            empresarial</li>
-                                        <li><i class="fas fa-check-circle"></i> Cumplir con la normativa cooperativa
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="nube-pie">
-                                    <span class="nube-badge"><i class="fas fa-info-circle"></i> Completa todos los
-                                        requisitos</span>
-                                </div>
-                            </div>
-                        </div>
+        <!-- ===== CONTADORES ANIMADOS ===== -->
+        <section class="counters-section">
+            <div class="container">
+                <div class="counters-grid">
+                    <div class="counter-item">
+                        <span class="counter-icon"><i class="fas fa-users"></i></span>
+                        <span class="counter-number" data-count="800">0</span>
+                        <span class="counter-label">Asociados Activos</span>
                     </div>
-
-                    <!-- WHATSAPP - Contacto -->
-                    <div class="afiliacion-whatsapp">
-                        <div class="whatsapp-icono"><i class="fab fa-whatsapp"></i></div>
-                        <div class="whatsapp-info">
-                            <h3>¡Comienza tu afiliación!</h3>
-                            <p>Escríbenos al <strong>+57 322 8642938</strong> y nuestro equipo te guiará en el proceso
-                                de afiliación.</p>
-                            <a href="https://wa.me/573228642938" target="_blank" class="btn-whatsapp">
-                                <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
-                            </a>
-                        </div>
+                    <div class="counter-item">
+                        <span class="counter-icon"><i class="fas fa-hand-holding-usd"></i></span>
+                        <span class="counter-number" data-count="1000">0</span>
+                        <span class="counter-label">Créditos Otorgados</span>
                     </div>
-
-                    <!-- APP -->
-                    <div class="afiliacion-app">
-                        <div class="app-contenido">
-                            <div class="app-icono"><i class="fas fa-mobile-alt"></i></div>
-                            <div class="app-texto">
-                                <h3>Diligencia el formulario desde nuestra App</h3>
-                                <p>Completa tu afiliación desde tu celular de forma rápida, segura y sin papeles.</p>
-                                <div class="app-pasos">
-                                    <span class="app-paso"><span class="paso-numero">1</span> Descarga la app</span>
-                                    <span class="app-paso"><span class="paso-numero">2</span> Completa el
-                                        formulario</span>
-                                    <span class="app-paso"><span class="paso-numero">3</span> Envía tus
-                                        documentos</span>
-                                </div>
-                                <ul class="app-beneficios">
-                                    <li><i class="fas fa-check-circle"></i> Afiliación en línea desde tu celular</li>
-                                    <li><i class="fas fa-check-circle"></i> Pago y simulación de créditos</li>
-                                    <li><i class="fas fa-check-circle"></i> Convenios y Progrepuntos</li>
-                                </ul>
-                                <div class="app-botones">
-                                    <a href="https://play.google.com/store/apps/details?id=com.progress.app"
-                                        target="_blank" class="btn-app-android">
-                                        <i class="fab fa-android"></i> Google Play
-                                    </a>
-                                    <a href="https://app.saac.com.co/#/home" target="_blank" class="btn-app-ios">
-                                        <i class="fab fa-apple"></i> App Store
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="counter-item">
+                        <span class="counter-icon"><i class="fas fa-handshake"></i></span>
+                        <span class="counter-number" data-count="35">0</span>
+                        <span class="counter-label">Convenios Activos</span>
                     </div>
-
-                    <div class="afiliacion-final">
-                        <p><i class="fas fa-check-circle"></i> ¿Listo para afiliarte? <strong>Escríbenos al
-                                WhatsApp</strong> y nuestro equipo te acompañará en todo el proceso.</p>
+                    <div class="counter-item">
+                        <span class="counter-icon"><i class="fas fa-building"></i></span>
+                        <span class="counter-number" data-count="3">0</span>
+                        <span class="counter-label">Sedes</span>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- ===== NOVEDADES ===== -->
+        <section class="novedades-section">
+            <div class="container">
+                <h2 class="section-title">Últimas <span>Novedades</span></h2>
+                <p class="section-subtitle">Entérate de todo lo que está pasando en COOPSERPROG</p>
+                <div class="novedades-grid">
+                    <div class="novedad-card">
+                        <img src="img/dubo.png" alt="Nuevo Convenio">
+                        <span class="novedad-badge">Convenio</span>
+                        <h3>Nuevo Aliado: DUBO</h3>
+                        <p>Descuentos especiales para asociados y sus familias en programas académicos.</p>
+                        <a href="novedad1.html" class="novedad-link">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="novedad-card">
+                        <img src="img/kitescolar.jpeg" alt="Regreso a Clase">
+                        <span class="novedad-badge">Nuevo</span>
+                        <h3>Regreso a Clase 2026</h3>
+                        <p>Kits escolares y créditos para útiles escolares disponibles para todos los asociados.</p>
+                        <a href="novedad2.html" class="novedad-link">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="novedad-card">
+                        <img src="img/diaprogresandito.jpeg" alt="Día del Niño">
+                        <span class="novedad-badge">Evento</span>
+                        <h3>Día del Niño Progresandito</h3>
+                        <p>Celebración con actividades, juegos, detalles y mucha alegría para los más pequeños.</p>
+                        <a href="novedad3.html" class="novedad-link">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <!-- ===== FOOTER (EXACTAMENTE IGUAL) ===== -->
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="footer-container">
             <div class="footer-content">
                 <div class="footer-column">
                     <img src="img/logo-coop.png" alt="Logo COOPSERPROG" class="footer-logo">
-                    <div class="footer-description">
-                        <p>Cooperativa de Servicios de Aporte y Crédito Progresando, comprometida con el desarrollo
-                            económico y social de nuestros asociados.</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <span>+57 322 8642938</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>cooperativacoopserprog@gmail.com</span>
-                    </div>
+                    <p class="footer-description">Cooperativa de Servicios de Aporte y Crédito Progresando, comprometida
+                        con el desarrollo económico y social de nuestros asociados.</p>
+                    <div class="contact-item"><i class="fab fa-whatsapp"></i><span>+57 322 8642938</span></div>
+                    <div class="contact-item"><i
+                            class="fas fa-envelope"></i><span>cooperativacoopserprog@gmail.com</span></div>
                 </div>
-
                 <div class="footer-column">
                     <h3>Enlaces Rápidos</h3>
                     <ul class="footer-links">
-                        <li><a href="https://ips.progresando.co/" target="_blank"><i
-                                    class="fas fa-external-link-alt"></i> IPS Progresando</a></li>
-                        <li><a href="#split-section"><i class="fas fa-heart"></i> Nuestra Esencia</a></li>
-                        <li><a href="#valores"><i class="fas fa-star"></i> Valores Corporativos</a></li>
-                        <li><a href="#requisitos"><i class="fas fa-file-signature"></i> Requisitos de afiliación</a>
+                        <li><a href="nosotros.html"><i class="fas fa-heart"></i> Nuestra Esencia</a></li>
+                        <li><a href="afiliate.html"><i class="fas fa-file-signature"></i> Requisitos de afiliación</a>
                         </li>
-                        <li><a href="#simulador"><i class="fas fa-calculator"></i> Simulador de Crédito</a></li>
+                        <li><a href="creditos.html"><i class="fas fa-calculator"></i> Simulador de Crédito</a></li>
+                        <li><a href="convenios.html"><i class="fas fa-handshake"></i> Convenios</a></li>
+                        <li><a href="clasificados.html"><i class="fas fa-tags"></i> Clasificados</a></li>
                     </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Horario de Atención</h3>
+                    <div class="business-hours">
+                        <p><strong>Lunes a Viernes:</strong> 6:00 a. m. - 12:00 m</p>
+                        <p>2:00 p. m. - 5:00 p. m.</p>
+                        <p><strong>Sábados:</strong> 6:00 a. m. - 12:00 m</p>
+                    </div>
                     <div class="social-icons">
                         <a href="https://www.facebook.com/share/1BtMrASBuL/" target="_blank" class="social-link"><i
                                 class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/coopserprog?igsh=NGc5M3VxamVnMnI4" target="_blank"
-                            class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/coopserprog" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
                         <a href="https://whatsapp.com/channel/0029VbDRTrmBlHpU12h7v40y" target="_blank"
                             class="social-link"><i class="fab fa-whatsapp"></i></a>
                         <a href="https://www.tiktok.com/@coopserprog" target="_blank" class="social-link"><i
                                 class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
-
-                <div class="footer-column">
-                    <h3>Horario de Atención</h3>
-                    <div class="business-hours">
-                        <p><strong>Lunes a Viernes:</strong> 6:00 a.m. - 12:00 m</p>
-                        <p>2:00 p.m. - 5:00 p.m.</p>
-                        <p><strong>Sábados:</strong> 6:00 a.m. - 12:00 m</p>
-                    </div>
-                </div>
-
                 <div class="footer-column">
                     <h3>Nuestras Sedes</h3>
                     <div class="footer-sede">
@@ -490,209 +483,20 @@
                     </div>
                 </div>
             </div>
-
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
                     <div class="legal-links">
                         <a href="docs/1065810627_POLITICA DE TRATAMIENTO DE LA INFORMACION - COOPSERPROG (2).pdf"
                             target="_blank">Política de Tratamiento de datos</a>
                     </div>
-                    <div class="footer-copy">
-                        © 2025 COOPSERPROG. Todos los derechos reservados.
-                    </div>
+                    <div class="footer-copy">© 2025 COOPSERPROG. Todos los derechos reservados.</div>
                 </div>
             </div>
         </div>
-
         <a href="#inicio" class="flecha-inicio" title="Volver al inicio"><i class="fas fa-arrow-up"></i></a>
     </footer>
 
-    <script>
-        // ===== MENÚ HAMBURGUESA =====
-        document.getElementById('menuToggle').addEventListener('click', function () {
-            document.getElementById('mainMenu').classList.toggle('show');
-        });
-
-        // ===== NAVBAR SCROLL =====
-        let lastScroll = 0;
-        const navbar = document.getElementById('navbar');
-        const menu = document.getElementById('mainMenu');
-
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll > 50) navbar.classList.add('scrolled');
-            else navbar.classList.remove('scrolled');
-            if (currentScroll > lastScroll && currentScroll > 100) navbar.classList.add('navbar-hidden');
-            else navbar.classList.remove('navbar-hidden');
-            if (menu.classList.contains('show') && currentScroll > 50) menu.classList.remove('show');
-            lastScroll = currentScroll;
-        });
-
-        // ===== REVELADO AL SCROLL =====
-        document.addEventListener('DOMContentLoaded', function () {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.reveal-section').forEach(el => observer.observe(el));
-
-            const timelineObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const delay = parseInt(entry.target.dataset.delay) || 0;
-                        setTimeout(() => entry.target.classList.add('visible'), delay);
-                    }
-                });
-            }, { threshold: 0.2 });
-
-            document.querySelectorAll('.timeline-item').forEach(el => timelineObserver.observe(el));
-        });
-
-        // ===== SLIDER HEADER =====
-        document.addEventListener('DOMContentLoaded', function () {
-            const slides = document.querySelectorAll('.hero-slide');
-            const prevBtn = document.getElementById('heroSliderPrev');
-            const nextBtn = document.getElementById('heroSliderNext');
-            const indicators = document.querySelectorAll('.hero-slider-indicators .indicator');
-            let currentIndex = 0;
-            const totalSlides = slides.length;
-
-            function updateSlider(index) {
-                if (index < 0) index = totalSlides - 1;
-                if (index >= totalSlides) index = 0;
-                slides.forEach((slide, i) => {
-                    slide.classList.toggle('active', i === index);
-                });
-                indicators.forEach((ind, i) => {
-                    ind.classList.toggle('active', i === index);
-                });
-                currentIndex = index;
-            }
-
-            prevBtn.addEventListener('click', () => updateSlider(currentIndex - 1));
-            nextBtn.addEventListener('click', () => updateSlider(currentIndex + 1));
-            indicators.forEach((ind, i) => {
-                ind.addEventListener('click', () => updateSlider(i));
-            });
-
-            let autoPlay = setInterval(() => updateSlider(currentIndex + 1), 6000);
-            const slider = document.querySelector('.hero-slider');
-            slider.addEventListener('mouseenter', () => clearInterval(autoPlay));
-            slider.addEventListener('mouseleave', () => {
-                autoPlay = setInterval(() => updateSlider(currentIndex + 1), 6000);
-            });
-
-            updateSlider(0);
-        });
-
-        // ===== CARRUSEL DE NOVEDADES =====
-        document.addEventListener('DOMContentLoaded', function () {
-            const track = document.getElementById('historyCarouselTrack');
-            const prevBtn = document.getElementById('historyCarouselPrev');
-            const nextBtn = document.getElementById('historyCarouselNext');
-            const dots = document.querySelectorAll('#historyCarouselDots .dot');
-            let currentIndex = 0;
-            const totalSlides = document.querySelectorAll('.history-carousel-slide').length;
-
-            function updateCarousel(index) {
-                if (index < 0) index = totalSlides - 1;
-                if (index >= totalSlides) index = 0;
-                track.style.transform = `translateX(-${index * 100}%)`;
-                currentIndex = index;
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle('active', i === index);
-                });
-            }
-
-            prevBtn.addEventListener('click', () => updateCarousel(currentIndex - 1));
-            nextBtn.addEventListener('click', () => updateCarousel(currentIndex + 1));
-            dots.forEach((dot, i) => {
-                dot.addEventListener('click', () => updateCarousel(i));
-            });
-
-            let autoPlay = setInterval(() => updateCarousel(currentIndex + 1), 6000);
-            const wrapper = document.querySelector('.history-carousel-wrapper');
-            wrapper.addEventListener('mouseenter', () => clearInterval(autoPlay));
-            wrapper.addEventListener('mouseleave', () => {
-                autoPlay = setInterval(() => updateCarousel(currentIndex + 1), 6000);
-            });
-
-            updateCarousel(0);
-        });
-
-        // ===== REQUISITOS - MOSTRAR NUBE =====
-        function mostrarRequisito(tipo) {
-            const nube = document.getElementById('nubeFlotante');
-            const natural = document.getElementById('nubeNatural');
-            const juridica = document.getElementById('nubeJuridica');
-            const btnNatural = document.getElementById('burbujaNatural');
-            const btnJuridica = document.getElementById('burbujaJuridica');
-
-            natural.style.display = 'none';
-            juridica.style.display = 'none';
-            btnNatural.classList.remove('active');
-            btnJuridica.classList.remove('active');
-
-            if (tipo === 'natural') {
-                natural.style.display = 'block';
-                btnNatural.classList.add('active');
-            } else {
-                juridica.style.display = 'block';
-                btnJuridica.classList.add('active');
-            }
-
-            nube.classList.add('mostrar');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function cerrarNube() {
-            const nube = document.getElementById('nubeFlotante');
-            nube.classList.remove('mostrar');
-            document.body.style.overflow = '';
-            document.querySelectorAll('.burbuja-item').forEach(el => el.classList.remove('active'));
-        }
-
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') cerrarNube();
-        });
-
-        document.addEventListener('click', function (e) {
-            const nube = document.getElementById('nubeFlotante');
-            if (nube.classList.contains('mostrar') && e.target === nube) cerrarNube();
-        });
-
-        // ===== WHATSAPP TOGGLE =====
-        document.getElementById('whatsappToggle').addEventListener('click', function (e) {
-            e.stopPropagation();
-            document.getElementById('whatsappMenu').classList.toggle('open');
-        });
-
-        document.addEventListener('click', function () {
-            document.getElementById('whatsappMenu').classList.remove('open');
-        });
-
-        // ===== TIMELINE HORIZONTAL - REVELADO =====
-        document.addEventListener('DOMContentLoaded', function () {
-            const timelineObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const delay = parseInt(entry.target.dataset.delay) || 0;
-                        setTimeout(() => {
-                            entry.target.classList.add('visible');
-                        }, delay);
-                    }
-                });
-            }, { threshold: 0.15 });
-
-            document.querySelectorAll('.timeline-h-item').forEach(el => {
-                timelineObserver.observe(el);
-            });
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
