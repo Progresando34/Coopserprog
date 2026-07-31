@@ -437,6 +437,7 @@ img { max-width: 100%; display: block; }
     flex-direction: column;
     position: relative;
     background: linear-gradient(135deg, var(--verde-coop), var(--verde-oscuro));
+    overflow: hidden;
 }
 
 .hero-slider {
@@ -463,10 +464,25 @@ img { max-width: 100%; display: block; }
     flex: 0 0 100%;
     height: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-    padding: 100px 60px 80px;
+    padding: 140px 60px 0px;
     position: relative;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* Overlay de filtro verde sutil sobre la imagen de fondo */
+.hero-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, 
+        rgba(1, 152, 59, 0.986) 0%, 
+        rgba(0, 107, 43, 0.87) 100%
+    );
+    z-index: 1;
 }
 
 .hero-slide-container {
@@ -476,27 +492,26 @@ img { max-width: 100%; display: block; }
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    align-items: center;
+    align-items: flex-end;
     position: relative;
     z-index: 2;
 }
 
-/* ===== TEXTO IZQUIERDA - MÁS ABAJO Y A LA IZQUIERDA ===== */
 .hero-slide-text {
     text-align: left;
-    padding: 20px 0;
-    padding-left: 20px;
-    margin-top: 40px;
+    padding: 30px 0 60px;
+    padding-left: 100px;
+    margin-bottom: 20px;
 }
 
 .hero-slide-text .hero-badge {
     display: inline-block;
-    background: linear-gradient(135deg, var(--verde-coop), var(--verde-claro));
+    background: linear-gradient(135deg, var(--amarillo-coop), var(--amarillo-coop));
     padding: 6px 20px;
     border-radius: 50px;
     font-size: 0.75rem;
     font-weight: 700;
-    color: white;
+    color: rgb(0, 0, 0);
     margin-bottom: 20px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -504,7 +519,7 @@ img { max-width: 100%; display: block; }
 }
 
 .hero-slide-text h1 {
-    font-size: 3.8rem;
+    font-size: 3.2rem;
     font-weight: 900;
     color: white;
     margin-bottom: 16px;
@@ -520,10 +535,10 @@ img { max-width: 100%; display: block; }
 }
 
 .hero-slide-text p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0.85);
     margin-bottom: 28px;
-    max-width: 500px;
+    max-width: 480px;
     line-height: 1.7;
 }
 
@@ -533,30 +548,27 @@ img { max-width: 100%; display: block; }
     flex-wrap: wrap;
 }
 
-/* ===== IMAGEN DERECHA - MÁS PEQUEÑA EN ESCRITORIO ===== */
 .hero-slide-image {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
+    margin-bottom: 0px;
+    width: 100%;
 }
 
 .hero-slide-image img {
-    width: 65%;
-    max-width: 400px;
+    width: 70%;
+    max-width: 420px;
     height: auto;
-    border-radius: 20px;
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+    border-radius: 0;
+    box-shadow: none;
     object-fit: contain;
-    transition: transform 0.4s ease;
+    display: block;
+    background: transparent;
 }
 
-.hero-slide-image img:hover {
-    transform: scale(1.02);
-}
-
-/* ===== BOTONES ===== */
 .btn-primario {
-    background: var(--amarillo-coop);;
+    background: var(--amarillo-coop);
     color: rgb(0, 0, 0);
     border: none;
     padding: 14px 32px;
@@ -600,7 +612,6 @@ img { max-width: 100%; display: block; }
     transform: translateY(-3px);
 }
 
-/* ===== FLECHAS ===== */
 .hero-slider-btn {
     position: absolute;
     top: 50%;
@@ -630,7 +641,6 @@ img { max-width: 100%; display: block; }
 .hero-slider-btn.prev { left: 20px; }
 .hero-slider-btn.next { right: 20px; }
 
-/* ===== INDICADORES ===== */
 .hero-slider-indicators {
     position: absolute;
     bottom: 30px;
@@ -668,20 +678,20 @@ img { max-width: 100%; display: block; }
     transform: scale(1.2);
 }
 
-/* ===== OLA MÁS ABAJO ===== */
+/* ===== OLA - CURVA QUE TAPA LA IMAGEN ===== */
 .hero-wave {
     position: absolute;
-    bottom: -1px;
+    bottom: 0px;
     left: 0;
     width: 100%;
     line-height: 0;
-    z-index: 5;
+    z-index: 10;
 }
 
 .hero-wave svg {
     display: block;
     width: 100%;
-    height: 50px;
+    height: 60px;
 }
 
 .hero-wave path {
@@ -689,7 +699,7 @@ img { max-width: 100%; display: block; }
 }
 
 /* ============================================================
-   RESPONSIVE - HERO (IMÁGENES MÁS GRANDES EN MÓVIL)
+   RESPONSIVE - HERO
    ============================================================ */
 @media (max-width: 1024px) {
     .hero-slide-container {
@@ -698,7 +708,11 @@ img { max-width: 100%; display: block; }
         padding: 0 20px;
     }
     .hero-slide-text h1 {
-        font-size: 3rem;
+        font-size: 2.8rem;
+    }
+    .hero-slide-text {
+        padding-left: 20px;
+        padding-bottom: 40px;
     }
     .hero-slide-image img {
         width: 80%;
@@ -708,17 +722,19 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 768px) {
     .hero-slide {
-        padding: 80px 30px 60px;
+        padding: 160px 30px 0px;
     }
     .hero-slide-container {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 20px;
+        gap: 10px;
+        align-items: center;
     }
     .hero-slide-text {
         text-align: center;
         padding-left: 0;
-        margin-top: 0;
+        padding-bottom: 20px;
+        margin-bottom: 0;
     }
     .hero-slide-text p {
         max-width: 100%;
@@ -729,11 +745,17 @@ img { max-width: 100%; display: block; }
         justify-content: center;
     }
     .hero-slide-text h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+    }
+    .hero-slide-text p {
+        font-size: 0.95rem;
+    }
+    .hero-slide-image {
+        margin-bottom: 0;
     }
     .hero-slide-image img {
         width: 85%;
-        max-width: 400px;
+        max-width: 380px;
         margin: 0 auto;
     }
     .hero-slider-btn {
@@ -744,19 +766,19 @@ img { max-width: 100%; display: block; }
     .hero-slider-btn.prev { left: 10px; }
     .hero-slider-btn.next { right: 10px; }
     .hero-wave svg {
-        height: 35px;
+        height: 45px;
     }
 }
 
 @media (max-width: 480px) {
     .hero-slide {
-        padding: 70px 20px 50px;
+        padding: 140px 20px 0px;
     }
     .hero-slide-text h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     .hero-slide-text p {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
     .hero-slide-text .hero-botones {
         flex-direction: column;
@@ -770,7 +792,7 @@ img { max-width: 100%; display: block; }
     }
     .hero-slide-image img {
         width: 100%;
-        max-width: 350px;
+        max-width: 320px;
     }
     .hero-slider-btn {
         width: 34px;
@@ -778,9 +800,10 @@ img { max-width: 100%; display: block; }
         font-size: 12px;
     }
     .hero-wave svg {
-        height: 28px;
+        height: 35px;
     }
 }
+
 /* ============================================================
    CONTADORES
    ============================================================ */
@@ -3388,205 +3411,6 @@ footer::before {
         min-width: 28px;
     }
 }
-/* ============================================================
-   HERO SLIDER - TRANSICIÓN SUAVE Y ELEGANTE
-   ============================================================ */
-.hero-slider-track {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1);
-    will-change: transform;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-}
 
-.hero-slide {
-    flex: 0 0 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 80px 40px 70px;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    position: relative;
-}
 
-.hero-slide::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.05) 100%);
-    z-index: 1;
-}
-
-/* ===== CONTENIDO SIEMPRE VISIBLE (sin animación de entrada) ===== */
-.hero-slide-content {
-    max-width: 700px;
-    text-align: center;
-    position: relative;
-    z-index: 2;
-    padding: 20px;
-    opacity: 1;
-    transform: none;
-    transition: none;
-}
-
-.hero-slide-content .hero-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, var(--verde-coop), var(--verde-claro));
-    padding: 8px 24px;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    box-shadow: 0 4px 20px rgba(1, 152, 59, 0.3);
-    opacity: 1;
-    transform: none;
-    transition: none;
-}
-
-.hero-slide-content h1 {
-    font-size: 3.8rem;
-    font-weight: 900;
-    color: white;
-    margin-bottom: 16px;
-    line-height: 1.05;
-    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-    opacity: 1;
-    transform: none;
-    transition: none;
-}
-
-.hero-slide-content h1 span {
-    background: linear-gradient(135deg, var(--verde-coop), var(--verde-claro));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.hero-slide-content p {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 28px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.7;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-    opacity: 1;
-    transform: none;
-    transition: none;
-}
-
-.hero-botones {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-    opacity: 1;
-    transform: none;
-    transition: none;
-}
-
-/* ============================================================
-   INDICADORES - MÁS PEQUEÑOS Y CON CURVATURA BAJA
-   ============================================================ */
-.hero-slider-indicators {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 15;
-    display: flex;
-    gap: 10px;
-    background: rgba(0, 0, 0, 0.35);
-    padding: 8px 14px;
-    border-radius: 30px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-}
-
-.hero-slider-indicators .indicator {
-    width: 10px;  /* Más pequeñas */
-    height: 10px; /* Más pequeñas */
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.25);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 1.5px solid transparent;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-}
-
-.hero-slider-indicators .indicator.active {
-    background: var(--amarillo-coop);
-    transform: scale(1.4);
-    border-color: white;
-    box-shadow: 0 0 16px rgba(255, 213, 39, 0.4);
-}
-
-.hero-slider-indicators .indicator:hover {
-    background: var(--verde-coop);
-    transform: scale(1.2);
-}
-
-/* ============================================================
-   OLA MÁS BAJA - CURVATURA REDUCIDA
-   ============================================================ */
-.hero-wave {
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    line-height: 0;
-    z-index: 5;
-}
-
-.hero-wave svg {
-    display: block;
-    width: 100%;
-    height: 40px; /* Reducido de 80px a 40px */
-}
-
-.hero-wave path {
-    fill: var(--gris-claro);
-}
-
-/* ===== RESPONSIVE - INDICADORES ===== */
-@media (max-width: 768px) {
-    .hero-slider-indicators {
-        bottom: 25px;
-        gap: 8px;
-        padding: 6px 12px;
-    }
-    .hero-slider-indicators .indicator {
-        width: 8px;
-        height: 8px;
-    }
-    .hero-wave svg {
-        height: 30px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-slider-indicators {
-        bottom: 20px;
-        gap: 6px;
-        padding: 5px 10px;
-    }
-    .hero-slider-indicators .indicator {
-        width: 7px;
-        height: 7px;
-    }
-    .hero-wave svg {
-        height: 25px;
-    }
-}
 
