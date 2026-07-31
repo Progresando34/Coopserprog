@@ -5,7 +5,7 @@ const menuToggle = document.getElementById('menuToggle');
 const mainMenu = document.getElementById('mainMenu');
 let menuOpen = false;
 
-menuToggle?.addEventListener('click', function(e) {
+menuToggle?.addEventListener('click', function (e) {
     e.stopPropagation();
     menuOpen = !menuOpen;
     mainMenu.classList.toggle('show');
@@ -19,7 +19,7 @@ menuToggle?.addEventListener('click', function(e) {
     }
 });
 
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
     if (menuOpen && !e.target.closest('.navbar-moderno')) {
         mainMenu.classList.remove('show');
         menuOpen = false;
@@ -29,8 +29,8 @@ document.addEventListener('click', function(e) {
     }
 });
 
-document.querySelectorAll('.menu-item a:not(.dropdown-toggle)').forEach(function(link) {
-    link.addEventListener('click', function() {
+document.querySelectorAll('.menu-item a:not(.dropdown-toggle)').forEach(function (link) {
+    link.addEventListener('click', function () {
         if (window.innerWidth <= 768) {
             mainMenu.classList.remove('show');
             menuOpen = false;
@@ -38,14 +38,14 @@ document.querySelectorAll('.menu-item a:not(.dropdown-toggle)').forEach(function
             if (icon) icon.className = 'fas fa-bars';
             if (menuToggle) menuToggle.setAttribute('aria-label', 'Abrir menú');
         }
-        document.querySelectorAll('.dropdown.open').forEach(function(dropdown) {
+        document.querySelectorAll('.dropdown.open').forEach(function (dropdown) {
             dropdown.classList.remove('open');
             dropdown.querySelector('.dropdown-menu')?.classList.remove('show');
         });
     });
 });
 
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
         if (menuOpen) {
             mainMenu.classList.remove('show');
@@ -54,7 +54,7 @@ document.addEventListener('keydown', function(e) {
             if (icon) icon.className = 'fas fa-bars';
             if (menuToggle) menuToggle.setAttribute('aria-label', 'Abrir menú');
         }
-        document.querySelectorAll('.dropdown.open').forEach(function(dropdown) {
+        document.querySelectorAll('.dropdown.open').forEach(function (dropdown) {
             dropdown.classList.remove('open');
             dropdown.querySelector('.dropdown-menu')?.classList.remove('show');
         });
@@ -77,70 +77,119 @@ window.addEventListener('scroll', () => {
 });
 
 // ============================================================
-// HERO SLIDER - INFINITO + DRAG TO SLIDE (CORREGIDO)
+// HERO SLIDER - INFINITO + DRAG TO SLIDE (REESCRITO)
+// ------------------------------------------------------------
+// Cambios respecto a la versión anterior:
+// 1. Un ÚNICO responsable de "isTransitioning": el evento
+//    "transitionend" del track. Antes había un setTimeout Y un
+//    listener de transitionend peleando por el mismo estado, lo
+//    que hacía que a veces la transición terminara "a medias" o
+//    el slider quedara trabado. Se deja un timeout de seguridad
+//    (por si transitionend no llega a disparar, p.ej. pestaña en
+//    segundo plano) pero se cancela apenas transitionend ocurre.
+// 2. Bug real en touch: se usaba "e.clientX" en touchstart, que
+//    no existe en un TouchEvent (da undefined -> NaN en los
+//    cálculos de arrastre). Ahora se usa "touch.clientX".
+// 3. El arrastre (mouse/touch) ya no duplica la lógica de salto
+//    entre clones: reutiliza goToSlide(), así el comportamiento
+//    es idéntico venga de botón, indicador o drag.
 // ============================================================
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const track = document.getElementById('heroSliderTrack');
     const slides = track?.querySelectorAll('.hero-slide');
     const indicators = document.querySelectorAll('.hero-slider-indicators .indicator');
     const prevBtn = document.getElementById('heroSliderPrev');
     const nextBtn = document.getElementById('heroSliderNext');
-    
-    if (!track || !slides || slides.length === 0) return;
+    const sliderContainer = document.querySelector('.hero-slider');
+
+    if (!track || !slides || slides.length === 0 || !sliderContainer) return;
 
     const totalSlides = slides.length;
-    let autoPlayInterval = null;
-    let isTransitioning = false;
     const AUTO_PLAY_DELAY = 7000;
     const TRANSITION_DURATION = 1200;
+
+    let autoPlayInterval = null;
+    let isTransitioning = false;
+    let safetyTimer = null;
 
     // ===== CLONAR PARA EFECTO INFINITO =====
     const firstClone = slides[0].cloneNode(true);
     const lastClone = slides[totalSlides - 1].cloneNode(true);
+    firstClone.setAttribute('aria-hidden', 'true');
+    lastClone.setAttribute('aria-hidden', 'true');
     track.appendChild(firstClone);
     track.insertBefore(lastClone, slides[0]);
-    
+
     const allSlides = track.querySelectorAll('.hero-slide');
     const totalAllSlides = allSlides.length;
     let realIndex = 1;
-    
-    track.style.transition = `transform ${TRANSITION_DURATION}ms cubic-bezier(0.65, 0, 0.35, 1)`;
-    track.style.transform = `translateX(-${realIndex * 100}%)`;
+
+    function setTransitionOn(on) {
+        track.style.transition = on
+            ? `transform ${TRANSITION_DURATION}ms cubic-bezier(0.65, 0, 0.35, 1)`
+            : 'none';
+    }
+
+    function setPosition(index) {
+        track.style.transform = `translateX(-${index * 100}%)`;
+    }
 
     function updateIndicators(index) {
         let indicatorIndex = index - 1;
         if (indicatorIndex < 0) indicatorIndex = totalSlides - 1;
         if (indicatorIndex >= totalSlides) indicatorIndex = 0;
-        indicators.forEach((ind, i) => {
-            ind.classList.toggle('active', i === indicatorIndex);
-        });
+        indicators.forEach((ind, i) => ind.classList.toggle('active', i === indicatorIndex));
     }
 
-    function goToSlide(index, animate = true) {
-        if (isTransitioning && animate) return;
+    function clearSafetyTimer() {
+        if (safetyTimer) {
+            clearTimeout(safetyTimer);
+            safetyTimer = null;
+        }
+    }
+
+    // Salto silencioso (sin animación) a una posición, usado para
+    // el "teletransporte" entre clon y slide real.
+    function jumpTo(index) {
+        realIndex = index;
+        setTransitionOn(false);
+        setPosition(realIndex);
+        void track.offsetHeight; // forzar reflow antes de reactivar la transición
+        setTransitionOn(true);
+    }
+
+    // Único punto que cierra una transición animada.
+    function handleTransitionEnd() {
+        if (!isTransitioning) return;
+        isTransitioning = false;
+        clearSafetyTimer();
+
+        if (realIndex === totalAllSlides - 1) {
+            jumpTo(1);
+        } else if (realIndex === 0) {
+            jumpTo(totalSlides);
+        }
+    }
+
+    track.addEventListener('transitionend', function (e) {
+        if (e.target !== track || e.propertyName !== 'transform') return;
+        handleTransitionEnd();
+    });
+
+    // Navegación animada a un índice (puede ser un slide clon,
+    // el salto se resuelve solo en handleTransitionEnd).
+    function goToSlide(index) {
+        if (isTransitioning) return;
         isTransitioning = true;
         realIndex = index;
-        
-        if (!animate) track.style.transition = 'none';
-        track.style.transform = `translateX(-${realIndex * 100}%)`;
+        setTransitionOn(true);
+        setPosition(realIndex);
         updateIndicators(realIndex);
-        
-        if (!animate) {
-            void track.offsetHeight;
-            track.style.transition = `transform ${TRANSITION_DURATION}ms cubic-bezier(0.65, 0, 0.35, 1)`;
-        }
-        
-        setTimeout(() => {
-            isTransitioning = false;
-            if (realIndex === totalAllSlides - 1) {
-                setTimeout(() => goToSlide(1, false), 50);
-            } else if (realIndex === 0) {
-                setTimeout(() => goToSlide(totalSlides, false), 50);
-            }
-        }, TRANSITION_DURATION + 50);
+
+        clearSafetyTimer();
+        safetyTimer = setTimeout(handleTransitionEnd, TRANSITION_DURATION + 200);
     }
 
-    // ===== CORREGIDO: nextSlide y prevSlide =====
     function nextSlide() {
         if (!isTransitioning) goToSlide(realIndex + 1);
     }
@@ -150,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function startAutoPlay() {
-        if (autoPlayInterval) clearInterval(autoPlayInterval);
+        stopAutoPlay();
         autoPlayInterval = setInterval(nextSlide, AUTO_PLAY_DELAY);
     }
 
@@ -161,116 +210,152 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // ===== BOTONES (CORREGIDOS) =====
-    if (prevBtn) {
-        prevBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            stopAutoPlay();
-            prevSlide(); // Ahora va hacia atrás
-            setTimeout(startAutoPlay, TRANSITION_DURATION + 300);
-        });
-    }
+    // ===== BOTONES =====
+    prevBtn?.addEventListener('click', function (e) {
+        e.stopPropagation();
+        stopAutoPlay();
+        prevSlide();
+        startAutoPlay();
+    });
 
-    if (nextBtn) {
-        nextBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            stopAutoPlay();
-            nextSlide(); // Ahora va hacia adelante
-            setTimeout(startAutoPlay, TRANSITION_DURATION + 300);
-        });
-    }
+    nextBtn?.addEventListener('click', function (e) {
+        e.stopPropagation();
+        stopAutoPlay();
+        nextSlide();
+        startAutoPlay();
+    });
 
     // ===== INDICADORES =====
     indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', function() {
+        indicator.addEventListener('click', function (e) {
+            e.stopPropagation();
             const targetIndex = index + 1;
             if (targetIndex !== realIndex && !isTransitioning) {
                 stopAutoPlay();
                 goToSlide(targetIndex);
-                setTimeout(startAutoPlay, TRANSITION_DURATION + 300);
+                startAutoPlay();
             }
         });
     });
 
-        // ===== DRAG TO SLIDE - MANTIENE POSICIÓN AL SOLTAR Y VOLVER A AGARRAR =====
-    const sliderContainer = document.querySelector('.hero-slider');
+    // ===== DRAG TO SLIDE (mouse + touch, misma lógica) =====
     let isDragging = false;
     let startX = 0;
     let startTranslateX = 0;
     let currentTranslateX = 0;
-    let dragOffset = 0;
     let isDraggingActive = false;
+    let dragStartTime = 0;
 
-    sliderContainer.addEventListener('mousedown', function(e) {
-        e.preventDefault();
-        isDragging = true;
-        isDraggingActive = true;
-        startX = e.clientX;
-        // Obtener la posición actual REAL desde el track
-        const currentTransform = track.style.transform;
-        let currentPos = realIndex * 100;
-        if (currentTransform) {
-            const match = currentTransform.match(/translateX\(-([\d.]+)%\)/);
-            if (match) {
-                currentPos = parseFloat(match[1]);
-            }
-        }
-        startTranslateX = currentPos;
-        currentTranslateX = currentPos;
-        track.style.transition = 'none';
-        sliderContainer.style.cursor = 'grabbing';
+    function getCurrentTranslate() {
+        const style = window.getComputedStyle(track);
+        const transform = style.transform;
+        if (!transform || transform === 'none') return realIndex * 100;
+        const matrix = new DOMMatrixReadOnly(transform);
+        return -(matrix.m41 / sliderContainer.offsetWidth) * 100;
+    }
+
+    function dragStart(clientX) {
+        // No permitir empezar a arrastrar en medio de una transición
+        // animada: evita que el track quede en un estado intermedio.
+        if (isTransitioning) return false;
+
         stopAutoPlay();
-    });
+        clearSafetyTimer();
 
-    document.addEventListener('mousemove', function(e) {
-        if (!isDragging || !isDraggingActive) return;
-        const diff = (e.clientX - startX) / sliderContainer.offsetWidth * 100;
+        const current = getCurrentTranslate();
+        setTransitionOn(false);
+        track.style.transform = `translateX(-${current}%)`;
+        void track.offsetWidth;
+
+        isDragging = true;
+        isDraggingActive = false;
+        startX = clientX;
+        startTranslateX = current;
+        currentTranslateX = current;
+        dragStartTime = Date.now();
+        sliderContainer.style.cursor = 'grabbing';
+        return true;
+    }
+
+    function dragMove(clientX) {
+        if (!isDragging) return;
+        const diff = (clientX - startX) / sliderContainer.offsetWidth * 100;
         const translateX = startTranslateX - diff;
         const maxTranslate = (totalAllSlides - 1) * 100;
         if (translateX < -10 || translateX > maxTranslate + 10) return;
         track.style.transform = `translateX(-${translateX}%)`;
         currentTranslateX = translateX;
-    });
+        if (Math.abs(clientX - startX) > 8) isDraggingActive = true;
+    }
 
-    document.addEventListener('mouseup', function(e) {
+    function dragEnd() {
         if (!isDragging) return;
         isDragging = false;
         sliderContainer.style.cursor = 'grab';
-        
-        // Si no hubo movimiento significativo, no hacer nada
-        if (!isDraggingActive) {
-            startAutoPlay();
-            return;
-        }
-        isDraggingActive = false;
-        
-        // Calcular el índice objetivo
-        let targetIndex = Math.round(currentTranslateX / 100);
-        targetIndex = Math.max(0, Math.min(targetIndex, totalAllSlides - 1));
-        
+
         const diff = Math.abs(currentTranslateX - startTranslateX);
-        if (diff < 15) {
-            targetIndex = Math.round(startTranslateX / 100);
-        }
-        
-        // Aplicar la transición
-        track.style.transition = `transform ${TRANSITION_DURATION}ms cubic-bezier(0.65, 0, 0.35, 1)`;
-        track.style.transform = `translateX(-${targetIndex * 100}%)`;
-        realIndex = targetIndex;
-        updateIndicators(realIndex);
-        
-        // Manejar clones
-        setTimeout(() => {
-            if (realIndex === totalAllSlides - 1) {
-                setTimeout(() => goToSlide(1, false), 50);
-            } else if (realIndex === 0) {
-                setTimeout(() => goToSlide(totalSlides, false), 50);
+        const timeDiff = Date.now() - dragStartTime;
+
+        if (isDraggingActive && diff > 10) {
+            let targetIndex = Math.round(currentTranslateX / 100);
+
+            // Movimiento rápido (flick): priorizar la dirección aunque
+            // no se haya recorrido mucha distancia.
+            if (timeDiff < 300 && diff > 30) {
+                const direction = currentTranslateX < startTranslateX ? 1 : -1;
+                targetIndex = Math.round(startTranslateX / 100) + direction;
             }
-            startAutoPlay();
-        }, TRANSITION_DURATION + 200);
+
+            targetIndex = Math.max(0, Math.min(targetIndex, totalAllSlides - 1));
+
+            if (targetIndex !== realIndex) {
+                goToSlide(targetIndex);
+            } else {
+                // Mismo índice: sólo asegurar que quede alineado.
+                setTransitionOn(true);
+                setPosition(realIndex);
+            }
+        } else {
+            // Sin arrastre significativo: volver suavemente a donde estaba.
+            setTransitionOn(true);
+            setPosition(realIndex);
+        }
+
+        isDraggingActive = false;
+        startAutoPlay();
+    }
+
+    // Mouse
+    sliderContainer.addEventListener('mousedown', function (e) {
+        if (e.button !== 0) return;
+        e.preventDefault();
+        dragStart(e.clientX);
+    });
+    document.addEventListener('mousemove', function (e) {
+        dragMove(e.clientX);
+    });
+    document.addEventListener('mouseup', function () {
+        dragEnd();
     });
 
-    sliderContainer.addEventListener('dragstart', function(e) {
+    // Touch
+    sliderContainer.addEventListener('touchstart', function (e) {
+        const touch = e.touches[0];
+        if (!touch) return;
+        dragStart(touch.clientX);
+    }, { passive: true });
+
+    sliderContainer.addEventListener('touchmove', function (e) {
+        const touch = e.touches[0];
+        if (!touch) return;
+        dragMove(touch.clientX);
+    }, { passive: true });
+
+    sliderContainer.addEventListener('touchend', function () {
+        dragEnd();
+    }, { passive: true });
+
+    sliderContainer.addEventListener('dragstart', function (e) {
         e.preventDefault();
     });
     sliderContainer.style.cursor = 'grab';
@@ -280,10 +365,14 @@ document.addEventListener('DOMContentLoaded', function() {
     sliderContainer.addEventListener('mouseleave', startAutoPlay);
 
     // ===== INICIAR =====
-    updateIndicators(1);
+    setTransitionOn(false);
+    setPosition(realIndex);
+    void track.offsetHeight;
+    setTransitionOn(true);
+    updateIndicators(realIndex);
     startAutoPlay();
 
-    document.addEventListener('visibilitychange', function() {
+    document.addEventListener('visibilitychange', function () {
         if (!document.hidden) {
             startAutoPlay();
         } else {
@@ -295,7 +384,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // ============================================================
 // CONTADORES ANIMADOS
 // ============================================================
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const counters = document.querySelectorAll('.counter-number');
     if (counters.length === 0) return;
 
@@ -324,18 +413,18 @@ document.addEventListener('DOMContentLoaded', function() {
 // ============================================================
 // WHATSAPP MENU TOGGLE
 // ============================================================
-document.getElementById('whatsappToggle')?.addEventListener('click', function(e) {
+document.getElementById('whatsappToggle')?.addEventListener('click', function (e) {
     e.stopPropagation();
     document.getElementById('whatsappMenu').classList.toggle('open');
 });
-document.addEventListener('click', function() {
+document.addEventListener('click', function () {
     document.getElementById('whatsappMenu')?.classList.remove('open');
 });
 
 // ============================================================
 // ANIMACIONES AL SCROLL (REVEAL)
 // ============================================================
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -353,7 +442,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // ============================================================
 // TIMELINE HORIZONTAL - REVELADO CON OBSERVER
 // ============================================================
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const timelineItems = document.querySelectorAll('.timeline-h-item');
     if (timelineItems.length === 0) return;
 
@@ -374,26 +463,18 @@ document.addEventListener('DOMContentLoaded', function() {
 // ============================================================
 // DROPDOWN
 // ============================================================
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const dropdowns = document.querySelectorAll('.dropdown');
 
-    function isMobile() {
-        return window.innerWidth <= 768;
-    }
-
-    dropdowns.forEach(function(dropdown) {
+    dropdowns.forEach(function (dropdown) {
         const link = dropdown.querySelector('.dropdown-toggle');
         const menu = dropdown.querySelector('.dropdown-menu');
-
         if (!link || !menu) return;
-
-        link.removeEventListener('click', handleDropdownClick);
         link.addEventListener('click', handleDropdownClick);
     });
 
     function handleDropdownClick(e) {
         const dropdown = this.closest('.dropdown');
-        const menu = dropdown.querySelector('.dropdown-menu');
 
         e.preventDefault();
         e.stopPropagation();
@@ -403,10 +484,8 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        document.querySelectorAll('.dropdown.open').forEach(function(other) {
-            if (other !== dropdown) {
-                closeDropdown(other);
-            }
+        document.querySelectorAll('.dropdown.open').forEach(function (other) {
+            if (other !== dropdown) closeDropdown(other);
         });
 
         openDropdown(dropdown);
@@ -424,10 +503,10 @@ document.addEventListener('DOMContentLoaded', function() {
         menu.classList.remove('show');
     }
 
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         const isDropdown = e.target.closest('.dropdown');
         if (!isDropdown) {
-            document.querySelectorAll('.dropdown.open').forEach(function(dropdown) {
+            document.querySelectorAll('.dropdown.open').forEach(function (dropdown) {
                 closeDropdown(dropdown);
             });
         }

@@ -618,28 +618,26 @@ img { max-width: 100%; display: block; }
     transform: translateY(-50%);
     width: 48px;
     height: 48px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.15);
-    border-radius: 50%;
-    color: white;
-    font-size: 18px;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    border: none !important;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 28px;
     cursor: pointer;
-    z-index: 10;
-    transition: var(--transition);
+    z-index: 20 !important; /* Aumentado para que esté por encima de todo */
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .hero-slider-btn:hover {
-    background: var(--verde-coop);
-    border-color: var(--verde-coop);
-    transform: translateY(-50%) scale(1.1);
+    color: var(--amarillo-coop);
+    transform: translateY(-50%) scale(1.2);
 }
 
-.hero-slider-btn.prev { left: 20px; }
-.hero-slider-btn.next { right: 20px; }
+.hero-slider-btn.prev { left: 10px; }
+.hero-slider-btn.next { right: 10px; }
 
 .hero-slider-indicators {
     position: absolute;
@@ -664,6 +662,9 @@ img { max-width: 100%; display: block; }
     cursor: pointer;
     transition: all 0.3s ease;
     border: 1.5px solid transparent;
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 20;
 }
 
 .hero-slider-indicators .indicator.active {
@@ -691,7 +692,7 @@ img { max-width: 100%; display: block; }
 .hero-wave svg {
     display: block;
     width: 100%;
-    height: 60px;
+    height: 40px;
 }
 
 .hero-wave path {
