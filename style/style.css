@@ -835,6 +835,15 @@ img {
     transform: scale(1.2);
 }
 
+/* Monitores grandes (más anchos que una laptop típica): un poco más
+   compacto todavía. No toca laptops (1366px y similares), que ya
+   estaban bien — esta regla solo aplica desde 1440px hacia arriba. */
+@media (min-width: 1440px) {
+    .hero-moderno {
+        min-height: clamp(460px, 60vh, 580px);
+    }
+}
+
 /* ===== OLA - CURVA QUE TAPA LA IMAGEN ===== */
 .hero-wave {
     position: absolute;
@@ -929,8 +938,8 @@ img {
     }
 
     .hero-slide-image img {
-        width: 55%;
-        max-width: 220px;
+        width: 66%;
+        max-width: 270px;
         margin: 0 auto;
     }
 
@@ -989,8 +998,8 @@ img {
     }
 
     .hero-slide-image img {
-        width: 50%;
-        max-width: 180px;
+        width: 60%;
+        max-width: 215px;
     }
 
     .hero-slider-btn {
