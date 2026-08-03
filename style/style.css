@@ -540,9 +540,11 @@ img {
    HERO - ESTILO PROFESIONAL (TEXTO IZQUIERDA + IMAGEN DERECHA)
    ============================================================ */
 .hero-moderno {
-    /* min-height en vez de altura fija: crece si el contenido real lo pide,
-       en vez de recortarlo. Bajo el valor en los breakpoints de abajo. */
-    min-height: clamp(520px, 82vh, 760px);
+    /* Bajado de 760px/82vh máx: con esto ya no queda tanto espacio verde
+       vacío arriba del texto ni arriba de la imagen en monitores
+       grandes. Los breakpoints de 768px/480px de abajo quedan igual,
+       porque esos ya estaban bien. */
+    min-height: clamp(480px, 70vh, 640px);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -621,7 +623,17 @@ img {
 .hero-slide-text {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* flex-start en vez de center: con "center" el texto se centraba en
+       TODO el alto disponible (navbar hasta la ola), y en monitores
+       grandes ese alto es mucho más grande que el texto, dejando un
+       hueco enorme arriba. Con flex-start el texto queda pegado justo
+       debajo del navbar siempre; el espacio sobrante ahora queda entre
+       el texto y la imagen (que sigue pegada abajo), no arriba. Esto
+       solo afecta el layout de fila (desktop/tablet); en el layout
+       apilado de móvil (@768px) la posición la maneja el
+       justify-content:space-between del contenedor, así que esto no
+       cambia nada ahí. */
+    justify-content: flex-start;
     text-align: left;
     padding-left: clamp(0px, 6vw, 100px);
     flex: 1 1 0;
@@ -936,8 +948,12 @@ img {
         right: 10px;
     }
 
-    .hero-wave svg {
-        height: 45px;
+    /* Ola oculta en móvil: en pantallas chicas la curva ocupaba espacio
+       y no aportaba, así que en celular la imagen llega directo hasta
+       el borde inferior del hero, sin la curva decorativa. En
+       tablet/desktop la ola se mantiene igual que antes. */
+    .hero-wave {
+        display: none;
     }
 }
 
