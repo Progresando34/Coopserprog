@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,8 +8,1248 @@
     <link rel="stylesheet" href="style/style.css" />
     <script src="https://kit.fontawesome.com/71d96bc7c5.js" crossorigin="anonymous"></script>
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ============================================================
+           PÁGINA: CONVENIOS - REDISEÑO COMPLETO
+           ============================================================ */
+
+        /* --- HERO CON IMAGEN DE FONDO (CON TEXTO) --- */
+        .convenios-hero {
+            padding: 140px 0 80px;
+            background-size: cover !important;
+            background-position: center center !important;
+            background-repeat: no-repeat !important;
+            position: relative;
+            color: white;
+            text-align: center;
+            min-height: 460px;
+            display: flex;
+            align-items: center;
+        }
+
+        .convenios-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(1, 152, 59, 0.85) 0%, rgba(0, 107, 42, 0.9) 100%);
+            z-index: 1;
+        }
+
+        .convenios-hero .container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .convenios-hero-content {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .convenios-hero-content .hero-badge {
+            display: inline-block;
+            background: var(--amarillo-coop);
+            color: var(--negro-suave);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .convenios-hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+            line-height: 1.1;
+        }
+
+        .convenios-hero-content h1 span {
+            color: var(--amarillo-coop);
+        }
+
+        .convenios-hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 24px;
+        }
+
+        .convenios-hero-content .btn-primario {
+            background: var(--amarillo-coop);
+            color: var(--negro-suave);
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            box-shadow: 0 8px 30px rgba(1, 152, 59, 0.35);
+        }
+
+        .convenios-hero-content .btn-primario:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(1, 152, 59, 0.5);
+        }
+
+        /* --- INTRO --- */
+        .convenios-intro {
+            padding: 40px 0 30px;
+            background: white;
+        }
+
+        .intro-card {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .intro-card i {
+            font-size: 3rem;
+            color: var(--verde-coop);
+            margin-bottom: 16px;
+        }
+
+        .intro-card h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .intro-card h2 span {
+            color: var(--verde-coop);
+        }
+
+        .intro-card p {
+            color: var(--gris-texto);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+
+        .intro-card p strong {
+            color: var(--verde-coop);
+        }
+
+        /* ============================================================
+           CARRUSEL DE CONVENIOS DESTACADOS
+           ============================================================ */
+        .convenios-carousel-section {
+            padding: 40px 0 30px;
+            background: white;
+        }
+
+        .convenios-carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            max-width: 950px;
+            margin: 0 auto;
+            box-shadow: var(--sombra);
+        }
+
+        .convenios-carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .convenio-slide {
+            flex: 0 0 100%;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gris-claro);
+            min-height: 250px;
+            max-height: 410px;
+            overflow: hidden;
+        }
+
+        .convenio-slide-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .convenio-slide-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .convenios-carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            z-index: 10;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--negro-suave);
+        }
+
+        .convenios-carousel-btn:hover {
+            background: var(--verde-coop);
+            color: white;
+        }
+
+        .convenios-carousel-btn.prev {
+            left: 12px;
+        }
+
+        .convenios-carousel-btn.next {
+            right: 12px;
+        }
+
+        .convenios-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .convenios-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--gris-medio);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .convenios-dot.active {
+            background: var(--verde-coop);
+            transform: scale(1.2);
+        }
+
+        /* --- MOSAICO DE CONVENIOS --- */
+        .convenios-mosaico {
+            padding: 30px 0 60px;
+            background: var(--gris-claro);
+        }
+
+        .mosaico-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .convenio-mosaico-item {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--gris-medio);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .convenio-mosaico-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.06);
+            border-color: var(--verde-coop);
+        }
+
+        .convenio-mosaico-img {
+            position: relative;
+            height: 160px;
+            overflow: hidden;
+            background: var(--gris-claro);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .convenio-mosaico-img img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .convenio-mosaico-item:hover .convenio-mosaico-img img {
+            transform: scale(1.05);
+        }
+
+        .convenio-categoria-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 4px 14px;
+            background: var(--verde-coop);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .convenio-mosaico-info {
+            padding: 16px 18px 18px;
+        }
+
+        .convenio-mosaico-info h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--negro-suave);
+        }
+
+        .convenio-mosaico-info p {
+            color: var(--gris-texto);
+            font-size: 0.82rem;
+            line-height: 1.5;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .convenio-mosaico-ciudad {
+            font-size: 0.75rem;
+            color: var(--gris-texto);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .convenio-mosaico-ciudad i {
+            color: var(--verde-coop);
+        }
+
+        /* ============================================================
+           MODAL CONVENIO
+           ============================================================ */
+        .modal-convenio {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 99999;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            animation: modalFadeIn 0.4s ease;
+        }
+
+        .modal-convenio.activo {
+            display: flex;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-convenio-contenido {
+            position: relative;
+            max-width: 1000px;
+            width: 100%;
+            max-height: 90vh;
+            background: white;
+            border-radius: 24px;
+            overflow-y: auto;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+            animation: modalContentIn 0.4s ease;
+            padding: 0;
+        }
+
+        .modal-convenio-contenido::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .modal-convenio-contenido::-webkit-scrollbar-thumb {
+            background: var(--verde-coop);
+            border-radius: 4px;
+        }
+
+        @keyframes modalContentIn {
+            from {
+                transform: scale(0.9) translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-convenio-cerrar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .modal-convenio-cerrar:hover {
+            background: #ed1c24;
+            transform: rotate(90deg);
+        }
+
+        .modal-convenio-body {
+            display: grid;
+            grid-template-columns: 0.7fr 1.3fr;
+            gap: 0;
+            padding: 0;
+        }
+
+        .modal-convenio-imagen {
+            background: var(--gris-claro);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 30px;
+            min-height: 100%;
+            border-radius: 24px 0 0 24px;
+        }
+
+        .modal-convenio-imagen img {
+            max-width: 100%;
+            max-height: 200px;
+            object-fit: contain;
+        }
+
+        .modal-convenio-info {
+            padding: 35px 35px 35px 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-convenio-badge {
+            display: inline-block;
+            padding: 4px 16px;
+            background: var(--amarillo-coop);
+            color: var(--negro-suave);
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            align-self: flex-start;
+        }
+
+        .modal-convenio-info h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--negro-suave);
+            margin-bottom: 2px;
+        }
+
+        .modal-convenio-ciudad {
+            font-size: 1.1rem;
+            color: var(--verde-coop);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .modal-convenio-beneficios {
+            background: var(--gris-claro);
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin-bottom: 20px;
+        }
+
+        .modal-convenio-beneficios p {
+            color: var(--gris-texto);
+            font-size: 0.95rem;
+            line-height: 1.9;
+            margin: 0;
+            white-space: pre-line;
+        }
+
+        .modal-convenio-datos {
+            margin-top: 4px;
+        }
+
+        .modal-convenio-datos h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--negro-suave);
+        }
+
+        .modal-convenio-item {
+            display: flex;
+            gap: 14px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gris-medio);
+        }
+
+        .modal-convenio-item:last-child {
+            border-bottom: none;
+        }
+
+        .modal-convenio-item i {
+            font-size: 1.1rem;
+            color: var(--verde-coop);
+            width: 22px;
+            margin-top: 2px;
+        }
+
+        .modal-convenio-item>div {
+            flex: 1;
+        }
+
+        .modal-convenio-item strong {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--gris-texto);
+            font-weight: 600;
+        }
+
+        .modal-convenio-item span {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--negro-suave);
+            font-weight: 500;
+        }
+
+        .modal-convenio-link-mapa {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            color: var(--verde-coop);
+            font-weight: 600;
+            margin-top: 4px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .modal-convenio-link-mapa:hover {
+            gap: 10px;
+        }
+
+        .modal-convenio-acciones {
+            display: flex;
+            gap: 10px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn-copiar-telefono {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 16px;
+            background: var(--gris-claro);
+            border: 1px solid var(--gris-medio);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--gris-texto);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-copiar-telefono:hover {
+            background: var(--verde-coop);
+            color: white;
+            border-color: var(--verde-coop);
+        }
+
+        .btn-whatsapp-comercio {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 16px;
+            background: #25D366;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp-comercio:hover {
+            background: #128C7E;
+            transform: scale(1.02);
+        }
+
+        /* ============================================================
+           MEJORAS PARA CARRUSEL EN MÓVIL Y TABLET
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .convenios-carousel-section {
+                padding: 30px 0 20px;
+            }
+
+            .convenios-carousel-wrapper {
+                max-width: 100%;
+                border-radius: 0;
+                box-shadow: none;
+                margin: 0;
+            }
+
+            .convenio-slide {
+                min-height: 200px;
+                max-height: 350px;
+                padding: 0;
+            }
+
+            .convenio-slide-content img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                max-height: 350px;
+                max-width: 100%;
+            }
+
+            .convenios-carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+                opacity: 0.8;
+                background: rgba(255, 255, 255, 0.95);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            }
+
+            .convenios-carousel-btn:hover {
+                opacity: 1;
+                background: var(--verde-coop);
+                color: white;
+            }
+
+            .convenios-carousel-btn.prev {
+                left: 16px;
+            }
+
+            .convenios-carousel-btn.next {
+                right: 16px;
+            }
+
+            .convenios-dots {
+                margin-top: 20px;
+                gap: 10px;
+            }
+
+            .convenios-dot {
+                width: 12px;
+                height: 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .convenios-carousel-section {
+                padding: 20px 0 15px;
+            }
+
+            .convenios-carousel-wrapper {
+                border-radius: 0;
+                box-shadow: none;
+            }
+
+            .convenio-slide {
+                min-height: 180px;
+                max-height: 280px;
+                padding: 0;
+            }
+
+            .convenio-slide-content img {
+                max-height: 280px;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .convenios-carousel-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+                background: rgba(255, 255, 255, 0.9);
+            }
+
+            .convenios-carousel-btn.prev {
+                left: 12px;
+            }
+
+            .convenios-carousel-btn.next {
+                right: 12px;
+            }
+
+            .convenios-dots {
+                margin-top: 16px;
+                gap: 8px;
+            }
+
+            .convenios-dot {
+                width: 10px;
+                height: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .convenios-carousel-section {
+                padding: 15px 0 10px;
+            }
+
+            .convenio-slide {
+                min-height: 150px;
+                max-height: 220px;
+            }
+
+            .convenio-slide-content img {
+                max-height: 220px;
+                object-fit: cover;
+            }
+
+            .convenios-carousel-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+                background: rgba(255, 255, 255, 0.9);
+            }
+
+            .convenios-carousel-btn.prev {
+                left: 8px;
+            }
+
+            .convenios-carousel-btn.next {
+                right: 8px;
+            }
+
+            .convenios-dots {
+                gap: 6px;
+            }
+
+            .convenios-dot {
+                width: 8px;
+                height: 8px;
+            }
+        }
+
+        /* ============================================================
+           MODAL CENTRADO PARA MÓVIL Y TABLET
+           ============================================================ */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .modal-convenio {
+                padding: 20px;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .modal-convenio-contenido {
+                max-width: 700px;
+                max-height: 85vh;
+                border-radius: 24px;
+                margin: auto;
+            }
+
+            .modal-convenio-cerrar {
+                top: 16px;
+                right: 16px;
+                width: 42px;
+                height: 42px;
+                font-size: 18px;
+            }
+
+            .modal-convenio-body {
+                grid-template-columns: 1fr;
+                gap: 0;
+                padding: 0;
+            }
+
+            .modal-convenio-imagen {
+                min-height: 180px;
+                padding: 30px;
+                border-radius: 24px 24px 0 0;
+                background: var(--gris-claro);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .modal-convenio-imagen img {
+                max-height: 160px;
+                max-width: 70%;
+                object-fit: contain;
+            }
+
+            .modal-convenio-info {
+                padding: 30px 32px 35px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .modal-convenio-badge {
+                align-self: center;
+                margin-bottom: 10px;
+            }
+
+            .modal-convenio-info h2 {
+                font-size: 1.8rem;
+                text-align: center;
+            }
+
+            .modal-convenio-ciudad {
+                font-size: 1.1rem;
+                text-align: center;
+            }
+
+            .modal-convenio-beneficios {
+                padding: 16px 20px;
+                text-align: center;
+                width: 100%;
+            }
+
+            .modal-convenio-beneficios p {
+                font-size: 0.95rem;
+                line-height: 1.8;
+                text-align: center;
+            }
+
+            .modal-convenio-datos {
+                width: 100%;
+            }
+
+            .modal-convenio-datos h4 {
+                text-align: center;
+            }
+
+            .modal-convenio-item {
+                padding: 12px 0;
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .modal-convenio-item i {
+                margin-top: 2px;
+                width: 24px;
+            }
+
+            .modal-convenio-item strong {
+                text-align: center;
+            }
+
+            .modal-convenio-item span {
+                text-align: center;
+            }
+
+            .modal-convenio-item>div {
+                text-align: center;
+            }
+
+            .modal-convenio-acciones {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .btn-copiar-telefono,
+            .btn-whatsapp-comercio {
+                width: auto;
+                justify-content: center;
+                padding: 8px 20px;
+            }
+
+            .modal-convenio-link-mapa {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .modal-convenio {
+                padding: 12px;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .modal-convenio-contenido {
+                max-width: 100%;
+                max-height: 92vh;
+                border-radius: 20px;
+                margin: auto;
+                overflow-y: auto;
+            }
+
+            .modal-convenio-cerrar {
+                top: 12px;
+                right: 12px;
+                width: 38px;
+                height: 38px;
+                font-size: 16px;
+            }
+
+            .modal-convenio-body {
+                grid-template-columns: 1fr;
+                gap: 0;
+                padding: 0;
+            }
+
+            .modal-convenio-imagen {
+                min-height: 140px;
+                padding: 24px;
+                border-radius: 20px 20px 0 0;
+                background: var(--gris-claro);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .modal-convenio-imagen img {
+                max-height: 130px;
+                max-width: 60%;
+                object-fit: contain;
+            }
+
+            .modal-convenio-info {
+                padding: 20px 22px 25px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .modal-convenio-badge {
+                align-self: center;
+                margin-bottom: 10px;
+                font-size: 0.65rem;
+            }
+
+            .modal-convenio-info h2 {
+                font-size: 1.4rem;
+                text-align: center;
+                width: 100%;
+            }
+
+            .modal-convenio-ciudad {
+                font-size: 1rem;
+                text-align: center;
+                width: 100%;
+            }
+
+            .modal-convenio-beneficios {
+                padding: 14px 18px;
+                text-align: center;
+                width: 100%;
+            }
+
+            .modal-convenio-beneficios p {
+                font-size: 0.88rem;
+                line-height: 1.7;
+                text-align: center;
+            }
+
+            .modal-convenio-datos {
+                width: 100%;
+            }
+
+            .modal-convenio-datos h4 {
+                text-align: center;
+                font-size: 0.95rem;
+            }
+
+            .modal-convenio-item {
+                padding: 10px 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 4px;
+                text-align: center;
+            }
+
+            .modal-convenio-item i {
+                margin-top: 0;
+                width: 20px;
+                font-size: 1rem;
+            }
+
+            .modal-convenio-item strong {
+                text-align: center;
+                font-size: 0.75rem;
+            }
+
+            .modal-convenio-item span {
+                text-align: center;
+                font-size: 0.9rem;
+            }
+
+            .modal-convenio-item>div {
+                text-align: center;
+            }
+
+            .modal-convenio-acciones {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+                width: 100%;
+            }
+
+            .btn-copiar-telefono,
+            .btn-whatsapp-comercio {
+                width: auto;
+                justify-content: center;
+                padding: 6px 16px;
+                font-size: 0.7rem;
+            }
+
+            .modal-convenio-link-mapa {
+                font-size: 0.75rem;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal-convenio {
+                padding: 8px;
+            }
+
+            .modal-convenio-contenido {
+                max-height: 95vh;
+                border-radius: 16px;
+            }
+
+            .modal-convenio-cerrar {
+                top: 10px;
+                right: 10px;
+                width: 34px;
+                height: 34px;
+                font-size: 14px;
+            }
+
+            .modal-convenio-imagen {
+                min-height: 100px;
+                padding: 16px;
+                border-radius: 16px 16px 0 0;
+            }
+
+            .modal-convenio-imagen img {
+                max-height: 100px;
+                max-width: 50%;
+            }
+
+            .modal-convenio-info {
+                padding: 16px 16px 20px;
+            }
+
+            .modal-convenio-badge {
+                font-size: 0.6rem;
+                padding: 3px 12px;
+            }
+
+            .modal-convenio-info h2 {
+                font-size: 1.2rem;
+            }
+
+            .modal-convenio-ciudad {
+                font-size: 0.9rem;
+                margin-bottom: 12px;
+            }
+
+            .modal-convenio-beneficios {
+                padding: 12px 14px;
+            }
+
+            .modal-convenio-beneficios p {
+                font-size: 0.82rem;
+                line-height: 1.6;
+            }
+
+            .modal-convenio-item {
+                padding: 8px 0;
+                gap: 3px;
+            }
+
+            .modal-convenio-item i {
+                width: 18px;
+                font-size: 0.9rem;
+            }
+
+            .modal-convenio-item span {
+                font-size: 0.85rem;
+            }
+
+            .modal-convenio-acciones {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .btn-copiar-telefono,
+            .btn-whatsapp-comercio {
+                width: 100%;
+                justify-content: center;
+                padding: 6px 14px;
+                font-size: 0.7rem;
+            }
+        }
+
+        /* ============================================================
+           RESPONSIVE - MOSAICO DE CONVENIOS
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .mosaico-grid {
+                grid-template-columns: repeat(3, 1fr);
+                max-width: 800px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .convenios-hero {
+                padding: 120px 0 50px;
+                min-height: 380px;
+            }
+
+            .convenios-hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .convenios-hero-content p {
+                font-size: 1rem;
+            }
+
+            .mosaico-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 500px;
+            }
+
+            .convenio-mosaico-img {
+                height: 130px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .convenios-hero {
+                padding: 100px 0 40px;
+                min-height: 320px;
+            }
+
+            .convenios-hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .convenios-hero-content p {
+                font-size: 0.95rem;
+            }
+
+            .convenios-hero-content .btn-primario {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .mosaico-grid {
+                grid-template-columns: 1fr;
+                max-width: 360px;
+            }
+
+            .convenio-mosaico-img {
+                height: 140px;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--amarillo-coop);
+            color: var(--negro-suave);
+            padding: 4px 18px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .section-title span {
+            color: var(--verde-coop);
+        }
+
+        .section-subtitle {
+            color: var(--gris-texto);
+            font-size: 1.05rem;
+        }
+
+        :root {
+            --verde-coop: #01983b;
+            --amarillo-coop: #ffd700;
+            --negro-suave: #1a1a1a;
+            --gris-texto: #666;
+            --gris-claro: #f5f5f5;
+            --gris-medio: #ddd;
+            --transition: all 0.3s ease;
+            --sombra: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+    </style>
 </head>
+
 <body>
 
     <!-- ===== WHATSAPP FLOTANTE ===== -->
@@ -25,7 +1266,7 @@
         </div>
     </div>
 
-    <!-- ===== NAVBAR MEJORADA ===== -->
+    <!-- ===== NAVBAR ===== -->
     <nav class="navbar-moderno" id="navbar">
         <div class="nav-container">
             <div class="logo-nav">
@@ -51,8 +1292,6 @@
                 <li class="menu-item"><a href="contactos.html">Contacto</a></li>
                 <li class="menu-item"><a href="documentos.html">Documentos</a></li>
                 <li class="menu-item"><a href="https://ips.progresando.co/" target="_blank">IPS Progresando</a></li>
-
-                <!-- REDES SOCIALES EN EL MENÚ (TODAS LAS PANTALLAS) -->
                 <li class="menu-item menu-social">
                     <span class="menu-social-label"><i class="fas fa-share-alt"></i> Síguenos</span>
                     <div class="menu-social-icons">
@@ -76,67 +1315,53 @@
 
     <!-- ===== MAIN CONTENT ===== -->
     <main>
-        <section class="convenios-header">
+        <!-- ===== HERO CON IMAGEN DE FONDO (CON TEXTO) ===== -->
+        <section class="convenios-hero" style="background-image: url('img/convenios.png');">
             <div class="container">
-                <h1>Nuestros <span>Convenios</span></h1>
-                <p>Beneficios exclusivos para asociados en múltiples sectores</p>
+                <div class="convenios-hero-content">
+                    <span class="hero-badge"><i class="fas fa-handshake"></i> Alianzas</span>
+                    <h1>Nuestros <span>Convenios</span></h1>
+                    <p>Beneficios exclusivos para asociados en múltiples sectores</p>
+                    <a href="#convenios" class="btn-primario">
+                        <i class="fas fa-arrow-down"></i> Ver todos
+                    </a>
+                </div>
             </div>
         </section>
 
-        <!-- ===== CARRUSEL DE CONVENIOS DESTACADOS ===== -->
+        <!-- ===== CARRUSEL DE CONVENIOS DESTACADOS (SOLO IMÁGENES) ===== -->
         <section class="convenios-carousel-section">
             <div class="container">
-                <h2 class="section-title">Convenios <span>Destacados</span></h2>
                 <div class="convenios-carousel-wrapper">
                     <div class="convenios-carousel-track" id="conveniosTrack">
-                        <!-- Slide 1 -->
                         <div class="convenio-slide">
                             <div class="convenio-slide-content">
-                                <img src="img/convenios/eds-infante.png" alt="EDS Infante">
-                                <h3>EDS INFANTE</h3>
-                                <p>Estación de servicio con descuentos exclusivos para asociados en combustible y lubricantes.</p>
-                                <span class="convenio-categoria">Estaciones de Servicio</span>
-                                <span class="convenio-ciudad"><i class="fas fa-map-marker-alt"></i> Cúcuta</span>
+                                <img src="img/eds.jpeg" alt="EDS Infante">
                             </div>
                         </div>
-                        <!-- Slide 2 -->
                         <div class="convenio-slide">
                             <div class="convenio-slide-content">
-                                <img src="img/convenios/ips-progresando.png" alt="IPS Progresando">
-                                <h3>IPS PROGRESANDO</h3>
-                                <p>Servicios de salud con precios preferenciales para asociados y sus familias.</p>
-                                <span class="convenio-categoria">Salud</span>
-                                <span class="convenio-ciudad"><i class="fas fa-map-marker-alt"></i> Cúcuta</span>
+                                <img src="img/ips.jpeg" alt="IPS Progresando">
                             </div>
                         </div>
-                        <!-- Slide 3 -->
                         <div class="convenio-slide">
                             <div class="convenio-slide-content">
-                                <img src="img/convenios/uniminuto.png" alt="UNIMINUTO">
-                                <h3>UNIMINUTO</h3>
-                                <p>Descuentos especiales en programas académicos para asociados y familiares.</p>
-                                <span class="convenio-categoria">Educación</span>
-                                <span class="convenio-ciudad"><i class="fas fa-map-marker-alt"></i> Cúcuta</span>
+                                <img src="img/uni.jpeg" alt="UNIMINUTO">
                             </div>
                         </div>
-                        <!-- Slide 4 -->
                         <div class="convenio-slide">
                             <div class="convenio-slide-content">
-                                <img src="img/convenios/cinemark.png" alt="Cinemark">
-                                <h3>CINEMARK</h3>
-                                <p>Descuentos en boletas de cine para todos los asociados.</p>
-                                <span class="convenio-categoria">Entretenimiento</span>
-                                <span class="convenio-ciudad"><i class="fas fa-map-marker-alt"></i> Cúcuta</span>
+                                <img src="img/carrusel4.png" alt="Cinemark">
                             </div>
                         </div>
-                        <!-- Slide 5 -->
                         <div class="convenio-slide">
                             <div class="convenio-slide-content">
-                                <img src="img/convenios/finef.png" alt="Fundación FINEF">
-                                <h3>FUNDACIÓN FINEF</h3>
-                                <p>Formación recreativa para niños con descuentos para Progresandito.</p>
-                                <span class="convenio-categoria">Infantil</span>
-                                <span class="convenio-ciudad"><i class="fas fa-map-marker-alt"></i> Cúcuta</span>
+                                <img src="img/carrusel5.png" alt="Fundación FINEF">
+                            </div>
+                        </div>
+                        <div class="convenio-slide">
+                            <div class="convenio-slide-content">
+                                <img src="img/carrusel6.png" alt="Fundación FINEF">
                             </div>
                         </div>
                     </div>
@@ -155,100 +1380,93 @@
                     <button class="convenios-dot" data-index="2"></button>
                     <button class="convenios-dot" data-index="3"></button>
                     <button class="convenios-dot" data-index="4"></button>
+                    <button class="convenios-dot" data-index="5"></button>
                 </div>
             </div>
         </section>
 
-        <!-- ===== TODOS LOS CONVENIOS EN GRID ===== -->
-        <section class="convenios-grid-section">
+        <!-- ===== CONVENIOS EN MOSAICO ===== -->
+        <section class="convenios-mosaico" id="convenios">
             <div class="container">
-                <h2 class="section-title">Todos los <span>Convenios</span></h2>
-                <p class="section-subtitle">Descubre todas las alianzas que tenemos para ti</p>
-                <div class="convenios-grid-todos">
-                    <div class="convenio-grid-item">
-                        <img src="img/convenios/eds-infante.png" alt="EDS Infante">
-                        <h4>EDS INFANTE</h4>
-                        <span>Estaciones de Servicio</span>
-                    </div>
-                    <div class="convenio-grid-item">
-                        <img src="img/convenios/eds-terpel.png" alt="EDS Terpel">
-                        <h4>EDS TERPEL EL ROSAL</h4>
-                        <span>Estaciones de Servicio</span>
-                    </div>
-                    <div class="convenio-grid-item">
-                        <img src="img/convenios/certigases.png" alt="Certigases">
-                        <h4>CERTIGASES</h4>
-                        <span>Centro de Revisión</span>
-                    </div>
-                    <div class="convenio-grid-item">
-                        <img src="img/convenios/ips-progresando.png" alt="IPS Progresando">
-                        <h4>IPS PROGRESANDO</h4>
-                        <span>Salud</span>
-                    </div>
-                    <div class="convenio-grid-item">
-                        <img src="img/convenios/unidad-diagnostico.png" alt="Unidad Diagnóstico">
-                        <h4>UNIDAD DE DIAGNÓSTICO</h4>
-                        <span>Salud</span>
-                    </div>
-                    <div class="convenio-grid-item">
-                        <img src="img/convenios/coomeva.png" alt="Coomeva">
-                        <h4>COOMEVA</h4>
-                        <span>Salud</span>
-                    </div>
-                    <div class="convenio-grid-item">
-                        <img src="img/convenios/optica-salud-visual.png" alt="Óptica Salud Visual">
-                        <h4>ÓPTICA SALUD VISUAL</h4>
-                        <span>Salud</span>
-                    </div>
-                    <div class="convenio-grid-item">
-                        <img src="img/convenios/uniminuto.png" alt="UNIMINUTO">
-                        <h4>UNIMINUTO</h4>
-                        <span>Educación</span>
-                    </div>
-                    <div class="convenio-grid-item">
-                        <img src="img/convenios/cinemark.png" alt="Cinemark">
-                        <h4>CINEMARK</h4>
-                        <span>Entretenimiento</span>
-                    </div>
-                    <div class="convenio-grid-item">
-                        <img src="img/convenios/finef.png" alt="Fundación FINEF">
-                        <h4>FUNDACIÓN FINEF</h4>
-                        <span>Infantil</span>
-                    </div>
-                    <div class="convenio-grid-item">
-                        <img src="img/convenios/cda-gran-via.png" alt="CDA La Gran Vía">
-                        <h4>CDA LA GRAN VÍA</h4>
-                        <span>Centro de Revisión</span>
-                    </div>
-                    <div class="convenio-grid-item">
-                        <img src="img/convenios/bary-travel.png" alt="Bary Travel">
-                        <h4>BARY TRAVEL</h4>
-                        <span>Agencia de Viajes</span>
-                    </div>
-                    <div class="convenio-grid-item">
-                        <img src="img/convenios/fomatours.png" alt="Fomatours">
-                        <h4>FOMATOURS</h4>
-                        <span>Agencia de Viajes</span>
-                    </div>
-                    <div class="convenio-grid-item">
-                        <img src="img/convenios/restaurante-la-cima.png" alt="Restaurante La Cima">
-                        <h4>RESTAURANTE LA CIMA</h4>
-                        <span>Restaurantes</span>
-                    </div>
-                    <div class="convenio-grid-item">
-                        <img src="img/convenios/manda-ya.png" alt="Manda Ya">
-                        <h4>MANDA YA</h4>
-                        <span>Servicio de Mensajería</span>
-                    </div>
-                    <div class="convenio-grid-item">
-                        <img src="img/convenios/oficanon.png" alt="Oficanon">
-                        <h4>OFICANON</h4>
-                        <span>Tecnología</span>
-                    </div>
+                <div class="section-header">
+                    <span class="section-tag">Alianzas</span>
+                    <h2 class="section-title">Todos los <span>Convenios</span></h2>
+                    <p class="section-subtitle">Descubre todas las alianzas que tenemos para ti</p>
+                </div>
+
+                <div class="mosaico-grid" id="mosaicoGrid">
+                    <!-- Los convenios se generarán con JavaScript -->
                 </div>
             </div>
         </section>
+
+        <!-- ===== INTRO ===== -->
+        <section class="convenios-intro">
+            <div class="container">
+                <div class="intro-card">
+                    <i class="fas fa-handshake"></i>
+                    <h2>Aliados que <span>potencian</span> tu bienestar</h2>
+                    <p>Gracias a nuestros convenios, tú y tu familia pueden acceder a descuentos, beneficios y servicios
+                        exclusivos en salud, educación, entretenimiento, estaciones de servicio y mucho más.</p>
+                    <p><strong>Ser asociado COOPSERPROG tiene más ventajas de las que imaginas.</strong></p>
+                </div>
+            </div>
+        </section>
+
     </main>
+
+    <!-- ===== MODAL CONVENIO ===== -->
+    <div class="modal-convenio" id="modalConvenio" onclick="cerrarModalConvenio()">
+        <div class="modal-convenio-contenido" onclick="event.stopPropagation()">
+            <button class="modal-convenio-cerrar" onclick="cerrarModalConvenio()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-convenio-body">
+                <div class="modal-convenio-imagen">
+                    <img id="modalConvenioImg" src="" alt="Convenio">
+                </div>
+                <div class="modal-convenio-info">
+                    <span class="modal-convenio-badge">Convenio exclusivo</span>
+                    <h2 id="modalConvenioTitulo"></h2>
+                    <p class="modal-convenio-ciudad" id="modalConvenioCiudad"></p>
+
+                    <div class="modal-convenio-beneficios">
+                        <p id="modalConvenioDescripcion"></p>
+                    </div>
+
+                    <div class="modal-convenio-datos">
+                        <h4>Datos del convenio</h4>
+                        <div class="modal-convenio-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Dirección</strong>
+                                <span id="modalConvenioDireccion"></span>
+                                <a id="modalConvenioMapa" href="#" target="_blank" class="modal-convenio-link-mapa">
+                                    Ver en Google Maps <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="modal-convenio-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Teléfono</strong>
+                                <span id="modalConvenioTelefono"></span>
+                                <div class="modal-convenio-acciones">
+                                    <button onclick="copiarTelefono()" class="btn-copiar-telefono">
+                                        <i class="fas fa-copy"></i> Copiar número
+                                    </button>
+                                    <a id="modalConvenioWhatsapp" href="#" target="_blank"
+                                        class="btn-whatsapp-comercio">
+                                        <i class="fab fa-whatsapp"></i> Escribir por WhatsApp al comercio
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ===== FOOTER ===== -->
     <footer>
@@ -320,6 +1538,790 @@
         <a href="#inicio" class="flecha-inicio" title="Volver al inicio"><i class="fas fa-arrow-up"></i></a>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script>
+        // ============================================================
+        // DATOS COMPLETOS DE TODOS LOS CONVENIOS
+        // ============================================================
+        const conveniosData = {
+            'eds-infante': {
+                titulo: 'EDS INFANTE',
+                categoria: 'Estaciones de Servicio',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/infante.jpeg',
+                descripcion: 'Con EDS INFANTE y COOPSERPROG nuestros asociados pueden:\n\n• Acceder a nuestro cupo de crédito Progresando que les permite abastecer sus vehículos con gasolina tipo corriente y ACPM.\n• Incluye compra de aceites, aditivos, refrigerantes, bolsa tanque de auxilio, entre otros.\n• Diligenciar link de inscripción.',
+                direccion: 'Av 1 #26-05 Barrio San Rafael',
+                telefono: '316 6912073',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Av+1+%2326-05+Barrio+San+Rafael+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573166912073'
+            },
+            'eds-terpel': {
+                titulo: 'EDS TERPEL EL ROSAL',
+                categoria: 'Estaciones de Servicio',
+                ciudad: 'VILLA DEL ROSARIO',
+                imagen: 'img/edsterpel.jpeg',
+                descripcion: 'Con EDS TERPEL EL ROSAL y COOPSERPROG los asociados pueden:\n\n• Acceder a nuestro cupo de crédito Progresando por medio del dispositivo CONTROL CHIP.\n• Abastecer gasolina tipo corriente y ACPM.\n• Para recibir este beneficio y adquirir el CONTROL CHIP, diligenciar el link de inscripción.\n• Cancelar $15.000, valor que corresponde al costo del chip.',
+                direccion: 'Av 1 #23-52 Barrio San Rafael',
+                telefono: '304 6607622',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Av+1+%2323-52+Barrio+San+Rafael+Villa+del+Rosario',
+                whatsapp: 'https://wa.me/573046607622'
+            },
+            'eds-charles': {
+                titulo: 'EDS MR CHARLES',
+                categoria: 'Estaciones de Servicio',
+                ciudad: 'VILLA DEL ROSARIO',
+                imagen: 'img/eds-charles.jpeg',
+                descripcion: 'Con EDS MR CHARLES y COOPSERPROG nuestros asociados pueden:\n\n• Acceder a nuestro cupo de crédito Progresando que les permite abastecer sus vehículos con gasolina tipo corriente y ACPM.\n• Incluye compra de aceites, aditivos, refrigerantes, bolsa tanque de auxilio, entre otros.\n• Diligenciar link de inscripción.',
+                direccion: 'Autopista Internacional #12N-170 Barrio Lomitas, Villa Del Rosario',
+                telefono: '304 6607622',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Autopista+Internacional+%2312N-170+Barrio+Lomitas+Villa+del+Rosario',
+                whatsapp: 'https://wa.me/573046607622'
+            },
+            'certigases': {
+                titulo: 'CERTIGASES',
+                categoria: 'Centro de Revisión',
+                ciudad: 'LOS PATIOS',
+                imagen: 'img/convenios/certigases.png',
+                descripcion: 'Con GRUPO EMPRESARIAL CERTIGASES y COOPSERPROG, nuestros asociados pueden:\n\n• Financiar el 100% de la revisión técnico-mecánica de su vehículo sin interés.\n• Coopserprog obsequia un bono regalo que facilita la cancelación del valor de la revisión. El bono aplica para pagos de revisión financiada o de contado.\n• Para acceder a este beneficio diligenciar el link de inscripción.',
+                direccion: 'Av 10 #36A-87 Los Patios',
+                telefono: '321 2090034',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Av+10+%2336A-87+Los+Patios',
+                whatsapp: 'https://wa.me/573212090034'
+            },
+            'cda-villa': {
+                titulo: 'CDA VILLA ROSARIO',
+                categoria: 'Centro de Revisión',
+                ciudad: 'VILLA DEL ROSARIO',
+                imagen: 'img/cda-villa.jpeg',
+                descripcion: 'Con CDA VILLA ROSARIO y COOPSERPROG nuestros asociados tienen un beneficio de descuento de $20.000 pesos sobre el valor de la tarifa oficial y regulada por el estado en el municipio de VILLA ROSARIO. Aplica a todas las revisiones de motos de todos los cilindrajes.',
+                direccion: 'Calle 8 #8-25 Barrio Centro Villa Rosario',
+                telefono: '322 8642938',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Calle+8+%238-25+Centro+Villa+Rosario',
+                whatsapp: 'https://wa.me/573228642938'
+            },
+            'cda-granvia': {
+                titulo: 'CDA LA GRAN VÍA',
+                categoria: 'Centro de Revisión',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/tecnicomecanica.jpeg',
+                descripcion: 'Con CDA LA GRAN VÍA y COOPSERPROG ofrece financiamiento y descuentos para la realización de la revisión técnico mecánica y de gases para los asociados.',
+                direccion: 'Av Diagonal Santander 4E-18 Urbanización Rosetal',
+                telefono: '322 8642938',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Av+Diagonal+Santander+4E-18+Urbanizaci%C3%B3n+Rosetal',
+                whatsapp: 'https://wa.me/573228642938'
+            },
+            'ips-progresando': {
+                titulo: 'IPS PROGRESANDO',
+                categoria: 'Salud',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/progresando.jpeg',
+                descripcion: 'Con IPS PROGRESANDO EN SALUD y COOPSERPROG nuestros asociados pueden:\n\n• Adquirir un 20% de descuento en consultas de medicina general, optometría, audiometría, psicología, laboratorio clínico, valoración de voz, terapia de lenguaje.\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.',
+                direccion: 'Cll 21A #0B-75 Barrio El Rosal',
+                telefono: '304 2479154',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+21A+%230B-75+Barrio+El+Rosal+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573042479154'
+            },
+            'unidad-diagnostico': {
+                titulo: 'UNIDAD DE DIAGNÓSTICO',
+                categoria: 'Salud',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/unidad-diagnostico.png',
+                descripcion: 'Con UNIDAD DE DIAGNÓSTICO y COOPSERPROG, nuestros asociados:\n\n• Obtienen un 20% en exámenes especializados de laboratorio clínico.\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.',
+                direccion: 'Cll 21A #0B-75 Barrio El Rosal',
+                telefono: '322 8642938',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+21A+%230B-75+Barrio+El+Rosal+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573228642938'
+            },
+            'coomeva': {
+                titulo: 'COOMEVA',
+                categoria: 'Salud',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/coomeva.png',
+                descripcion: 'Con COOMEVA y COOPSERPROG, nuestros asociados pueden:\n\n• Obtener un 8% de descuento en afiliación a medicina prepagada, modalidad colectiva: Oro Plus, Plata Joven, Preferente, Ambulatorio Especial, Tradicional Especial y Delta Elite.\n• Ofrecemos facilidad de financiamiento.',
+                direccion: 'Cúcuta',
+                telefono: '322 8642938',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Coomeva+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573228642938'
+            },
+            'optica-salud': {
+                titulo: 'ÓPTICA SALUD VISUAL',
+                categoria: 'Salud',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/optica-salud-visual.png',
+                descripcion: 'Con ÓPTICA SALUD VISUAL y COOPSERPROG, nuestros asociados pueden:\n\n• Recibir un 15% de descuento en monturas.\n• 20% de descuento en lentes oftálmicos y lentes de contacto.\n• Examen de valoración totalmente gratis.\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.\n• Ofrecemos facilidad de financiamiento.',
+                direccion: 'Cll 15 #1-60 Barrio La Playa',
+                telefono: '318 4425299',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+15+%231-60+Barrio+La+Playa+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573184425299'
+            },
+            'optica-maria': {
+                titulo: 'ÓPTICA MARÍA PÍA',
+                categoria: 'Salud',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/optica-maria-pia.png',
+                descripcion: 'Con ÓPTICA MARÍA PÍA y COOPSERPROG, nuestros asociados pueden:\n\n• Obtener un 15% de descuento en monturas.\n• 20% en lentes oftálmicos y lentes de contacto.\n• Examen de valoración totalmente gratis.\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.\n• Ofrecemos facilidad de financiamiento.',
+                direccion: 'Av 0 #1-153 Local 1 La Ceiba',
+                telefono: '310 3090716',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Av+0+%231-153+Local+1+La+Ceiba+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573103090716'
+            },
+            'odontologia-angelica': {
+                titulo: 'ANGÉLICA RODRÍGUEZ ODONTOLOGÍA',
+                categoria: 'Salud',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/odontologia-angelica.png',
+                descripcion: 'Con ANGÉLICA RODRÍGUEZ ODONTOLOGÍA ESPECIALIZADA y COOPSERPROG, nuestros asociados reciben:\n\n• Un 30% de descuento en tratamiento de diseño de sonrisa.\n• 20% de descuento en tratamientos generales.\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.\n• Ofrecemos facilidad de financiamiento.',
+                direccion: 'Cll 15 #1-60 Barrio La Playa',
+                telefono: '322 8642938',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+15+%231-60+Barrio+La+Playa+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573228642938'
+            },
+            'odontologia-karen': {
+                titulo: 'KAREN PARADA ODONTOLOGÍA',
+                categoria: 'Salud',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/odontologia-karen.png',
+                descripcion: 'Con KAREN PARADA ODONTOLOGÍA ESPECIALIZADA, nuestros asociados pueden:\n\n• Acceder a un 30% de descuento en tratamiento de diseño de sonrisa.\n• 20% de descuento en tratamientos generales.\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.\n• Ofrecemos facilidad de financiamiento.',
+                direccion: 'Av 3 #7-12 San Luis',
+                telefono: '318 8079323',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Av+3+%237-12+San+Luis+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573188079323'
+            },
+            'dentis-nova': {
+                titulo: 'DENTIS NOVA',
+                categoria: 'Salud',
+                ciudad: 'VILLA DEL ROSARIO',
+                imagen: 'img/convenios/dentis-nova.png',
+                descripcion: 'Servicio valoración odontológica 50%, resinas y exodoncias 15%, prótesis totales parciales y fijas 10% y tratamientos de endodoncia (conductos) 20%. Se asignará este descuento a los afiliados.\n\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.',
+                direccion: 'Calle 6 #6-09 Local 5 Centro de Villa Del Rosario',
+                telefono: '315 8848915',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Calle+6+%236-09+Local+5+Centro+Villa+Del+Rosario',
+                whatsapp: 'https://wa.me/573158848915'
+            },
+            'clinica-penaranda': {
+                titulo: 'CLÍNICA OF. PEÑARANDA',
+                categoria: 'Salud',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/clinica-penaranda.png',
+                descripcion: 'Asignará un descuento del 10% ANTES DE IMPUESTO, COOPERATIVA DE SERVICIOS APORTE Y CRÉDITO PROGRESANDO sobre el valor de Servicio y otros productos en la CLÍNICA OFTALMOLÓGICA PEÑARANDA S.A.S.',
+                direccion: 'Cl. 17 #Av. 1 0-130 #0 LA PLAYA',
+                telefono: '322 8642938',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Cl.+17+%23Av.+1+0-130+%230+LA+PLAYA+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573228642938'
+            },
+            'opty-color': {
+                titulo: 'OPTY COLOR',
+                categoria: 'Salud',
+                ciudad: 'OCAÑA',
+                imagen: 'img/convenios/opty-color.png',
+                descripcion: 'Con ÓPTICA OPTY COLOR y COOPSERPROG nuestros asociados pueden:\n\n• 15% de descuento en monturas.\n• 20% de descuento en lente oftálmico.\n• Para acceder a este beneficio, presentar el carnet como asociado a la cooperativa al momento de tomar el servicio.\n• Ofrecemos facilidad de financiamiento.',
+                direccion: 'Calle 11 #45-15 Barrio San Agustín Ocaña',
+                telefono: '313 6614818',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Calle+11+%2345-15+Barrio+San+Agust%C3%ADn+Oca%C3%B1a',
+                whatsapp: 'https://wa.me/573136614818'
+            },
+            'idana-portillo': {
+                titulo: 'IDANA PORTILLO LABORATORIO',
+                categoria: 'Salud',
+                ciudad: 'OCAÑA',
+                imagen: 'img/convenios/idana-portillo.png',
+                descripcion: 'Con IDANA PORTILLO LABORATORIO CLÍNICO y COOPSERPROG nuestros asociados pueden:\n\n• Obtienen un 20% de descuento en exámenes de laboratorio.\n• Atención preferencial.\n• Para acceder a este beneficio, presentar el carnet como asociado a la cooperativa al momento de tomar el servicio.\n• Ofrecemos facilidad de financiamiento.',
+                direccion: 'C.C. Santa María, local 502 Ocaña',
+                telefono: '318 3117347',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=C.C.+Santa+Mar%C3%ADa+local+502+Oca%C3%B1a',
+                whatsapp: 'https://wa.me/573183117347'
+            },
+            'psicolaborales': {
+                titulo: 'SERVICIOS PSICOLABORALES SST',
+                categoria: 'Salud',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/psicolaborales.png',
+                descripcion: 'Convenio entre COOPSERPROG y SERVICIOS PSICOLABORALES SST con el descuento del 10% en servicios consulta clínica, psicológicas, organizacionales y asesorías empresariales, adicionalmente en la gestión del riesgo psicosocial y procesos de selección de personal.',
+                direccion: 'Cúcuta',
+                telefono: '321 9293514',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573219293514'
+            },
+            'servicio-masajes': {
+                titulo: 'SERVICIO DE MASAJES',
+                categoria: 'Salud',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/servicio-masajes.png',
+                descripcion: 'Con SERVICIO DE MASAJES y COOPSERPROG ofrece el 10% de descuento en el valor para los asociados.',
+                direccion: 'A domicilio',
+                telefono: '302 8186987',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573028186987'
+            },
+            'discoil': {
+                titulo: 'DISCOIL LUBRICENTRO',
+                categoria: 'Servicios para Vehículos',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/discoil.png',
+                descripcion: 'Con COOPSERPROG y DISCOIL LUBRICENTRO, nuestros asociados reciben:\n\n• Un 25% de descuento en lubricantes, aceites y aditivos.\n• Revisión y asesoría preventiva y mecánica gratuita.\n• Servicios Adicionales Gratuitos con Cada Cambio de Aceite y Filtro: Chequeo de líquido de frenos, refrigerante, hidráulico, filtro de aire del motor, filtro de aire de A/C.\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.',
+                direccion: 'Av 7a #4n-08 Sevilla',
+                telefono: '318 7083739',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Av+7a+%234n-08+Sevilla+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573187083739'
+            },
+            'autorepuestos': {
+                titulo: 'AUTOREPUESTOS LA DIAGONAL',
+                categoria: 'Servicios para Vehículos',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/autorepuestos.png',
+                descripcion: 'Con AUTOREPUESTOS LA DIAGONAL y COOPSERPROG, nuestros asociados pueden adquirir:\n\n• Entre 5% y 10% de descuento en su factura de compra, repuestos de referencia Chevrolet, Toyota, Renault, entre otras.\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.',
+                direccion: 'Av Diagonal Santander',
+                telefono: '322 8842588',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Av+Diagonal+Santander+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573228842588'
+            },
+            'frenos-bacca': {
+                titulo: 'FRENOS BACCA',
+                categoria: 'Servicios para Vehículos',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/frenos-bacca.png',
+                descripcion: 'Con FRENOS BACCA y COOPSERPROG, nuestros asociados reciben servicio de:\n\n• Mantenimiento automotriz.\n• Revisión de frenos o suspensión gratis.\n• 10% en repuestos.\n• Si el asociado realiza mantenimiento de la suspensión completa o parcial hasta un (70%), se obsequiará la alineación, no acumulables con otros descuentos y solo aplican en el término de su duración.\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.',
+                direccion: 'Av 5 #0n-05 La Merced',
+                telefono: '310 8192978',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Av+5+%230n-05+La+Merced+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573108192978'
+            },
+            'distribuciones-mage': {
+                titulo: 'DISTRIBUCIONES MAGE SAS',
+                categoria: 'Servicios para Vehículos',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/distribuciones-mage.png',
+                descripcion: 'Con DISTRIBUCIONES MAGE SAS y COOPSERPROG nuestros asociados pueden acceder a: Venta de llantas, rines y variedad de lubricantes, baterías, accesorios, servicio de mecánica rápida, cambio de aceite, alineación, balanceo, montaje, calibración con nitrógeno todo en el 10% de descuento en servicios y productos.',
+                direccion: 'Calle 8 #1E-81 Barrio Popular',
+                telefono: '301 7049867',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Calle+8+%231E-81+Barrio+Popular+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573017049867'
+            },
+            'reten-casco': {
+                titulo: 'EL RETÉN DEL CASCO',
+                categoria: 'Servicios para Vehículos',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/reten-casco.png',
+                descripcion: 'Con EL RETÉN DEL CASCO y COOPSERPROG, nuestros asociados podrán disfrutar:\n\n• Un descuento del 20% en cascos y maleteros.\n• 35% de descuento en llantas.\n• 20% en mano de obra.\n• 15% en repuestos e impermeables.\n• 3% de descuento en la compra de motocicletas nuevas, carburadas o eléctricas.\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio para pagos de contado.\n• Para financiamiento, el asociado debe solicitar la cotización de la compra al establecimiento EL RETÉN DEL CASCO y dirigirse a la cooperativa para el proceso de aprobación de crédito.',
+                direccion: 'Av 3 Cll 7 #2-95 Cúcuta',
+                telefono: '311 8642750',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Av+3+Cll+7+%232-95+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573118642750'
+            },
+            'bary-travel': {
+                titulo: 'BARY TRAVEL AGENCY',
+                categoria: 'Turismo',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/bary-travel.png',
+                descripcion: 'Con BARY TRAVEL AGENCY y COOPSERPROG, nuestros asociados pueden acceder:\n\n• Servicios especializados en viaje y turismo a nivel regional, nacional e internacional y demás servicios turísticos.\n• 5% de descuento en planes turísticos regionales.\n• 5% de descuento en planes turísticos nacionales e internacionales.\n• 20% de descuento en cobros de tarifas administrativas de tiquetes aéreos tanto nacionales como internacionales.\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.\n• Ofrecemos facilidad de financiamiento.',
+                direccion: 'Cll 21A #8-45 San Mateo',
+                telefono: '314 3951941',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+21A+%238-45+San+Mateo+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573143951941'
+            },
+            'fomatours': {
+                titulo: 'FOMATOURS',
+                categoria: 'Turismo',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/fomatours.png',
+                descripcion: 'Con FOMATOURS AGENCIA DE VIAJES Y TURISMO y COOPSERPROG, nuestros asociados obtienen:\n\n• 3% de descuento en servicios turísticos, compra de tiquetes aéreos, pasajes terrestres, planes turísticos aéreos y demás servicios ofrecidos por FOMATOURS.\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.\n• Ofrecemos facilidad de financiamiento.',
+                direccion: 'Cll 9 #0-84 piso 1 edificio FOMANORT',
+                telefono: '310 7536530',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+9+%230-84+piso+1+edificio+FOMANORT+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573107536530'
+            },
+            'restaurante-dougs': {
+                titulo: 'DOUGS BAR & GRILL',
+                categoria: 'Restaurante',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/restaurante-dougs.png',
+                descripcion: 'Con RESTAURANTE DOUGS BAR & GRILL y COOPSERPROG, nuestros asociados adquieren beneficio de 5% de descuento sobre el pago de la factura de venta antes de impuesto.\n\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.',
+                direccion: 'Cll 10 #1-1 Villa Antigua',
+                telefono: '313 4860050',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+10+%231-1+Villa+Antigua+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573134860050'
+            },
+            'restaurante-cima': {
+                titulo: 'RESTAURANTE LA CIMA',
+                categoria: 'Restaurante',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/restaurante-la-cima.png',
+                descripcion: 'Con RESTAURANTE LA CIMA GRILL y COOPSERPROG, nuestros asociados acceden:\n\n• 5% de descuento sobre el valor de la venta antes de impuesto.\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.',
+                direccion: 'Variante La Floresta, Pinar Express segundo piso',
+                telefono: '310 8592757',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Variante+La+Floresta+Pinar+Express+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573108592757'
+            },
+            'sinan': {
+                titulo: 'SINAN SAS',
+                categoria: 'Restaurante',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/sinan.png',
+                descripcion: 'Con SINAN y COOPSERPROG ofrecemos:\n\n1. Un descuento equivalente al diez por ciento (10%) sobre el valor total consumido en los productos incluidos en la carta correspondiente al menú de desayunos y al menú "Tarde y Antojos". Este beneficio no será acumulable con otras promociones vigentes, salvo autorización expresa.\n\n2. La opción de adquirir tiqueteras de almuerzos por valor de ochenta y cinco mil pesos ($85.000) cada una, correspondientes a cinco (5) almuerzos por tiquetera, aplicables sobre almuerzos con precio base de dieciocho mil pesos ($18.000), redimibles de lunes a viernes en los horarios establecidos para este servicio.',
+                direccion: 'Calle 6 #7e-146 Quinta Oriental',
+                telefono: '310 8840765',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Calle+6+%237e-146+Quinta+Oriental+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573108840765'
+            },
+            'manda-ya': {
+                titulo: 'MANDA YA',
+                categoria: 'Servicio de Mensajería',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/manda-ya.png',
+                descripcion: 'Con MANDA YA y COOPSERPROG, nuestros asociados pueden:\n\n• Adquirir servicios de mensajería y domicilios.\n• Pagos y consignaciones bancarias.\n• Compras y envíos.\n• Entrega de documentos, diligencias personales.\n• Atención a restaurantes y droguería.\n• Facturación electrónica por los servicios adquiridos.',
+                direccion: 'Atalaya',
+                telefono: '315 0666696',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Atalaya+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573150666696'
+            },
+            'cinemark': {
+                titulo: 'CINEMARK',
+                categoria: 'Cine',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/cinemark.jpeg',
+                descripcion: 'Con CINEMARK y COOPSERPROG, nuestros asociados pueden:\n\n• CINEBONOS en formato virtual, por un valor de $16.000 cada uno en salas 2D, también para confitería a $10.900 en total es un Cine Combo por valor de $27.000.\n• Redimibles en fecha y horario de preferencia del asociado, en cualquier temporada del año.\n• Vigencia de un año.\n• Descuentos en combos de confitería.\n• Para adquirir CINEBONOS, contactarse directamente con el área comercial de la cooperativa.',
+                direccion: 'CC Ventura Plaza, Cll 11 #5-3 Caobos',
+                telefono: '575 6113',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=CC+Ventura+Plaza+Cll+11+%235-3+Caobos+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573228642938'
+            },
+            'oficanon': {
+                titulo: 'OFICANON',
+                categoria: 'Tecnología',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/oficanon.png',
+                descripcion: 'Con OFICANON y COOPSERPROG, ofrecemos a nuestros asociados:\n\n• 5% de descuento para compra en tecnología y arrendamiento de equipos.\n• 10% de descuento de mano de obra y servicio técnico.\n• No aplica descuento sobre descuento.\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.\n• Ofrecemos facilidad de financiamiento.',
+                direccion: 'Av 0 #1-119 Quinta Boch',
+                telefono: '318 3517141',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Av+0+%231-119+Quinta+Boch+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573183517141'
+            },
+            'ecoair': {
+                titulo: 'ECOAIR',
+                categoria: 'Servicio Aires Acondicionados',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/ecoair.png',
+                descripcion: 'Con ECOAIR y COOPSERPROG, nuestros asociados pueden recibir:\n\n• Servicio de mantenimiento e instalación de aires acondicionados.\n• 5% de descuento en mantenimientos.\n• 5% de descuento en instalación de aires acondicionados.\n• Revisión de diagnóstico de aire acondicionado totalmente gratis.\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.',
+                direccion: 'Cll 15 #5-51 Centro Cúcuta',
+                telefono: '321 8854024',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+15+%235-51+Centro+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573218854024'
+            },
+            'cerrajeria': {
+                titulo: 'CERRAJERÍA LA CHARALEÑA 24/7',
+                categoria: 'Multiservicios Hogar',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/cerrajeria.png',
+                descripcion: 'Con CERRAJERÍA LA CHARALEÑA 24/7 y COOPSERPROG, los asociados obtienen:\n\n• 20% de descuento en servicios como: duplicado de llaves, venta de cerraduras, candados, cerraduras digitales, chapas, aperturas de vehículos.\n• También servicios de pintura, drywall, cerrajería, plomería, llaves, electricidad, ornamentación, aluminios.\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.',
+                direccion: 'Cll 18 #6-95 Barrio La Cabrera',
+                telefono: '312 4289239',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+18+%236-95+Barrio+La+Cabrera+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573124289239'
+            },
+            'dubo': {
+                titulo: 'DUBO',
+                categoria: 'Multiservicios Hogar',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/dubo.png',
+                descripcion: 'Convenio COOPSERPROG y DUBO beneficios de descuentos del 10% en juguetería, sección plástica y temporada navideña y 5% de descuento en electrodoméstico menor y 3% descuento sección hogar y electrodoméstico mayor.',
+                direccion: 'Calle 8 #5-04 Centro',
+                telefono: '317 6406909',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Calle+8+%235-04+Centro+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573176406909'
+            },
+            'finef': {
+                titulo: 'FUNDACIÓN FINEF',
+                categoria: 'Formación Recreativa',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/finef.png',
+                descripcion: 'Con FUNDACIÓN FINEF y COOPSERPROG, nuestros asociados pueden obtener:\n\n• 20% de descuento en servicios de escuelas recreativas de: tenis, ajedrez, patinaje, baloncesto, voleibol, fútbol, atletismo y natación.\n• 20% de descuento en escuelas culturales: guitarra, piano, violín, clarinete, trompeta y batería, dibujo artístico, pintura y danzas adultos, danzas niños, teatro, canto, oratoria, plan lector.\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.',
+                direccion: 'Cll 8a #0-75 segundo piso, edificio FOMANORT',
+                telefono: '320 2776286',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+8a+%230-75+segundo+piso+edificio+FOMANORT+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573202776286'
+            },
+            'surtidor': {
+                titulo: 'EL SURTIDOR',
+                categoria: 'Multiservicios',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/surtidor.png',
+                descripcion: 'COOPSERPROG y EL SURTIDOR, nuestros asociados reciben un descuento de 10% de descuento en toda la tienda, y un 20% en el mes de cumpleaños. Los descuentos serán otorgados a los asociados de COOPSERPROG previamente identificados con el carnet digital y cédula de identidad.',
+                direccion: 'Calle 8 #5-47 Centro',
+                telefono: '301 3619917',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Calle+8+%235-47+Centro+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573013619917'
+            },
+            'almanorte': {
+                titulo: 'ALMANORTE CROYDON',
+                categoria: 'Multiservicios',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/almanorte.png',
+                descripcion: 'Con esta nueva alianza entre ALMANORTE CROYDON y COOPSERPROG nuestros asociados pueden realizar compras de calzado de alta calidad:\n\n• 12% de descuento\n• Calzado familiar, dotación laboral.\n• Ventas al mayor y al detal.',
+                direccion: 'Av. 5 #12-12 Centro Cúcuta – Av. 5 #12-57 Centro Cúcuta',
+                telefono: '315 6266024',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Av.+5+%2312-12+Centro+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573156266024'
+            },
+            'previsora': {
+                titulo: 'PREVISORA',
+                categoria: 'Pólizas',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/previsora.png',
+                descripcion: 'Con SEGUROS LA PREVISORA y COOPSERPROG, las personas pueden adquirir:\n\n• Un SOAT de contado o a crédito financiado por la cooperativa para asociados crédito sin interés, y los no asociados pueden adquirir un SOAT de contado o financiado con interés, según políticas de crédito de la cooperativa.',
+                direccion: 'CALLE 21A #0B-75 COOPSERPROG',
+                telefono: '322 8642938',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=CALLE+21A+%230B-75+COOPSERPROG+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573228642938'
+            },
+            'la-esperanza': {
+                titulo: 'LA ESPERANZA',
+                categoria: 'Servicios Funerarios',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/la-esperanza.png',
+                descripcion: 'Con ORGANIZACIÓN LA ESPERANZA y COOPSERPROG, nuestros asociados tendrán:\n\n• Cobertura del plan exequial, servicio funerario, destino final o cremación. Por una cuota de $3.000 (0-50 años) o $3.600 (51-70 años) mensuales, beneficiarios $3.000 (0-50 años) y $5.500 (51-71 años).\n• Diligenciar formato de vinculación al plan exequial.\n• Beneficiario superior a 76 años pagan un copago.\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.\n• Ofrecemos facilidad de financiamiento.',
+                direccion: 'Diagonal Santander #8-93 Cúcuta',
+                telefono: '312 4685122',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Diagonal+Santander+%238-93+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573124685122'
+            },
+            'cecavial': {
+                titulo: 'CECAVIAL',
+                categoria: 'Capacitación Vial',
+                ciudad: 'LOS PATIOS',
+                imagen: 'img/convenios/cecavial.png',
+                descripcion: 'Con CECAVIAL y COOPSERPROG los asociados pueden:\n\n• Financiar el 100% de infracciones de tránsito.\n• Capacitación vial que otorga 50% de descuento en multas.\n• Descuento del 5% en otros trámites.\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.',
+                direccion: 'Av 10 #28-50 Los Patios',
+                telefono: '311 4776989',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Av+10+%2328-50+Los+Patios',
+                whatsapp: 'https://wa.me/573114776989'
+            },
+            'cia-cucuta': {
+                titulo: 'CIA CUCUTA SAS',
+                categoria: 'Capacitación Vial',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/cia-cucuta.png',
+                descripcion: 'Con CIA CUCUTA S.A.S y COOPSERPROG, nuestros asociados pueden:\n\n• Financiar el 100% de infracciones de tránsito.\n• Capacitación vial que otorga 50% de descuento en multas.\n• De un 15% a 20% de descuento en otros trámites.\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.',
+                direccion: 'CC Bolívar local E5',
+                telefono: '302 2664236',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=CC+Bol%C3%ADvar+local+E5+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573022664236'
+            },
+            'templo-gym': {
+                titulo: 'TEMPLO GYM',
+                categoria: 'Gimnasio y Deporte',
+                ciudad: 'VILLA DEL ROSARIO',
+                imagen: 'img/convenios/templo-gym.png',
+                descripcion: 'Con TEMPLO GYM y COOPSERPROG nuestros asociados podrán obtener el 13% de descuento en la mensualidad en su entrenamiento.',
+                direccion: 'Cl. 6 #2-85 a 2-1, Villa Del Rosario',
+                telefono: '324 6452221',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Cl.+6+%232-85+a+2-1+Villa+Del+Rosario',
+                whatsapp: 'https://wa.me/573246452221'
+            },
+            'fitness-people': {
+                titulo: 'FITNESS PEOPLE',
+                categoria: 'Gimnasio y Deporte',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/fitness-people.png',
+                descripcion: 'Con FITNESS PEOPLE y COOPSERPROG, nuestros asociados podrán obtener beneficios exclusivos en sus instalaciones.',
+                direccion: 'Sede Jardín Plaza Cúcuta',
+                telefono: '318 7168984',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Sede+Jard%C3%ADn+Plaza+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573187168984'
+            },
+            'gladymar': {
+                titulo: 'GLADYMAR',
+                categoria: 'Papelería',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/gladymar.png',
+                descripcion: 'Con PAPELERÍA GLADYMAR y COOPSERPROG, nuestros asociados pueden acceder:\n\n• 8% de descuento en el valor de la factura de compra.\n• Cupo de Crédito Progresando por valor de $500.000.\n• Los beneficios aplican para toda la tienda.\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.',
+                direccion: 'Cll 8 #7-58 Cúcuta',
+                telefono: '320 9569826',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+8+%237-58+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573209569826'
+            },
+            'uniminuto': {
+                titulo: 'UNIMINUTO',
+                categoria: 'Educación',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/uniminuto.png',
+                descripcion: 'UNIMINUTO y COOPSERPROG es una institución de educación superior privada y católica de Colombia, fundada por el Padre Rafael García-Herreros. Es conocida por ser una de las universidades privadas más grandes del país, destacándose por su enfoque en la inclusión y la transformación social.',
+                direccion: 'Calle 14 #6-22 Barrio El Páramo Cúcuta',
+                telefono: '316 4738468',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Calle+14+%236-22+Barrio+El+P%C3%A1ramo+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573164738468'
+            },
+            'corpetrol': {
+                titulo: 'CORPETROL - CAPACITACIÓN TÉCNICA',
+                categoria: 'Educación',
+                ciudad: 'CÚCUTA',
+                imagen: 'img/convenios/corpetrol.png',
+                descripcion: 'Con CORPETROL y COOPSERPROG se otorga:\n\n• Financiamiento por medio de créditos para estudiar los diferentes programas educativos que ofrece la institución.\n• Solicitar valor de la matrícula en CORPETROL para realizar proceso de aprobación de crédito.',
+                direccion: 'Cll 10AN #3A-10 Paraíso, Cúcuta',
+                telefono: '314 3332075',
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+10AN+%233A-10+Para%C3%ADso+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573143332075'
+            }
+        };
+
+        // ============================================================
+        // GENERAR MOSAICO DE CONVENIOS
+        // ============================================================
+        const categoriasColores = {
+            'Estaciones de Servicio': '#01983b',
+            'Centro de Revisión': '#e67e22',
+            'Salud': '#3498db',
+            'Servicios para Vehículos': '#2ecc71',
+            'Turismo': '#e74c3c',
+            'Restaurante': '#f39c12',
+            'Servicio de Mensajería': '#9b59b6',
+            'Cine': '#e91e63',
+            'Tecnología': '#34495e',
+            'Servicio Aires Acondicionados': '#1abc9c',
+            'Multiservicios Hogar': '#16a085',
+            'Formación Recreativa': '#2c3e50',
+            'Multiservicios': '#7f8c8d',
+            'Pólizas': '#d35400',
+            'Servicios Funerarios': '#2c3e50',
+            'Capacitación Vial': '#2980b9',
+            'Gimnasio y Deporte': '#27ae60',
+            'Papelería': '#8e44ad',
+            'Educación': '#2c3e50'
+        };
+
+        // Lista de IDs de convenios en el orden deseado
+        const idsConvenios = [
+            'eds-infante',
+            'eds-terpel',
+            'eds-charles',
+            'certigases',
+            'cda-villa',
+            'cda-granvia',
+            'ips-progresando',
+            'unidad-diagnostico',
+            'coomeva',
+            'optica-salud',
+            'optica-maria',
+            'odontologia-angelica',
+            'odontologia-karen',
+            'dentis-nova',
+            'clinica-penaranda',
+            'opty-color',
+            'idana-portillo',
+            'psicolaborales',
+            'servicio-masajes',
+            'discoil',
+            'autorepuestos',
+            'frenos-bacca',
+            'distribuciones-mage',
+            'reten-casco',
+            'bary-travel',
+            'fomatours',
+            'restaurante-dougs',
+            'restaurante-cima',
+            'sinan',
+            'manda-ya',
+            'cinemark',
+            'oficanon',
+            'ecoair',
+            'cerrajeria',
+            'dubo',
+            'finef',
+            'surtidor',
+            'almanorte',
+            'previsora',
+            'la-esperanza',
+            'cecavial',
+            'cia-cucuta',
+            'templo-gym',
+            'fitness-people',
+            'gladymar',
+            'uniminuto',
+            'corpetrol'
+        ];
+
+        // URL de imagen por defecto (puedes cambiarla por una imagen que sí exista)
+        const DEFAULT_IMAGE = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"%3E%3Crect width="200" height="200" fill="%23f0f0f0"/%3E%3Ctext x="100" y="100" font-family="Arial" font-size="16" fill="%23999" text-anchor="middle" dy=".3em"%3ESin imagen%3C/text%3E%3C/svg%3E';
+
+        function generarMosaico() {
+            const grid = document.getElementById('mosaicoGrid');
+            grid.innerHTML = '';
+
+            idsConvenios.forEach(id => {
+                const data = conveniosData[id];
+                if (!data) return;
+
+                const color = categoriasColores[data.categoria] || '#01983b';
+                const descripcionCorta = data.descripcion.length > 80 ?
+                    data.descripcion.substring(0, 80) + '...' :
+                    data.descripcion;
+
+                const item = document.createElement('div');
+                item.className = 'convenio-mosaico-item';
+                item.setAttribute('onclick', `abrirModalConvenio('${id}')`);
+
+                // Verificar si la imagen existe, si no usar la imagen por defecto
+                const imgSrc = data.imagen && data.imagen !== '' ? data.imagen : DEFAULT_IMAGE;
+
+                item.innerHTML = `
+                    <div class="convenio-mosaico-img" style="background: #f8f9fa;">
+                        <img src="${imgSrc}" alt="${data.titulo}" 
+                             onerror="this.onerror=null; this.src='${DEFAULT_IMAGE}';">
+                        <span class="convenio-categoria-badge" style="background: ${color};">${data.categoria}</span>
+                    </div>
+                    <div class="convenio-mosaico-info">
+                        <h3>${data.titulo}</h3>
+                        <p>${descripcionCorta}</p>
+                        <span class="convenio-mosaico-ciudad"><i class="fas fa-map-marker-alt"></i> ${data.ciudad}</span>
+                    </div>
+                `;
+
+                grid.appendChild(item);
+            });
+        }
+
+        // ============================================================
+        // FUNCIONES DEL MODAL
+        // ============================================================
+        let telefonoActual = '';
+
+        function abrirModalConvenio(id) {
+            const data = conveniosData[id];
+            if (!data) return;
+
+            telefonoActual = data.telefono;
+
+            const imgElement = document.getElementById('modalConvenioImg');
+            // Verificar si la imagen existe, si no usar la imagen por defecto
+            const imgSrc = data.imagen && data.imagen !== '' ? data.imagen : DEFAULT_IMAGE;
+            imgElement.src = imgSrc;
+            imgElement.onerror = function () {
+                this.onerror = null;
+                this.src = DEFAULT_IMAGE;
+            };
+
+            document.getElementById('modalConvenioTitulo').textContent = data.titulo;
+            document.getElementById('modalConvenioCiudad').textContent = data.ciudad;
+
+            const descripcion = data.descripcion.replace(/\n/g, '<br>');
+            document.getElementById('modalConvenioDescripcion').innerHTML = descripcion;
+
+            document.getElementById('modalConvenioDireccion').textContent = data.direccion || 'No disponible';
+            document.getElementById('modalConvenioTelefono').textContent = data.telefono || 'No disponible';
+            document.getElementById('modalConvenioMapa').href = data.mapa || '#';
+            document.getElementById('modalConvenioWhatsapp').href = data.whatsapp || '#';
+
+            document.getElementById('modalConvenio').classList.add('activo');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function cerrarModalConvenio() {
+            document.getElementById('modalConvenio').classList.remove('activo');
+            document.body.style.overflow = '';
+        }
+
+        function copiarTelefono() {
+            const telefono = telefonoActual;
+            if (!telefono || telefono === 'No disponible') {
+                alert('No hay número de teléfono disponible para copiar.');
+                return;
+            }
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(telefono).then(() => {
+                    const btn = document.querySelector('.btn-copiar-telefono');
+                    const originalHTML = btn.innerHTML;
+                    btn.innerHTML = '<i class="fas fa-check"></i> ¡Copiado!';
+                    btn.style.background = '#25D366';
+                    btn.style.color = 'white';
+                    setTimeout(() => {
+                        btn.innerHTML = originalHTML;
+                        btn.style.background = '';
+                        btn.style.color = '';
+                    }, 2000);
+                }).catch(() => {
+                    copiarTelefonoFallback(telefono);
+                });
+            } else {
+                copiarTelefonoFallback(telefono);
+            }
+        }
+
+        function copiarTelefonoFallback(telefono) {
+            const input = document.createElement('input');
+            input.value = telefono;
+            document.body.appendChild(input);
+            input.select();
+            try {
+                document.execCommand('copy');
+                alert('Número copiado: ' + telefono);
+            } catch (e) {
+                alert('No se pudo copiar el número. Por favor, cópialo manualmente: ' + telefono);
+            }
+            document.body.removeChild(input);
+        }
+
+        // ============================================================
+        // CARRUSEL
+        // ============================================================
+        const track = document.getElementById('conveniosTrack');
+        const slides = track ? track.querySelectorAll('.convenio-slide') : [];
+        const dots = document.querySelectorAll('.convenios-dot');
+        const prevBtn = document.getElementById('conveniosPrev');
+        const nextBtn = document.getElementById('conveniosNext');
+        let currentIndex = 0;
+        let totalSlides = slides.length;
+
+        function updateCarousel(index) {
+            if (totalSlides === 0) return;
+            if (index < 0) index = totalSlides - 1;
+            if (index >= totalSlides) index = 0;
+            currentIndex = index;
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => updateCarousel(currentIndex - 1));
+            nextBtn.addEventListener('click', () => updateCarousel(currentIndex + 1));
+        }
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => updateCarousel(i));
+        });
+
+        // Auto-play del carrusel
+        let interval = setInterval(() => {
+            if (totalSlides > 0) updateCarousel(currentIndex + 1);
+        }, 5000);
+
+        const wrapper = document.querySelector('.convenios-carousel-wrapper');
+        if (wrapper) {
+            wrapper.addEventListener('mouseenter', () => clearInterval(interval));
+            wrapper.addEventListener('mouseleave', () => {
+                interval = setInterval(() => {
+                    if (totalSlides > 0) updateCarousel(currentIndex + 1);
+                }, 5000);
+            });
+        }
+
+        // ============================================================
+        // CERRAR MODAL CON TECLA ESC
+        // ============================================================
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                cerrarModalConvenio();
+            }
+        });
+
+        // ============================================================
+        // INICIALIZAR MOSAICO
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function () {
+            generarMosaico();
+        });
+    </script>
+
 </body>
+
 </html>

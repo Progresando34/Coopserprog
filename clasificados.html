@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,8 +8,11 @@
     <link rel="stylesheet" href="style/style.css" />
     <script src="https://kit.fontawesome.com/71d96bc7c5.js" crossorigin="anonymous"></script>
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
     <!-- ===== WHATSAPP FLOTANTE ===== -->
@@ -25,7 +29,7 @@
         </div>
     </div>
 
-    <!-- ===== NAVBAR MEJORADA ===== -->
+    <!-- ===== NAVBAR ===== -->
     <nav class="navbar-moderno" id="navbar">
         <div class="nav-container">
             <div class="logo-nav">
@@ -51,8 +55,6 @@
                 <li class="menu-item"><a href="contactos.html">Contacto</a></li>
                 <li class="menu-item"><a href="documentos.html">Documentos</a></li>
                 <li class="menu-item"><a href="https://ips.progresando.co/" target="_blank">IPS Progresando</a></li>
-
-                <!-- REDES SOCIALES EN EL MENÚ (TODAS LAS PANTALLAS) -->
                 <li class="menu-item menu-social">
                     <span class="menu-social-label"><i class="fas fa-share-alt"></i> Síguenos</span>
                     <div class="menu-social-icons">
@@ -76,84 +78,304 @@
 
     <!-- ===== MAIN CONTENT ===== -->
     <main>
-        <section class="clasificados-header">
+
+                        <!-- ===== HERO ===== -->
+        <section class="clasificados-hero" style="background-image: url('img/clasificados.png');">
             <div class="container">
-                <h1>Clasificados <span>COOPSERPROG</span></h1>
-                <p>Espacio para que los asociados ofrezcan sus productos, servicios o empleo</p>
-                <a href="#" class="btn-primario"><i class="fas fa-plus"></i> Publicar anuncio</a>
+                <div class="clasificados-hero-content">
+                    <span class="hero-badge"><i class="fas fa-tags"></i> Clasificados</span>
+                    <h1>Clasificados <span>COOPSERPROG</span></h1>
+                    <p>Este es un espacio pensado para nuestros asociados donde pueden vender, comprar o solicitar todo
+                        lo que necesiten.</p>
+                    <p><strong>Te damos el crédito para que compres o te compren. Anuncios que te ayudan a
+                            progresar.</strong></p>
+                    <a href="#anuncios" class="btn-primario">
+                        <i class="fas fa-arrow-down"></i> Ver anuncios
+                    </a>
+                </div>
             </div>
         </section>
-
-        <section class="clasificados-section">
+    
+        <!-- ===== ANUNCIOS ===== -->
+        <section class="clasificados-section" id="anuncios">
             <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Anuncios</span>
+                    <h2 class="section-title">Publicaciones <span>Recientes</span></h2>
+                    <p class="section-subtitle">Encuentra lo que buscas o publica lo que ofreces</p>
+                </div>
+
                 <div class="clasificados-grid">
+                    <!-- ===== 1. Ingeniería de Sistemas ===== -->
                     <div class="clasificado-card">
                         <div class="clasificado-imagen">
-                            <img src="img/clasificados/producto1.jpg" alt="Producto">
+                            <img src="img/ignysoluciones.png" alt="Ingeniería de Sistemas">
+                            <span class="clasificado-tipo">Servicio</span>
+                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                        <div class="clasificado-info">
+                            <h3>Ingeniería de Sistemas y Computadores</h3>
+                            <p>Revisiones y soluciones para ayudarte. Asociados COOPSERPROG reciben <strong>10% de
+                                    descuento</strong>.</p>
+                            <div class="clasificado-meta">
+                                <span><i class="fas fa-phone"></i> 311 285 4268</span>
+                                <span><i class="fas fa-tag" style="color: var(--verde-coop);"></i> 10% descuento</span>
+                            </div>
+                            <a href="https://wa.me/573112854268?text=Hola%2C%20vi%20tu%20clasificado%20de%20Ingenier%C3%ADa%20de%20Sistemas%20en%20COOPSERPROG"
+                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
+                                    class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- ===== 2. Óptica ===== -->
+                    <div class="clasificado-card">
+                        <div class="clasificado-imagen">
+                            <img src="img/mariapia.png" alt="Óptica">
+                            <span class="clasificado-tipo">Servicio</span>
+                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                        <div class="clasificado-info">
+                            <h3>Óptica - Exámenes y Lentes</h3>
+                            <p>Examen de ojos computarizado, asesoría y despacho de lentes. <strong>15% en cristales y
+                                    20% en monturas</strong> para asociados.</p>
+                            <div class="clasificado-meta">
+                                <span><i class="fas fa-phone"></i> 310 309 0716</span>
+                                <span><i class="fas fa-tag" style="color: var(--verde-coop);"></i> Hasta 20%</span>
+                            </div>
+                            <a href="https://wa.me/573103090716?text=Hola%2C%20vi%20tu%20clasificado%20de%20%C3%93ptica%20en%20COOPSERPROG"
+                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
+                                    class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- ===== 3. BWIS 2022 ===== -->
+                    <div class="clasificado-card">
+                        <div class="clasificado-imagen">
+                            <img src="img/bwis2022.png" alt="BWIS 2022">
                             <span class="clasificado-tipo">Venta</span>
+                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
+                                <i class="fas fa-expand"></i>
+                            </button>
                         </div>
                         <div class="clasificado-info">
-                            <h3>Vendo moto Yamaha</h3>
-                            <p>Modelo 2023, 10.000 km, excelente estado. Precio negociable.</p>
+                            <h3>BWIS 2022 en venta</h3>
+                            <p>Excelente estado, papeles al día, solo 20.000 km. Oportunidad única.</p>
                             <div class="clasificado-meta">
-                                <span><i class="fas fa-user"></i> Juan Pérez</span>
-                                <span><i class="fas fa-phone"></i> +57 300 123 4567</span>
+                                <span><i class="fas fa-phone"></i> 311 872 0627</span>
+                                <span><i class="fas fa-road"></i> 20.000 km</span>
                             </div>
-                            <a href="#" class="clasificado-link">Ver detalles <i class="fas fa-arrow-right"></i></a>
+                            <a href="https://wa.me/573118720627?text=Hola%2C%20vi%20tu%20clasificado%20del%20BWIS%202022%20en%20COOPSERPROG"
+                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
+                                    class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
 
+                    <!-- ===== 4. Instalación de Aire Acondicionado ===== -->
                     <div class="clasificado-card">
                         <div class="clasificado-imagen">
-                            <img src="img/clasificados/servicio1.jpg" alt="Servicio">
-                            <span class="clasificado-tipo servicio">Servicio</span>
+                            <img src="img/aires.png" alt="Instalación de Aire">
+                            <span class="clasificado-tipo">Servicio</span>
+                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
+                                <i class="fas fa-expand"></i>
+                            </button>
                         </div>
                         <div class="clasificado-info">
-                            <h3>Asesoría Contable</h3>
-                            <p>Para asociados, precios especiales. Declaración de renta y más.</p>
+                            <h3>Instalación de Aire Acondicionado</h3>
+                            <p>Hacemos que los espacios de tu hogar u oficina sean más frescos. Cotización sin
+                                compromiso.</p>
                             <div class="clasificado-meta">
-                                <span><i class="fas fa-user"></i> María Gómez</span>
-                                <span><i class="fas fa-phone"></i> +57 310 987 6543</span>
+                                <span><i class="fas fa-phone"></i> 316 754 9468</span>
+                                <span><i class="fas fa-phone"></i> 321 885 4024</span>
                             </div>
-                            <a href="#" class="clasificado-link">Ver detalles <i class="fas fa-arrow-right"></i></a>
+                            <a href="https://wa.me/573167549468?text=Hola%2C%20vi%20tu%20clasificado%20de%20instalaci%C3%B3n%20de%20Aire%20Acondicionado%20en%20COOPSERPROG"
+                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
+                                    class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
 
+                    <!-- ===== 5. Arreglamos tu Computador ===== -->
                     <div class="clasificado-card">
                         <div class="clasificado-imagen">
-                            <img src="img/clasificados/empleo1.jpg" alt="Empleo">
-                            <span class="clasificado-tipo empleo">Empleo</span>
+                            <img src="img/computadores.png" alt="Reparación de Computadores">
+                            <span class="clasificado-tipo">Servicio</span>
+                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
+                                <i class="fas fa-expand"></i>
+                            </button>
                         </div>
                         <div class="clasificado-info">
-                            <h3>Se necesita Auxiliar</h3>
-                            <p>Para oficina administrativa. Horario de oficina, prestaciones de ley.</p>
+                            <h3>¡Arreglamos tu Computador!</h3>
+                            <p>Mantenimiento preventivo y correctivo, suministro de equipos, recargas, redes y
+                                configuración. Con respaldo de COOPSERPROG.</p>
                             <div class="clasificado-meta">
-                                <span><i class="fas fa-user"></i> Carlos Rodríguez</span>
-                                <span><i class="fas fa-phone"></i> +57 320 456 7890</span>
+                                <span><i class="fas fa-phone"></i> 350 734 3643</span>
+                                <span><i class="fas fa-credit-card"></i> Crédito disponible</span>
                             </div>
-                            <a href="#" class="clasificado-link">Ver detalles <i class="fas fa-arrow-right"></i></a>
+                            <a href="https://wa.me/573507343643?text=Hola%2C%20vi%20tu%20clasificado%20de%20reparaci%C3%B3n%20de%20computadores%20en%20COOPSERPROG"
+                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
+                                    class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
 
+                    <!-- ===== 6. Cecavial - Trámites de Tránsito ===== -->
                     <div class="clasificado-card">
                         <div class="clasificado-imagen">
-                            <img src="img/clasificados/producto2.jpg" alt="Producto">
+                            <img src="img/cecavial.jpeg" alt="Cecavial">
+                            <span class="clasificado-tipo">Servicio</span>
+                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                        <div class="clasificado-info">
+                            <h3>Cecavial - Trámites de Tránsito</h3>
+                            <p><strong>Hasta 50% de descuento</strong> en fotomultas y comparendos. Licencias,
+                                impuestos, duplicado de placas y más.</p>
+                            <div class="clasificado-meta">
+                                <span><i class="fas fa-phone"></i> 311 477 6989</span>
+                                <span><i class="fas fa-tag" style="color: var(--verde-coop);"></i> Hasta 50%</span>
+                            </div>
+                            <a href="https://wa.me/573114776989?text=Hola%2C%20vi%20tu%20clasificado%20de%20Cecavial%20en%20COOPSERPROG"
+                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
+                                    class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- ===== 7. Revisión Técnico-Mecánica ===== -->
+                    <div class="clasificado-card">
+                        <div class="clasificado-imagen">
+                            <img src="img/tecnicomecanica.jpeg" alt="Revisión Técnico-Mecánica">
+                            <span class="clasificado-tipo">Servicio</span>
+                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                        <div class="clasificado-info">
+                            <h3>Revisión Técnico-Mecánica y Gases</h3>
+                            <p>En CDA Gran Vía. Convenio con COOPSERPROG para asociados.</p>
+                            <div class="clasificado-meta">
+                                <span><i class="fas fa-phone"></i> 302 273 1453</span>
+                                <span><i class="fas fa-handshake"></i> Convenio</span>
+                            </div>
+                            <a href="https://wa.me/573022731453?text=Hola%2C%20vi%20tu%20clasificado%20de%20Revisi%C3%B3n%20T%C3%A9cnico-Mec%C3%A1nica%20en%20COOPSERPROG"
+                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
+                                    class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- ===== 8. Viajes a Cácota, Termales y Labateca ===== -->
+                    <div class="clasificado-card">
+                        <div class="clasificado-imagen">
+                            <img src="img/salidasregionales.png" alt="Viajes">
+                            <span class="clasificado-tipo">Servicio</span>
+                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                        <div class="clasificado-info">
+                            <h3>Viajes a Cácota, Termales y Labateca</h3>
+                            <p>Planes turísticos con transporte, alimentación, guía y actividades. Financiamos tu viaje.
+                            </p>
+                            <div class="clasificado-meta">
+                                <span><i class="fas fa-phone"></i> 320 123 4567</span>
+                                <span><i class="fas fa-credit-card"></i> Crédito disponible</span>
+                            </div>
+                            <a href="https://wa.me/573201234567?text=Hola%2C%20vi%20tu%20clasificado%20de%20viajes%20en%20COOPSERPROG"
+                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
+                                    class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- ===== 9. Fuxion - Desintoxica tu cuerpo ===== -->
+                    <div class="clasificado-card">
+                        <div class="clasificado-imagen">
+                            <img src="img/fuxion.png" alt="Fuxion">
+                            <span class="clasificado-tipo">Servicio</span>
+                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                        <div class="clasificado-info">
+                            <h3>¡Desintoxica tu cuerpo hoy!</h3>
+                            <p>Línea detox de Fuxion. Elimina toxinas, mejora la digestión y recupera tu energía.
+                                <strong>10% descuento</strong> para asociados.
+                            </p>
+                            <div class="clasificado-meta">
+                                <span><i class="fas fa-phone"></i> 316 585 0599</span>
+                                <span><i class="fas fa-tag" style="color: var(--verde-coop);"></i> 10% descuento</span>
+                            </div>
+                            <a href="https://wa.me/573165850599?text=Hola%2C%20vi%20tu%20clasificado%20de%20Fuxion%20en%20COOPSERPROG"
+                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
+                                    class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- ===== 10. BWIS 2021 ===== -->
+                    <div class="clasificado-card">
+                        <div class="clasificado-imagen">
+                            <img src="img//bwis2021.png" alt="BWIS 2021">
                             <span class="clasificado-tipo">Venta</span>
+                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
+                                <i class="fas fa-expand"></i>
+                            </button>
                         </div>
                         <div class="clasificado-info">
-                            <h3>Apartamento en venta</h3>
-                            <p>Excelente ubicación, 3 habitaciones, 2 baños, parqueadero.</p>
+                            <h3>BWIS 2021 en venta</h3>
+                            <p>Excelente estado, papeles al día hasta marzo 2027, solo 27.000 km.</p>
                             <div class="clasificado-meta">
-                                <span><i class="fas fa-user"></i> Ana Martínez</span>
-                                <span><i class="fas fa-phone"></i> +57 321 567 8901</span>
+                                <span><i class="fas fa-phone"></i> 314 788 6524</span>
+                                <span><i class="fas fa-road"></i> 27.000 km</span>
                             </div>
-                            <a href="#" class="clasificado-link">Ver detalles <i class="fas fa-arrow-right"></i></a>
+                            <a href="https://wa.me/573147886524?text=Hola%2C%20vi%20tu%20clasificado%20del%20BWIS%202021%20en%20COOPSERPROG"
+                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
+                                    class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- ===== INTRO ===== -->
+        <section class="clasificados-intro">
+            <div class="container">
+                <div class="intro-card">
+                    <i class="fas fa-handshake"></i>
+                    <h2>Un espacio para <span>progresar</span></h2>
+                    <p>Este es un espacio pensado para nuestros asociados donde pueden vender, comprar o solicitar todo
+                        lo que necesiten. Además, te brindamos opciones de crédito para que puedas hacer realidad tus
+                        compras o impulsar tus ventas.</p>
+                    <p><strong>Te damos el crédito para que compres o te compren. Anuncios que te ayudan a
+                            progresar.</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== BOTÓN PUBLICAR ===== -->
+        <div class="publicar-boton">
+            <a href="https://wa.me/573228642938?text=Hola%2C%20quiero%20publicar%20un%20clasificado%20en%20COOPSERPROG"
+                target="_blank" class="btn-whatsapp-publicar">
+                <i class="fab fa-whatsapp"></i>
+                <span>Publica tu anuncio aquí</span>
+            </a>
+            <span class="publicar-sub">Escríbenos por WhatsApp y publica tu clasificado</span>
+        </div>
     </main>
+
+    <!-- ===== MODAL PARA VER IMAGEN COMPLETA ===== -->
+    <div class="modal-imagen" id="modalImagen" onclick="cerrarModal()">
+        <div class="modal-contenido" onclick="event.stopPropagation()">
+            <button class="modal-cerrar" onclick="cerrarModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="modalImg" src="" alt="Imagen completa">
+            <div class="modal-info">
+                <h3 id="modalTitulo"></h3>
+                <p id="modalDescripcion"></p>
+            </div>
+        </div>
+    </div>
 
     <!-- ===== FOOTER ===== -->
     <footer>
@@ -222,9 +444,48 @@
                 </div>
             </div>
         </div>
-        <a href="#inicio" class="flecha-inicio" title="Volver al inicio"><i class="fas fa-arrow-up"></i></a>
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // ===== ABRIR MODAL CON IMAGEN COMPLETA =====
+        function abrirModal(boton) {
+            const card = boton.closest('.clasificado-card');
+            const img = card.querySelector('.clasificado-imagen img');
+            const titulo = card.querySelector('.clasificado-info h3');
+            const descripcion = card.querySelector('.clasificado-info p');
+
+            const modal = document.getElementById('modalImagen');
+            const modalImg = document.getElementById('modalImg');
+            const modalTitulo = document.getElementById('modalTitulo');
+            const modalDescripcion = document.getElementById('modalDescripcion');
+
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+            modalTitulo.textContent = titulo.textContent;
+
+            // Tomar solo el texto del párrafo (sin los strong)
+            const descText = descripcion.textContent.trim();
+            modalDescripcion.textContent = descText;
+
+            modal.classList.add('activo');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // ===== CERRAR MODAL =====
+        function cerrarModal() {
+            const modal = document.getElementById('modalImagen');
+            modal.classList.remove('activo');
+            document.body.style.overflow = '';
+        }
+
+        // ===== CERRAR CON TECLA ESC =====
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                cerrarModal();
+            }
+        });
+    </script>
 </body>
+
 </html>

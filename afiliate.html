@@ -80,70 +80,16 @@
 
     <!-- ===== MAIN CONTENT ===== -->
     <main>
-        <section class="afiliate-hero">
+        <!-- ===== HERO CON IMAGEN DE FONDO ===== -->
+        <section class="afiliate-hero" style="background-image: url('img/afiliate.png');">
             <div class="container">
-                <h1>Afíliate a <span>COOPSERPROG</span></h1>
-                <p>Todo lo que necesitas saber para ser parte de nuestra cooperativa</p>
-            </div>
-        </section>
-
-        <!-- ===== CONTACTO WHATSAPP ===== -->
-        <section class="afiliate-whatsapp">
-            <div class="container">
-                <div class="afiliate-whatsapp-card">
-                    <div class="whatsapp-icono"><i class="fab fa-whatsapp"></i></div>
-                    <div class="whatsapp-info">
-                        <h3>¡Comienza tu afiliación!</h3>
-                        <p>Escríbenos al <strong>+57 322 8642938</strong> y nuestro equipo te guiará en el proceso de
-                            afiliación.</p>
-                        <a href="https://wa.me/573228642938" target="_blank" class="btn-whatsapp">
-                            <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== REQUISITOS ===== -->
-        <section class="afiliate-requisitos">
-            <div class="container">
-                <h2 class="section-title">Requisitos de <span>Afiliación</span></h2>
-                <p class="section-subtitle">Selecciona tu tipo de afiliación para conocer los requisitos</p>
-                <div class="requisitos-grid">
-                    <div class="requisito-card" onclick="toggleRequisito('natural')">
-                        <div class="requisito-header">
-                            <i class="fas fa-user"></i>
-                            <h3>Persona Natural</h3>
-                            <span class="requisito-flecha"><i class="fas fa-chevron-down"></i></span>
-                        </div>
-                        <div class="requisito-content" id="natural">
-                            <ul>
-                                <li>Ser mayor de edad (o desde 14 años con representante)</li>
-                                <li>Residir en Colombia</li>
-                                <li>Ingresos demostrables</li>
-                                <li>Aporte social inicial: <strong>$70.000</strong></li>
-                                <li>Diligenciar formulario de afiliación</li>
-                                <li>Autorizar tratamiento de datos personales</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="requisito-card" onclick="toggleRequisito('juridica')">
-                        <div class="requisito-header">
-                            <i class="fas fa-building"></i>
-                            <h3>Persona Jurídica</h3>
-                            <span class="requisito-flecha"><i class="fas fa-chevron-down"></i></span>
-                        </div>
-                        <div class="requisito-content" id="juridica">
-                            <ul>
-                                <li>Constitución legal y domicilio en Colombia</li>
-                                <li>Certificado de existencia y representación legal</li>
-                                <li>Aporte social inicial: <strong>$100.000</strong></li>
-                                <li>Autorización de la junta directiva</li>
-                                <li>Diligenciar formulario de afiliación empresarial</li>
-                                <li>Cumplir con la normativa cooperativa</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="afiliate-hero-content">
+                    <span class="hero-badge"><i class="fas fa-user-plus"></i> Únete a nosotros</span>
+                    <h1>Afíliate a <span>COOPSERPROG</span></h1>
+                    <p>Todo lo que necesitas saber para ser parte de nuestra cooperativa</p>
+                    <a href="#requisitos" class="btn-primario">
+                        <i class="fas fa-arrow-down"></i> Ver requisitos
+                    </a>
                 </div>
             </div>
         </section>
@@ -171,21 +117,85 @@
                             </a>
                         </div>
                     </div>
-                    <img src="img/progres.png" alt="App COOPSERPROG">
+                        <img src="img/progres.png" alt="App COOPSERPROG">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== MENSAJE FINAL ===== -->
-        <section class="afiliate-final">
+        <!-- ===== REQUISITOS + WHATSAPP INTEGRADO ===== -->
+        <section class="afiliate-requisitos" id="requisitos">
             <div class="container">
-                <div class="final-card">
-                    <i class="fas fa-check-circle"></i>
-                    <p>¿Listo para afiliarte? <strong>Escríbenos al WhatsApp</strong> y nuestro equipo te acompañará en
-                        todo el proceso.</p>
+                <div class="section-header">
+                    <span class="section-tag">Requisitos</span>
+                    <h2 class="section-title">Requisitos de <span>Afiliación</span></h2>
+                    <p class="section-subtitle">Selecciona tu tipo de afiliación para conocer los requisitos</p>
+                </div>
+
+                <div class="requisitos-grid">
+                    <!-- Tarjeta 1: Persona Natural -->
+                    <div class="requisito-card" onclick="toggleRequisito('natural')">
+                        <div class="requisito-header">
+                            <i class="fas fa-user"></i>
+                            <h3>Persona Natural</h3>
+                            <span class="requisito-flecha"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="requisito-content" id="natural">
+                            <ul>
+                                <li>Ser mayor de edad (o desde 14 años con representante)</li>
+                                <li>Residir en Colombia</li>
+                                <li>Ingresos demostrables</li>
+                                <li>Aporte social inicial: <strong>$70.000</strong></li>
+                                <li>Diligenciar formulario de afiliación</li>
+                                <li>Autorizar tratamiento de datos personales</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 2: Persona Jurídica -->
+                    <div class="requisito-card" onclick="toggleRequisito('juridica')">
+                        <div class="requisito-header">
+                            <i class="fas fa-building"></i>
+                            <h3>Persona Jurídica</h3>
+                            <span class="requisito-flecha"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="requisito-content" id="juridica">
+                            <ul>
+                                <li>Constitución legal y domicilio en Colombia</li>
+                                <li>Certificado de existencia y representación legal</li>
+                                <li>Aporte social inicial: <strong>$100.000</strong></li>
+                                <li>Autorización de la junta directiva</li>
+                                <li>Diligenciar formulario de afiliación empresarial</li>
+                                <li>Cumplir con la normativa cooperativa</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== WHATSAPP INTEGRADO (dentro de requisitos) ===== -->
+                <div class="afiliate-whatsapp-integrado">
+                    <div class="whatsapp-integrado-icono">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="whatsapp-integrado-info">
+                        <h3>¿Listo para afiliarte?</h3>                   
+                        <p>Escríbenos al <strong> WhatsApp</strong><strong> +57 322 8642938</strong> y nuestro equipo te
+                            guiará en el proceso de afiliación. <i class="fas fa-check-circle"></i></p>
+                        <div class="whatsapp-integrado-acciones">
+                            <a href="https://wa.me/573228642938" target="_blank" class="btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                            </a>
+                            <div class="whatsapp-qr">
+                                <img src="img/coopqr.png" alt="QR WhatsApp" width="60">
+                                <span>Escanea el QR</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
+    
     </main>
 
     <!-- ===== FOOTER ===== -->
@@ -255,7 +265,6 @@
                 </div>
             </div>
         </div>
-        <a href="#inicio" class="flecha-inicio" title="Volver al inicio"><i class="fas fa-arrow-up"></i></a>
     </footer>
 
     <script src="js/main.js"></script>

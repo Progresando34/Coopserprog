@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,8 +8,11 @@
     <link rel="stylesheet" href="style/style.css" />
     <script src="https://kit.fontawesome.com/71d96bc7c5.js" crossorigin="anonymous"></script>
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
     <!-- ===== WHATSAPP FLOTANTE ===== -->
@@ -76,62 +80,167 @@
 
     <!-- ===== MAIN CONTENT ===== -->
     <main>
-        <section class="creditos-hero">
+        <!-- ===== CRÉDITOS - HERO CON IMAGEN DE FONDO CENTRADA ===== -->
+        <section class="creditos-hero" style="background-image: url('img/credito.png');">
             <div class="container">
-                <h1>Simula tu <span>Crédito</span> ideal</h1>
-                <p>Descubre cuánto puedes pedir prestado con tasas competitivas y aprobación rápida</p>
+                <div class="creditos-hero-content">
+                    <div class="hero-badge">Financia tus metas</div>
+                    <h1>Créditos <span>flexibles</span> para ti</h1>
+                    <p>Accede a financiamiento con tasas competitivas, aprobación en 24 horas y sin largos trámites.</p>
+                    <div class="hero-botones">
+                        <a href="https://app.saac.com.co/#/credit-simulator" target="_blank" class="btn-primario">
+                            <i class="fas fa-calculator"></i> Simula tu crédito
+                        </a>
+                        <a href="https://wa.me/573228642938" target="_blank" class="btn-secundario">
+                            <i class="fab fa-whatsapp"></i> ¿Tienes dudas?
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="creditos-simulador">
+        <!-- ===== CRÉDITOS - CIFRAS DESTACADAS ===== -->
+        <section class="creditos-cifras">
             <div class="container">
-                <div class="simulador-card">
-                    <div class="simulador-icon"><i class="fas fa-calculator"></i></div>
-                    <h3>Calcula tu préstamo</h3>
-                    <p>Ejemplo de préstamo disponible desde <strong>$1.000.000</strong> hasta <strong>$10.000.000</strong></p>
-                    <div class="simulador-info">
-                        <div class="simulador-item">
-                            <span>Tasa de interés</span>
-                            <strong>1.2% MV</strong>
-                        </div>
-                        <div class="simulador-item">
-                            <span>Plazo máximo</span>
-                            <strong>36 meses</strong>
-                        </div>
-                        <div class="simulador-item">
-                            <span>Aprobación</span>
-                            <strong>24 horas</strong>
+                <div class="cifras-grid">
+
+                    <div class="cifra-item">
+                        <span class="cifra-numero">$10M</span>
+                        <span class="cifra-label">Monto máximo</span>
+                    </div>
+
+                    <div class="cifra-item">
+                        <span class="cifra-numero">36</span>
+                        <span class="cifra-label">Meses de plazo</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CRÉDITOS - BENEFICIOS PRINCIPALES ===== -->
+        <section class="creditos-beneficios">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Ventajas</span>
+                    <h2 class="section-title">¿Por qué elegir <span>nuestros créditos</span>?</h2>
+                    <p class="section-subtitle">Ofrecemos condiciones pensadas en tu bienestar financiero y en tu
+                        crecimiento.</p>
+                </div>
+                <div class="beneficios-grid">
+                    <div class="beneficio-card">
+                        <div class="beneficio-icon"><i class="fas fa-bolt"></i></div>
+                        <h3>Créditos a NO asociados</h3>
+                        <p>Está a tu alcance, mas de lo que te imaginas.</p>
+                    </div>
+                    <div class="beneficio-card">
+                        <div class="beneficio-icon"><i class="fas fa-percent"></i></div>
+                        <h3>Tasas competitivas</h3>
+                        <p>Disfruta de las mejores tasas del mercado, ajustadas a tu capacidad de pago.</p>
+                    </div>
+                    <div class="beneficio-card">
+                        <div class="beneficio-icon"><i class="fas fa-file-signature"></i></div>
+                        <h3>Sin trámites largos</h3>
+                        <p>Minimizamos la documentación para que accedas a tu crédito sin complicaciones.</p>
+                    </div>
+                    <div class="beneficio-card">
+                        <div class="beneficio-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>100% confiable</h3>
+                        <p>Procesos transparentes y seguros, respaldados por la Superintendencia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CRÉDITOS PARA NO ASOCIADOS ===== -->
+        <section class="creditos-no-asociados">
+            <div class="container">
+                <div class="no-asociados-card">
+                    <div class="no-asociados-icono">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="no-asociados-info">
+                        <h3>¿No eres asociado? <span>También puedes aplicar</span></h3>
+                        <p>En COOPSERPROG creemos en tu potencial. Si aún no perteneces a nuestra cooperativa, puedes
+                            solicitar información sobre nuestras líneas de crédito para no asociados.</p>
+                        <a href="https://wa.me/573228642938" target="_blank" class="btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Comunícate al +57 322 8642938
+                        </a>
+                        <small><i class="fas fa-info-circle"></i> Un asesor te brindará toda la información que
+                            necesitas.</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CRÉDITOS - PASOS PARA SOLICITAR ===== -->
+        <section class="creditos-pasos">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Proceso</span>
+                    <h2 class="section-title">Solicita tu crédito en <span>4 pasos</span></h2>
+                    <p class="section-subtitle">Un proceso ágil y sencillo para que obtengas el financiamiento que
+                        necesitas.</p>
+                </div>
+                <div class="pasos-grid">
+                    <div class="paso-item">
+                        <div class="paso-numero">1</div>
+                        <div class="paso-contenido">
+                            <h3>Simula tu crédito</h3>
+                            <p>Usa nuestro simulador para conocer el monto y cuotas disponibles.</p>
                         </div>
                     </div>
-                    <a href="https://app.saac.com.co/#/credit-simulator" target="_blank" class="btn-simular">
-                        <i class="fas fa-arrow-right"></i> Simular mi Crédito
+                    <div class="paso-item">
+                        <div class="paso-numero">2</div>
+                        <div class="paso-contenido">
+                            <h3>Reúne documentos</h3>
+                            <p>Prepara tu cédula, y otros documentos relevantes.</p>
+                        </div>
+                    </div>
+                    <div class="paso-item">
+                        <div class="paso-numero">3</div>
+                        <div class="paso-contenido">
+                            <h3>Envía tu solicitud</h3>
+                            <p>Comunícate con nosotros y sigue los pasos.</p>
+                        </div>
+                    </div>
+                    <div class="paso-item">
+                        <div class="paso-numero">4</div>
+                        <div class="paso-contenido">
+                            <h3>Recibe tu dinero</h3>
+                            <p>Una vez aprobado, el dinero estará disponible en tu cuenta.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pasos-cta">
+                    <a href="https://app.saac.com.co/#/credit-simulator" target="_blank" class="btn-primario">
+                        <i class="fas fa-arrow-right"></i> Simular Crédito
+                    </a>
+                    <a href="https://wa.me/573228642938" target="_blank" class="btn-primario">
+                        <i class="fab fa-whatsapp"></i> Comienza ahora
                     </a>
                 </div>
             </div>
         </section>
 
-        <section class="creditos-info">
+        <!-- ===== CRÉDITOS - TESTIMONIO ===== -->
+        <section class="creditos-testimonio">
             <div class="container">
-                <div class="creditos-grid">
-                    <div class="credito-info-card">
-                        <i class="fas fa-percent"></i>
-                        <h3>Tasas Competitivas</h3>
-                        <p>Ofrecemos las mejores tasas del mercado para que puedas cumplir tus metas.</p>
+                <div class="testimonio-card">
+                    <div class="testimonio-icono">
+                        <i class="fas fa-quote-left"></i>
                     </div>
-                    <div class="credito-info-card">
-                        <i class="fas fa-clock"></i>
-                        <h3>Aprobación Rápida</h3>
-                        <p>Tu solicitud será evaluada en menos de 24 horas hábiles.</p>
-                    </div>
-                    <div class="credito-info-card">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>100% Confiable</h3>
-                        <p>Procesos transparentes y seguros respaldados por la Superintendencia.</p>
-                    </div>
-                    <div class="credito-info-card">
-                        <i class="fas fa-smile"></i>
-                        <h3>Sin Trámites Largos</h3>
-                        <p>Minimizamos la documentación para que puedas acceder rápido a tu crédito.</p>
+                    <blockquote>
+                        "Gracias al crédito que recibí pude expandir mi negocio y mejorar la calidad de vida de mi
+                        familia. El proceso fue rápido y el acompañamiento excelente."
+                    </blockquote>
+                    <div class="testimonio-autor">
+                        <div class="testimonio-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div>
+                            <strong>Carlos Mendoza</strong>
+                            <span>Asociado COOPSERPROG</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -205,9 +314,9 @@
                 </div>
             </div>
         </div>
-        <a href="#inicio" class="flecha-inicio" title="Volver al inicio"><i class="fas fa-arrow-up"></i></a>
     </footer>
 
     <script src="js/main.js"></script>
 </body>
+
 </html>

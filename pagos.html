@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Valores · COOPSERPROG</title>
+    <title>Pagos · COOPSERPROG</title>
     <link rel="stylesheet" href="style/style.css" />
     <script src="https://kit.fontawesome.com/71d96bc7c5.js" crossorigin="anonymous"></script>
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
     <!-- ===== WHATSAPP FLOTANTE ===== -->
@@ -35,7 +39,7 @@
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="menu-moderno" id="mainMenu">
-                <li class="menu-item"><a href="index.html" class="active">Inicio</a></li>
+                <li class="menu-item"><a href="index.html">Inicio</a></li>
                 <li class="menu-item"><a href="nosotros.html">Nosotros</a></li>
                 <li class="menu-item dropdown">
                     <a href="#" class="dropdown-toggle">Servicios <i class="fas fa-chevron-down"></i></a>
@@ -47,7 +51,7 @@
                     </ul>
                 </li>
                 <li class="menu-item"><a href="afiliate.html">Afíliate</a></li>
-                <li class="menu-item"><a href="pagos.html">Pagos</a></li>
+                <li class="menu-item"><a href="pagos.html" class="active">Pagos</a></li>
                 <li class="menu-item"><a href="contactos.html">Contacto</a></li>
                 <li class="menu-item"><a href="documentos.html">Documentos</a></li>
                 <li class="menu-item"><a href="https://ips.progresando.co/" target="_blank">IPS Progresando</a></li>
@@ -76,68 +80,81 @@
 
     <!-- ===== MAIN CONTENT ===== -->
     <main>
-        <section class="valores-hero">
+        <!-- ===== HERO ===== -->
+        <section class="pagos-hero" style="background-image: url('img/pagos.png');">
             <div class="container">
-                <h1>Nuestros <span>Valores</span></h1>
-                <p>Los principios que guían cada una de nuestras acciones y decisiones</p>
+                <div class="pagos-hero-content">
+                    <span class="hero-badge"><i class="fas fa-credit-card"></i> Pagos</span>
+                    <h1>Realiza tus <span>Pagos</span> fácilmente</h1>
+                    <p>Elige el método que prefieras y completa tu transacción de forma segura</p>
+                </div>
             </div>
         </section>
 
-        <section class="valores-scroll-section">
+        <!-- ===== 1. QR DAVIVIENDA (PRIMERO) ===== -->
+        <section class="pago-qr-section">
             <div class="container">
-                <div class="valores-scroll-wrapper" id="valoresWrapper">
-                    <div class="valores-scroll" id="valoresScroll">
-                        <div class="valor azul">
-                            <i class="fa-solid fa-scale-balanced"></i>
-                            <h2>Transparencia</h2>
-                            <p>Brindamos claridad en la información con un proceder ético, con normas y reglas claras.</p>
-                        </div>
-                        <div class="valor rojo">
-                            <i class="fa-solid fa-hand-holding-heart"></i>
-                            <h2>Servicio</h2>
-                            <p>Atendemos las necesidades de nuestros asociados de forma humana, diligente y oportuna.</p>
-                        </div>
-                        <div class="valor amarillo">
-                            <i class="fa-solid fa-people-group"></i>
-                            <h2>Trabajo en Equipo</h2>
-                            <p>Nuestra fuerza de trabajo impulsa los objetivos institucionales bajo la mutua cooperación.</p>
-                        </div>
-                        <div class="valor verde">
-                            <i class="fa-solid fa-clipboard-check"></i>
-                            <h2>Responsabilidad</h2>
-                            <p>Trabajamos con conciencia para que nuestras acciones respondan al objetivo solidario.</p>
-                        </div>
-                        <div class="valor verde-oscuro">
-                            <i class="fa-solid fa-user-lock"></i>
-                            <h2>Confidencialidad</h2>
-                            <p>Salvaguardamos la privacidad de nuestros asociados con el prudente manejo de la información.</p>
-                        </div>
-                        <!-- Duplicados para scroll infinito -->
-                        <div class="valor azul">
-                            <i class="fa-solid fa-scale-balanced"></i>
-                            <h2>Transparencia</h2>
-                            <p>Brindamos claridad en la información con un proceder ético.</p>
-                        </div>
-                        <div class="valor rojo">
-                            <i class="fa-solid fa-hand-holding-heart"></i>
-                            <h2>Servicio</h2>
-                            <p>Atención humana, diligente y oportuna.</p>
-                        </div>
-                        <div class="valor amarillo">
-                            <i class="fa-solid fa-people-group"></i>
-                            <h2>Trabajo en Equipo</h2>
-                            <p>Unión de esfuerzos y conocimientos.</p>
-                        </div>
-                        <div class="valor verde">
-                            <i class="fa-solid fa-clipboard-check"></i>
-                            <h2>Responsabilidad</h2>
-                            <p>Conciencia en la labor encomendada.</p>
-                        </div>
-                        <div class="valor verde-oscuro">
-                            <i class="fa-solid fa-user-lock"></i>
-                            <h2>Confidencialidad</h2>
-                            <p>Salvaguardamos tu privacidad.</p>
-                        </div>
+                <div class="qr-block">
+                    <div class="qr-header">
+                        <img src="img/logo-davivienda.png" alt="Davivienda" class="qr-logo">
+                        <h3>QR Davivienda</h3>
+                    </div>
+                    <img src="img/qr-bre-b.png" alt="Código QR" class="qr-imagen-grande">
+                    <div class="qr-clave">
+                        <span class="clave-label">Llave BRE-B:</span>
+                        <span class="clave-valor" id="referenciaQR">@DAVICOOPSERPROG</span>
+                        <button onclick="copiarTexto('referenciaQR', 'Llave BRE-B')" class="btn-copiar">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <button onclick="descargarQR()" class="btn-descargar">
+                        <i class="fas fa-download"></i> Descargar QR
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 2. PSE DAVIVIENDA (SEGUNDO) ===== -->
+        <section class="pago-pse">
+            <div class="container">
+                <div class="pse-card">
+                    <img src="img/pse.png" alt="PSE">
+                    <div class="pse-info">
+                        <h3>PSE Davivienda</h3>
+                        <p>Realiza tu pago a través de PSE con Davivienda de forma rápida, segura y sin complicaciones.</p>
+                        <a href="https://portalpagos.davivienda.com/#/comercio/10781/COOPSERPROG" target="_blank" class="btn-pagar">
+                            <i class="fas fa-arrow-right"></i> Pagar con PSE
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 3. TRANSFERENCIA DAVIVIENDA (TERCERO) ===== -->
+        <section class="pago-transferencia">
+            <div class="container">
+                <div class="transferencia-block">
+                    <div class="qr-header">
+                        <img src="img/logo-davivienda.png" alt="Davivienda" class="qr-logo">
+                        <h3>Transferencia DAVIVIENDA</h3>
+                    </div>
+                    <p>Realiza tu transferencia directamente a nuestra cuenta de Davivienda.</p>
+                    <img src="img/accounts.jpg" alt="Comprobante" class="comprobante-imagen">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SEGURIDAD ===== -->
+        <section class="pagos-seguridad">
+            <div class="container">
+                <div class="seguridad-block">
+                    <div class="seguridad-icono">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="seguridad-info">
+                        <h3>Pagos Seguros</h3>
+                        <p>Todas nuestras transacciones están respaldadas por Davivienda y el sistema PSE. Si tienes
+                            alguna duda, contáctanos a través de WhatsApp.</p>
                     </div>
                 </div>
             </div>
@@ -211,9 +228,62 @@
                 </div>
             </div>
         </div>
-        <a href="#inicio" class="flecha-inicio" title="Volver al inicio"><i class="fas fa-arrow-up"></i></a>
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        function showToast(mensaje, icono = 'fa-check-circle') {
+            const existing = document.querySelector('.toast-notification');
+            if (existing) existing.remove();
+
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            toast.innerHTML = `
+                <div class="toast-content">
+                    <i class="fas ${icono} toast-icon"></i>
+                    <span class="toast-message">${mensaje}</span>
+                </div>
+                <div class="toast-progress"></div>
+            `;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.classList.add('show'), 10);
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 400);
+            }, 2500);
+        }
+
+        function copiarTexto(elementId, nombre) {
+            const elemento = document.getElementById(elementId);
+            if (!elemento) return;
+            const texto = elemento.textContent.trim();
+
+            navigator.clipboard.writeText(texto).then(() => {
+                showToast(`${nombre} copiado: ${texto}`, 'fa-check-circle');
+            }).catch(() => {
+                const input = document.createElement('input');
+                input.value = texto;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand('copy');
+                document.body.removeChild(input);
+                showToast(`${nombre} copiado: ${texto}`, 'fa-check-circle');
+            });
+        }
+
+        function descargarQR() {
+            const qrImg = document.querySelector('.qr-imagen-grande');
+            if (!qrImg) {
+                showToast('No se encontró la imagen QR', 'fa-exclamation-circle');
+                return;
+            }
+            const link = document.createElement('a');
+            link.download = 'QR-COOPSERPROG.png';
+            link.href = qrImg.src;
+            link.click();
+            showToast('QR descargado correctamente', 'fa-download');
+        }
+    </script>
+
 </body>
 </html>

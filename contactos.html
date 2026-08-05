@@ -76,80 +76,169 @@
 
     <!-- ===== MAIN CONTENT ===== -->
     <main>
-        <section class="contacto-header">
+        <!-- ===== HERO CON IMAGEN DE FONDO ===== -->
+        <section class="contacto-hero" style="background-image: url('img/app.png');">
             <div class="container">
-                <h1>Contáctanos</h1>
-                <p>Estamos aquí para ayudarte</p>
+                <div class="contacto-hero-content">
+                    <span class="hero-badge"><i class="fas fa-map-pin"></i> Estamos aquí</span>
+                    <h1>Contáctanos</h1>
+                    <p>Estamos aquí para ayudarte y resolver todas tus dudas</p>
+                    <a href="#sedes" class="btn-primario">
+                        <i class="fas fa-arrow-down"></i> Ver nuestras sedes
+                    </a>
+                </div>
             </div>
         </section>
 
+        <!-- ===== CONTACTO - TARJETAS CON BOTONES ===== -->
         <section class="contacto-info">
             <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Comunicación</span>
+                    <h2 class="section-title">Canales de <span>Contacto</span></h2>
+                    <p class="section-subtitle">Elige el medio que prefieras y comunícate con nosotros</p>
+                </div>
                 <div class="contacto-grid">
-                    <div class="contacto-card">
-                        <i class="fas fa-phone"></i>
-                        <h3>Teléfono</h3>
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/573228642938" target="_blank" class="contacto-card">
+                        <div class="contacto-card-icon" style="background: linear-gradient(135deg, #25D366, #128C7E);">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3>WhatsApp</h3>
                         <p>+57 322 8642938</p>
-                        <small>Llamadas y WhatsApp</small>
-                    </div>
-                    <div class="contacto-card">
-                        <i class="fas fa-envelope"></i>
+                        <small>Respuesta inmediata</small>
+                        <span class="contacto-card-btn whatsapp">
+                            <i class="fab fa-whatsapp"></i> Chatear ahora
+                        </span>
+                    </a>
+
+                    <!-- Email -->
+                    <a href="mailto:cooperativacoopserprog@gmail.com" class="contacto-card">
+                        <div class="contacto-card-icon" style="background: linear-gradient(135deg, #EA4335, #C62828);">
+                            <i class="fas fa-envelope"></i>
+                        </div>
                         <h3>Email</h3>
                         <p>cooperativacoopserprog@gmail.com</p>
                         <small>Respuesta en 24 horas</small>
-                    </div>
-                    <div class="contacto-card">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h3>Dirección Principal</h3>
+                        <span class="contacto-card-btn email">
+                            <i class="fas fa-paper-plane"></i> Enviar email
+                        </span>
+                    </a>
+
+                    <!-- Dirección Principal -->
+                    <div class="contacto-card" style="cursor: default;">
+                        <div class="contacto-card-icon" style="background: linear-gradient(135deg, var(--verde-coop), var(--verde-oscuro));">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Oficina Principal</h3>
                         <p>Calle 21 #0B-75, Barrio Blanco</p>
                         <small>Cúcuta, Norte de Santander</small>
+                        <button onclick="cargarMapa('https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15681.215612705573!2d-72.4995255!3d7.8762026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e664598b7e2b963%3A0x431474e35d1d32ce!2sIps%20Progresando%20En%20Salud!5e0!3m2!1ses!2sco!4v1692234567890')" class="contacto-card-btn mapa">
+                            <i class="fas fa-map"></i> Ver en mapa
+                        </button>
                     </div>
-                    <div class="contacto-card">
-                        <i class="fas fa-clock"></i>
+
+                    <!-- Horario -->
+                    <div class="contacto-card" style="cursor: default;">
+                        <div class="contacto-card-icon" style="background: linear-gradient(135deg, var(--amarillo-coop), #e6b800); color: var(--negro-suave);">
+                            <i class="fas fa-clock"></i>
+                        </div>
                         <h3>Horario de Atención</h3>
                         <p><strong>Lun-Vie:</strong> 6am - 12pm / 2pm - 5pm</p>
                         <p><strong>Sáb:</strong> 6am - 12pm</p>
+                        <small>Domingos y festivos cerrado</small>
+                        <span class="contacto-card-btn horario">
+                            <i class="fas fa-calendar-check"></i> Disponible
+                        </span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="contacto-sedes">
+        <!-- ===== SEDES CON IMÁGENES ===== -->
+        <section class="contacto-sedes" id="sedes">
             <div class="container">
-                <h2 class="section-title">Nuestras <span>Sedes</span></h2>
-                <p class="section-subtitle">Encuéntranos en cualquiera de nuestras oficinas</p>
+                <div class="section-header">
+                    <span class="section-tag">Ubicación</span>
+                    <h2 class="section-title">Nuestras <span>Sedes</span></h2>
+                    <p class="section-subtitle">Encuéntranos en cualquiera de nuestras oficinas</p>
+                </div>
                 <div class="sedes-grid">
+                    <!-- Sede Cúcuta -->
                     <div class="sede-card">
-                        <div class="sede-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <h3>Cúcuta</h3>
-                        <p>Calle 21 #0B-75, Barrio Blanco</p>
-                        <span>Oficina Principal</span>
+                        <div class="sede-imagen">
+                            <img src="img/SedeCucuta.jpg" alt="Sede Cúcuta">
+                            <span class="sede-badge">Principal</span>
+                        </div>
+                        <div class="sede-info">
+                            <h3><i class="fas fa-map-marker-alt"></i> Cúcuta</h3>
+                            <p>Calle 21 #0B-75, Barrio Blanco</p>
+                            <button onclick="cargarMapa('https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15681.215612705573!2d-72.4995255!3d7.8762026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e664598b7e2b963%3A0x431474e35d1d32ce!2sIps%20Progresando%20En%20Salud!5e0!3m2!1ses!2sco!4v1692234567890')" class="sede-link">
+                                <i class="fas fa-map"></i> Ver ubicación
+                            </button>
+                        </div>
                     </div>
+
+                    <!-- Sede Villa del Rosario -->
                     <div class="sede-card">
-                        <div class="sede-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <h3>Villa del Rosario</h3>
-                        <p>Calle 11 #8 - 15, Barrio La Palmita</p>
-                        <span>Oficina Norte</span>
+                        <div class="sede-imagen">
+                            <img src="img/SedeVilla.jpg" alt="Sede Villa del Rosario">
+                            <span class="sede-badge">Norte</span>
+                        </div>
+                        <div class="sede-info">
+                            <h3><i class="fas fa-map-marker-alt"></i> Villa del Rosario</h3>
+                            <p>Calle 11 #8-15, Barrio La Palmita</p>
+                            <button onclick="cargarMapa('https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15679.722266300483!2d-72.4754249!3d7.8279027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e66468a08f4eafd%3A0x4be7894cac3be497!2sCl.%2011%20%238-15%2C%20Villa%20Del%20Rosario%2C%20Norte%20de%20Santander!5e0!3m2!1ses!2sco!4v1692234567890')" class="sede-link">
+                                <i class="fas fa-map"></i> Ver ubicación
+                            </button>
+                        </div>
                     </div>
+
+                    <!-- Sede Ocaña -->
                     <div class="sede-card">
-                        <div class="sede-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <h3>Ocaña</h3>
-                        <p>Calle 11 #24-65 Barrio Las Llanadas</p>
-                        <span>Oficina Sur</span>
+                        <div class="sede-imagen">
+                            <img src="img/SedeOcaña.jpg" alt="Sede Ocaña">
+                            <span class="sede-badge">Sur</span>
+                        </div>
+                        <div class="sede-info">
+                            <h3><i class="fas fa-map-marker-alt"></i> Ocaña</h3>
+                            <p>Calle 11 #24-65 Barrio Las Llanadas</p>
+                            <button onclick="cargarMapa('https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15679.722266300483!2d-73.3558291!3d8.2451669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e66468a08f4eafd%3A0x4be7894cac3be497!2sCl.%2011%20%234-65%2C%20Oca%C3%B1a%2C%20Norte%20de%20Santander!5e0!3m2!1ses!2sco!4v1692234567890')" class="sede-link">
+                                <i class="fas fa-map"></i> Ver ubicación
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="contacto-mapa">
+        <!-- ===== MAPA INTERACTIVO ===== -->
+        <section class="contacto-mapa" id="mapaContainer">
             <div class="container">
-                <div class="mapa-card">
-                    <h3>Ubícanos</h3>
-                    <div class="mapa-placeholder">
-                        <i class="fas fa-map"></i>
-                        <p>Mapa interactivo de nuestras sedes</p>
-                        <span>Próximamente</span>
+                <div class="section-header">
+                    <span class="section-tag">Ubicación</span>
+                    <h2 class="section-title">Encuéntranos en el <span>Mapa</span></h2>
+                    <p class="section-subtitle">Selecciona una sede para ver su ubicación</p>
+                </div>
+                <div class="mapa-container">
+                    <!-- Placeholder inicial -->
+                    <div id="mapaPlaceholder" class="mapa-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <p>Selecciona una sede para ver su ubicación</p>
+                        <span>Haz clic en "Ver ubicación" en cualquiera de nuestras sedes</span>
                     </div>
+                    <!-- Iframe del mapa (oculto inicialmente) -->
+                    <iframe 
+                        id="mapaIframe" 
+                        src="" 
+                        width="100%" 
+                        height="400" 
+                        style="border:0; display: none;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Mapa ubicación COOPSERPROG">
+                    </iframe>
                 </div>
             </div>
         </section>
@@ -222,9 +311,28 @@
                 </div>
             </div>
         </div>
-        <a href="#inicio" class="flecha-inicio" title="Volver al inicio"><i class="fas fa-arrow-up"></i></a>
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Función para cargar el mapa al hacer clic en "Ver ubicación"
+        function cargarMapa(url) {
+            const placeholder = document.getElementById('mapaPlaceholder');
+            const iframe = document.getElementById('mapaIframe');
+            const mapaContainer = document.getElementById('mapaContainer');
+
+            // Ocultar placeholder y mostrar iframe
+            if (placeholder) placeholder.style.display = 'none';
+            iframe.style.display = 'block';
+
+            // Cargar la URL en el iframe
+            iframe.src = url;
+            
+            // Scroll suave al mapa después de 300ms
+            setTimeout(() => {
+                mapaContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 300);
+        }
+    </script>
 </body>
 </html>
