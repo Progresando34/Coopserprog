@@ -8575,3 +8575,617 @@ footer::before {
         min-height: clamp(520px, 75vh, 680px);
     }
 }
+
+/* ============================================================
+   NOVEDAD: AMOR Y AMISTAD - ESTILOS ESPECÍFICOS
+   ============================================================ */
+
+/* Boletas */
+.boletas-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.boleta-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--gris-claro);
+    padding: 16px 18px;
+    border-radius: 12px;
+    border: 1px solid var(--gris-medio);
+    transition: all 0.3s ease;
+}
+
+.boleta-item:hover {
+    border-color: var(--verde-coop);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.boleta-icono {
+    font-size: 1.8rem;
+    color: var(--verde-coop);
+    flex-shrink: 0;
+}
+
+.boleta-item strong {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--negro-suave);
+}
+
+.boleta-item p {
+    font-size: 0.85rem;
+    color: var(--gris-texto);
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Nota de afiliación */
+.afiliate-nota {
+    background: #fef9e7;
+    padding: 14px 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--amarillo-coop);
+    font-size: 0.95rem;
+    margin: 16px 0;
+}
+
+.afiliate-nota i {
+    color: var(--amarillo-coop);
+    margin-right: 8px;
+}
+
+.afiliate-nota a {
+    color: var(--verde-coop);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.afiliate-nota a:hover {
+    color: var(--verde-oscuro);
+}
+
+/* Premios destacados */
+.premios-destacados {
+    margin: 24px 0 30px;
+}
+
+.premios-destacados h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: var(--negro-suave);
+}
+
+.premio-item {
+    padding: 18px 22px;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    border: 1px solid var(--gris-medio);
+    transition: all 0.3s ease;
+}
+
+.premio-item:hover {
+    transform: translateX(4px);
+}
+
+.premio-item.premio-1 {
+    background: linear-gradient(135deg, #fef9e7, #fdf6d6);
+    border-color: #f5c600;
+}
+
+.premio-item.premio-2 {
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    border-color: var(--verde-coop);
+}
+
+.premio-item.premio-3 {
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+    border-color: var(--azul-coop);
+}
+
+.premio-oro, .premio-plata, .premio-bronce {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 4px 14px;
+    border-radius: 50px;
+    margin-bottom: 8px;
+}
+
+.premio-oro {
+    background: #f5c600;
+    color: #1a1a2e;
+}
+
+.premio-plata {
+    background: #c0c0c0;
+    color: #1a1a2e;
+}
+
+.premio-bronce {
+    background: #cd7f32;
+    color: white;
+}
+
+.premio-item p {
+    font-size: 0.95rem;
+    color: var(--gris-texto);
+    line-height: 1.6;
+    margin: 6px 0 4px;
+}
+
+.premio-item p strong {
+    color: var(--negro-suave);
+}
+
+.premio-item small {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--gris-texto);
+    margin-top: 4px;
+}
+
+/* Requisitos lista */
+.requisitos-lista {
+    list-style: none;
+    margin: 16px 0 24px;
+}
+
+.requisitos-lista li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--gris-medio);
+    font-size: 0.95rem;
+    color: var(--gris-texto);
+    line-height: 1.5;
+}
+
+.requisitos-lista li:last-child {
+    border-bottom: none;
+}
+
+.requisitos-lista li i {
+    color: var(--verde-coop);
+    font-size: 1.1rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   RESPONSIVE - AMOR Y AMISTAD
+   ============================================================ */
+@media (max-width: 768px) {
+    .boletas-info {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .boleta-item {
+        padding: 14px 16px;
+    }
+
+    .boleta-icono {
+        font-size: 1.4rem;
+    }
+
+    .premio-item {
+        padding: 14px 16px;
+    }
+
+    .premio-item p {
+        font-size: 0.88rem;
+    }
+
+    .requisitos-lista li {
+        font-size: 0.88rem;
+        padding: 8px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .boletas-info {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .boleta-item {
+        padding: 12px 14px;
+    }
+
+    .premio-item {
+        padding: 12px 14px;
+    }
+
+    .premio-oro, .premio-plata, .premio-bronce {
+        font-size: 0.75rem;
+        padding: 3px 10px;
+    }
+
+    .premio-item p {
+        font-size: 0.82rem;
+    }
+
+    .afiliate-nota {
+        font-size: 0.85rem;
+        padding: 12px 16px;
+    }
+
+    .requisitos-lista li {
+        font-size: 0.82rem;
+        padding: 6px 0;
+        gap: 10px;
+    }
+
+    .requisitos-lista li i {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* ============================================================
+   SIMULADOR CDAT - DISEÑO DESTACADO
+   ============================================================ */
+.cdat-simulador-section {
+    padding: 70px 0 60px;
+    background: white;
+}
+
+.cdat-header {
+    text-align: center;
+    margin-bottom: 44px;
+}
+
+.cdat-badge {
+    display: inline-block;
+    background: var(--amarillo-coop);
+    color: var(--negro-suave);
+    padding: 6px 22px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.cdat-header .section-title {
+    margin-bottom: 6px;
+}
+
+.cdat-header .section-subtitle {
+    margin-bottom: 0;
+}
+
+/* ===== TARJETA PRINCIPAL ===== */
+.cdat-card-principal {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 0;
+    max-width: 1050px;
+    margin: 0 auto;
+    background: var(--gris-claro);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--gris-medio);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* ===== COLUMNA IZQUIERDA ===== */
+.cdat-card-izquierda {
+    padding: 36px 34px;
+    background: white;
+}
+
+.cdat-caracteristicas {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 32px;
+}
+
+.cdat-caracteristica {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.cdat-carac-icono {
+    width: 44px;
+    height: 44px;
+    background: rgba(1, 152, 59, 0.08);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--verde-coop);
+    flex-shrink: 0;
+}
+
+.cdat-caracteristica h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0 0 2px;
+    color: var(--negro-suave);
+}
+
+.cdat-caracteristica p {
+    font-size: 0.85rem;
+    color: var(--gris-texto);
+    margin: 0;
+}
+
+/* Rangos */
+.cdat-rangos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    background: var(--gris-claro);
+    border-radius: 14px;
+    padding: 16px 18px;
+}
+
+.cdat-rango-item {
+    text-align: center;
+}
+
+.rango-label {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--gris-texto);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.rango-valor {
+    display: block;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--verde-coop);
+    margin-top: 2px;
+}
+
+/* ===== COLUMNA DERECHA ===== */
+.cdat-card-derecha {
+    padding: 36px 34px;
+    background: linear-gradient(135deg, var(--verde-coop), var(--verde-oscuro));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cdat-ejemplo {
+    margin-bottom: 24px;
+}
+
+.ejemplo-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 3px 14px;
+    border-radius: 50px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 12px;
+}
+
+.cdat-ejemplo h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 16px;
+}
+
+.ejemplo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ejemplo-item {
+    text-align: center;
+}
+
+.ejemplo-label {
+    display: block;
+    font-size: 0.65rem;
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ejemplo-item strong {
+    display: block;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 2px;
+}
+
+.ejemplo-total {
+    color: var(--amarillo-coop);
+}
+
+.cdat-btn-principal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: var(--amarillo-coop);
+    color: var(--negro-suave);
+    border-radius: 60px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.cdat-btn-principal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(255, 213, 39, 0.35);
+}
+
+.cdat-btn-principal i {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.cdat-btn-principal:hover i {
+    transform: translateX(6px);
+}
+
+.cdat-btn-sub {
+    text-align: center;
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin: 10px 0 0;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+    .cdat-card-principal {
+        grid-template-columns: 1fr;
+        max-width: 550px;
+    }
+
+    .cdat-card-izquierda {
+        padding: 28px 24px;
+    }
+
+    .cdat-card-derecha {
+        padding: 28px 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cdat-simulador-section {
+        padding: 50px 0 40px;
+    }
+
+    .cdat-header .section-title {
+        font-size: 2rem;
+    }
+
+    .cdat-caracteristicas {
+        gap: 14px;
+    }
+
+    .cdat-rangos {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 14px 16px;
+    }
+
+    .cdat-rango-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .cdat-rango-item:last-child {
+        border-bottom: none;
+    }
+
+    .rango-label {
+        font-size: 0.7rem;
+        text-transform: none;
+        letter-spacing: 0;
+    }
+
+    .rango-valor {
+        font-size: 0.9rem;
+    }
+
+    .ejemplo-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 14px;
+    }
+
+    .ejemplo-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .ejemplo-item:last-child {
+        border-bottom: none;
+    }
+
+    .ejemplo-label {
+        font-size: 0.7rem;
+        text-transform: none;
+        letter-spacing: 0;
+    }
+
+    .ejemplo-item strong {
+        font-size: 0.95rem;
+    }
+
+    .cdat-btn-principal {
+        padding: 14px 24px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cdat-card-izquierda {
+        padding: 20px 16px;
+    }
+
+    .cdat-card-derecha {
+        padding: 20px 16px;
+    }
+
+    .cdat-caracteristica {
+        gap: 12px;
+    }
+
+    .cdat-carac-icono {
+        width: 38px;
+        height: 38px;
+        font-size: 15px;
+        border-radius: 10px;
+    }
+
+    .cdat-caracteristica h4 {
+        font-size: 0.85rem;
+    }
+
+    .cdat-caracteristica p {
+        font-size: 0.78rem;
+    }
+
+    .cdat-btn-principal {
+        padding: 12px 18px;
+        font-size: 0.85rem;
+    }
+
+    .cdat-btn-sub {
+        font-size: 0.7rem;
+    }
+}
