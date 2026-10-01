@@ -12,8 +12,14 @@
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
-    <!-- ====== ESTILOS DEL BUSCADOR DE CONVENIOS ====== -->
+    <!-- ====== LEAFLET (MAPA) ====== -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
     <style>
+        /* ====== ESTILOS DEL BUSCADOR DE CONVENIOS ====== */
         .convenios-search-section {
             max-width: 800px;
             margin: 0 auto 32px;
@@ -147,7 +153,389 @@
             font-size: .95rem;
         }
 
+        /* ============================================================
+           MAPA DE CONVENIOS
+           ============================================================ */
+        .convenios-mapa-section {
+            padding: 40px 0 20px;
+            background: white;
+        }
+
+        .mapa-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .mapa-header .section-tag {
+            display: inline-block;
+            background: var(--amarillo-coop, #FFD527);
+            color: var(--negro-suave, #0f172a);
+            padding: 4px 18px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .mapa-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--negro-suave, #0f172a);
+            margin: 0 0 6px;
+        }
+
+        .mapa-header h2 span {
+            color: var(--verde-coop, #01983b);
+        }
+
+        .mapa-header p {
+            color: var(--gris-texto, #475569);
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        /* ===== BOTÓN TOGGLE DEL MAPA ===== */
+        .btn-toggle-mapa {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+            padding: 14px 30px;
+            background: var(--verde-coop, #01983b);
+            color: #ffffff;
+            border: none;
+            border-radius: 999px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(1, 152, 59, .28);
+            transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+        }
+
+        .btn-toggle-mapa:hover {
+            background: #017a30;
+            transform: translateY(-2px);
+            box-shadow: 0 14px 38px rgba(1, 152, 59, .4);
+        }
+
+        .btn-toggle-mapa:active {
+            transform: translateY(0);
+        }
+
+        .btn-toggle-mapa i:first-child {
+            font-size: 1.05rem;
+        }
+
+        .btn-toggle-mapa #btnToggleMapaChevron {
+            font-size: 0.85rem;
+            transition: transform .3s ease;
+        }
+
+        .btn-toggle-mapa.abierto #btnToggleMapaChevron {
+            transform: rotate(180deg);
+        }
+
+        /* ===== WRAPPER DEL MAPA ===== */
+        .mapa-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .08);
+            border: 1px solid #e6e6e6;
+            animation: fadeSlideDown .5s ease;
+        }
+
+        .mapa-wrapper[hidden] {
+            display: none;
+        }
+
+        @keyframes fadeSlideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #mapaConvenios {
+            width: 100%;
+            height: 550px;
+            z-index: 1;
+            background: #f8fafc;
+        }
+
+        /* Leyenda flotante sobre el mapa */
+        .mapa-leyenda {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: rgba(255, 255, 255, .96);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 14px;
+            padding: 12px 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .12);
+            z-index: 500;
+            max-width: 240px;
+            font-family: inherit;
+        }
+
+        .mapa-leyenda h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #171717;
+            margin: 0 0 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .mapa-leyenda-items {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            max-height: 180px;
+            overflow-y: auto;
+        }
+
+        .mapa-leyenda-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.72rem;
+            color: #475569;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 2px 4px;
+            border-radius: 6px;
+            transition: background .2s ease;
+        }
+
+        .mapa-leyenda-item:hover {
+            background: rgba(1, 152, 59, .08);
+        }
+
+        .mapa-leyenda-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, .1);
+            flex-shrink: 0;
+        }
+
+        /* Contador flotante sobre el mapa */
+        .mapa-contador-flotante {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(255, 255, 255, .96);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 999px;
+            padding: 8px 16px 8px 8px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .12);
+            z-index: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: inherit;
+        }
+
+        .mapa-contador-flotante .contador-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 34px;
+            height: 34px;
+            padding: 0 10px;
+            border-radius: 999px;
+            background: var(--verde-coop, #01983b);
+            color: #fff;
+            font-weight: 800;
+            font-size: 0.95rem;
+        }
+
+        .mapa-contador-flotante .contador-txt {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #171717;
+            padding-right: 6px;
+        }
+
+        /* ===== POPUP PERSONALIZADO DE LEAFLET ===== */
+        .leaflet-popup-content-wrapper {
+            border-radius: 14px !important;
+            box-shadow: 0 16px 50px rgba(0, 0, 0, .18) !important;
+            padding: 0 !important;
+            overflow: hidden;
+        }
+
+        .leaflet-popup-content {
+            margin: 0 !important;
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+            width: 280px !important;
+        }
+
+        .popup-convenio {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .popup-convenio-header {
+            padding: 14px 16px 10px;
+            border-bottom: 1px solid #f0f0ee;
+        }
+
+        .popup-convenio-cat {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .popup-convenio-titulo {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: #171717;
+            margin: 0 0 4px;
+            line-height: 1.25;
+        }
+
+        .popup-convenio-dir {
+            font-size: 0.78rem;
+            color: #6b6b6b;
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            line-height: 1.4;
+        }
+
+        .popup-convenio-dir i {
+            color: var(--verde-coop, #01983b);
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .popup-convenio-acciones {
+            display: flex;
+            gap: 6px;
+            padding: 10px 12px 12px;
+            background: #f8fafc;
+        }
+
+        .popup-btn {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 8px 10px;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: transform .2s ease, opacity .2s ease;
+            font-family: inherit;
+            white-space: nowrap;
+        }
+
+        .popup-btn:hover {
+            transform: translateY(-1px);
+            opacity: 0.92;
+        }
+
+        .popup-btn.primario {
+            background: var(--verde-coop, #01983b);
+            color: #fff;
+        }
+
+        .popup-btn.secundario {
+            background: #fff;
+            color: #171717;
+            border: 1px solid #e6e6e6;
+        }
+
+        .leaflet-popup-tip {
+            box-shadow: none !important;
+        }
+
+        /* Marcador personalizado */
+        .marcador-convenio {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .marcador-convenio-pin {
+            width: 30px;
+            height: 30px;
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            border: 3px solid #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .marcador-convenio-pin i {
+            transform: rotate(45deg);
+            color: #fff;
+            font-size: 12px;
+        }
+
         /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            #mapaConvenios {
+                height: 420px;
+            }
+
+            .mapa-leyenda {
+                display: none;
+            }
+
+            .mapa-contador-flotante {
+                top: 10px;
+                right: 10px;
+                padding: 6px 12px 6px 6px;
+            }
+
+            .mapa-contador-flotante .contador-num {
+                min-width: 28px;
+                height: 28px;
+                font-size: 0.85rem;
+            }
+
+            .mapa-contador-flotante .contador-txt {
+                font-size: 0.72rem;
+            }
+
+            .mapa-header h2 {
+                font-size: 1.6rem;
+            }
+
+            .btn-toggle-mapa {
+                padding: 12px 24px;
+                font-size: 0.88rem;
+            }
+        }
+
         @media (max-width: 600px) {
             .convenios-search-box {
                 padding-left: 18px;
@@ -302,6 +690,42 @@
                     <button class="convenios-dot" data-index="3"></button>
                     <button class="convenios-dot" data-index="4"></button>
                     <button class="convenios-dot" data-index="5"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== MAPA DE CONVENIOS (OCULTO POR DEFECTO) ===== -->
+        <section class="convenios-mapa-section">
+            <div class="container">
+                <div class="mapa-header">
+                    <span class="section-tag"><i class="fas fa-map-marked-alt"></i> Mapa interactivo</span>
+                    <h2>Convenios en el <span>mapa</span></h2>
+                    <p>Toca un marcador para ver los detalles y contactar al comercio</p>
+
+                    <!-- Botón para mostrar/ocultar el mapa -->
+                    <button class="btn-toggle-mapa" id="btnToggleMapa" type="button">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Proximamente</span>
+                        <!-- <span id="btnToggleMapaTexto">Ver mapa de convenios</span> -->
+                        <i class="fas fa-chevron-down" id="btnToggleMapaChevron"></i>
+                    </button>
+                </div>
+
+                <!-- Contenedor del mapa (oculto al inicio) -->
+                <div class="mapa-wrapper" id="mapaWrapper" hidden>
+                    <div id="mapaConvenios"></div>
+
+                    <!-- Contador flotante -->
+                    <div class="mapa-contador-flotante">
+                        <span class="contador-num" id="mapaContadorNum">0</span>
+                        <span class="contador-txt">convenios ubicados</span>
+                    </div>
+
+                    <!-- Leyenda flotante -->
+                    <div class="mapa-leyenda">
+                        <h4>Categorías</h4>
+                        <div class="mapa-leyenda-items" id="mapaLeyendaItems"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -487,6 +911,8 @@
     <script>
         // ============================================================
         // DATOS COMPLETOS DE TODOS LOS CONVENIOS
+        // ⚠️ IMPORTANTE: las coordenadas (lat, lng) son APROXIMADAS.
+        //    Verifícalas en Google Maps y corrígelas una por una.
         // ============================================================
         const conveniosData = {
             'eds-infante': {
@@ -498,7 +924,8 @@
                 direccion: 'Av 1 #26-05 Barrio San Rafael',
                 telefono: '316 6912073',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Av+1+%2326-05+Barrio+San+Rafael+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573166912073'
+                whatsapp: 'https://wa.me/573166912073',
+                lat: 7.8892, lng: -72.4967
             },
             'eds-terpel': {
                 titulo: 'EDS TERPEL EL ROSAL',
@@ -508,30 +935,33 @@
                 descripcion: 'Con EDS TERPEL EL ROSAL y COOPSERPROG los asociados pueden:\n\n• Acceder a nuestro cupo de crédito Progresando por medio del dispositivo CONTROL CHIP.\n• Abastecer gasolina tipo corriente y ACPM.\n• Para recibir este beneficio y adquirir el CONTROL CHIP, diligenciar el link de inscripción.\n• Cancelar $15.000, valor que corresponde al costo del chip.',
                 direccion: 'Av 1 #23-52 Barrio San Rafael',
                 telefono: '304 6607622',
-                mapa: 'https://www.google.com/maps/place/Estacion+de+Servicio+Terpel-+El+Rosal/@7.8744952,-72.5009526,19z/data=!4m15!1m8!3m7!1s0x8e664596ee0bf62b:0xe2c6b9618ca12ea2!2sAv.+1+%2323b87,+Barrio+El+Rosal,+C%C3%BAcuta,+Norte+de+Santander!3b1!8m2!3d7.8734857!4d-72.5005412!16s%2Fg%2F11sjzx3vbk!3m5!1s0x8e664596e4c17fa3:0xec9019922b5af142!8m2!3d7.8742202!4d-72.5006213!16s%2Fg%2F11gj771lqt?entry=ttu&g_ep=EgoyMDI2MDgwMy4wIKXMDSoASAFQAw%3D%3D',
-                whatsapp: 'https://wa.me/573046607622'
+                mapa: 'https://www.google.com/maps/search/?api=1&query=Av+1+%2323-52+Barrio+San+Rafael+C%C3%BAcuta',
+                whatsapp: 'https://wa.me/573046607622',
+                lat: 7.8742, lng: -72.5006
             },
             'eds-charles': {
                 titulo: 'EDS MR CHARLES',
                 categoria: 'Estaciones de Servicio',
-                ciudad: 'CÚCUTA',
+                ciudad: 'VILLA DEL ROSARIO',
                 imagen: 'img/edspetromil.png',
                 descripcion: 'Con EDS MR CHARLES y COOPSERPROG nuestros asociados pueden:\n\n• Acceder a nuestro cupo de crédito Progresando que les permite abastecer sus vehículos con gasolina tipo corriente y ACPM.\n• Incluye compra de aceites, aditivos, refrigerantes, bolsa tanque de auxilio, entre otros.\n• Diligenciar link de inscripción.',
                 direccion: 'Autopista Internacional #12N-170 Barrio Lomitas, Villa Del Rosario',
                 telefono: '304 6607622',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Autopista+Internacional+%2312N-170+Barrio+Lomitas+Villa+del+Rosario',
-                whatsapp: 'https://wa.me/573046607622'
+                whatsapp: 'https://wa.me/573046607622',
+                lat: 7.8341, lng: -72.4732
             },
             'certigases': {
                 titulo: 'CERTIGASES',
                 categoria: 'Centro de Revisión',
-                ciudad: 'CÚCUTA',
+                ciudad: 'LOS PATIOS',
                 imagen: 'img/certigases.jpeg',
                 descripcion: 'Con GRUPO EMPRESARIAL CERTIGASES y COOPSERPROG, nuestros asociados pueden:\n\n• Financiar el 100% de la revisión técnico-mecánica de su vehículo sin interés.\n• Coopserprog obsequia un bono regalo que facilita la cancelación del valor de la revisión. El bono aplica para pagos de revisión financiada o de contado.\n• Para acceder a este beneficio diligenciar el link de inscripción.',
                 direccion: 'Av 10 #36A-87 Los Patios',
                 telefono: '321 2090034',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Av+10+%2336A-87+Los+Patios',
-                whatsapp: 'https://wa.me/573212090034'
+                whatsapp: 'https://wa.me/573212090034',
+                lat: 7.8426, lng: -72.5015
             },
             'cda-villa': {
                 titulo: 'CDA VILLA ROSARIO',
@@ -542,7 +972,8 @@
                 direccion: 'Calle 8 #8-25 Barrio Centro Villa Rosario',
                 telefono: '322 8642938',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Calle+8+%238-25+Centro+Villa+Rosario',
-                whatsapp: 'https://wa.me/573228642938'
+                whatsapp: 'https://wa.me/573228642938',
+                lat: 7.8340, lng: -72.4740
             },
             'cda-granvia': {
                 titulo: 'CDA LA GRAN VÍA',
@@ -553,7 +984,8 @@
                 direccion: 'Av Diagonal Santander 4E-18 Urbanización Rosetal',
                 telefono: '322 8642938',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Av+Diagonal+Santander+4E-18+Urbanizaci%C3%B3n+Rosetal',
-                whatsapp: 'https://wa.me/573228642938'
+                whatsapp: 'https://wa.me/573228642938',
+                lat: 7.8999, lng: -72.4870
             },
             'ips-progresando': {
                 titulo: 'IPS PROGRESANDO',
@@ -564,7 +996,8 @@
                 direccion: 'Cll 21A #0B-75 Barrio El Rosal',
                 telefono: '304 2479154',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+21A+%230B-75+Barrio+El+Rosal+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573042479154'
+                whatsapp: 'https://wa.me/573042479154',
+                lat: 7.8897, lng: -72.4975
             },
             'unidad-diagnostico': {
                 titulo: 'UNIDAD DE DIAGNÓSTICO',
@@ -575,7 +1008,8 @@
                 direccion: 'Cll 21A #0B-75 Barrio El Rosal',
                 telefono: '322 8642938',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+21A+%230B-75+Barrio+El+Rosal+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573228642938'
+                whatsapp: 'https://wa.me/573228642938',
+                lat: 7.8896, lng: -72.4974
             },
             'coomeva': {
                 titulo: 'COOMEVA',
@@ -586,7 +1020,8 @@
                 direccion: 'Cúcuta',
                 telefono: '322 8642938',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Coomeva+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573228642938'
+                whatsapp: 'https://wa.me/573228642938',
+                lat: 7.8939, lng: -72.5013
             },
             'optica-salud': {
                 titulo: 'ÓPTICA SALUD VISUAL',
@@ -597,7 +1032,8 @@
                 direccion: 'Cll 15 #1-60 Barrio La Playa',
                 telefono: '318 4425299',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+15+%231-60+Barrio+La+Playa+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573184425299'
+                whatsapp: 'https://wa.me/573184425299',
+                lat: 7.8848, lng: -72.4970
             },
             'optica-maria': {
                 titulo: 'ÓPTICA MARÍA PÍA',
@@ -608,7 +1044,8 @@
                 direccion: 'Av 0 #1-153 Local 1 La Ceiba',
                 telefono: '310 3090716',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Av+0+%231-153+Local+1+La+Ceiba+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573103090716'
+                whatsapp: 'https://wa.me/573103090716',
+                lat: 7.8860, lng: -72.5030
             },
             'odontologia-angelica': {
                 titulo: 'ANGÉLICA RODRÍGUEZ ODONTOLOGÍA',
@@ -619,7 +1056,8 @@
                 direccion: 'Cll 15 #1-60 Barrio La Playa',
                 telefono: '322 8642938',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+15+%231-60+Barrio+La+Playa+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573228642938'
+                whatsapp: 'https://wa.me/573228642938',
+                lat: 7.8849, lng: -72.4971
             },
             'odontologia-karen': {
                 titulo: 'KAREN PARADA ODONTOLOGÍA',
@@ -630,7 +1068,8 @@
                 direccion: 'Av 3 #7-12 San Luis',
                 telefono: '318 8079323',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Av+3+%237-12+San+Luis+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573188079323'
+                whatsapp: 'https://wa.me/573188079323',
+                lat: 7.8855, lng: -72.4890
             },
             'dentis-nova': {
                 titulo: 'DENTIS NOVA',
@@ -641,7 +1080,8 @@
                 direccion: 'Calle 6 #6-09 Local 5 Centro de Villa Del Rosario',
                 telefono: '315 8848915',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Calle+6+%236-09+Local+5+Centro+Villa+Del+Rosario',
-                whatsapp: 'https://wa.me/573158848915'
+                whatsapp: 'https://wa.me/573158848915',
+                lat: 7.8337, lng: -72.4745
             },
             'clinica-penaranda': {
                 titulo: 'CLÍNICA OF. PEÑARANDA',
@@ -652,7 +1092,8 @@
                 direccion: 'Cl. 17 #Av. 1 0-130 #0 LA PLAYA',
                 telefono: '322 8642938',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Cl.+17+%23Av.+1+0-130+%230+LA+PLAYA+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573228642938'
+                whatsapp: 'https://wa.me/573228642938',
+                lat: 7.8851, lng: -72.4972
             },
             'opty-color': {
                 titulo: 'OPTY COLOR',
@@ -663,7 +1104,8 @@
                 direccion: 'Calle 11 #45-15 Barrio San Agustín Ocaña',
                 telefono: '313 6614818',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Calle+11+%2345-15+Barrio+San+Agust%C3%ADn+Oca%C3%B1a',
-                whatsapp: 'https://wa.me/573136614818'
+                whatsapp: 'https://wa.me/573136614818',
+                lat: 8.2389, lng: -73.3564
             },
             'idana-portillo': {
                 titulo: 'IDANA PORTILLO LABORATORIO',
@@ -674,7 +1116,8 @@
                 direccion: 'C.C. Santa María, local 502 Ocaña',
                 telefono: '318 3117347',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=C.C.+Santa+Mar%C3%ADa+local+502+Oca%C3%B1a',
-                whatsapp: 'https://wa.me/573183117347'
+                whatsapp: 'https://wa.me/573183117347',
+                lat: 8.2374, lng: -73.3556
             },
             'psicolaborales': {
                 titulo: 'SERVICIOS PSICOLABORALES SST',
@@ -685,7 +1128,8 @@
                 direccion: 'Cúcuta',
                 telefono: '321 9293514',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573219293514'
+                whatsapp: 'https://wa.me/573219293514',
+                lat: 7.8950, lng: -72.5020
             },
             'servicio-masajes': {
                 titulo: 'SERVICIO DE MASAJES',
@@ -696,7 +1140,8 @@
                 direccion: 'A domicilio',
                 telefono: '302 8186987',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573028186987'
+                whatsapp: 'https://wa.me/573028186987',
+                lat: 7.8935, lng: -72.4990
             },
             'tatiana-forero-spa': {
                 titulo: 'TATIANA FORERO SPA',
@@ -707,7 +1152,8 @@
                 direccion: 'Avenida 3AE #13A-38 Barrio Caobos',
                 telefono: '324 6793811',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Avenida+3AE+%2313A-38+Barrio+Caobos+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573246793811'
+                whatsapp: 'https://wa.me/573246793811',
+                lat: 7.8974, lng: -72.4985
             },
             'jaimes-gomez': {
                 titulo: 'JAIMES & GÓMEZ ABOGADOS',
@@ -718,7 +1164,8 @@
                 direccion: 'Avenida 4 Este No. 6-49, Edificio Centro Jurídico, Oficina 316, Cúcuta',
                 telefono: '311 4529203',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Avenida+4+Este+%236-49+Edificio+Centro+Jur%C3%ADdico+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573114529203'
+                whatsapp: 'https://wa.me/573114529203',
+                lat: 7.8885, lng: -72.4960
             },
             'discoil': {
                 titulo: 'DISCOIL LUBRICENTRO',
@@ -729,7 +1176,8 @@
                 direccion: 'Av 7a #4n-08 Sevilla',
                 telefono: '318 7083739',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Av+7a+%234n-08+Sevilla+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573187083739'
+                whatsapp: 'https://wa.me/573187083739',
+                lat: 7.8880, lng: -72.4905
             },
             'autorepuestos': {
                 titulo: 'AUTOREPUESTOS LA DIAGONAL',
@@ -740,7 +1188,8 @@
                 direccion: 'Av Diagonal Santander',
                 telefono: '322 8842588',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Av+Diagonal+Santander+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573228842588'
+                whatsapp: 'https://wa.me/573228842588',
+                lat: 7.9010, lng: -72.4880
             },
             'frenos-bacca': {
                 titulo: 'FRENOS BACCA',
@@ -751,7 +1200,8 @@
                 direccion: 'Av 5 #0n-05 La Merced',
                 telefono: '310 8192978',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Av+5+%230n-05+La+Merced+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573108192978'
+                whatsapp: 'https://wa.me/573108192978',
+                lat: 7.8865, lng: -72.4940
             },
             'distribuciones-mage': {
                 titulo: 'DISTRIBUCIONES MAGE SAS',
@@ -762,7 +1212,8 @@
                 direccion: 'Calle 8 #1E-81 Barrio Popular',
                 telefono: '301 7049867',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Calle+8+%231E-81+Barrio+Popular+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573017049867'
+                whatsapp: 'https://wa.me/573017049867',
+                lat: 7.8805, lng: -72.4945
             },
             'reten-casco': {
                 titulo: 'EL RETÉN DEL CASCO',
@@ -773,7 +1224,8 @@
                 direccion: 'Av 3 Cll 7 #2-95 Cúcuta',
                 telefono: '311 8642750',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Av+3+Cll+7+%232-95+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573118642750'
+                whatsapp: 'https://wa.me/573118642750',
+                lat: 7.8820, lng: -72.4925
             },
             'bary-travel': {
                 titulo: 'BARY TRAVEL AGENCY',
@@ -784,7 +1236,8 @@
                 direccion: 'Cll 21A #8-45 San Mateo',
                 telefono: '314 3951941',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+21A+%238-45+San+Mateo+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573143951941'
+                whatsapp: 'https://wa.me/573143951941',
+                lat: 7.8920, lng: -72.4955
             },
             'fomatours': {
                 titulo: 'FOMATOURS',
@@ -795,7 +1248,8 @@
                 direccion: 'Cll 9 #0-84 piso 1 edificio FOMANORT',
                 telefono: '310 7536530',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+9+%230-84+piso+1+edificio+FOMANORT+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573107536530'
+                whatsapp: 'https://wa.me/573107536530',
+                lat: 7.8878, lng: -72.4968
             },
             'restaurante-dougs': {
                 titulo: 'DOUGS BAR & GRILL',
@@ -806,7 +1260,8 @@
                 direccion: 'Cll 10 #1-1 Villa Antigua',
                 telefono: '313 4860050',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+10+%231-1+Villa+Antigua+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573134860050'
+                whatsapp: 'https://wa.me/573134860050',
+                lat: 7.8830, lng: -72.4975
             },
             'old-west': {
                 titulo: 'OLD WEST STEAK HOUSE',
@@ -817,7 +1272,8 @@
                 direccion: 'Avenida 1E #16-20 esquina Barrio Caobos; Avenida 10 Calle 63 esquina Barrio Bellavista',
                 telefono: '324 6793811',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Old+West+Steak+House+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573246793811'
+                whatsapp: 'https://wa.me/573246793811',
+                lat: 7.8971, lng: -72.4988
             },
             'pizza-90-bar': {
                 titulo: 'PIZZA 90 BAR',
@@ -828,7 +1284,8 @@
                 direccion: 'Calle 16 #0E-48 Barrio Caobos',
                 telefono: '324 6793811',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Calle+16+%230E-48+Barrio+Caobos+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573246793811'
+                whatsapp: 'https://wa.me/573246793811',
+                lat: 7.8965, lng: -72.4992
             },
             'mexico-cabron': {
                 titulo: 'MÉXICO CABRÓN',
@@ -839,7 +1296,8 @@
                 direccion: 'Avenida 1E #16 Barrio Caobos; Avenida 10 Calle 63 esquina Barrio Bellavista',
                 telefono: '324 6793811',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=M%C3%A9xico+Cabr%C3%B3n+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573246793811'
+                whatsapp: 'https://wa.me/573246793811',
+                lat: 7.8973, lng: -72.4990
             },
             'burlesque': {
                 titulo: 'BURLESQUE RESTAURANT SHOW',
@@ -850,7 +1308,8 @@
                 direccion: 'Calle 15 #3E-115 Barrio Caobos',
                 telefono: '324 6793811',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Calle+15+%233E-115+Barrio+Caobos+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573246793811'
+                whatsapp: 'https://wa.me/573246793811',
+                lat: 7.8962, lng: -72.4997
             },
             'restaurante-cima': {
                 titulo: 'RESTAURANTE LA CIMA',
@@ -861,7 +1320,8 @@
                 direccion: 'Variante La Floresta, Pinar Express segundo piso',
                 telefono: '310 8592757',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Variante+La+Floresta+Pinar+Express+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573108592757'
+                whatsapp: 'https://wa.me/573108592757',
+                lat: 7.9050, lng: -72.4840
             },
             'sinan': {
                 titulo: 'SINAN SAS',
@@ -872,7 +1332,8 @@
                 direccion: 'Calle 6 #7e-146 Quinta Oriental',
                 telefono: '310 8840765',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Calle+6+%237e-146+Quinta+Oriental+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573108840765'
+                whatsapp: 'https://wa.me/573108840765',
+                lat: 7.8810, lng: -72.4930
             },
             'manda-ya': {
                 titulo: 'MANDA YA',
@@ -883,7 +1344,8 @@
                 direccion: 'Atalaya',
                 telefono: '315 0666696',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Atalaya+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573150666696'
+                whatsapp: 'https://wa.me/573150666696',
+                lat: 7.8695, lng: -72.4755
             },
             'cinemark': {
                 titulo: 'CINEMARK',
@@ -894,7 +1356,8 @@
                 direccion: 'CC Ventura Plaza, Cll 11 #5-3 Caobos',
                 telefono: '575 6113',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=CC+Ventura+Plaza+Cll+11+%235-3+Caobos+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573228642938'
+                whatsapp: 'https://wa.me/573228642938',
+                lat: 7.8947, lng: -72.4985
             },
             'oficanon': {
                 titulo: 'OFICANON',
@@ -905,7 +1368,8 @@
                 direccion: 'Av 0 #1-119 Quinta Boch',
                 telefono: '318 3517141',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Av+0+%231-119+Quinta+Boch+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573183517141'
+                whatsapp: 'https://wa.me/573183517141',
+                lat: 7.8856, lng: -72.5038
             },
             'ecoair': {
                 titulo: 'ECOAIR',
@@ -916,7 +1380,8 @@
                 direccion: 'Cll 15 #5-51 Centro Cúcuta',
                 telefono: '321 8854024',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+15+%235-51+Centro+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573218854024'
+                whatsapp: 'https://wa.me/573218854024',
+                lat: 7.8868, lng: -72.5015
             },
             'cerrajeria': {
                 titulo: 'CERRAJERÍA LA CHARALEÑA 24/7',
@@ -927,7 +1392,8 @@
                 direccion: 'Cll 18 #6-95 Barrio La Cabrera',
                 telefono: '312 4289239',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+18+%236-95+Barrio+La+Cabrera+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573124289239'
+                whatsapp: 'https://wa.me/573124289239',
+                lat: 7.8890, lng: -72.4920
             },
             'dubo': {
                 titulo: 'DUBO',
@@ -938,7 +1404,8 @@
                 direccion: 'Calle 8 #5-04 Centro',
                 telefono: '317 6406909',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Calle+8+%235-04+Centro+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573176406909'
+                whatsapp: 'https://wa.me/573176406909',
+                lat: 7.8840, lng: -72.5020
             },
             'finef': {
                 titulo: 'FUNDACIÓN FINEF',
@@ -949,7 +1416,8 @@
                 direccion: 'Cll 8a #0-75 segundo piso, edificio FOMANORT',
                 telefono: '320 2776286',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+8a+%230-75+segundo+piso+edificio+FOMANORT+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573202776286'
+                whatsapp: 'https://wa.me/573202776286',
+                lat: 7.8877, lng: -72.4970
             },
             'surtidor': {
                 titulo: 'EL SURTIDOR',
@@ -960,7 +1428,8 @@
                 direccion: 'Calle 8 #5-47 Centro',
                 telefono: '301 3619917',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Calle+8+%235-47+Centro+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573013619917'
+                whatsapp: 'https://wa.me/573013619917',
+                lat: 7.8842, lng: -72.5025
             },
             'almanorte': {
                 titulo: 'ALMANORTE CROYDON',
@@ -971,7 +1440,8 @@
                 direccion: 'Av. 5 #12-12 Centro Cúcuta – Av. 5 #12-57 Centro Cúcuta',
                 telefono: '315 6266024',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Av.+5+%2312-12+Centro+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573156266024'
+                whatsapp: 'https://wa.me/573156266024',
+                lat: 7.8863, lng: -72.5020
             },
             'previsora': {
                 titulo: 'PREVISORA',
@@ -982,7 +1452,8 @@
                 direccion: 'CALLE 21A #0B-75 COOPSERPROG',
                 telefono: '322 8642938',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=CALLE+21A+%230B-75+COOPSERPROG+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573228642938'
+                whatsapp: 'https://wa.me/573228642938',
+                lat: 7.8898, lng: -72.4978
             },
             'la-esperanza': {
                 titulo: 'LA ESPERANZA',
@@ -993,18 +1464,20 @@
                 direccion: 'Diagonal Santander #8-93 Cúcuta',
                 telefono: '312 4685122',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Diagonal+Santander+%238-93+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573124685122'
+                whatsapp: 'https://wa.me/573124685122',
+                lat: 7.9015, lng: -72.4875
             },
             'cecavial': {
                 titulo: 'CECAVIAL',
                 categoria: 'Capacitación Vial',
-                ciudad: 'CÚCUTA',
+                ciudad: 'LOS PATIOS',
                 imagen: 'img/cecavial.jpeg',
                 descripcion: 'Con CECAVIAL y COOPSERPROG los asociados pueden:\n\n• Financiar el 100% de infracciones de tránsito.\n• Capacitación vial que otorga 50% de descuento en multas.\n• Descuento del 5% en otros trámites.\n• Para acceder, presentar carnet de afiliado a la cooperativa al momento de tomar el servicio.',
                 direccion: 'Av 10 #28-50 Los Patios',
                 telefono: '311 4776989',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Av+10+%2328-50+Los+Patios',
-                whatsapp: 'https://wa.me/573114776989'
+                whatsapp: 'https://wa.me/573114776989',
+                lat: 7.8435, lng: -72.5020
             },
             'cia-cucuta': {
                 titulo: 'CIA CUCUTA SAS',
@@ -1015,7 +1488,8 @@
                 direccion: 'CC Bolívar local E5',
                 telefono: '302 2664236',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=CC+Bol%C3%ADvar+local+E5+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573022664236'
+                whatsapp: 'https://wa.me/573022664236',
+                lat: 7.8855, lng: -72.5010
             },
             'templo-gym': {
                 titulo: 'TEMPLO GYM',
@@ -1026,7 +1500,8 @@
                 direccion: 'Cl. 6 #2-85 a 2-1, Villa Del Rosario',
                 telefono: '324 6452221',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Cl.+6+%232-85+a+2-1+Villa+Del+Rosario',
-                whatsapp: 'https://wa.me/573246452221'
+                whatsapp: 'https://wa.me/573246452221',
+                lat: 7.8333, lng: -72.4730
             },
             'fitness-people': {
                 titulo: 'FITNESS PEOPLE',
@@ -1037,7 +1512,8 @@
                 direccion: 'Sede Jardín Plaza Cúcuta',
                 telefono: '318 7168984',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=FITNESS%20PEOPLE%20Sede%20Jardin%20Plaza%2C%20CÚCUTA',
-                whatsapp: 'https://wa.me/573187168984'
+                whatsapp: 'https://wa.me/573187168984',
+                lat: 7.8980, lng: -72.4925
             },
             'gladymar': {
                 titulo: 'GLADYMAR',
@@ -1048,7 +1524,8 @@
                 direccion: 'Cll 8 #7-58 Cúcuta',
                 telefono: '320 9569826',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+8+%237-58+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573209569826'
+                whatsapp: 'https://wa.me/573209569826',
+                lat: 7.8850, lng: -72.5015
             },
             'uniminuto': {
                 titulo: 'UNIMINUTO',
@@ -1059,7 +1536,8 @@
                 direccion: 'Calle 14 #6-22 Barrio El Páramo Cúcuta',
                 telefono: '316 4738468',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Calle+14+%236-22+Barrio+El+P%C3%A1ramo+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573164738468'
+                whatsapp: 'https://wa.me/573164738468',
+                lat: 7.8873, lng: -72.4955
             },
             'corpetrol': {
                 titulo: 'CORPETROL - CAPACITACIÓN TÉCNICA',
@@ -1070,7 +1548,8 @@
                 direccion: 'Cll 10AN #3A-10 Paraíso, Cúcuta',
                 telefono: '314 3332075',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Cll+10AN+%233A-10+Para%C3%ADso+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573143332075'
+                whatsapp: 'https://wa.me/573143332075',
+                lat: 7.9015, lng: -72.4880
             },
             'suzuki-colsag': {
                 titulo: 'SUZUKI COLSAG',
@@ -1081,7 +1560,8 @@
                 direccion: 'Avenida 11E #5-09 Colsag',
                 telefono: '3202115048',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Avenida+11E+%235-09+Colsag+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573202115048'
+                whatsapp: 'https://wa.me/573202115048',
+                lat: 7.8998, lng: -72.4900
             },
             'honda-motos': {
                 titulo: 'HONDA MOTOS GRAN COLOMBIA',
@@ -1092,7 +1572,8 @@
                 direccion: 'Av. Gran Colombia #5E - 10 Barrio Popular',
                 telefono: '3232795932',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Av.+Gran+Colombia+%235E-10+Barrio+Popular+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573232795932'
+                whatsapp: 'https://wa.me/573232795932',
+                lat: 7.8835, lng: -72.4935
             },
             'industrias-celco': {
                 titulo: 'INDUSTRIAS CELCO DEL NORTE SAS',
@@ -1103,18 +1584,20 @@
                 direccion: 'Calle 18N #5 - 30, Urbanización Prados del Norte',
                 telefono: '3138856287',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Calle+18N+%235-30+Urbanizacion+Prados+del+Norte+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573138856287'
+                whatsapp: 'https://wa.me/573138856287',
+                lat: 7.9025, lng: -72.4940
             },
             'jm-del-norte': {
                 titulo: 'JM DEL NORTE (En Estudio)',
                 categoria: 'Multiservicios',
-                ciudad: 'CÚCUTA',
+                ciudad: 'LOS PATIOS',
                 imagen: 'img/jm.png',
                 descripcion: '⚠️ CONVENIO EN ESTUDIO - PRÓXIMAMENTE\n\nEl convenio entre COOPSERPROG y JM DEL NORTE consiste en ofertas diarias del 10% de descuento:\n\n• LUNES: Pescado (referencias seleccionadas)\n• MARTES: Pollo (referencias seleccionadas)\n• MIÉRCOLES: Carnes rojas (referencias seleccionadas)\n• JUEVES: Campo - 10% en frutas y verduras\n• VIERNES: Cerdo (referencias seleccionadas)',
                 direccion: 'Avenida 10K -7 #1B - 1 Barrio Pisarreal, Los Patios',
                 telefono: '3108862124',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=Avenida+10K+%231B-1+Barrio+Pisarreal+Los+Patios',
-                whatsapp: 'https://wa.me/573108862124'
+                whatsapp: 'https://wa.me/573108862124',
+                lat: 7.8455, lng: -72.5030
             },
             'booman-sport': {
                 titulo: 'BOOMAN SPORT',
@@ -1125,7 +1608,8 @@
                 direccion: 'CC Unicentro Local 184; CC Jardín Plaza Local S02',
                 telefono: '3118953495',
                 mapa: 'https://www.google.com/maps/search/?api=1&query=CC+Jard%C3%ADn+Plaza+C%C3%BAcuta',
-                whatsapp: 'https://wa.me/573118953495'
+                whatsapp: 'https://wa.me/573118953495',
+                lat: 7.8983, lng: -72.4920
             }
         };
 
@@ -1203,7 +1687,6 @@
                 return blob.includes(term);
             });
 
-            // Actualizar contador
             const total = conveniosFiltrados.length;
             countNum.textContent = total;
             if (term) {
@@ -1212,7 +1695,6 @@
                 countLabel.textContent = total === 1 ? 'convenio disponible' : 'convenios disponibles';
             }
 
-            // Estado vacío
             if (total === 0) {
                 emptyState.classList.add('visible');
                 return;
@@ -1220,7 +1702,6 @@
                 emptyState.classList.remove('visible');
             }
 
-            // Renderizar
             conveniosFiltrados.forEach(id => {
                 const data = conveniosData[id];
                 if (!data) return;
@@ -1267,14 +1748,12 @@
             input.addEventListener('input', function () {
                 const value = this.value;
 
-                // Mostrar/ocultar botón limpiar
                 if (value.trim().length > 0) {
                     clearBtn.classList.add('visible');
                 } else {
                     clearBtn.classList.remove('visible');
                 }
 
-                // Debounce para no filtrar en cada tecla
                 clearTimeout(debounceTimeout);
                 debounceTimeout = setTimeout(() => {
                     generarMosaico(value);
@@ -1288,7 +1767,6 @@
                 generarMosaico('');
             });
 
-            // Cerrar con Escape
             input.addEventListener('keydown', function (e) {
                 if (e.key === 'Escape') {
                     this.value = '';
@@ -1424,6 +1902,189 @@
         }
 
         // ============================================================
+        // MAPA DE CONVENIOS (LEAFLET) - CARGA PEREZOSA
+        // ============================================================
+        let mapaConvenios = null;
+        let marcadoresPorId = {};
+        let mapaYaInicializado = false;
+
+        function inicializarMapa() {
+            if (mapaYaInicializado) return;
+            const mapElement = document.getElementById('mapaConvenios');
+            if (!mapElement || typeof L === 'undefined') {
+                console.warn('Mapa: Leaflet no disponible o contenedor no encontrado.');
+                return;
+            }
+
+            mapaConvenios = L.map('mapaConvenios', {
+                center: [7.8891, -72.4967],
+                zoom: 12,
+                scrollWheelZoom: false,
+                zoomControl: true,
+                attributionControl: true
+            });
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
+            }).addTo(mapaConvenios);
+
+            // Solo convenios que tengan lat/lng confirmados
+            const conveniosConCoords = [];
+            Object.keys(conveniosData).forEach(id => {
+                const data = conveniosData[id];
+                if (data && typeof data.lat === 'number' && typeof data.lng === 'number') {
+                    conveniosConCoords.push({ id, ...data });
+                }
+            });
+
+            const bounds = [];
+
+            conveniosConCoords.forEach(data => {
+                const color = categoriasColores[data.categoria] || '#01983b';
+                const iconHtml = `
+                    <div class="marcador-convenio-pin" style="background:${color};">
+                        <i class="fas fa-store"></i>
+                    </div>
+                `;
+
+                const icono = L.divIcon({
+                    html: `<div class="marcador-convenio">${iconHtml}</div>`,
+                    className: 'marcador-convenio-wrapper',
+                    iconSize: [30, 30],
+                    iconAnchor: [15, 30],
+                    popupAnchor: [0, -30]
+                });
+
+                const marker = L.marker([data.lat, data.lng], { icon: icono });
+
+                const popupHtml = `
+                    <div class="popup-convenio">
+                        <div class="popup-convenio-header">
+                            <span class="popup-convenio-cat" style="background:${color};">${data.categoria}</span>
+                            <h3 class="popup-convenio-titulo">${data.titulo}</h3>
+                            <div class="popup-convenio-dir">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>${data.direccion}</span>
+                            </div>
+                        </div>
+                        <div class="popup-convenio-acciones">
+                            <button class="popup-btn primario" onclick="abrirModalConvenio('${data.id}')">
+                                <i class="fas fa-info-circle"></i> Ver ficha
+                            </button>
+                            <a class="popup-btn secundario" href="${data.mapa}" target="_blank">
+                                <i class="fas fa-directions"></i> Cómo llegar
+                            </a>
+                        </div>
+                    </div>
+                `;
+
+                marker.bindPopup(popupHtml, {
+                    maxWidth: 300,
+                    minWidth: 280,
+                    closeButton: true,
+                    autoPan: true
+                });
+
+                marker.addTo(mapaConvenios);
+                marcadoresPorId[data.id] = marker;
+                bounds.push([data.lat, data.lng]);
+            });
+
+            if (bounds.length > 0) {
+                mapaConvenios.fitBounds(bounds, { padding: [40, 40], maxZoom: 13 });
+            }
+
+            const contadorNum = document.getElementById('mapaContadorNum');
+            if (contadorNum) contadorNum.textContent = conveniosConCoords.length;
+
+            construirLeyenda(conveniosConCoords);
+
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    if (mapaConvenios) mapaConvenios.invalidateSize();
+                }, 200);
+            });
+
+            mapaYaInicializado = true;
+        }
+
+        function construirLeyenda(convenios) {
+            const leyendaContainer = document.getElementById('mapaLeyendaItems');
+            if (!leyendaContainer) return;
+
+            const conteo = {};
+            convenios.forEach(c => {
+                conteo[c.categoria] = (conteo[c.categoria] || 0) + 1;
+            });
+
+            const categorias = Object.keys(conteo).sort((a, b) => conteo[b] - conteo[a]);
+
+            leyendaContainer.innerHTML = '';
+            categorias.forEach(cat => {
+                const color = categoriasColores[cat] || '#01983b';
+                const item = document.createElement('div');
+                item.className = 'mapa-leyenda-item';
+                item.setAttribute('data-categoria', cat);
+                item.innerHTML = `
+                    <span class="mapa-leyenda-dot" style="background:${color};"></span>
+                    <span>${cat} (${conteo[cat]})</span>
+                `;
+                item.addEventListener('click', () => {
+                    const first = convenios.find(c => c.categoria === cat);
+                    if (first && mapaConvenios) {
+                        mapaConvenios.setView([first.lat, first.lng], 15, { animate: true });
+                        if (marcadoresPorId[first.id]) {
+                            marcadoresPorId[first.id].openPopup();
+                        }
+                    }
+                });
+                leyendaContainer.appendChild(item);
+            });
+        }
+
+        // ============================================================
+        // TOGGLE DEL MAPA
+        // ============================================================
+        function inicializarToggleMapa() {
+            const btn = document.getElementById('btnToggleMapa');
+            const wrapper = document.getElementById('mapaWrapper');
+            const texto = document.getElementById('btnToggleMapaTexto');
+
+            if (!btn || !wrapper || !texto) return;
+
+            btn.addEventListener('click', function () {
+                const estaOculto = wrapper.hasAttribute('hidden');
+
+                if (estaOculto) {
+                    // Mostrar
+                    wrapper.removeAttribute('hidden');
+                    btn.classList.add('abierto');
+                    texto.textContent = 'Ocultar mapa';
+
+                    setTimeout(() => {
+                        inicializarMapa();
+                        if (mapaConvenios) {
+                            setTimeout(() => mapaConvenios.invalidateSize(), 100);
+                        }
+                    }, 50);
+
+                    setTimeout(() => {
+                        wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 200);
+
+                } else {
+                    // Ocultar
+                    wrapper.setAttribute('hidden', '');
+                    btn.classList.remove('abierto');
+                    texto.textContent = 'Ver mapa de convenios';
+                }
+            });
+        }
+
+        // ============================================================
         // CERRAR MODAL CON ESC
         // ============================================================
         document.addEventListener('keydown', function (e) {
@@ -1438,6 +2099,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             generarMosaico();
             inicializarBuscador();
+            inicializarToggleMapa();
         });
     </script>
 
