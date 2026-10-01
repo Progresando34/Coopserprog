@@ -11,6 +11,160 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+
+    <!-- ====== ESTILOS DEL BUSCADOR DE CONVENIOS ====== -->
+    <style>
+        .convenios-search-section {
+            max-width: 800px;
+            margin: 0 auto 32px;
+            padding: 0 16px;
+        }
+
+        .convenios-search-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            border: 2px solid #e6e6e6;
+            border-radius: 999px;
+            padding: 6px 8px 6px 22px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, .06);
+            transition: border-color .25s ease, box-shadow .25s ease;
+        }
+
+        .convenios-search-box:focus-within {
+            border-color: var(--verde-coop, #01983b);
+            box-shadow: 0 10px 30px rgba(1, 152, 59, .18);
+        }
+
+        .convenios-search-box .search-lupa {
+            color: var(--verde-coop, #01983b);
+            font-size: 1.05rem;
+            margin-right: 12px;
+            flex: 0 0 auto;
+        }
+
+        .convenios-search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-family: inherit;
+            font-size: 1rem;
+            color: #171717;
+            padding: 12px 0;
+        }
+
+        .convenios-search-box input::placeholder {
+            color: #9a9a9a;
+        }
+
+        .convenios-search-clear {
+            flex: 0 0 auto;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #f0f0ee;
+            color: #6b6b6b;
+            border: none;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: background .2s ease, color .2s ease, transform .2s ease;
+            margin-left: 8px;
+        }
+
+        .convenios-search-clear.visible {
+            display: flex;
+        }
+
+        .convenios-search-clear:hover {
+            background: #e0e0dd;
+            color: #171717;
+            transform: scale(1.05);
+        }
+
+        /* ===== CONTADOR ===== */
+        .convenios-counter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 18px;
+            font-size: .95rem;
+            color: #6b6b6b;
+            font-weight: 600;
+        }
+
+        .convenios-counter .counter-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 38px;
+            height: 38px;
+            padding: 0 12px;
+            border-radius: 999px;
+            background: var(--verde-coop, #01983b);
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(1, 152, 59, .25);
+        }
+
+        .convenios-counter .counter-label {
+            color: #171717;
+            font-weight: 700;
+        }
+
+        /* ===== ESTADO VACÍO ===== */
+        .convenios-empty {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+            color: #6b6b6b;
+        }
+
+        .convenios-empty.visible {
+            display: block;
+        }
+
+        .convenios-empty i {
+            font-size: 3rem;
+            color: #cfcfcf;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .convenios-empty h3 {
+            font-size: 1.15rem;
+            color: #171717;
+            margin: 0 0 8px;
+        }
+
+        .convenios-empty p {
+            margin: 0;
+            font-size: .95rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            .convenios-search-box {
+                padding-left: 18px;
+            }
+
+            .convenios-search-box input {
+                font-size: .95rem;
+                padding: 10px 0;
+            }
+
+            .convenios-counter {
+                font-size: .88rem;
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -54,7 +208,11 @@
                 <li class="menu-item"><a href="pagos.html">Pagos</a></li>
                 <li class="menu-item"><a href="contactos.html">Contacto</a></li>
                 <li class="menu-item"><a href="documentos.html">Documentos</a></li>
-                <li class="menu-item"><a href="https://ips.progresando.co/" target="_blank">IPS Progresando</a></li>
+                <li class="menu-item menu-item--cta">
+                    <a href="https://app.saac.com.co/#/" target="_blank">
+                        <i class="fas fa-user-circle"></i> Ingresar
+                    </a>
+                </li>
                 <li class="menu-item menu-social">
                     <span class="menu-social-label"><i class="fas fa-share-alt"></i> Síguenos</span>
                     <div class="menu-social-icons">
@@ -157,8 +315,33 @@
                     <p class="section-subtitle">Descubre todas las alianzas que tenemos para ti</p>
                 </div>
 
+                <!-- ===== BUSCADOR CON LUPA + CONTADOR ===== -->
+                <div class="convenios-search-section">
+                    <div class="convenios-search-box">
+                        <i class="fas fa-search search-lupa" aria-hidden="true"></i>
+                        <input type="text" id="conveniosSearch" placeholder="Buscar por nombre, categoría o ciudad..."
+                            aria-label="Buscar convenios" autocomplete="off">
+                        <button class="convenios-search-clear" id="conveniosSearchClear" type="button"
+                            aria-label="Limpiar búsqueda">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <div class="convenios-counter">
+                        <span class="counter-num" id="conveniosCountNum">0</span>
+                        <span class="counter-label" id="conveniosCountLabel">convenios disponibles</span>
+                    </div>
+                </div>
+
                 <div class="mosaico-grid" id="mosaicoGrid">
                     <!-- Los convenios se generarán con JavaScript -->
+                </div>
+
+                <!-- ===== ESTADO VACÍO ===== -->
+                <div class="convenios-empty" id="conveniosEmpty">
+                    <i class="fas fa-search"></i>
+                    <h3>No encontramos convenios</h3>
+                    <p>Intenta con otra palabra o revisa la ortografía.</p>
                 </div>
             </div>
         </section>
@@ -947,7 +1130,7 @@
         };
 
         // ============================================================
-        // GENERAR MOSAICO DE CONVENIOS
+        // COLORES POR CATEGORÍA
         // ============================================================
         const categoriasColores = {
             'Estaciones de Servicio': '#01983b',
@@ -977,74 +1160,68 @@
 
         // Lista de IDs de convenios en el orden deseado
         const idsConvenios = [
-            'eds-infante',
-            'eds-terpel',
-            'eds-charles',
-            'certigases',
-            'cda-villa',
-            'cda-granvia',
-            'ips-progresando',
-            'unidad-diagnostico',
-            'coomeva',
-            'optica-salud',
-            'optica-maria',
-            'odontologia-angelica',
-            'odontologia-karen',
-            'dentis-nova',
-            'clinica-penaranda',
-            'opty-color',
-            'idana-portillo',
-            'psicolaborales',
-            'servicio-masajes',
-            'tatiana-forero-spa',
-            'jaimes-gomez',
-            'discoil',
-            'autorepuestos',
-            'frenos-bacca',
-            'distribuciones-mage',
-            'reten-casco',
-            'bary-travel',
-            'fomatours',
-            'restaurante-dougs',
-            'old-west',
-            'pizza-90-bar',
-            'mexico-cabron',
-            'burlesque',
-            'restaurante-cima',
-            'sinan',
-            'manda-ya',
-            'cinemark',
-            'oficanon',
-            'ecoair',
-            'cerrajeria',
-            'dubo',
-            'finef',
-            'surtidor',
-            'almanorte',
-            'previsora',
-            'la-esperanza',
-            'cecavial',
-            'cia-cucuta',
-            'templo-gym',
-            'fitness-people',
-            'gladymar',
-            'uniminuto',
-            'corpetrol',
-            'suzuki-colsag',
-            'honda-motos',
-            'industrias-celco',
-            'jm-del-norte',
-            'booman-sport'
+            'eds-infante', 'eds-terpel', 'eds-charles', 'certigases', 'cda-villa', 'cda-granvia',
+            'ips-progresando', 'unidad-diagnostico', 'coomeva', 'optica-salud', 'optica-maria',
+            'odontologia-angelica', 'odontologia-karen', 'dentis-nova', 'clinica-penaranda',
+            'opty-color', 'idana-portillo', 'psicolaborales', 'servicio-masajes', 'tatiana-forero-spa',
+            'jaimes-gomez', 'discoil', 'autorepuestos', 'frenos-bacca', 'distribuciones-mage',
+            'reten-casco', 'bary-travel', 'fomatours', 'restaurante-dougs', 'old-west',
+            'pizza-90-bar', 'mexico-cabron', 'burlesque', 'restaurante-cima', 'sinan',
+            'manda-ya', 'cinemark', 'oficanon', 'ecoair', 'cerrajeria', 'dubo', 'finef',
+            'surtidor', 'almanorte', 'previsora', 'la-esperanza', 'cecavial', 'cia-cucuta',
+            'templo-gym', 'fitness-people', 'gladymar', 'uniminuto', 'corpetrol',
+            'suzuki-colsag', 'honda-motos', 'industrias-celco', 'jm-del-norte', 'booman-sport'
         ];
 
-        // URL de imagen por defecto (puedes cambiarla por una imagen que sí exista)
         const DEFAULT_IMAGE = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"%3E%3Crect width="200" height="200" fill="%23f0f0f0"/%3E%3Ctext x="100" y="100" font-family="Arial" font-size="16" fill="%23999" text-anchor="middle" dy=".3em"%3ESin imagen%3C/text%3E%3C/svg%3E';
 
-        function generarMosaico() {
+        // ============================================================
+        // GENERAR MOSAICO CON FILTRO
+        // ============================================================
+        let conveniosFiltrados = [...idsConvenios];
+
+        function normalizar(str) {
+            return (str || '').toString().toLowerCase()
+                .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        }
+
+        function generarMosaico(filtro = '') {
             const grid = document.getElementById('mosaicoGrid');
+            const emptyState = document.getElementById('conveniosEmpty');
+            const countNum = document.getElementById('conveniosCountNum');
+            const countLabel = document.getElementById('conveniosCountLabel');
+
             grid.innerHTML = '';
 
-            idsConvenios.forEach(id => {
+            const term = normalizar(filtro.trim());
+
+            conveniosFiltrados = idsConvenios.filter(id => {
+                const data = conveniosData[id];
+                if (!data) return false;
+                if (!term) return true;
+                const blob = normalizar(`${data.titulo} ${data.categoria} ${data.ciudad} ${data.descripcion}`);
+                return blob.includes(term);
+            });
+
+            // Actualizar contador
+            const total = conveniosFiltrados.length;
+            countNum.textContent = total;
+            if (term) {
+                countLabel.textContent = total === 1 ? 'convenio encontrado' : 'convenios encontrados';
+            } else {
+                countLabel.textContent = total === 1 ? 'convenio disponible' : 'convenios disponibles';
+            }
+
+            // Estado vacío
+            if (total === 0) {
+                emptyState.classList.add('visible');
+                return;
+            } else {
+                emptyState.classList.remove('visible');
+            }
+
+            // Renderizar
+            conveniosFiltrados.forEach(id => {
                 const data = conveniosData[id];
                 if (!data) return;
 
@@ -1057,7 +1234,6 @@
                 item.className = 'convenio-mosaico-item';
                 item.setAttribute('onclick', `abrirModalConvenio('${id}')`);
 
-                // Verificar si la imagen existe, si no usar la imagen por defecto
                 const imgSrc = data.imagen && data.imagen !== '' ? data.imagen : DEFAULT_IMAGE;
 
                 item.innerHTML = `
@@ -1078,6 +1254,51 @@
         }
 
         // ============================================================
+        // BUSCADOR
+        // ============================================================
+        function inicializarBuscador() {
+            const input = document.getElementById('conveniosSearch');
+            const clearBtn = document.getElementById('conveniosSearchClear');
+
+            if (!input || !clearBtn) return;
+
+            let debounceTimeout;
+
+            input.addEventListener('input', function () {
+                const value = this.value;
+
+                // Mostrar/ocultar botón limpiar
+                if (value.trim().length > 0) {
+                    clearBtn.classList.add('visible');
+                } else {
+                    clearBtn.classList.remove('visible');
+                }
+
+                // Debounce para no filtrar en cada tecla
+                clearTimeout(debounceTimeout);
+                debounceTimeout = setTimeout(() => {
+                    generarMosaico(value);
+                }, 120);
+            });
+
+            clearBtn.addEventListener('click', function () {
+                input.value = '';
+                clearBtn.classList.remove('visible');
+                input.focus();
+                generarMosaico('');
+            });
+
+            // Cerrar con Escape
+            input.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    this.value = '';
+                    clearBtn.classList.remove('visible');
+                    generarMosaico('');
+                }
+            });
+        }
+
+        // ============================================================
         // FUNCIONES DEL MODAL
         // ============================================================
         let telefonoActual = '';
@@ -1089,7 +1310,6 @@
             telefonoActual = data.telefono;
 
             const imgElement = document.getElementById('modalConvenioImg');
-            // Verificar si la imagen existe, si no usar la imagen por defecto
             const imgSrc = data.imagen && data.imagen !== '' ? data.imagen : DEFAULT_IMAGE;
             imgElement.src = imgSrc;
             imgElement.onerror = function () {
@@ -1189,7 +1409,6 @@
             dot.addEventListener('click', () => updateCarousel(i));
         });
 
-        // Auto-play del carrusel
         let interval = setInterval(() => {
             if (totalSlides > 0) updateCarousel(currentIndex + 1);
         }, 5000);
@@ -1205,7 +1424,7 @@
         }
 
         // ============================================================
-        // CERRAR MODAL CON TECLA ESC
+        // CERRAR MODAL CON ESC
         // ============================================================
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
@@ -1214,10 +1433,11 @@
         });
 
         // ============================================================
-        // INICIALIZAR MOSAICO
+        // INICIALIZAR
         // ============================================================
         document.addEventListener('DOMContentLoaded', function () {
             generarMosaico();
+            inicializarBuscador();
         });
     </script>
 
