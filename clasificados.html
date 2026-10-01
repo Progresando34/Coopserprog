@@ -11,6 +11,347 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+
+    <!-- ====== LIBRERÍA FLIPBOOK (StPageFlip) ====== -->
+    <script src="https://unpkg.com/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+
+    <!-- ====== ESTILOS DEL FLIPBOOK ====== -->
+    <style>
+        /* ===== CONTENEDOR PRINCIPAL ===== */
+        .periodico-section {
+            padding: 110px 0 110px;
+            /* más aire arriba y abajo */
+            background: linear-gradient(180deg, #f7f7f5 0%, #ffffff 100%);
+        }
+
+        .periodico-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .periodico-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .periodico-header .section-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, .06);
+            color: var(--verde-coop, #1f7a4d);
+            font-weight: 700;
+            font-size: .82rem;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+        }
+
+        .periodico-header h2 {
+            font-size: clamp(1.5rem, 3vw, 2.1rem);
+            font-weight: 800;
+            margin: 12px 0 6px;
+            color: #171717;
+        }
+
+        .periodico-header h2 span {
+            color: var(--verde-coop, #1f7a4d);
+        }
+
+        .periodico-header p {
+            color: #6b6b6b;
+            font-size: .98rem;
+            margin: 0;
+        }
+
+        /* ===== VISOR DEL FLIPBOOK ===== */
+        .flipbook-viewer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            position: relative;
+            padding: 30px 0;
+            /* aire arriba y abajo del libro */
+            margin: 0 auto;
+            max-width: 100%;
+        }
+
+        .flipbook-container {
+            position: relative;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, .18);
+            border-radius: 8px;
+            background: #fff;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        /* Cada página del flipbook */
+        .flipbook-page {
+            background: #fff;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flipbook-page img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            -webkit-user-drag: none;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        /* Sombra de lomo cuando se ven doble página (desktop) */
+        .stf__item.--left {
+            box-shadow: inset -12px 0 20px -12px rgba(0, 0, 0, .4);
+        }
+
+        .stf__item.--right {
+            box-shadow: inset 12px 0 20px -12px rgba(0, 0, 0, .4);
+        }
+
+        /* ===== FLECHAS (DESKTOP) ===== */
+        .flipbook-arrow {
+            flex: 0 0 auto;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: #111;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.05rem;
+            transition: transform .2s ease, background .2s ease, opacity .2s ease;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, .2);
+            z-index: 10;
+        }
+
+        .flipbook-arrow:hover:not(:disabled) {
+            background: var(--verde-coop, #1f7a4d);
+            transform: scale(1.08);
+        }
+
+        .flipbook-arrow:disabled {
+            opacity: .25;
+            cursor: not-allowed;
+        }
+
+        /* ===== FLECHAS INFERIORES (MÓVIL) ===== */
+        .flipbook-mobile-nav {
+            display: none;
+            /* oculto por defecto en desktop */
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        .flipbook-mobile-nav .flipbook-arrow {
+            width: 52px;
+            height: 52px;
+            font-size: 1rem;
+        }
+
+        /* ===== INDICADORES + CONTADOR ===== */
+        .flipbook-footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .flipbook-dots {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .flipbook-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #cfcfcf;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: background .2s ease, transform .2s ease;
+        }
+
+        .flipbook-dot.activo {
+            background: var(--verde-coop, #1f7a4d);
+            transform: scale(1.3);
+        }
+
+        .flipbook-counter {
+            font-size: .85rem;
+            color: #6b6b6b;
+            font-weight: 600;
+            letter-spacing: .3px;
+        }
+
+        .flipbook-hint {
+            font-size: .8rem;
+            color: #9a9a9a;
+            margin-top: 4px;
+            text-align: center;
+        }
+
+        /* ===== BOTÓN PANTALLA COMPLETA ===== */
+        .flipbook-fullscreen {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 20;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(17, 17, 17, .8);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .2s ease, transform .2s ease;
+        }
+
+        .flipbook-fullscreen:hover {
+            background: var(--verde-coop, #1f7a4d);
+            transform: scale(1.08);
+        }
+
+        /* ===== MODAL PANTALLA COMPLETA ===== */
+        .flipbook-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .93);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .flipbook-modal.activo {
+            display: flex;
+        }
+
+        .flipbook-modal img {
+            max-width: 96vw;
+            max-height: 84vh;
+            object-fit: contain;
+            border-radius: 6px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
+        }
+
+        .flipbook-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #fff;
+            color: #111;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform .2s ease;
+        }
+
+        .flipbook-modal-close:hover {
+            transform: scale(1.1);
+        }
+
+        .flipbook-modal-nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .flipbook-modal-nav button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .12);
+            border: 1px solid rgba(255, 255, 255, .3);
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .2s ease;
+        }
+
+        .flipbook-modal-nav button:hover {
+            background: var(--verde-coop, #1f7a4d);
+        }
+
+        .flipbook-modal-counter {
+            color: #fff;
+            font-size: .9rem;
+            font-weight: 600;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .flipbook-arrow {
+                width: 46px;
+                height: 46px;
+                font-size: .95rem;
+            }
+
+            .flipbook-viewer {
+                gap: 8px;
+                padding: 20px 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            /* Ocultar flechas laterales en móvil */
+            .flipbook-viewer>.flipbook-arrow {
+                display: none;
+            }
+
+            /* Mostrar flechas inferiores */
+            .flipbook-mobile-nav {
+                display: flex;
+            }
+
+            .flipbook-viewer {
+                gap: 0;
+                padding: 16px 0;
+            }
+
+            .flipbook-fullscreen {
+                width: 38px;
+                height: 38px;
+            }
+
+            .periodico-section {
+                padding: 70px 0 70px;
+            }
+
+            .flipbook-footer {
+                margin-top: 18px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -89,392 +430,83 @@
                         lo que necesiten.</p>
                     <p><strong>Te damos el crédito para que compres o te compren. Anuncios que te ayudan a
                             progresar.</strong></p>
-                    <a href="#anuncios" class="btn-primario">
-                        <i class="fas fa-arrow-down"></i> Ver anuncios
+                    <a href="#periodico" class="btn-primario">
+                        <i class="fas fa-book-open"></i> Ver periódico de ofertas
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- ===== ANUNCIOS ===== -->
-        <section class="clasificados-section" id="anuncios">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Anuncios</span>
-                    <h2 class="section-title">Publicaciones <span>Recientes</span></h2>
-                    <p class="section-subtitle">Encuentra lo que buscas o publica lo que ofreces</p>
+        <!-- ===== PERIÓDICO FLIPBOOK ===== -->
+        <section class="periodico-section" id="periodico">
+            <div class="periodico-wrapper">
+                <div class="periodico-header">
+                    <span class="section-tag"><i class="fas fa-newspaper"></i> Periódico de ofertas</span>
+                    <h2>Folleto <span>COOPSERPROG</span></h2>
+                    <p>Hojea las páginas como un libro real y descubre las ofertas de nuestros asociados</p>
                 </div>
 
-                <div class="clasificados-grid">
-                    <!-- ===== 1. Ingeniería de Sistemas ===== -->
-                    <div class="clasificado-card">
-                        <div class="clasificado-imagen">
-                            <img src="img/ignysoluciones.png" alt="Ingeniería de Sistemas">
-                            <span class="clasificado-tipo">Servicio</span>
-                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
+                <div class="flipbook-viewer">
+                    <!-- Flecha izquierda (desktop) -->
+                    <button class="flipbook-arrow" id="flipPrev" aria-label="Página anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+
+                    <!-- Contenedor del flipbook -->
+                    <div class="flipbook-container" id="flipbookContainer">
+                        <button class="flipbook-fullscreen" id="flipFullscreen" aria-label="Pantalla completa"
+                            title="Pantalla completa">
+                            <i class="fas fa-expand"></i>
+                        </button>
+
+                        <!-- ============================================ -->
+                        <!-- 🔁 AQUÍ VAN LAS PÁGINAS DEL PERIÓDICO          -->
+                        <!--    Agrega o quita <div class="flipbook-page">  -->
+                        <!-- ============================================ -->
+                        <div class="flipbook-page">
+                            <img src="img/CLASIFICADOS COOPSERPROG/1.png" alt="Página 1 del periódico">
                         </div>
-                        <div class="clasificado-info">
-                            <h3>Ingeniería de Sistemas y Computadores</h3>
-                            <p>Revisiones y soluciones para ayudarte. Asociados COOPSERPROG reciben <strong>10% de
-                                    descuento</strong>.</p>
-                            <div class="clasificado-meta">
-                                <span><i class="fas fa-phone"></i> 311 285 4268</span>
-                                <span><i class="fas fa-tag" style="color: var(--verde-coop);"></i> 10% descuento</span>
-                            </div>
-                            <a href="https://wa.me/573112854268?text=Hola%2C%20vi%20tu%20clasificado%20de%20Ingenier%C3%ADa%20de%20Sistemas%20en%20COOPSERPROG"
-                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
-                                    class="fab fa-whatsapp"></i></a>
+                        <div class="flipbook-page">
+                            <img src="img/CLASIFICADOS COOPSERPROG/2.png" alt="Página 2 del periódico">
                         </div>
+                        <div class="flipbook-page">
+                            <img src="img/CLASIFICADOS COOPSERPROG/3.png" alt="Página 3 del periódico">
+                        </div>
+                        <div class="flipbook-page">
+                            <img src="img/CLASIFICADOS COOPSERPROG/4.png" alt="Página 4 del periódico">
+                        </div>
+                        <div class="flipbook-page">
+                            <img src="img/CLASIFICADOS COOPSERPROG/5.png" alt="Página 5 del periódico">
+                        </div>
+                        <!-- ============================================ -->
+                        <!-- 🔁 FIN DE LAS PÁGINAS                          -->
+                        <!-- ============================================ -->
                     </div>
 
-                    <!-- ===== 2. Óptica ===== -->
-                    <div class="clasificado-card">
-                        <div class="clasificado-imagen">
-                            <img src="img/mariapia.png" alt="Óptica">
-                            <span class="clasificado-tipo">Servicio</span>
-                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                        <div class="clasificado-info">
-                            <h3>Óptica - Exámenes y Lentes</h3>
-                            <p>Examen de ojos computarizado, asesoría y despacho de lentes. <strong>15% en cristales y
-                                    20% en monturas</strong> para asociados.</p>
-                            <div class="clasificado-meta">
-                                <span><i class="fas fa-phone"></i> 310 309 0716</span>
-                                <span><i class="fas fa-tag" style="color: var(--verde-coop);"></i> Hasta 20%</span>
-                            </div>
-                            <a href="https://wa.me/573103090716?text=Hola%2C%20vi%20tu%20clasificado%20de%20%C3%93ptica%20en%20COOPSERPROG"
-                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
-                                    class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- ===== 3. BWIS 2022 ===== -->
-                    <div class="clasificado-card">
-                        <div class="clasificado-imagen">
-                            <img src="img/bwis2022.png" alt="BWIS 2022">
-                            <span class="clasificado-tipo">Venta</span>
-                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                        <div class="clasificado-info">
-                            <h3>BWIS 2022 en venta</h3>
-                            <p>Excelente estado, papeles al día, solo 20.000 km. Oportunidad única.</p>
-                            <div class="clasificado-meta">
-                                <span><i class="fas fa-phone"></i> 311 872 0627</span>
-                                <span><i class="fas fa-road"></i> 20.000 km</span>
-                            </div>
-                            <a href="https://wa.me/573118720627?text=Hola%2C%20vi%20tu%20clasificado%20del%20BWIS%202022%20en%20COOPSERPROG"
-                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
-                                    class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- ===== 4. Instalación de Aire Acondicionado ===== -->
-                    <div class="clasificado-card">
-                        <div class="clasificado-imagen">
-                            <img src="img/aires.png" alt="Instalación de Aire">
-                            <span class="clasificado-tipo">Servicio</span>
-                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                        <div class="clasificado-info">
-                            <h3>Instalación de Aire Acondicionado</h3>
-                            <p>Hacemos que los espacios de tu hogar u oficina sean más frescos. Cotización sin
-                                compromiso.</p>
-                            <div class="clasificado-meta">
-                                <span><i class="fas fa-phone"></i> 316 754 9468</span>
-                                <span><i class="fas fa-phone"></i> 321 885 4024</span>
-                            </div>
-                            <a href="https://wa.me/573167549468?text=Hola%2C%20vi%20tu%20clasificado%20de%20instalaci%C3%B3n%20de%20Aire%20Acondicionado%20en%20COOPSERPROG"
-                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
-                                    class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- ===== 5. Arreglamos tu Computador ===== -->
-                    <div class="clasificado-card">
-                        <div class="clasificado-imagen">
-                            <img src="img/computadores.png" alt="Reparación de Computadores">
-                            <span class="clasificado-tipo">Servicio</span>
-                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                        <div class="clasificado-info">
-                            <h3>¡Arreglamos tu Computador!</h3>
-                            <p>Mantenimiento preventivo y correctivo, suministro de equipos, recargas, redes y
-                                configuración. Con respaldo de COOPSERPROG.</p>
-                            <div class="clasificado-meta">
-                                <span><i class="fas fa-phone"></i> 350 734 3643</span>
-                                <span><i class="fas fa-credit-card"></i> Crédito disponible</span>
-                            </div>
-                            <a href="https://wa.me/573507343643?text=Hola%2C%20vi%20tu%20clasificado%20de%20reparaci%C3%B3n%20de%20computadores%20en%20COOPSERPROG"
-                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
-                                    class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- ===== 6. Cecavial - Trámites de Tránsito ===== -->
-                    <div class="clasificado-card">
-                        <div class="clasificado-imagen">
-                            <img src="img/cecavial.jpeg" alt="Cecavial">
-                            <span class="clasificado-tipo">Servicio</span>
-                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                        <div class="clasificado-info">
-                            <h3>Cecavial - Trámites de Tránsito</h3>
-                            <p><strong>Hasta 50% de descuento</strong> en fotomultas y comparendos. Licencias,
-                                impuestos, duplicado de placas y más.</p>
-                            <div class="clasificado-meta">
-                                <span><i class="fas fa-phone"></i> 311 477 6989</span>
-                                <span><i class="fas fa-tag" style="color: var(--verde-coop);"></i> Hasta 50%</span>
-                            </div>
-                            <a href="https://wa.me/573114776989?text=Hola%2C%20vi%20tu%20clasificado%20de%20Cecavial%20en%20COOPSERPROG"
-                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
-                                    class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- ===== 7. Revisión Técnico-Mecánica ===== -->
-                    <div class="clasificado-card">
-                        <div class="clasificado-imagen">
-                            <img src="img/tecnicomecanica.jpeg" alt="Revisión Técnico-Mecánica">
-                            <span class="clasificado-tipo">Servicio</span>
-                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                        <div class="clasificado-info">
-                            <h3>Revisión Técnico-Mecánica y Gases</h3>
-                            <p>En CDA Gran Vía. Convenio con COOPSERPROG para asociados.</p>
-                            <div class="clasificado-meta">
-                                <span><i class="fas fa-phone"></i> 302 273 1453</span>
-                                <span><i class="fas fa-handshake"></i> Convenio</span>
-                            </div>
-                            <a href="https://wa.me/573022731453?text=Hola%2C%20vi%20tu%20clasificado%20de%20Revisi%C3%B3n%20T%C3%A9cnico-Mec%C3%A1nica%20en%20COOPSERPROG"
-                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
-                                    class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- ===== 8. Viajes a Cácota, Termales y Labateca ===== -->
-                    <div class="clasificado-card">
-                        <div class="clasificado-imagen">
-                            <img src="img/salidasregionales.png" alt="Viajes">
-                            <span class="clasificado-tipo">Servicio</span>
-                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                        <div class="clasificado-info">
-                            <h3>Viajes a Cácota, Termales y Labateca</h3>
-                            <p>Planes turísticos con transporte, alimentación, guía y actividades. Financiamos tu viaje.
-                            </p>
-                            <div class="clasificado-meta">
-                                <span><i class="fas fa-phone"></i> 320 123 4567</span>
-                                <span><i class="fas fa-credit-card"></i> Crédito disponible</span>
-                            </div>
-                            <a href="https://wa.me/573201234567?text=Hola%2C%20vi%20tu%20clasificado%20de%20viajes%20en%20COOPSERPROG"
-                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
-                                    class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- ===== 9. Fuxion - Desintoxica tu cuerpo ===== -->
-                    <div class="clasificado-card">
-                        <div class="clasificado-imagen">
-                            <img src="img/fuxion.png" alt="Fuxion">
-                            <span class="clasificado-tipo">Servicio</span>
-                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                        <div class="clasificado-info">
-                            <h3>¡Desintoxica tu cuerpo hoy!</h3>
-                            <p>Línea detox de Fuxion. Elimina toxinas, mejora la digestión y recupera tu energía.
-                                <strong>10% descuento</strong> para asociados.
-                            </p>
-                            <div class="clasificado-meta">
-                                <span><i class="fas fa-phone"></i> 316 585 0599</span>
-                                <span><i class="fas fa-tag" style="color: var(--verde-coop);"></i> 10% descuento</span>
-                            </div>
-                            <a href="https://wa.me/573165850599?text=Hola%2C%20vi%20tu%20clasificado%20de%20Fuxion%20en%20COOPSERPROG"
-                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
-                                    class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="clasificado-card">
-                        <div class="clasificado-imagen">
-                            <img src="img/grua24h.png" alt="Servicio de Grúa 24 Horas">
-                            <span class="clasificado-tipo">Servicio</span>
-                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                        <div class="clasificado-info">
-                            <h3>🚛 Servicio de Grúa 24 Horas</h3>
-                            <p>Tenemos cobertura en Cúcuta y sus alrededores con atención rápida y servicio confiable
-                                las 24 horas.</p>
-                            <div class="clasificado-meta">
-                                <span><i class="fas fa-phone"></i> 300 786 6797</span>
-                                <span><i class="fas fa-clock"></i> 24/7</span>
-                            </div>
-                            <a href="https://wa.me/573007866797?text=Hola%2C%20vi%20el%20clasificado%20del%20servicio%20de%20gr%C3%BAa%2024%20horas%20en%20COOPSERPROG"
-                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
-                                    class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="clasificado-card">
-                        <div class="clasificado-imagen">
-                            <img src="img/musicaenvivo.png" alt="Música en Vivo para Eventos">
-                            <span class="clasificado-tipo">Servicio</span>
-                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                        <div class="clasificado-info">
-                            <h3>🎵 Música en Vivo para Eventos</h3>
-                            <p>Ofrecemos un show en vivo lleno de ritmo, sabor tropical y música para disfrutar de
-                                principio a fin. Ideal para eventos sociales, empresariales, celebraciones y ocasiones
-                                especiales.</p>
-                            <div class="clasificado-meta">
-                                <span><i class="fas fa-phone"></i> 312 543 1170</span>
-                                <span><i class="fas fa-music"></i> Show en vivo</span>
-                            </div>
-                            <a href="https://wa.me/573125431170?text=Hola%2C%20vi%20el%20clasificado%20de%20m%C3%BAsica%20en%20vivo%20para%20eventos%20en%20COOPSERPROG"
-                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
-                                    class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
-
-
-                    <div class="clasificado-card">
-                        <div class="clasificado-imagen">
-                            <img src="img/asesoriacontable.png" alt="Asesoría Contable">
-                            <span class="clasificado-tipo">Servicio</span>
-                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                        <div class="clasificado-info">
-                            <h3>📊 Asesoría Contable y Tributaria</h3>
-                            <p>En Asesoría Contable Angélica Leal encontrarás acompañamiento en contabilidad,
-                                declaraciones, nómina, seguridad social y asesoría tributaria para personas y empresas.
-                            </p>
-                            <div class="clasificado-meta">
-                                <span><i class="fas fa-phone"></i> 316 908 1235</span>
-                                <span><i class="fas fa-calculator"></i> Contabilidad</span>
-                            </div>
-                            <a href="https://wa.me/573169081235?text=Hola%2C%20vi%20el%20clasificado%20de%20asesor%C3%ADa%20contable%20en%20COOPSERPROG"
-                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
-                                    class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
-
-
-                    <div class="clasificado-card">
-                        <div class="clasificado-imagen">
-                            <img src="img/huevoscodorniz.png" alt="Huevos de Codorniz">
-                            <span class="clasificado-tipo">Venta</span>
-                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                        <div class="clasificado-info">
-                            <h3>🥚 Huevos Frescos de Codorniz</h3>
-                            <p>Se venden huevos frescos de codorniz de excelente calidad. Compras desde 50 cartones
-                                reciben precio mayorista y a partir de 100 cartones el domicilio es completamente
-                                gratis.</p>
-                            <div class="clasificado-meta">
-                                <span><i class="fas fa-phone"></i> 350 856 2745</span>
-                                <span><i class="fas fa-shopping-basket"></i> Mayorista</span>
-                            </div>
-                            <a href="https://wa.me/573508562745?text=Hola%2C%20vi%20el%20clasificado%20de%20huevos%20de%20codorniz%20en%20COOPSERPROG"
-                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
-                                    class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="clasificado-card">
-                        <div class="clasificado-imagen">
-                            <img src="img/pollocampesino.png" alt="Pollo Campesino">
-                            <span class="clasificado-tipo">Venta</span>
-                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                        <div class="clasificado-info">
-                            <h3>🐔 Pollo Campesino 100% Natural</h3>
-                            <p>Pollo campesino 100% natural, de crecimiento saludable, carne sabrosa y nutritiva, con
-                                excelente calidad y frescura. ¡Haz tu pedido hoy mismo y lleva del campo a tu mesa el
-                                mejor sabor!</p>
-                            <div class="clasificado-meta">
-                                <span><i class="fas fa-phone"></i> 304 602 7161</span>
-                                <span><i class="fas fa-leaf"></i> 100% Natural</span>
-                            </div>
-                            <a href="https://wa.me/573046027161?text=Hola%2C%20vi%20el%20clasificado%20de%20pollo%20campesino%20en%20COOPSERPROG"
-                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
-                                    class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
-
-
-                    <div class="clasificado-card">
-                        <div class="clasificado-imagen">
-                            <img src="img/velasartesanales.png" alt="Velas y Detalles Artesanales">
-                            <span class="clasificado-tipo">Venta</span>
-                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                        <div class="clasificado-info">
-                            <h3>🕯️ Velas y Detalles Artesanales</h3>
-                            <p>Velas aromáticas y decorativas, figuras artesanales en yeso y cera, recordatorios para
-                                toda ocasión y mucho más. ¡Detalles hechos con amor para regalar o decorar!</p>
-                            <div class="clasificado-meta">
-                                <span><i class="fas fa-phone"></i> 311 777 3687</span>
-                                <span><i class="fas fa-gift"></i> Artesanías</span>
-                            </div>
-                            <a href="https://wa.me/573117773687?text=Hola%2C%20vi%20el%20clasificado%20de%20velas%20y%20detalles%20artesanales%20en%20COOPSERPROG"
-                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
-                                    class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="clasificado-card">
-                        <div class="clasificado-imagen">
-                            <img src="img/capacitacion.png" alt="Capacitación Técnica">
-                            <span class="clasificado-tipo">Servicio</span>
-                            <button class="btn-ver-imagen" onclick="abrirModal(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                        <div class="clasificado-info">
-                            <h3>🎓 Capacitación y Prepárate</h3>
-                            <p>Capacitación técnica en petróleo, electricidad, talento humano, seguridad, contabilidad,
-                                finanzas y administración. Además, 72 diplomados, cursos y seminarios en diferentes
-                                áreas de alta demanda laboral.</p>
-                            <div class="clasificado-meta">
-                                <span><i class="fas fa-phone"></i> 314 333 2075</span>
-                                <span><i class="fas fa-graduation-cap"></i> 72 Diplomados</span>
-                            </div>
-                            <a href="https://wa.me/573143332075?text=Hola%2C%20vi%20el%20clasificado%20de%20capacitaci%C3%B3n%20t%C3%A9cnica%20en%20COOPSERPROG"
-                                target="_blank" class="clasificado-link">Contactar por WhatsApp <i
-                                    class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
+                    <!-- Flecha derecha (desktop) -->
+                    <button class="flipbook-arrow" id="flipNext" aria-label="Página siguiente">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
-            </div>
+
+                <!-- Flechas inferiores (solo móvil) -->
+                <div class="flipbook-mobile-nav">
+                    <button class="flipbook-arrow" id="flipPrevMobile" aria-label="Página anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="flipbook-arrow" id="flipNextMobile" aria-label="Página siguiente">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Indicadores + contador -->
+                <div class="flipbook-footer">
+                    <div class="flipbook-dots" id="flipDots"></div>
+                    <span class="flipbook-counter" id="flipCounter">Página 1 de 5</span>
+                    <span class="flipbook-hint">
+                        <i class="fas fa-hand-pointer"></i> Arrastra la esquina de la hoja o usa las flechas
+                    </span>
+                </div>
             </div>
         </section>
 
@@ -504,17 +536,20 @@
         </div>
     </main>
 
-    <!-- ===== MODAL PARA VER IMAGEN COMPLETA ===== -->
-    <div class="modal-imagen" id="modalImagen" onclick="cerrarModal()">
-        <div class="modal-contenido" onclick="event.stopPropagation()">
-            <button class="modal-cerrar" onclick="cerrarModal()">
-                <i class="fas fa-times"></i>
+    <!-- ===== MODAL PANTALLA COMPLETA ===== -->
+    <div class="flipbook-modal" id="flipModal" onclick="cerrarFlipModal()">
+        <button class="flipbook-modal-close" onclick="cerrarFlipModal()" aria-label="Cerrar">
+            <i class="fas fa-times"></i>
+        </button>
+        <img id="flipModalImg" src="" alt="Página ampliada" onclick="event.stopPropagation()">
+        <div class="flipbook-modal-nav" onclick="event.stopPropagation()">
+            <button id="flipModalPrev" aria-label="Anterior">
+                <i class="fas fa-chevron-left"></i>
             </button>
-            <img id="modalImg" src="" alt="Imagen completa">
-            <div class="modal-info">
-                <h3 id="modalTitulo"></h3>
-                <p id="modalDescripcion"></p>
-            </div>
+            <span class="flipbook-modal-counter" id="flipModalCounter">1 / 5</span>
+            <button id="flipModalNext" aria-label="Siguiente">
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
     </div>
 
@@ -588,44 +623,160 @@
     </footer>
 
     <script src="js/main.js"></script>
+
+    <!-- ===== SCRIPT DEL FLIPBOOK ===== -->
     <script>
-        // ===== ABRIR MODAL CON IMAGEN COMPLETA =====
-        function abrirModal(boton) {
-            const card = boton.closest('.clasificado-card');
-            const img = card.querySelector('.clasificado-imagen img');
-            const titulo = card.querySelector('.clasificado-info h3');
-            const descripcion = card.querySelector('.clasificado-info p');
+        (function () {
+            'use strict';
 
-            const modal = document.getElementById('modalImagen');
-            const modalImg = document.getElementById('modalImg');
-            const modalTitulo = document.getElementById('modalTitulo');
-            const modalDescripcion = document.getElementById('modalDescripcion');
+            const container = document.getElementById('flipbookContainer');
+            const dotsContainer = document.getElementById('flipDots');
+            const counter = document.getElementById('flipCounter');
+            const btnPrev = document.getElementById('flipPrev');
+            const btnNext = document.getElementById('flipNext');
+            const btnPrevMobile = document.getElementById('flipPrevMobile');
+            const btnNextMobile = document.getElementById('flipNextMobile');
+            const btnFullscreen = document.getElementById('flipFullscreen');
 
-            modalImg.src = img.src;
-            modalImg.alt = img.alt;
-            modalTitulo.textContent = titulo.textContent;
-
-            // Tomar solo el texto del párrafo (sin los strong)
-            const descText = descripcion.textContent.trim();
-            modalDescripcion.textContent = descText;
-
-            modal.classList.add('activo');
-            document.body.style.overflow = 'hidden';
-        }
-
-        // ===== CERRAR MODAL =====
-        function cerrarModal() {
-            const modal = document.getElementById('modalImagen');
-            modal.classList.remove('activo');
-            document.body.style.overflow = '';
-        }
-
-        // ===== CERRAR CON TECLA ESC =====
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') {
-                cerrarModal();
+            if (!container || typeof St === 'undefined' || !St.PageFlip) {
+                console.warn('Flipbook: StPageFlip no disponible.');
+                return;
             }
-        });
+
+            const pageElements = Array.from(container.querySelectorAll('.flipbook-page'));
+            const totalPages = pageElements.length;
+            if (totalPages === 0) return;
+
+            // Guardar rutas para el modal pantalla completa
+            const pageImages = pageElements.map((el) => {
+                const img = el.querySelector('img');
+                return {
+                    src: img ? img.src : '',
+                    alt: img ? img.alt : 'Página'
+                };
+            });
+
+            /* ====== INICIALIZAR STPAGEFLIP (más grande) ====== */
+            const pageFlip = new St.PageFlip(container, {
+                width: 600,
+                height: 800,
+                size: 'stretch',
+                minWidth: 320,
+                maxWidth: 800,
+                minHeight: 420,
+                maxHeight: 1060,
+                drawShadow: true,
+                flippingTime: 800,
+                usePortrait: true,
+                startZIndex: 0,
+                autoSize: true,
+                maxShadowOpacity: 0.4,
+                showCover: false,
+                mobileScrollSupport: false,
+                clickEventForward: true,
+                useMouseEvents: true,
+                swipeDistance: 30,
+                showPageCorners: true,
+                disableFlipByClick: false
+            });
+
+            pageFlip.loadFromHTML(container.querySelectorAll('.flipbook-page'));
+
+            /* ====== PUNTOS INDICADORES ====== */
+            function buildDots() {
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i < totalPages; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'flipbook-dot' + (i === 0 ? ' activo' : '');
+                    dot.setAttribute('aria-label', 'Ir a la página ' + (i + 1));
+                    dot.addEventListener('click', () => pageFlip.turnToPage(i));
+                    dotsContainer.appendChild(dot);
+                }
+            }
+
+            function updateDots(index) {
+                Array.from(dotsContainer.children).forEach((d, i) => {
+                    d.classList.toggle('activo', i === index);
+                });
+            }
+
+            /* ====== ACTUALIZAR UI AL CAMBIAR PÁGINA ====== */
+            pageFlip.on('flip', (e) => {
+                const idx = e.data;
+                updateDots(idx);
+                counter.textContent = `Página ${idx + 1} de ${totalPages}`;
+                btnPrev.disabled = idx === 0;
+                btnNext.disabled = idx === totalPages - 1;
+                btnPrevMobile.disabled = idx === 0;
+                btnNextMobile.disabled = idx === totalPages - 1;
+            });
+
+            /* ====== FLECHAS DESKTOP ====== */
+            btnPrev.addEventListener('click', () => pageFlip.flipPrev());
+            btnNext.addEventListener('click', () => pageFlip.flipNext());
+
+            /* ====== FLECHAS MÓVIL ====== */
+            btnPrevMobile.addEventListener('click', () => pageFlip.flipPrev());
+            btnNextMobile.addEventListener('click', () => pageFlip.flipNext());
+
+            /* ====== TECLADO ====== */
+            document.addEventListener('keydown', (e) => {
+                if (document.getElementById('flipModal').classList.contains('activo')) return;
+                if (e.key === 'ArrowLeft') pageFlip.flipPrev();
+                if (e.key === 'ArrowRight') pageFlip.flipNext();
+            });
+
+            /* ====== MODAL PANTALLA COMPLETA ====== */
+            const modal = document.getElementById('flipModal');
+            const modalImg = document.getElementById('flipModalImg');
+            const modalCounter = document.getElementById('flipModalCounter');
+            const modalPrev = document.getElementById('flipModalPrev');
+            const modalNext = document.getElementById('flipModalNext');
+            let modalIndex = 0;
+
+            function openModal(index) {
+                modalIndex = Math.max(0, Math.min(index, totalPages - 1));
+                modalImg.src = pageImages[modalIndex].src;
+                modalImg.alt = pageImages[modalIndex].alt;
+                modalCounter.textContent = `${modalIndex + 1} / ${totalPages}`;
+                modal.classList.add('activo');
+                document.body.style.overflow = 'hidden';
+            }
+
+            btnFullscreen.addEventListener('click', () => {
+                const current = pageFlip.getCurrentPageIndex();
+                openModal(current);
+            });
+
+            window.cerrarFlipModal = function () {
+                modal.classList.remove('activo');
+                document.body.style.overflow = '';
+            };
+
+            modalPrev.addEventListener('click', () => {
+                if (modalIndex > 0) openModal(modalIndex - 1);
+            });
+
+            modalNext.addEventListener('click', () => {
+                if (modalIndex < totalPages - 1) openModal(modalIndex + 1);
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (!modal.classList.contains('activo')) return;
+                if (e.key === 'Escape') window.cerrarFlipModal();
+                if (e.key === 'ArrowLeft' && modalIndex > 0) openModal(modalIndex - 1);
+                if (e.key === 'ArrowRight' && modalIndex < totalPages - 1) openModal(modalIndex + 1);
+            });
+
+            /* ====== INICIALIZAR ====== */
+            buildDots();
+            counter.textContent = `Página 1 de ${totalPages}`;
+            btnPrev.disabled = true;
+            btnNext.disabled = totalPages <= 1;
+            btnPrevMobile.disabled = true;
+            btnNextMobile.disabled = totalPages <= 1;
+
+        })();
     </script>
 </body>
 
