@@ -9249,3 +9249,198 @@ footer::before {
         font-size: 0.98rem;
     }
 }
+
+
+
+
+/* ============================================================
+   AVISO DE PRIVACIDAD - COMPACTO (todo el texto visible)
+   ============================================================ */
+.aviso-privacidad-section {
+    padding: 30px 0 10px;
+    background: var(--gris-claro);
+}
+
+.aviso-card {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--gris-medio);
+    border-left: 4px solid var(--verde-coop);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.aviso-card:hover {
+    box-shadow: 0 6px 24px rgba(1, 152, 59, 0.07);
+}
+
+/* --- Header compacto --- */
+.aviso-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, rgba(1, 152, 59, 0.04), rgba(255, 213, 39, 0.04));
+    border-bottom: 1px solid var(--gris-medio);
+}
+
+.aviso-header > i {
+    font-size: 1.3rem;
+    color: var(--verde-coop);
+    background: rgba(1, 152, 59, 0.1);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.aviso-header h2 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--negro-suave);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.aviso-subtitle {
+    font-size: 0.75rem;
+    color: var(--verde-coop);
+    font-weight: 600;
+    margin: 2px 0 0 0;
+}
+
+/* --- Cuerpo compacto (todo visible) --- */
+.aviso-body {
+    padding: 16px 20px 18px;
+}
+
+.aviso-body p {
+    color: var(--gris-texto);
+    font-size: 0.86rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.aviso-body p strong {
+    color: var(--negro-suave);
+}
+
+.aviso-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.aviso-body ul li {
+    position: relative;
+    padding: 6px 0 6px 22px;
+    color: var(--gris-texto);
+    font-size: 0.82rem;
+    line-height: 1.55;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.aviso-body ul li:last-child {
+    border-bottom: none;
+}
+
+.aviso-body ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    color: var(--verde-coop);
+    font-weight: 900;
+    font-size: 0.8rem;
+}
+
+.aviso-body ul li strong {
+    color: var(--verde-coop);
+    font-weight: 700;
+}
+
+.aviso-body ul li a {
+    color: var(--verde-coop);
+    font-weight: 600;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+    word-break: break-word;
+}
+
+.aviso-body ul li a:hover {
+    color: var(--verde-oscuro);
+    text-decoration: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .aviso-privacidad-section {
+        padding: 20px 0 8px;
+    }
+
+    .aviso-header {
+        padding: 12px 16px;
+        gap: 10px;
+    }
+
+    .aviso-header > i {
+        width: 34px;
+        height: 34px;
+        font-size: 1.1rem;
+    }
+
+    .aviso-header h2 {
+        font-size: 0.95rem;
+    }
+
+    .aviso-subtitle {
+        font-size: 0.7rem;
+    }
+
+    .aviso-body {
+        padding: 12px 16px 14px;
+    }
+
+    .aviso-body p {
+        font-size: 0.8rem;
+        line-height: 1.55;
+        margin-bottom: 8px;
+    }
+
+    .aviso-body ul li {
+        font-size: 0.76rem;
+        padding: 5px 0 5px 20px;
+        line-height: 1.5;
+    }
+
+    .aviso-body ul li::before {
+        top: 5px;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .aviso-header h2 {
+        font-size: 0.88rem;
+    }
+
+    .aviso-subtitle {
+        font-size: 0.65rem;
+    }
+
+    .aviso-body p {
+        font-size: 0.76rem;
+    }
+
+    .aviso-body ul li {
+        font-size: 0.73rem;
+        padding: 4px 0 4px 18px;
+    }
+}
