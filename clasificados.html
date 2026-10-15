@@ -20,7 +20,6 @@
         /* ===== CONTENEDOR PRINCIPAL ===== */
         .periodico-section {
             padding: 110px 0 110px;
-            /* más aire arriba y abajo */
             background: linear-gradient(180deg, #f7f7f5 0%, #ffffff 100%);
         }
 
@@ -69,10 +68,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 16px;
+            gap: 14px;
             position: relative;
-            padding: 30px 0;
-            /* aire arriba y abajo del libro */
+            padding: 20px 0;
             margin: 0 auto;
             max-width: 100%;
         }
@@ -117,8 +115,8 @@
         /* ===== FLECHAS (DESKTOP) ===== */
         .flipbook-arrow {
             flex: 0 0 auto;
-            width: 54px;
-            height: 54px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             background: #111;
             color: #fff;
@@ -127,7 +125,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.05rem;
+            font-size: 1rem;
             transition: transform .2s ease, background .2s ease, opacity .2s ease;
             box-shadow: 0 6px 18px rgba(0, 0, 0, .2);
             z-index: 10;
@@ -146,7 +144,6 @@
         /* ===== FLECHAS INFERIORES (MÓVIL) ===== */
         .flipbook-mobile-nav {
             display: none;
-            /* oculto por defecto en desktop */
             justify-content: center;
             align-items: center;
             gap: 24px;
@@ -154,9 +151,9 @@
         }
 
         .flipbook-mobile-nav .flipbook-arrow {
-            width: 52px;
-            height: 52px;
-            font-size: 1rem;
+            width: 50px;
+            height: 50px;
+            font-size: .95rem;
         }
 
         /* ===== INDICADORES + CONTADOR ===== */
@@ -311,14 +308,14 @@
         /* ===== RESPONSIVE ===== */
         @media (max-width: 900px) {
             .flipbook-arrow {
-                width: 46px;
-                height: 46px;
-                font-size: .95rem;
+                width: 44px;
+                height: 44px;
+                font-size: .9rem;
             }
 
             .flipbook-viewer {
                 gap: 8px;
-                padding: 20px 0;
+                padding: 16px 0;
             }
         }
 
@@ -336,7 +333,7 @@
 
             .flipbook-viewer {
                 gap: 0;
-                padding: 16px 0;
+                padding: 12px 0;
             }
 
             .flipbook-fullscreen {
@@ -469,19 +466,22 @@
                         <!--    Agrega o quita <div class="flipbook-page">  -->
                         <!-- ============================================ -->
                         <div class="flipbook-page">
-                            <img src="img/CLASIFICADOS COOPSERPROG/1.png" alt="Página 1 del periódico">
+                            <img src="img/CLASIFICADOS COOPSERPROG/1.jpeg" alt="Página 1 del periódico">
                         </div>
                         <div class="flipbook-page">
-                            <img src="img/CLASIFICADOS COOPSERPROG/2.png" alt="Página 2 del periódico">
+                            <img src="img/CLASIFICADOS COOPSERPROG/2.jpeg" alt="Página 2 del periódico">
                         </div>
                         <div class="flipbook-page">
-                            <img src="img/CLASIFICADOS COOPSERPROG/3.png" alt="Página 3 del periódico">
+                            <img src="img/CLASIFICADOS COOPSERPROG/3.jpeg" alt="Página 3 del periódico">
                         </div>
                         <div class="flipbook-page">
-                            <img src="img/CLASIFICADOS COOPSERPROG/4.png" alt="Página 4 del periódico">
+                            <img src="img/CLASIFICADOS COOPSERPROG/4.jpeg" alt="Página 4 del periódico">
                         </div>
                         <div class="flipbook-page">
-                            <img src="img/CLASIFICADOS COOPSERPROG/5.png" alt="Página 5 del periódico">
+                            <img src="img/CLASIFICADOS COOPSERPROG/5.jpeg" alt="Página 5 del periódico">
+                        </div>
+                        <div class="flipbook-page">
+                            <img src="img/CLASIFICADOS COOPSERPROG/6.jpeg" alt="Página 6 del periódico">
                         </div>
                         <!-- ============================================ -->
                         <!-- 🔁 FIN DE LAS PÁGINAS                          -->
@@ -507,7 +507,7 @@
                 <!-- Indicadores + contador -->
                 <div class="flipbook-footer">
                     <div class="flipbook-dots" id="flipDots"></div>
-                    <span class="flipbook-counter" id="flipCounter">Página 1 de 5</span>
+                    <span class="flipbook-counter" id="flipCounter">Página 1 de 6</span>
                     <span class="flipbook-hint">
                         <i class="fas fa-hand-pointer"></i> Arrastra la esquina de la hoja o usa las flechas
                     </span>
@@ -551,7 +551,7 @@
             <button id="flipModalPrev" aria-label="Anterior">
                 <i class="fas fa-chevron-left"></i>
             </button>
-            <span class="flipbook-modal-counter" id="flipModalCounter">1 / 5</span>
+            <span class="flipbook-modal-counter" id="flipModalCounter">1 / 6</span>
             <button id="flipModalNext" aria-label="Siguiente">
                 <i class="fas fa-chevron-right"></i>
             </button>
@@ -652,7 +652,6 @@
             const totalPages = pageElements.length;
             if (totalPages === 0) return;
 
-            // Guardar rutas para el modal pantalla completa
             const pageImages = pageElements.map((el) => {
                 const img = el.querySelector('img');
                 return {
@@ -661,15 +660,15 @@
                 };
             });
 
-            /* ====== INICIALIZAR STPAGEFLIP (más grande) ====== */
+            /* ====== INICIALIZAR STPAGEFLIP (MÁS VERTICAL + MÁS PEQUEÑO) ====== */
             const pageFlip = new St.PageFlip(container, {
                 width: 600,
-                height: 800,
+                height: 1150,       // ← MÁS ALTO (antes 950)
                 size: 'stretch',
-                minWidth: 320,
-                maxWidth: 800,
-                minHeight: 420,
-                maxHeight: 1060,
+                minWidth: 300,
+                maxWidth: 620,      // ← MÁS ANGOSTO (antes 750) = proporción más vertical
+                minHeight: 520,
+                maxHeight: 1450,    // ← MÁS ALTO (antes 1300)
                 drawShadow: true,
                 flippingTime: 800,
                 usePortrait: true,
@@ -687,7 +686,6 @@
 
             pageFlip.loadFromHTML(container.querySelectorAll('.flipbook-page'));
 
-            /* ====== PUNTOS INDICADORES ====== */
             function buildDots() {
                 dotsContainer.innerHTML = '';
                 for (let i = 0; i < totalPages; i++) {
@@ -705,7 +703,6 @@
                 });
             }
 
-            /* ====== ACTUALIZAR UI AL CAMBIAR PÁGINA ====== */
             pageFlip.on('flip', (e) => {
                 const idx = e.data;
                 updateDots(idx);
@@ -716,22 +713,17 @@
                 btnNextMobile.disabled = idx === totalPages - 1;
             });
 
-            /* ====== FLECHAS DESKTOP ====== */
             btnPrev.addEventListener('click', () => pageFlip.flipPrev());
             btnNext.addEventListener('click', () => pageFlip.flipNext());
-
-            /* ====== FLECHAS MÓVIL ====== */
             btnPrevMobile.addEventListener('click', () => pageFlip.flipPrev());
             btnNextMobile.addEventListener('click', () => pageFlip.flipNext());
 
-            /* ====== TECLADO ====== */
             document.addEventListener('keydown', (e) => {
                 if (document.getElementById('flipModal').classList.contains('activo')) return;
                 if (e.key === 'ArrowLeft') pageFlip.flipPrev();
                 if (e.key === 'ArrowRight') pageFlip.flipNext();
             });
 
-            /* ====== MODAL PANTALLA COMPLETA ====== */
             const modal = document.getElementById('flipModal');
             const modalImg = document.getElementById('flipModalImg');
             const modalCounter = document.getElementById('flipModalCounter');
@@ -773,7 +765,6 @@
                 if (e.key === 'ArrowRight' && modalIndex < totalPages - 1) openModal(modalIndex + 1);
             });
 
-            /* ====== INICIALIZAR ====== */
             buildDots();
             counter.textContent = `Página 1 de ${totalPages}`;
             btnPrev.disabled = true;
