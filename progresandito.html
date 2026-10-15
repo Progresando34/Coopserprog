@@ -11,6 +11,99 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+
+    <!-- ============================================================
+         ESTILOS DE LA SECCIÓN DE DESCARGA DE FOTOS
+         ============================================================ -->
+    <style>
+        .descarga-fotos-section {
+            padding: 70px 0;
+            background: var(--gris-claro);
+            text-align: center;
+        }
+
+        .descarga-fotos-section .section-title {
+            margin-bottom: 12px;
+        }
+
+        .descarga-fotos-section .section-subtitle {
+            margin-bottom: 32px;
+        }
+
+        .btn-descarga-fotos {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 42px;
+            background: linear-gradient(135deg, var(--verde-coop), var(--verde-claro));
+            color: white;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 28px rgba(1, 152, 59, 0.28);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-descarga-fotos:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 14px 40px rgba(1, 152, 59, 0.4);
+        }
+
+        .btn-descarga-fotos i {
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-descarga-fotos:hover i {
+            transform: translateY(2px);
+        }
+
+        .descarga-fotos-nota {
+            margin-top: 18px;
+            font-size: 0.85rem;
+            color: var(--gris-texto);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .descarga-fotos-nota i {
+            color: var(--verde-coop);
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 768px) {
+            .descarga-fotos-section {
+                padding: 50px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .descarga-fotos-section {
+                padding: 40px 0;
+            }
+
+            .btn-descarga-fotos {
+                width: 100%;
+                padding: 15px 24px;
+                font-size: 0.95rem;
+            }
+
+            .descarga-fotos-nota {
+                font-size: 0.78rem;
+                flex-direction: column;
+                gap: 4px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -29,7 +122,7 @@
         </div>
     </div>
 
-    <!-- ===== NAVBAR MEJORADA ===== -->
+    <!-- ===== NAVBAR ===== -->
     <nav class="navbar-moderno" id="navbar">
         <div class="nav-container">
             <div class="logo-nav">
@@ -61,7 +154,6 @@
                     </a>
                 </li>
 
-                <!-- REDES SOCIALES EN EL MENÚ (TODAS LAS PANTALLAS) -->
                 <li class="menu-item menu-social">
                     <span class="menu-social-label"><i class="fas fa-share-alt"></i> Síguenos</span>
                     <div class="menu-social-icons">
@@ -85,7 +177,7 @@
 
     <!-- ===== MAIN CONTENT ===== -->
     <main>
-        <!-- ===== HERO CON IMAGEN DE FONDO ===== -->
+        <!-- ===== HERO ===== -->
         <section class="progresandito-hero" style="background-image: url('img/progresandito.png');">
             <div class="container">
                 <div class="progresandito-hero-content">
@@ -127,6 +219,24 @@
                         <img src="img/dito.png" alt="Progresandito">
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SECCIÓN: DESCARGA DE FOTOS PROGRESANDITO 2026
+             ============================================================ -->
+        <section class="descarga-fotos-section" id="fotos-progresandito">
+            <div class="container">
+                <h2 class="section-title">Descarga la <span>foto</span> de tu hijo</h2>
+                <p class="section-subtitle">Si tu hijo participó en nuestras actividades de Progresandito 2026, aquí puedes descargar su foto del recuerdo.</p>
+                <a href="https://script.google.com/macros/s/AKfycbw6e5NrvOg5JFbpP4cXjTYfhz388uldnLmWyoPmLnnP8CDcer4IAsY_M_hvjczX5u-xRg/exec"
+                    target="_blank" class="btn-descarga-fotos">
+                    <i class="fas fa-download"></i>
+                    Descargar foto
+                </a>
+                <p class="descarga-fotos-nota">
+                    <i class="fas fa-check-circle"></i> Solo necesitas el número de documento del niño
+                </p>
             </div>
         </section>
 
