@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+    <!-- ===== PÁGINA PRINCIPAL ===== -->
+    <url>
+        <loc>https://coopserprog.progresando.co/</loc>
+        <lastmod>2025-10-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://coopserprog.progresando.co/img/logo-coop.png</image:loc>
+            <image:title>COOPSERPROG - Cooperativa de Ahorro y Crédito</image:title>
+        </image:image>
+    </url>
+
+    <!-- ===== PÁGINAS PRINCIPALES ===== -->
+    <url>
+        <loc>https://coopserprog.progresando.co/nosotros.html</loc>
+        <lastmod>2025-10-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://coopserprog.progresando.co/historia.html</loc>
+        <lastmod>2025-10-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://coopserprog.progresando.co/creditos.html</loc>
+        <lastmod>2025-10-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://coopserprog.progresando.co/afiliate.html</loc>
+        <lastmod>2025-10-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://coopserprog.progresando.co/convenios.html</loc>
+        <lastmod>2025-10-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://coopserprog.progresando.co/progresandito.html</loc>
+        <lastmod>2025-10-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://coopserprog.progresando.co/clasificados.html</loc>
+        <lastmod>2025-10-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://coopserprog.progresando.co/pagos.html</loc>
+        <lastmod>2025-10-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://coopserprog.progresando.co/contactos.html</loc>
+        <lastmod>2025-10-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://coopserprog.progresando.co/documentos.html</loc>
+        <lastmod>2025-10-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- ===== NOVEDADES ===== -->
+    <url>
+        <loc>https://coopserprog.progresando.co/novedad1.html</loc>
+        <lastmod>2025-10-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://coopserprog.progresando.co/img/Old-West-flyer.jpg</image:loc>
+            <image:title>Convenio Old West Steak House con COOPSERPROG</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://coopserprog.progresando.co/novedad2.html</loc>
+        <lastmod>2025-10-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://coopserprog.progresando.co/img/Progresandito-banner.jpeg</image:loc>
+            <image:title>Mes del Niño con Progresandito 2026</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://coopserprog.progresando.co/novedad3.html</loc>
+        <lastmod>2025-10-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://coopserprog.progresando.co/img/Burlesque-flyer.jpg</image:loc>
+            <image:title>Convenio Burlesque Restaurant Show con COOPSERPROG</image:title>
+        </image:image>
+    </url>
+
+</urlset>

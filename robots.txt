@@ -1,0 +1,23 @@
+# ============================================================
+# ROBOTS.TXT - COOPSERPROG
+# ============================================================
+
+# Permitir a todos los bots rastrear todo el sitio
+User-agent: *
+Allow: /
+
+# Bloquear archivos sensibles
+Disallow: /docs/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /*.json$
+Disallow: /*?*sessionid=
+
+# Bloquear acceso a archivos de sistema
+Disallow: /.htaccess
+Disallow: /config/
+
+# ============================================================
+# SITEMAP
+# ============================================================
+Sitemap: https://coopserprog.progresando.co/sitemap.xml
