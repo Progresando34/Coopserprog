@@ -1,16 +1,169 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CO">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pagos · COOPSERPROG</title>
-    <link rel="stylesheet" href="style/style.css" />
-    <script src="https://kit.fontawesome.com/71d96bc7c5.js" crossorigin="anonymous"></script>
+
+    <!-- ===== SEO PRINCIPAL ===== -->
+    <title>Pagos COOPSERPROG | Paga con QR, PSE o Transferencia Davivienda</title>
+    <meta name="description"
+        content="Realiza tus pagos a COOPSERPROG de forma segura con QR Davivienda, PSE o transferencia bancaria. Llave BRE-B: @DAVICOOPSERPROG. Procesos respaldados por Davivienda." />
+    <meta name="keywords"
+        content="pagos COOPSERPROG, QR Davivienda, PSE Davivienda, transferencia COOPSERPROG, llave BRE-B, pagos cooperativa, pagar crédito Cúcuta, pago aporte cooperativa" />
+    <meta name="author" content="COOPSERPROG" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="language" content="Spanish" />
+    <meta name="geo.region" content="CO-NSA" />
+    <meta name="geo.placename" content="Cúcuta, Norte de Santander" />
+    <meta name="geo.position" content="7.89391;-72.50782" />
+    <meta name="ICBM" content="7.89391, -72.50782" />
+
+    <!-- ===== CANONICAL ===== -->
+    <link rel="canonical" href="https://coopserprog.progresando.co/pagos.html" />
+
+    <!-- ===== OPEN GRAPH ===== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://coopserprog.progresando.co/pagos.html" />
+    <meta property="og:title" content="Pagos COOPSERPROG | QR, PSE o Transferencia Davivienda" />
+    <meta property="og:description"
+        content="Paga de forma segura con QR Davivienda, PSE o transferencia. Llave BRE-B: @DAVICOOPSERPROG." />
+    <meta property="og:image" content="https://coopserprog.progresando.co/img/pagos.png" />
+    <meta property="og:image:alt" content="Pagos COOPSERPROG" />
+    <meta property="og:site_name" content="COOPSERPROG" />
+    <meta property="og:locale" content="es_CO" />
+
+    <!-- ===== TWITTER CARDS ===== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pagos COOPSERPROG | QR, PSE o Transferencia Davivienda" />
+    <meta name="twitter:description"
+        content="Paga de forma segura con QR Davivienda, PSE o transferencia." />
+    <meta name="twitter:image" content="https://coopserprog.progresando.co/img/pagos.png" />
+
+    <!-- ===== THEME COLOR ===== -->
+    <meta name="theme-color" content="#01983B" />
+
+    <!-- ===== FAVICON ===== -->
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/logo-coop.png">
+
+    <!-- ===== PRECONNECT Y FUENTES ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin>
+    <link rel="dns-prefetch" href="https://kit.fontawesome.com">
+
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="style/style.css?v=20261020" />
+
+    <!-- ===== FONT AWESOME ===== -->
+    <script src="https://kit.fontawesome.com/71d96bc7c5.js" crossorigin="anonymous"></script>
+
+    <!-- ===== DATOS ESTRUCTURADOS (Schema.org JSON-LD) ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://coopserprog.progresando.co/pagos.html",
+          "url": "https://coopserprog.progresando.co/pagos.html",
+          "name": "Pagos COOPSERPROG | Paga con QR, PSE o Transferencia Davivienda",
+          "description": "Realiza tus pagos a COOPSERPROG con QR Davivienda, PSE o transferencia bancaria. Llave BRE-B: @DAVICOOPSERPROG.",
+          "inLanguage": "es-CO",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://coopserprog.progresando.co/#website",
+            "url": "https://coopserprog.progresando.co/",
+            "name": "COOPSERPROG"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Inicio",
+              "item": "https://coopserprog.progresando.co/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Pagos",
+              "item": "https://coopserprog.progresando.co/pagos.html"
+            }
+          ]
+        },
+        {
+          "@type": "PaymentMethod",
+          "name": "Pagos COOPSERPROG",
+          "description": "Métodos de pago disponibles: QR Davivienda (Llave BRE-B @DAVICOOPSERPROG), PSE y transferencia bancaria a Davivienda.",
+          "url": "https://coopserprog.progresando.co/pagos.html",
+          "paymentMethod": [
+            {
+              "@type": "PaymentMethod",
+              "name": "QR Davivienda (Llave BRE-B)"
+            },
+            {
+              "@type": "PaymentMethod",
+              "name": "PSE Davivienda"
+            },
+            {
+              "@type": "PaymentMethod",
+              "name": "Transferencia bancaria Davivienda"
+            }
+          ],
+          "provider": {
+            "@type": "FinancialService",
+            "name": "COOPSERPROG",
+            "url": "https://coopserprog.progresando.co/",
+            "telephone": "+57 322 8642938",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Calle 21 #0B-75, Barrio Blanco",
+              "addressLocality": "Cúcuta",
+              "addressRegion": "Norte de Santander",
+              "addressCountry": "CO"
+            }
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Qué métodos de pago acepta COOPSERPROG?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "COOPSERPROG acepta tres métodos de pago: QR Davivienda con la llave BRE-B @DAVICOOPSERPROG, PSE Davivienda y transferencia bancaria directa a la cuenta Davivienda."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cómo pago con QR Davivienda?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Abre la app de Davivienda u otra app bancaria compatible con BRE-B, escanea el código QR de COOPSERPROG o usa la llave BRE-B @DAVICOOPSERPROG. También puedes descargar el QR desde nuestra página de pagos."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Los pagos son seguros?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí. Todas las transacciones están respaldadas por Davivienda y el sistema PSE, con los más altos estándares de seguridad bancaria."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
@@ -18,31 +171,33 @@
     <!-- ===== WHATSAPP FLOTANTE ===== -->
     <div class="whatsapp-float" id="whatsappFloat">
         <div class="whatsapp-bubble"><i class="fas fa-bullhorn"></i> ¡Contáctanos!</div>
-        <button class="whatsapp-btn" id="whatsappToggle"><i class="fab fa-whatsapp"></i></button>
+        <button class="whatsapp-btn" id="whatsappToggle" aria-label="Abrir opciones de WhatsApp"><i class="fab fa-whatsapp"></i></button>
         <div class="whatsapp-menu" id="whatsappMenu">
-            <a href="https://whatsapp.com/channel/0029VbDRTrmBlHpU12h7v40y" target="_blank" class="whatsapp-option">
+            <a href="https://whatsapp.com/channel/0029VbDRTrmBlHpU12h7v40y" target="_blank" rel="noopener" class="whatsapp-option" aria-label="Canal de WhatsApp de COOPSERPROG">
                 <i class="fas fa-bullhorn"></i><span>Canal Coopserprog</span><small>Entérate de todo</small>
             </a>
-            <a href="https://wa.me/573228642938" target="_blank" class="whatsapp-option">
+            <a href="https://wa.me/573228642938" target="_blank" rel="noopener" class="whatsapp-option" aria-label="Escribir por WhatsApp a COOPSERPROG">
                 <i class="fas fa-question-circle"></i><span>¿Tienes dudas?</span><small>Habla con nosotros</small>
             </a>
         </div>
     </div>
 
     <!-- ===== NAVBAR MEJORADA ===== -->
-    <nav class="navbar-moderno" id="navbar">
+    <nav class="navbar-moderno" id="navbar" aria-label="Navegación principal">
         <div class="nav-container">
             <div class="logo-nav">
-                <img src="img/logo-coop.png" alt="COOPSERPROG">
+                <a href="index.html" aria-label="Ir al inicio de COOPSERPROG">
+                    <img src="img/logo-coop.png" alt="Logo de COOPSERPROG - Cooperativa de Ahorro y Crédito" width="200" height="65">
+                </a>
             </div>
-            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="menu-moderno" id="mainMenu">
                 <li class="menu-item"><a href="index.html">Inicio</a></li>
                 <li class="menu-item"><a href="nosotros.html">Nosotros</a></li>
                 <li class="menu-item dropdown">
-                    <a href="#" class="dropdown-toggle">Servicios <i class="fas fa-chevron-down"></i></a>
+                    <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Servicios <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="creditos.html"><i class="fas fa-credit-card"></i> Créditos</a></li>
                         <li><a href="convenios.html"><i class="fas fa-handshake"></i> Convenios</a></li>
@@ -51,29 +206,25 @@
                     </ul>
                 </li>
                 <li class="menu-item"><a href="afiliate.html">Afíliate</a></li>
-                <li class="menu-item"><a href="pagos.html" class="active">Pagos</a></li>
+                <li class="menu-item"><a href="pagos.html" class="active" aria-current="page">Pagos</a></li>
                 <li class="menu-item"><a href="contactos.html">Contacto</a></li>
                 <li class="menu-item"><a href="documentos.html">Documentos</a></li>
                 <li class="menu-item menu-item--cta">
-                    <a href="https://app.saac.com.co/#/" target="_blank">
+                    <a href="https://app.saac.com.co/#/" target="_blank" rel="noopener" aria-label="Ingresar al portal de asociados">
                         <i class="fas fa-user-circle"></i> Ingresar
                     </a>
                 </li>
 
-                <!-- REDES SOCIALES EN EL MENÚ (TODAS LAS PANTALLAS) -->
                 <li class="menu-item menu-social">
                     <span class="menu-social-label"><i class="fas fa-share-alt"></i> Síguenos</span>
                     <div class="menu-social-icons">
-                        <a href="https://www.facebook.com/share/1BtMrASBuL/" target="_blank" class="menu-social-link"
-                            aria-label="Facebook">
+                        <a href="https://www.facebook.com/share/1BtMrASBuL/" target="_blank" rel="noopener" class="menu-social-link" aria-label="Facebook de COOPSERPROG">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://www.instagram.com/coopserprog" target="_blank" class="menu-social-link"
-                            aria-label="Instagram">
+                        <a href="https://www.instagram.com/coopserprog" target="_blank" rel="noopener" class="menu-social-link" aria-label="Instagram de COOPSERPROG">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.tiktok.com/@coopserprog" target="_blank" class="menu-social-link"
-                            aria-label="TikTok">
+                        <a href="https://www.tiktok.com/@coopserprog" target="_blank" rel="noopener" class="menu-social-link" aria-label="TikTok de COOPSERPROG">
                             <i class="fab fa-tiktok"></i>
                         </a>
                     </div>
@@ -85,82 +236,80 @@
     <!-- ===== MAIN CONTENT ===== -->
     <main>
         <!-- ===== HERO ===== -->
-        <section class="pagos-hero" style="background-image: url('img/pagos.png');">
+        <section class="pagos-hero" style="background-image: url('img/pagos.png');" aria-labelledby="titulo-pagos">
             <div class="container">
                 <div class="pagos-hero-content">
                     <span class="hero-badge"><i class="fas fa-credit-card"></i> Pagos</span>
-                    <h1>Realiza tus <span>Pagos</span> fácilmente</h1>
+                    <h1 id="titulo-pagos">Realiza tus <span>Pagos</span> fácilmente</h1>
                     <p>Elige el método que prefieras y completa tu transacción de forma segura</p>
                 </div>
             </div>
         </section>
 
-        <!-- ===== 1. QR DAVIVIENDA (PRIMERO) ===== -->
-        <section class="pago-qr-section">
+        <!-- ===== 1. QR DAVIVIENDA ===== -->
+        <section class="pago-qr-section" aria-labelledby="titulo-qr">
             <div class="container">
                 <div class="qr-block">
                     <div class="qr-header">
-                        <img src="img/logo-davivienda.png" alt="Davivienda" class="qr-logo">
-                        <h3>QR Davivienda</h3>
+                        <img src="img/logo-davivienda.png" alt="Logo Davivienda" class="qr-logo" width="80" height="48" loading="lazy">
+                        <h2 id="titulo-qr" style="font-size:1.2rem;font-weight:700;margin:0;">QR Davivienda</h2>
                     </div>
-                    <img src="img/qr-bre-b.png" alt="Código QR" class="qr-imagen-grande">
+                    <img src="img/qr-bre-b.png" alt="Código QR Davivienda de COOPSERPROG para pagos con llave BRE-B" class="qr-imagen-grande" width="450" height="450" loading="lazy">
                     <div class="qr-clave">
                         <span class="clave-label">Llave BRE-B:</span>
                         <span class="clave-valor" id="referenciaQR">@DAVICOOPSERPROG</span>
-                        <button onclick="copiarTexto('referenciaQR', 'Llave BRE-B')" class="btn-copiar">
-                            <i class="fas fa-copy"></i>
+                        <button onclick="copiarTexto('referenciaQR', 'Llave BRE-B')" class="btn-copiar" aria-label="Copiar llave BRE-B">
+                            <i class="fas fa-copy" aria-hidden="true"></i>
                         </button>
                     </div>
-                    <button onclick="descargarQR()" class="btn-descargar">
-                        <i class="fas fa-download"></i> Descargar QR
+                    <button onclick="descargarQR()" class="btn-descargar" aria-label="Descargar código QR de Davivienda">
+                        <i class="fas fa-download" aria-hidden="true"></i> Descargar QR
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- ===== 2. PSE DAVIVIENDA (SEGUNDO) ===== -->
-        <section class="pago-pse">
+        <!-- ===== 2. PSE DAVIVIENDA ===== -->
+        <section class="pago-pse" aria-labelledby="titulo-pse">
             <div class="container">
                 <div class="pse-card">
-                    <img src="img/pse.png" alt="PSE">
+                    <img src="img/pse.png" alt="Logo PSE - Pagos Seguros en Línea" width="120" height="60" loading="lazy">
                     <div class="pse-info">
-                        <h3>PSE Davivienda</h3>
-                        <p>Realiza tu pago a través de PSE con Davivienda de forma rápida, segura y sin complicaciones.
-                        </p>
-                        <a href="https://portalpagos.davivienda.com/#/comercio/10781/COOPSERPROG" target="_blank"
-                            class="btn-pagar">
-                            <i class="fas fa-arrow-right"></i> Pagar con PSE
+                        <h2 id="titulo-pse" style="font-size:1.1rem;font-weight:700;margin:0 0 4px;">PSE Davivienda</h2>
+                        <p>Realiza tu pago a través de PSE con Davivienda de forma rápida, segura y sin complicaciones.</p>
+                        <a href="https://portalpagos.davivienda.com/#/comercio/10781/COOPSERPROG" target="_blank" rel="noopener"
+                            class="btn-pagar" aria-label="Pagar con PSE Davivienda">
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i> Pagar con PSE
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== 3. TRANSFERENCIA DAVIVIENDA (TERCERO) ===== -->
-        <section class="pago-transferencia">
+        <!-- ===== 3. TRANSFERENCIA DAVIVIENDA ===== -->
+        <section class="pago-transferencia" aria-labelledby="titulo-transferencia">
             <div class="container">
                 <div class="transferencia-block">
                     <div class="qr-header">
-                        <img src="img/logo-davivienda.png" alt="Davivienda" class="qr-logo">
-                        <h3>Transferencia DAVIVIENDA</h3>
+                        <img src="img/logo-davivienda.png" alt="Logo Davivienda" class="qr-logo" width="80" height="48" loading="lazy">
+                        <h2 id="titulo-transferencia" style="font-size:1.2rem;font-weight:700;margin:0;">Transferencia DAVIVIENDA</h2>
                     </div>
                     <p>Realiza tu transferencia directamente a nuestra cuenta de Davivienda.</p>
-                    <img src="img/accounts.jpg" alt="Comprobante" class="comprobante-imagen">
+                    <img src="img/accounts.jpg" alt="Datos de la cuenta Davivienda de COOPSERPROG para transferencias" class="comprobante-imagen" width="380" height="auto" loading="lazy">
                 </div>
             </div>
         </section>
 
         <!-- ===== SEGURIDAD ===== -->
-        <section class="pagos-seguridad">
+        <section class="pagos-seguridad" aria-labelledby="titulo-seguridad">
             <div class="container">
                 <div class="seguridad-block">
                     <div class="seguridad-icono">
-                        <i class="fas fa-shield-alt"></i>
+                        <i class="fas fa-shield-alt" aria-hidden="true"></i>
                     </div>
                     <div class="seguridad-info">
-                        <h3>Pagos Seguros</h3>
-                        <p>Todas nuestras transacciones están respaldadas por Davivienda y el sistema PSE. Si tienes
-                            alguna duda, contáctanos a través de WhatsApp.</p>
+                        <h2 id="titulo-seguridad" style="font-size:1rem;font-weight:700;margin:0 0 2px;">Pagos Seguros</h2>
+                        <p>Todas nuestras transacciones están respaldadas por Davivienda y el sistema PSE. Si tienes alguna duda, contáctanos a través de WhatsApp.</p>
                     </div>
                 </div>
             </div>
@@ -168,26 +317,23 @@
     </main>
 
     <!-- ===== FOOTER ===== -->
-    <footer>
+    <footer itemscope itemtype="https://schema.org/Organization">
         <div class="footer-container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <img src="img/logo-coop.png" alt="Logo COOPSERPROG" class="footer-logo">
-                    <p class="footer-description">Cooperativa de Servicios de Aporte y Crédito Progresando, comprometida
-                        con el desarrollo económico y social de nuestros asociados.</p>
-                    <div class="contact-item"><i class="fab fa-whatsapp"></i><span>+57 322 8642938</span></div>
-                    <div class="contact-item"><i
-                            class="fas fa-envelope"></i><span>cooperativacoopserprog@gmail.com</span></div>
+                    <img src="img/logo-coop.png" alt="Logo COOPSERPROG - Cooperativa de Ahorro y Crédito" class="footer-logo" width="250" height="80" itemprop="logo" loading="lazy">
+                    <p class="footer-description" itemprop="description">Cooperativa de Servicios de Aporte y Crédito Progresando, comprometida con el desarrollo económico y social de nuestros asociados.</p>
+                    <div class="contact-item"><i class="fab fa-whatsapp" aria-hidden="true"></i><span itemprop="telephone">+57 322 8642938</span></div>
+                    <div class="contact-item"><i class="fas fa-envelope" aria-hidden="true"></i><span itemprop="email">cooperativacoopserprog@gmail.com</span></div>
                 </div>
                 <div class="footer-column">
                     <h3>Enlaces Rápidos</h3>
                     <ul class="footer-links">
-                        <li><a href="nosotros.html"><i class="fas fa-heart"></i> Nuestra Esencia</a></li>
-                        <li><a href="afiliate.html"><i class="fas fa-file-signature"></i> Requisitos de afiliación</a>
-                        </li>
-                        <li><a href="creditos.html"><i class="fas fa-calculator"></i> Simulador de Crédito</a></li>
-                        <li><a href="convenios.html"><i class="fas fa-handshake"></i> Convenios</a></li>
-                        <li><a href="clasificados.html"><i class="fas fa-tags"></i> Clasificados</a></li>
+                        <li><a href="nosotros.html"><i class="fas fa-heart" aria-hidden="true"></i> Nuestra Esencia</a></li>
+                        <li><a href="afiliate.html"><i class="fas fa-file-signature" aria-hidden="true"></i> Requisitos de afiliación</a></li>
+                        <li><a href="creditos.html"><i class="fas fa-calculator" aria-hidden="true"></i> Simulador de Crédito</a></li>
+                        <li><a href="convenios.html"><i class="fas fa-handshake" aria-hidden="true"></i> Convenios</a></li>
+                        <li><a href="clasificados.html"><i class="fas fa-tags" aria-hidden="true"></i> Clasificados</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -198,28 +344,24 @@
                         <p><strong>Sábados:</strong> 6:00 a. m. - 12:00 m</p>
                     </div>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/share/1BtMrASBuL/" target="_blank" class="social-link"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/coopserprog" target="_blank" class="social-link"><i
-                                class="fab fa-instagram"></i></a>
-                        <a href="https://whatsapp.com/channel/0029VbDRTrmBlHpU12h7v40y" target="_blank"
-                            class="social-link"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://www.tiktok.com/@coopserprog" target="_blank" class="social-link"><i
-                                class="fab fa-tiktok"></i></a>
+                        <a href="https://www.facebook.com/share/1BtMrASBuL/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook de COOPSERPROG"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/coopserprog" target="_blank" rel="noopener" class="social-link" aria-label="Instagram de COOPSERPROG"><i class="fab fa-instagram"></i></a>
+                        <a href="https://whatsapp.com/channel/0029VbDRTrmBlHpU12h7v40y" target="_blank" rel="noopener" class="social-link" aria-label="Canal de WhatsApp de COOPSERPROG"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@coopserprog" target="_blank" rel="noopener" class="social-link" aria-label="TikTok de COOPSERPROG"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
                     <h3>Nuestras Sedes</h3>
                     <div class="footer-sede">
-                        <h4><i class="fas fa-map-marker-alt"></i> Cúcuta</h4>
+                        <h4><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Cúcuta</h4>
                         <span>Calle 21 #0B-75, Barrio Blanco</span>
                     </div>
                     <div class="footer-sede">
-                        <h4><i class="fas fa-map-marker-alt"></i> Villa del Rosario</h4>
+                        <h4><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Villa del Rosario</h4>
                         <span>Calle 11 #8 - 15, Barrio La Palmita</span>
                     </div>
                     <div class="footer-sede">
-                        <h4><i class="fas fa-map-marker-alt"></i> Ocaña</h4>
+                        <h4><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Ocaña</h4>
                         <span>Calle 11 #24-65 Barrio Las Llanadas</span>
                     </div>
                 </div>
@@ -227,8 +369,7 @@
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
                     <div class="legal-links">
-                        <a href="docs/1065810627_POLITICA DE TRATAMIENTO DE LA INFORMACION - COOPSERPROG (2).pdf"
-                            target="_blank">Política de Tratamiento de datos</a>
+                        <a href="docs/1065810627_POLITICA DE TRATAMIENTO DE LA INFORMACION - COOPSERPROG (2).pdf" target="_blank" rel="noopener">Política de Tratamiento de datos</a>
                     </div>
                     <div class="footer-copy">© 2025 COOPSERPROG. Todos los derechos reservados.</div>
                 </div>
