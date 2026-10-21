@@ -36,8 +36,7 @@
     <!-- ===== TWITTER CARDS ===== -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Clasificados COOPSERPROG | Compra, Vende y Emprende" />
-    <meta name="twitter:description"
-        content="Espacio comercial para asociados: vende, compra o publica tu anuncio." />
+    <meta name="twitter:description" content="Espacio comercial para asociados: vende, compra o publica tu anuncio." />
     <meta name="twitter:image" content="https://coopserprog.progresando.co/img/clasificados.png" />
 
     <!-- ===== THEME COLOR ===== -->
@@ -132,106 +131,324 @@
 
     <!-- ====== ESTILOS DEL FLIPBOOK (SIN CAMBIOS) ====== -->
     <style>
-        .periodico-section { padding: 110px 0 110px; background: linear-gradient(180deg, #f7f7f5 0%, #ffffff 100%); }
-        .periodico-wrapper { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
-        .periodico-header { text-align: center; margin-bottom: 40px; }
+        .periodico-section {
+            padding: 110px 0 110px;
+            background: linear-gradient(180deg, #f7f7f5 0%, #ffffff 100%);
+        }
+
+        .periodico-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .periodico-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
         .periodico-header .section-tag {
-            display: inline-block; padding: 6px 14px; border-radius: 999px;
-            background: rgba(0, 0, 0, .06); color: var(--verde-coop, #1f7a4d);
-            font-weight: 700; font-size: .82rem; letter-spacing: .5px; text-transform: uppercase;
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, .06);
+            color: var(--verde-coop, #1f7a4d);
+            font-weight: 700;
+            font-size: .82rem;
+            letter-spacing: .5px;
+            text-transform: uppercase;
         }
-        .periodico-header h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 800; margin: 12px 0 6px; color: #171717; }
-        .periodico-header h2 span { color: var(--verde-coop, #1f7a4d); }
-        .periodico-header p { color: #6b6b6b; font-size: .98rem; margin: 0; }
+
+        .periodico-header h2 {
+            font-size: clamp(1.5rem, 3vw, 2.1rem);
+            font-weight: 800;
+            margin: 12px 0 6px;
+            color: #171717;
+        }
+
+        .periodico-header h2 span {
+            color: var(--verde-coop, #1f7a4d);
+        }
+
+        .periodico-header p {
+            color: #6b6b6b;
+            font-size: .98rem;
+            margin: 0;
+        }
+
         .flipbook-viewer {
-            display: flex; align-items: center; justify-content: center;
-            gap: 14px; position: relative; padding: 20px 0; margin: 0 auto; max-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            position: relative;
+            padding: 20px 0;
+            margin: 0 auto;
+            max-width: 100%;
         }
+
         .flipbook-container {
-            position: relative; box-shadow: 0 24px 70px rgba(0, 0, 0, .18);
-            border-radius: 8px; background: #fff; margin: 0 auto; padding: 0;
+            position: relative;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, .18);
+            border-radius: 8px;
+            background: #fff;
+            margin: 0 auto;
+            padding: 0;
         }
-        .flipbook-page { background: #fff; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+
+        .flipbook-page {
+            background: #fff;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .flipbook-page img {
-            width: 100%; height: 100%; object-fit: cover; display: block;
-            -webkit-user-drag: none; user-select: none; pointer-events: none;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            -webkit-user-drag: none;
+            user-select: none;
+            pointer-events: none;
         }
-        .stf__item.--left { box-shadow: inset -12px 0 20px -12px rgba(0, 0, 0, .4); }
-        .stf__item.--right { box-shadow: inset 12px 0 20px -12px rgba(0, 0, 0, .4); }
+
+        .stf__item.--left {
+            box-shadow: inset -12px 0 20px -12px rgba(0, 0, 0, .4);
+        }
+
+        .stf__item.--right {
+            box-shadow: inset 12px 0 20px -12px rgba(0, 0, 0, .4);
+        }
+
         .flipbook-arrow {
-            flex: 0 0 auto; width: 50px; height: 50px; border-radius: 50%;
-            background: #111; color: #fff; border: none; cursor: pointer;
-            display: flex; align-items: center; justify-content: center; font-size: 1rem;
+            flex: 0 0 auto;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #111;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
             transition: transform .2s ease, background .2s ease, opacity .2s ease;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, .2); z-index: 10;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, .2);
+            z-index: 10;
         }
-        .flipbook-arrow:hover:not(:disabled) { background: var(--verde-coop, #1f7a4d); transform: scale(1.08); }
-        .flipbook-arrow:disabled { opacity: .25; cursor: not-allowed; }
+
+        .flipbook-arrow:hover:not(:disabled) {
+            background: var(--verde-coop, #1f7a4d);
+            transform: scale(1.08);
+        }
+
+        .flipbook-arrow:disabled {
+            opacity: .25;
+            cursor: not-allowed;
+        }
+
         .flipbook-mobile-nav {
-            display: none; justify-content: center; align-items: center;
-            gap: 24px; margin-top: 20px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            margin-top: 20px;
         }
-        .flipbook-mobile-nav .flipbook-arrow { width: 50px; height: 50px; font-size: .95rem; }
+
+        .flipbook-mobile-nav .flipbook-arrow {
+            width: 50px;
+            height: 50px;
+            font-size: .95rem;
+        }
+
         .flipbook-footer {
-            display: flex; flex-direction: column; align-items: center;
-            gap: 10px; margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 24px;
         }
-        .flipbook-dots { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+
+        .flipbook-dots {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
         .flipbook-dot {
-            width: 10px; height: 10px; border-radius: 50%; background: #cfcfcf;
-            border: none; padding: 0; cursor: pointer;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #cfcfcf;
+            border: none;
+            padding: 0;
+            cursor: pointer;
             transition: background .2s ease, transform .2s ease;
         }
-        .flipbook-dot.activo { background: var(--verde-coop, #1f7a4d); transform: scale(1.3); }
-        .flipbook-counter { font-size: .85rem; color: #6b6b6b; font-weight: 600; letter-spacing: .3px; }
-        .flipbook-hint { font-size: .8rem; color: #9a9a9a; margin-top: 4px; text-align: center; }
+
+        .flipbook-dot.activo {
+            background: var(--verde-coop, #1f7a4d);
+            transform: scale(1.3);
+        }
+
+        .flipbook-counter {
+            font-size: .85rem;
+            color: #6b6b6b;
+            font-weight: 600;
+            letter-spacing: .3px;
+        }
+
+        .flipbook-hint {
+            font-size: .8rem;
+            color: #9a9a9a;
+            margin-top: 4px;
+            text-align: center;
+        }
+
         .flipbook-fullscreen {
-            position: absolute; top: 12px; right: 12px; z-index: 20;
-            width: 42px; height: 42px; border-radius: 50%;
-            background: rgba(17, 17, 17, .8); color: #fff; border: none;
-            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 20;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(17, 17, 17, .8);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: background .2s ease, transform .2s ease;
         }
-        .flipbook-fullscreen:hover { background: var(--verde-coop, #1f7a4d); transform: scale(1.08); }
+
+        .flipbook-fullscreen:hover {
+            background: var(--verde-coop, #1f7a4d);
+            transform: scale(1.08);
+        }
+
         .flipbook-modal {
-            position: fixed; inset: 0; background: rgba(0, 0, 0, .93);
-            display: none; align-items: center; justify-content: center;
-            z-index: 9999; padding: 20px; flex-direction: column; gap: 16px;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .93);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+            flex-direction: column;
+            gap: 16px;
         }
-        .flipbook-modal.activo { display: flex; }
+
+        .flipbook-modal.activo {
+            display: flex;
+        }
+
         .flipbook-modal img {
-            max-width: 96vw; max-height: 84vh; object-fit: contain;
-            border-radius: 6px; box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
+            max-width: 96vw;
+            max-height: 84vh;
+            object-fit: contain;
+            border-radius: 6px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
         }
+
         .flipbook-modal-close {
-            position: absolute; top: 20px; right: 20px;
-            width: 48px; height: 48px; border-radius: 50%;
-            background: #fff; color: #111; border: none; cursor: pointer;
-            font-size: 1.2rem; display: flex; align-items: center; justify-content: center;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #fff;
+            color: #111;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: transform .2s ease;
         }
-        .flipbook-modal-close:hover { transform: scale(1.1); }
-        .flipbook-modal-nav { display: flex; gap: 20px; align-items: center; }
+
+        .flipbook-modal-close:hover {
+            transform: scale(1.1);
+        }
+
+        .flipbook-modal-nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
         .flipbook-modal-nav button {
-            width: 50px; height: 50px; border-radius: 50%;
-            background: rgba(255, 255, 255, .12); border: 1px solid rgba(255, 255, 255, .3);
-            color: #fff; font-size: 1.1rem; cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .12);
+            border: 1px solid rgba(255, 255, 255, .3);
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: background .2s ease;
         }
-        .flipbook-modal-nav button:hover { background: var(--verde-coop, #1f7a4d); }
-        .flipbook-modal-counter { color: #fff; font-size: .9rem; font-weight: 600; }
-        @media (max-width: 900px) {
-            .flipbook-arrow { width: 44px; height: 44px; font-size: .9rem; }
-            .flipbook-viewer { gap: 8px; padding: 16px 0; }
+
+        .flipbook-modal-nav button:hover {
+            background: var(--verde-coop, #1f7a4d);
         }
+
+        .flipbook-modal-counter {
+            color: #fff;
+            font-size: .9rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 900px) {
+            .flipbook-arrow {
+                width: 44px;
+                height: 44px;
+                font-size: .9rem;
+            }
+
+            .flipbook-viewer {
+                gap: 8px;
+                padding: 16px 0;
+            }
+        }
+
         @media (max-width: 600px) {
-            .flipbook-viewer > .flipbook-arrow { display: none; }
-            .flipbook-mobile-nav { display: flex; }
-            .flipbook-viewer { gap: 0; padding: 12px 0; }
-            .flipbook-fullscreen { width: 38px; height: 38px; }
-            .periodico-section { padding: 70px 0 70px; }
-            .flipbook-footer { margin-top: 18px; }
+            .flipbook-viewer>.flipbook-arrow {
+                display: none;
+            }
+
+            .flipbook-mobile-nav {
+                display: flex;
+            }
+
+            .flipbook-viewer {
+                gap: 0;
+                padding: 12px 0;
+            }
+
+            .flipbook-fullscreen {
+                width: 38px;
+                height: 38px;
+            }
+
+            .periodico-section {
+                padding: 70px 0 70px;
+            }
+
+            .flipbook-footer {
+                margin-top: 18px;
+            }
         }
     </style>
 </head>
@@ -241,12 +458,15 @@
     <!-- ===== WHATSAPP FLOTANTE ===== -->
     <div class="whatsapp-float" id="whatsappFloat">
         <div class="whatsapp-bubble"><i class="fas fa-bullhorn"></i> ¡Contáctanos!</div>
-        <button class="whatsapp-btn" id="whatsappToggle" aria-label="Abrir opciones de WhatsApp"><i class="fab fa-whatsapp"></i></button>
+        <button class="whatsapp-btn" id="whatsappToggle" aria-label="Abrir opciones de WhatsApp"><i
+                class="fab fa-whatsapp"></i></button>
         <div class="whatsapp-menu" id="whatsappMenu">
-            <a href="https://whatsapp.com/channel/0029VbDRTrmBlHpU12h7v40y" target="_blank" rel="noopener" class="whatsapp-option" aria-label="Canal de WhatsApp de COOPSERPROG">
+            <a href="https://whatsapp.com/channel/0029VbDRTrmBlHpU12h7v40y" target="_blank" rel="noopener"
+                class="whatsapp-option" aria-label="Canal de WhatsApp de COOPSERPROG">
                 <i class="fas fa-bullhorn"></i><span>Canal Coopserprog</span><small>Entérate de todo</small>
             </a>
-            <a href="https://wa.me/573228642938" target="_blank" rel="noopener" class="whatsapp-option" aria-label="Escribir por WhatsApp a COOPSERPROG">
+            <a href="https://wa.me/573228642938" target="_blank" rel="noopener" class="whatsapp-option"
+                aria-label="Escribir por WhatsApp a COOPSERPROG">
                 <i class="fas fa-question-circle"></i><span>¿Tienes dudas?</span><small>Habla con nosotros</small>
             </a>
         </div>
@@ -257,7 +477,8 @@
         <div class="nav-container">
             <div class="logo-nav">
                 <a href="index.html" aria-label="Ir al inicio de COOPSERPROG">
-                    <img src="img/logo-coop.png" alt="Logo de COOPSERPROG - Cooperativa de Ahorro y Crédito" width="200" height="65">
+                    <img src="img/logo-coop.png" alt="Logo de COOPSERPROG - Cooperativa de Ahorro y Crédito" width="200"
+                        height="65">
                 </a>
             </div>
             <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
@@ -267,12 +488,14 @@
                 <li class="menu-item"><a href="index.html">Inicio</a></li>
                 <li class="menu-item"><a href="nosotros.html">Nosotros</a></li>
                 <li class="menu-item dropdown">
-                    <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Servicios <i class="fas fa-chevron-down"></i></a>
+                    <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Servicios <i
+                            class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="creditos.html"><i class="fas fa-credit-card"></i> Créditos</a></li>
                         <li><a href="convenios.html"><i class="fas fa-handshake"></i> Convenios</a></li>
                         <li><a href="progresandito.html"><i class="fas fa-child"></i> Progresandito</a></li>
-                        <li><a href="clasificados.html" class="active" aria-current="page"><i class="fas fa-tags"></i> Clasificados</a></li>
+                        <li><a href="clasificados.html" class="active" aria-current="page"><i class="fas fa-tags"></i>
+                                Clasificados</a></li>
                     </ul>
                 </li>
                 <li class="menu-item"><a href="afiliate.html">Afíliate</a></li>
@@ -280,20 +503,24 @@
                 <li class="menu-item"><a href="contactos.html">Contacto</a></li>
                 <li class="menu-item"><a href="documentos.html">Documentos</a></li>
                 <li class="menu-item menu-item--cta">
-                    <a href="https://app.saac.com.co/#/" target="_blank" rel="noopener" aria-label="Ingresar al portal de asociados">
+                    <a href="https://app.saac.com.co/#/" target="_blank" rel="noopener"
+                        aria-label="Ingresar al portal de asociados">
                         <i class="fas fa-user-circle"></i> Ingresar
                     </a>
                 </li>
                 <li class="menu-item menu-social">
                     <span class="menu-social-label"><i class="fas fa-share-alt"></i> Síguenos</span>
                     <div class="menu-social-icons">
-                        <a href="https://www.facebook.com/share/1BtMrASBuL/" target="_blank" rel="noopener" class="menu-social-link" aria-label="Facebook de COOPSERPROG">
+                        <a href="https://www.facebook.com/share/1BtMrASBuL/" target="_blank" rel="noopener"
+                            class="menu-social-link" aria-label="Facebook de COOPSERPROG">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://www.instagram.com/coopserprog" target="_blank" rel="noopener" class="menu-social-link" aria-label="Instagram de COOPSERPROG">
+                        <a href="https://www.instagram.com/coopserprog" target="_blank" rel="noopener"
+                            class="menu-social-link" aria-label="Instagram de COOPSERPROG">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.tiktok.com/@coopserprog" target="_blank" rel="noopener" class="menu-social-link" aria-label="TikTok de COOPSERPROG">
+                        <a href="https://www.tiktok.com/@coopserprog" target="_blank" rel="noopener"
+                            class="menu-social-link" aria-label="TikTok de COOPSERPROG">
                             <i class="fab fa-tiktok"></i>
                         </a>
                     </div>
@@ -306,13 +533,16 @@
     <main>
 
         <!-- ===== HERO ===== -->
-        <section class="clasificados-hero" style="background-image: url('img/clasificados.png');" aria-labelledby="titulo-clasificados">
+        <section class="clasificados-hero" style="background-image: url('img/clasificados.png');"
+            aria-labelledby="titulo-clasificados">
             <div class="container">
                 <div class="clasificados-hero-content">
                     <span class="hero-badge"><i class="fas fa-tags"></i> Clasificados</span>
                     <h1 id="titulo-clasificados">Clasificados <span>COOPSERPROG</span></h1>
-                    <p>Este es un espacio pensado para nuestros asociados donde pueden vender, comprar o solicitar todo lo que necesiten.</p>
-                    <p><strong>Te damos el crédito para que compres o te compren. Anuncios que te ayudan a progresar.</strong></p>
+                    <p>Este es un espacio pensado para nuestros asociados donde pueden vender, comprar o solicitar todo
+                        lo que necesiten.</p>
+                    <p><strong>Te damos el crédito para que compres o te compren. Anuncios que te ayudan a
+                            progresar.</strong></p>
                     <a href="#periodico" class="btn-primario" aria-label="Ver periódico digital de ofertas">
                         <i class="fas fa-book-open"></i> Ver periódico de ofertas
                     </a>
@@ -335,27 +565,34 @@
                     </button>
 
                     <div class="flipbook-container" id="flipbookContainer">
-                        <button class="flipbook-fullscreen" id="flipFullscreen" aria-label="Ver folleto en pantalla completa" title="Pantalla completa">
+                        <button class="flipbook-fullscreen" id="flipFullscreen"
+                            aria-label="Ver folleto en pantalla completa" title="Pantalla completa">
                             <i class="fas fa-expand"></i>
                         </button>
 
                         <div class="flipbook-page">
-                            <img src="img/CLASIFICADOS COOPSERPROG/1.jpeg" alt="Página 1 del folleto de ofertas COOPSERPROG" loading="lazy">
+                            <img src="img/CLASIFICADOS COOPSERPROG/1.jpeg"
+                                alt="Página 1 del folleto de ofertas COOPSERPROG" loading="lazy">
                         </div>
                         <div class="flipbook-page">
-                            <img src="img/CLASIFICADOS COOPSERPROG/2.jpeg" alt="Página 2 del folleto de ofertas COOPSERPROG" loading="lazy">
+                            <img src="img/CLASIFICADOS COOPSERPROG/2.jpeg"
+                                alt="Página 2 del folleto de ofertas COOPSERPROG" loading="lazy">
                         </div>
                         <div class="flipbook-page">
-                            <img src="img/CLASIFICADOS COOPSERPROG/3.jpeg" alt="Página 3 del folleto de ofertas COOPSERPROG" loading="lazy">
+                            <img src="img/CLASIFICADOS COOPSERPROG/3.jpeg"
+                                alt="Página 3 del folleto de ofertas COOPSERPROG" loading="lazy">
                         </div>
                         <div class="flipbook-page">
-                            <img src="img/CLASIFICADOS COOPSERPROG/4.jpeg" alt="Página 4 del folleto de ofertas COOPSERPROG" loading="lazy">
+                            <img src="img/CLASIFICADOS COOPSERPROG/4.jpeg"
+                                alt="Página 4 del folleto de ofertas COOPSERPROG" loading="lazy">
                         </div>
                         <div class="flipbook-page">
-                            <img src="img/CLASIFICADOS COOPSERPROG/5.jpeg" alt="Página 5 del folleto de ofertas COOPSERPROG" loading="lazy">
+                            <img src="img/CLASIFICADOS COOPSERPROG/5.jpeg"
+                                alt="Página 5 del folleto de ofertas COOPSERPROG" loading="lazy">
                         </div>
                         <div class="flipbook-page">
-                            <img src="img/CLASIFICADOS COOPSERPROG/6.jpeg" alt="Página 6 del folleto de ofertas COOPSERPROG" loading="lazy">
+                            <img src="img/CLASIFICADOS COOPSERPROG/6.jpeg"
+                                alt="Página 6 del folleto de ofertas COOPSERPROG" loading="lazy">
                         </div>
                     </div>
 
@@ -389,8 +626,11 @@
                 <div class="intro-card">
                     <i class="fas fa-handshake" aria-hidden="true"></i>
                     <h2 id="titulo-intro">Un espacio para <span>progresar</span></h2>
-                    <p>Este es un espacio pensado para nuestros asociados donde pueden vender, comprar o solicitar todo lo que necesiten. Además, te brindamos opciones de crédito para que puedas hacer realidad tus compras o impulsar tus ventas.</p>
-                    <p><strong>Te damos el crédito para que compres o te compren. Anuncios que te ayudan a progresar.</strong></p>
+                    <p>Este es un espacio pensado para nuestros asociados donde pueden vender, comprar o solicitar todo
+                        lo que necesiten. Además, te brindamos opciones de crédito para que puedas hacer realidad tus
+                        compras o impulsar tus ventas.</p>
+                    <p><strong>Te damos el crédito para que compres o te compren. Anuncios que te ayudan a
+                            progresar.</strong></p>
                 </div>
             </div>
         </section>
@@ -408,7 +648,8 @@
     </main>
 
     <!-- ===== MODAL PANTALLA COMPLETA ===== -->
-    <div class="flipbook-modal" id="flipModal" onclick="cerrarFlipModal()" role="dialog" aria-modal="true" aria-label="Vista ampliada del folleto">
+    <div class="flipbook-modal" id="flipModal" onclick="cerrarFlipModal()" role="dialog" aria-modal="true"
+        aria-label="Vista ampliada del folleto">
         <button class="flipbook-modal-close" onclick="cerrarFlipModal()" aria-label="Cerrar vista ampliada">
             <i class="fas fa-times"></i>
         </button>
@@ -429,19 +670,31 @@
         <div class="footer-container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <img src="img/logo-coop.png" alt="Logo COOPSERPROG - Cooperativa de Ahorro y Crédito" class="footer-logo" width="250" height="80" itemprop="logo" loading="lazy">
-                    <p class="footer-description" itemprop="description">Cooperativa de Servicios de Aporte y Crédito Progresando, comprometida con el desarrollo económico y social de nuestros asociados.</p>
-                    <div class="contact-item"><i class="fab fa-whatsapp" aria-hidden="true"></i><span itemprop="telephone">+57 322 8642938</span></div>
-                    <div class="contact-item"><i class="fas fa-envelope" aria-hidden="true"></i><span itemprop="email">cooperativacoopserprog@gmail.com</span></div>
+                    <img src="img/logo-coop.png" alt="Logo COOPSERPROG - Cooperativa de Ahorro y Crédito"
+                        class="footer-logo" width="250" height="80" itemprop="logo" loading="lazy">
+                    <p class="footer-description" itemprop="description">Cooperativa de Servicios de Aporte y Crédito
+                        Progresando, comprometida con el desarrollo económico y social de nuestros asociados.</p>
+                    <div class="contact-item"><i class="fab fa-whatsapp" aria-hidden="true"></i><span
+                            itemprop="telephone">+57 322 8642938</span></div>
+                    <div class="contact-item"><i class="fas fa-envelope" aria-hidden="true"></i><span
+                            itemprop="email">cooperativacoopserprog@gmail.com</span></div>
                 </div>
                 <div class="footer-column">
                     <h3>Enlaces Rápidos</h3>
                     <ul class="footer-links">
-                        <li><a href="nosotros.html"><i class="fas fa-heart" aria-hidden="true"></i> Nuestra Esencia</a></li>
-                        <li><a href="afiliate.html"><i class="fas fa-file-signature" aria-hidden="true"></i> Requisitos de afiliación</a></li>
-                        <li><a href="creditos.html"><i class="fas fa-calculator" aria-hidden="true"></i> Simulador de Crédito</a></li>
-                        <li><a href="convenios.html"><i class="fas fa-handshake" aria-hidden="true"></i> Convenios</a></li>
-                        <li><a href="clasificados.html"><i class="fas fa-tags" aria-hidden="true"></i> Clasificados</a></li>
+                        <li><a href="nosotros.html"><i class="fas fa-heart" aria-hidden="true"></i> Nuestra Esencia</a>
+                        </li>
+                        <li><a href="afiliate.html"><i class="fas fa-file-signature" aria-hidden="true"></i> Requisitos
+                                de afiliación</a></li>
+                        <li><a href="creditos.html"><i class="fas fa-calculator" aria-hidden="true"></i> Simulador de
+                                Crédito</a></li>
+                        <li><a href="convenios.html"><i class="fas fa-handshake" aria-hidden="true"></i> Convenios</a>
+                        </li>
+                        <li><a href="clasificados.html"><i class="fas fa-tags" aria-hidden="true"></i> Clasificados</a>
+                        </li>
+                        <li><a href="eliminar-cuenta.html"><i class="fas fa-user-slash" aria-hidden="true"></i> ¿Cómo
+                                eliminar mi cuenta?</a></li>
+                    </ul>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -452,10 +705,17 @@
                         <p><strong>Sábados:</strong> 6:00 a. m. - 12:00 m</p>
                     </div>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/share/1BtMrASBuL/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook de COOPSERPROG"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/coopserprog" target="_blank" rel="noopener" class="social-link" aria-label="Instagram de COOPSERPROG"><i class="fab fa-instagram"></i></a>
-                        <a href="https://whatsapp.com/channel/0029VbDRTrmBlHpU12h7v40y" target="_blank" rel="noopener" class="social-link" aria-label="Canal de WhatsApp de COOPSERPROG"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://www.tiktok.com/@coopserprog" target="_blank" rel="noopener" class="social-link" aria-label="TikTok de COOPSERPROG"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.facebook.com/share/1BtMrASBuL/" target="_blank" rel="noopener"
+                            class="social-link" aria-label="Facebook de COOPSERPROG"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/coopserprog" target="_blank" rel="noopener"
+                            class="social-link" aria-label="Instagram de COOPSERPROG"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://whatsapp.com/channel/0029VbDRTrmBlHpU12h7v40y" target="_blank" rel="noopener"
+                            class="social-link" aria-label="Canal de WhatsApp de COOPSERPROG"><i
+                                class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@coopserprog" target="_blank" rel="noopener" class="social-link"
+                            aria-label="TikTok de COOPSERPROG"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -477,7 +737,8 @@
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
                     <div class="legal-links">
-                        <a href="docs/1065810627_POLITICA DE TRATAMIENTO DE LA INFORMACION - COOPSERPROG (2).pdf" target="_blank" rel="noopener">Política de Tratamiento de datos</a>
+                        <a href="docs/1065810627_POLITICA DE TRATAMIENTO DE LA INFORMACION - COOPSERPROG (2).pdf"
+                            target="_blank" rel="noopener">Política de Tratamiento de datos</a>
                     </div>
                     <div class="footer-copy">© 2025 COOPSERPROG. Todos los derechos reservados.</div>
                 </div>
