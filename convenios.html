@@ -41,7 +41,7 @@
     <meta name="twitter:image" content="https://coopserprog.progresando.co/img/convenios.png" />
 
     <!-- ===== THEME COLOR ===== -->
-    <meta name="theme-color" content="#01983B" />
+    <meta name="theme-color" content="#00333a" />
 
     <!-- ===== FAVICON ===== -->
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
@@ -159,12 +159,12 @@
         }
 
         .convenios-search-box:focus-within {
-            border-color: var(--verde-coop, #01983b);
-            box-shadow: 0 10px 30px rgba(1, 152, 59, .18);
+            border-color: var(--verde-coop, #00333a);
+            box-shadow: 0 10px 30px rgba(0, 51, 58, .18);
         }
 
         .convenios-search-box .search-lupa {
-            color: var(--verde-coop, #01983b);
+            color: var(--verde-coop, #00333a);
             font-size: 1.05rem;
             margin-right: 12px;
             flex: 0 0 auto;
@@ -230,11 +230,11 @@
             height: 38px;
             padding: 0 12px;
             border-radius: 999px;
-            background: var(--verde-coop, #01983b);
+            background: var(--verde-coop, #00333a);
             color: #ffffff;
             font-weight: 800;
             font-size: 1rem;
-            box-shadow: 0 4px 12px rgba(1, 152, 59, .25);
+            box-shadow: 0 4px 12px rgba(0, 51, 58, .25);
         }
 
         .convenios-counter .counter-label {
@@ -283,7 +283,7 @@
 
         .mapa-header .section-tag {
             display: inline-block;
-            background: var(--amarillo-coop, #FFD527);
+            background: var(--amarillo-coop, #fe9501);
             color: var(--negro-suave, #0f172a);
             padding: 4px 18px;
             border-radius: 50px;
@@ -302,7 +302,7 @@
         }
 
         .mapa-header h2 span {
-            color: var(--verde-coop, #01983b);
+            color: var(--verde-coop, #00333a);
         }
 
         .mapa-header p {
@@ -317,7 +317,7 @@
             gap: 12px;
             margin-top: 20px;
             padding: 14px 30px;
-            background: var(--verde-coop, #01983b);
+            background: var(--verde-coop, #00333a);
             color: #ffffff;
             border: none;
             border-radius: 999px;
@@ -326,14 +326,14 @@
             font-weight: 700;
             letter-spacing: 0.3px;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(1, 152, 59, .28);
+            box-shadow: 0 10px 30px rgba(0, 51, 58, .28);
             transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
         }
 
         .btn-toggle-mapa:hover {
-            background: #017a30;
+            background: #005F6C;
             transform: translateY(-2px);
-            box-shadow: 0 14px 38px rgba(1, 152, 59, .4);
+            box-shadow: 0 14px 38px rgba(0, 51, 58, .4);
         }
 
         .btn-toggle-mapa:active {
@@ -433,7 +433,7 @@
         }
 
         .mapa-leyenda-item:hover {
-            background: rgba(1, 152, 59, .08);
+            background: rgba(0, 51, 58, .08);
         }
 
         .mapa-leyenda-dot {
@@ -470,7 +470,7 @@
             height: 34px;
             padding: 0 10px;
             border-radius: 999px;
-            background: var(--verde-coop, #01983b);
+            background: var(--verde-coop, #00333a);
             color: #fff;
             font-weight: 800;
             font-size: 0.95rem;
@@ -536,7 +536,7 @@
         }
 
         .popup-convenio-dir i {
-            color: var(--verde-coop, #01983b);
+            color: var(--verde-coop, #00333a);
             margin-top: 2px;
             flex-shrink: 0;
         }
@@ -572,7 +572,7 @@
         }
 
         .popup-btn.primario {
-            background: var(--verde-coop, #01983b);
+            background: var(--verde-coop, #00333a);
             color: #fff;
         }
 
@@ -1748,7 +1748,7 @@
         // COLORES POR CATEGORÍA
         // ============================================================
         const categoriasColores = {
-            'Estaciones de Servicio': '#01983b',
+            'Estaciones de Servicio': '#00333a',
             'Centro de Revisión': '#e67e22',
             'Salud': '#3498db',
             'Servicios para Vehículos': '#2ecc71',
@@ -1837,7 +1837,7 @@
                 const data = conveniosData[id];
                 if (!data) return;
 
-                const color = categoriasColores[data.categoria] || '#01983b';
+                const color = categoriasColores[data.categoria] || '#00333a';
                 const descripcionCorta = data.descripcion.length > 80 ?
                     data.descripcion.substring(0, 80) + '...' :
                     data.descripcion;
@@ -2072,7 +2072,7 @@
             const bounds = [];
 
             conveniosConCoords.forEach(data => {
-                const color = categoriasColores[data.categoria] || '#01983b';
+                const color = categoriasColores[data.categoria] || '#00333a';
                 const iconHtml = `
                     <div class="marcador-convenio-pin" style="background:${color};">
                         <i class="fas fa-store"></i>
@@ -2155,7 +2155,7 @@
 
             leyendaContainer.innerHTML = '';
             categorias.forEach(cat => {
-                const color = categoriasColores[cat] || '#01983b';
+                const color = categoriasColores[cat] || '#00333a';
                 const item = document.createElement('div');
                 item.className = 'mapa-leyenda-item';
                 item.setAttribute('data-categoria', cat);
